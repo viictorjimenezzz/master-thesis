@@ -1,0 +1,486 @@
+\chapter{Experimental setup}\label{sec:experimental_setup}
+
+This chapter delineates the covariate shift setting within the 
+supervised classification framework and introduces an operative
+formulation of posterior agreement. This formulation represents 
+the cornerstone of this work as it allows for robustness-based
+model selection in discrete hypothesis classes.
+
+\section{Problem formulation}
+
+\subsection{The classification problem}
+
+Out of all the possible learning problems in which a distribution shift
+can be defined, this project will focus on the supervised classification
+of images. The function space to navigate is composed of parametrized
+classifiers.
+
+\begin{definition}[Classifier]\label{def:classifier}
+    Let $\mathcal{X}$ and $\mathcal{Y}$ be the input and output spaces of the target function, respectively.
+    Let $K \in \mathbb{N}$ be the cardinality of $\mathcal{Y}$.
+    A $K$-class classifier can be defined as the 
+    composition of three functions:
+
+    \begin{itemize}
+        \item A feature extractor. This function maps the input space to a $d$-dimensional feature space.
+            $$ 
+            \begin{aligned}
+                \Phi: \mathcal{X} & \longmapsto \mathbb{R}^d \\
+                x & \longmapsto \Phi(x) = z
+            \end{aligned}
+            $$
+
+        \item A discriminant function. This function assigns a score
+        to each of the $K$ classes given a feature vector. 
+            $$
+            \begin{aligned}
+                \bm{F}: \mathbb{R}^d  & \longmapsto \mathbb{R}^K \\
+                z & \longmapsto \left ( F_1(z), \dots, F_K(z) \right ) = \bm{F}(z)
+            \end{aligned}
+            $$
+        \item A decision rule. This function assigns the class label from a vector of scores.
+        We will set it to be the maximum a posteriori (MAP) rule.
+            $$
+                \begin{aligned}
+                    \eta: \mathbb{R}^K & \longmapsto \mathcal{Y} = \{1, \dots, K \} \\
+                    \bm{F}(z) & \longmapsto \hat{y} = \arg \max_{j} F_j(z)
+                \end{aligned}
+            $$
+    \end{itemize}
+
+    A classifier is defined as the composition of these three functions.
+
+    $$
+    c = \eta \circ \bm{F} \circ \Phi
+    $$
+\end{definition}
+
+The results presented in this work are limited to neural network classifiers. These are
+parametrized NN architectures in $\Gamma \subseteq \mathbb{R}^{|\Gamma|}$, such that:
+
+$$
+    \begin{aligned}
+    c: \mathcal{X} \times \Gamma & \longmapsto \mathcal{Y} = \{1, \dots, K \} \\
+    (x, \gamma) & \longmapsto c(x; \gamma) = \hat{y}
+    \end{aligned}
+$$
+
+thus $c(x; \gamma) = \eta \circ (\bm{F} \circ \Phi)(x; \gamma)$. \\
+
+The concepts defined in the previous chapter allow us to 
+formalize the learning problem in which our robustness experiments
+will be conducted. We will refer to this problem as a 
+$K$-class classification.
+
+\begin{definition}[$K$-class classification]
+    Let $D$ be a supervised dataset.
+    Let $c(\cdot; \gamma)$ be a neural network classifier, parametrized
+    in $\Gamma \subseteq \mathbb{R}^{|\Gamma|}$.
+    Let $\operatorname{RRM}_D$ be the regularized risk minimization problem for $c$ on $D$.
+    Let $\mathcal{L}$ be the cross-entropy loss function for the classifier $c$.
+
+    $$
+    \mathcal{L}(x, y) = - \log F_y(\Phi(x); \gamma)
+    $$
+
+    The $K$-class classification problem is the $\operatorname{RRM}_D$ 
+    with loss function $\mathcal{L}$ parametrized in $\Gamma$. 
+    $$
+        \gamma^* = \arg \min_{\gamma \in \Gamma} - \frac{1}{N}\sum_{n=1}^{N} \log F_{y_n}(x_n; \gamma) + \lambda \Omega(\gamma)
+    $$
+
+\end{definition}
+
+No further characterization of the regularization factor will be provided
+in this chapter, as specific learning models and methods will be introduced
+together with the results.
+
+\subsection{Covariate shift robustness in classification tasks}
+
+The concept of robustness, as defined in the previous chapter, entails
+a measure of the stability of the learner to the randomness of
+the data sampling process, but also requires an adequate characterization
+of such randomness. In the context of the $K$-class classification
+problem, sampling randomness can be formalized as a shift in the
+distribution of the input space, also known as covariate shift. 
+
+\begin{definition}[Covariate shift]
+    Let $\bm{x}'$ and $\bm{x}''$ be two $N$-sized samples of the 
+    input space $\mathcal{X}$.
+    A covariate shift exists between $\bm{x}'$ and $\bm{x}''$ if their
+    (Empirical) distributions are significantly different for $N$ large enough:
+
+    $$
+    \mathbf{P}_{\bm{x}'} \neq \mathbf{P}_{\bm{x}''}
+    $$
+\end{definition}
+
+The presence of covariate shift as defined above already leads
+to a non-zero generalization error, given that $\bm{x}'$ and $\bm{x}''$ 
+represent different noise instantiations and result in different 
+learning outcomes. Nevertheless, this definition can be further
+expanded to encompass more practical sources of shift in the 
+context of classification tasks.
+
+\begin{definition}[Out-of-distribution shift]
+    Let $X' = \tau' \circ X$ and $X'' = \tau'' \circ X$ be two sampling 
+    experiments in $\mathcal{X}$ such that $\mathbf{P}_{X'} \neq \mathbf{P}_{X''}$, 
+    as they are associated with different experimental
+    conditions $\tau' \neq \tau'' \;\; \tau', \tau'' \in \mathbb{T}_{\mathcal{X}}$. 
+    In such case
+
+    $$
+        \bm{x}' \sim \underbar{X}' \overset{\text{iid}}{\sim} X' \text{ and } \bm{x}'' \sim \underbar{X}'' \overset{\text{iid}}{\sim} X''
+    $$
+
+    leads to covariate shift known as out-of-distribution given that 
+    the major source of distribution shift are experimental conditions.
+\end{definition}
+
+In the OOD case, $\bm{x}'$ and $\bm{x}''$ are
+drawn from different random variables, each with a distinct probability 
+landscape over the support, namely source and target domains, that result 
+in implicit differences (sometimes unbalanced) in the distribution of some features.
+Therefore, empirical distributions $\mathbf{P}_{\bm{x}'}$ and $\mathbf{P}_{\bm{x}''}$ will
+be different in general, and thus a covariate shift will be induced
+leading to a non-zero generalization error. \\
+
+The reader should note that this definition generalizes the
+concept of sampling randomness as defined in the previous 
+chapter, as it explicitely allows for $X'$ and $X''$ to be 
+different random variables. Therefore, each realization of 
+$\underbar{X}'$ and $\underbar{X}''$ will not only entail a 
+different noise instantiation but might 
+also favour a different region of $\mathcal{X}$.
+
+\begin{definition}[Adversarial shift]
+    Let $\bm{x}' \sim \underbar{X}$ be a sample drawn from experiment
+    $X = \tau \circ X$. Let $\bm{\Delta}$ be a perturbation over
+    the sample space. In this case, $\bm{x}''$ is generated by applying
+    the perturbation to $\bm{x}'$.
+
+    $$
+    \bm{x}'' = \bm{x}' + \bm{\Delta}
+    $$
+
+    which induces a covariate shift known as adversarial, given that
+    perturbation $\bm{\Delta}$ is crafted ad-hoc to hinder the 
+    output of the model.
+\end{definition}
+
+In adversarial examples, sampling randomness is not the source of
+distribution shift, as both $\bm{x}'$ and $\bm{x}''$ arise from
+the same realization of the experiment. \\
+
+In this work, we will consider a wider concept of sampling 
+randomness that does not only comprise the implicit
+noise instantiation of each realization $\bm{x} \sim \underbar{X}$
+but also the explicit shift in the distribution of the input space
+generated by intentional or unintentional perturbations of the 
+data generation process. This broader interpretation aligns practical
+covariate shift experiments with the robustness framework
+defined in the previouos chapter.\\
+
+Once the possible sources of randomness in the data 
+generation process have been established and formalized, 
+a general concept of robustness measure must be introduced 
+accordingly, so that the suitability of posterior agreement
+as a robustness metric can be assessed.
+
+\begin{definition}[Robustness metric]
+    Let $D'$ and $D''$ be datasets generated from realizations $\bm{x}'$ and $\bm{x}''$,
+    respectively. 
+    A robustness metric is a function $\Omega$ that quantifies the generalization
+    capability of a learned $\hat{f}_{D'} \in \mathcal{F}$ to observations in $D''$.
+
+    $$
+    \begin{aligned}
+    \Omega: \mathcal{D}'' \times \mathcal{F} & \longmapsto \mathbb{R} \\
+    \end{aligned}
+    $$
+
+    The baseline robustness metric in supervised classification tasks is
+    accuracy, defined as the proportion of correct predictions 
+    achieved by a learned classifier $\hat{c}_{D'}$ over 
+    the dataset $D''$.
+
+    $$
+    \operatorname{ACC}_{D'}(D'') = \frac{1}{N} \sum_{n=1}^N \bm{\delta}_{y_n''} \left ( \hat{c}_{D'}(x_n'') \right )
+    $$
+
+\end{definition}
+
+As it was argued in the previuous chapter, we will 
+interpret the concept of generalization from the 
+perspective of the possible learning outcomes
+of a specific experiment. The ultimate goal 
+of robustness measurement is thus the characterization of the "resolution" 
+limit that can be achieved in the hypothesis space 
+consistent with the intrinsic randomness entailed by each 
+possible realization of the experiment.\\
+
+The resolution limit does not depend on the model but on the 
+nature of the randomness of the data generation process. 
+Therefore, a robustness metric should evaluate how stable are hypothesis 
+to different realizations of the same experiment regardless 
+of the complexity of the model. The more 
+complex the model is, the higher will be the resolution of its
+associated hypothesis space. A regularization or model selection 
+procedure derived from the robustness metric should then
+find the sweet spot between resolution and stability. \\
+
+From this perspective, a suitable robustness metric should possess
+the following set of properties.
+
+\begin{properties}[Robustness metric]\label{properties:robustness}
+    See HERE REFERENCE.
+\begin{description}
+    \item[P1](Discriminable) The metric should differentiate models displaying
+    different generalization capabilities against covariate shift.
+    \item[P2](Non-increasing) The metric should be non-increasing with respect to the
+    response of the model under increasing levels of shift.
+    \item[P3](Task-independent) The metric should be independent of the task
+    performance of the model.
+\end{description}
+\end{properties}
+
+\textbf{P1} requires that 
+
+
+
+
+Accuracy does not comply in general with any of these properties. For the case
+of parametrized classifiers, $\operatorname{ACC}(x, y) = \bm{\delta}_{y}(c(x; \gamma))$,
+thus losing the confidence information in the prediction. This may lead to lower in \textbf{P1}
+
+
+DERIVE THEORETICAL EXAMPLES AND PUT THEM IN THE APPENDIX.
+
+- Quan es perd la confianza en la prediccio, P1 es compleix nomes fins a un lower
+bound de shift, que arriba quan la probabilitat de la prediccio es 1/K. \\
+
+- Per la mateixa rao, P2 te un altre lower bound implicit, que arriba en el moment
+en que dos models tenen les mateixes prediccions pero un atorga mes confiansa en
+la prediccio que l'altre.
+
+- P3 es clarament violat (examples paper).
+
+\subsection{Adversarial setting}
+
+- Problem has been described already in the introduction, so don't do another introduction.
+- Formalize mathematically (Madry ...) the problem. \\
+- Add plot from the paper x.
+- Talk about the accuracy-robustness trade-off. \\
+- Talk about some techniques, such as flooding (see flooding paper). + Add justification
+of flooding with loss landscape and relate it to your previous section. \\
+
+\subsection{Out-of-distribution setting}
+
+- Describe the OOD setting, etc... see paper notes. For example Wasserstein seems good intro. \\
+- Describe subpopulation shifts. \\
+- Include somehow generalization and shortcut opportunities, relate to causal learning but just for the record \\
+
+\section{Posterior agreement as a measure of robustness}
+
+\subsection{Posterior in classification tasks}
+
+\begin{definition}[Classification confidence]
+    Let $D$ be a dataset associated with a realization $\bm{x} \sim \underbar{X}$. Let $F_j(\cdot; \gamma)$ 
+    be the $j$-th component of the score vector returned by the discriminant of the classifier.
+    The cost function driving posterior selection will be the negative
+    confidence in the prediction.
+
+    $$
+    R(\theta, \bm{x}; \gamma) = - \sum_n^N F_{\theta_i}(x_i; \gamma)
+    $$
+
+    where $\theta_i$ is the class label associated with the $i$-th sample in the dataset.
+\end{definition}
+
+The hypothesis space $\Theta$ of a $K$-class classification problem is the set of
+all possible vectors of labels associating each of the $N$ samples
+to one of the $K$ classes. 
+
+$$
+\Theta = \{1, \dots, K \}^N
+$$
+
+Its cardinality is thus $|\Theta| = K^N$.
+
+\begin{theorem}[Classification posterior]
+    Let $\Theta$ be the classification hypothesis class associated with the 
+    $K$-class classification problem with approximating function $c$.
+    The posterior distribution class $\mathfrak{P}^c$ is the Gibbs
+    distribution family with inverse temperature parameter $\beta$.
+
+    $$
+        \mathbf{P}^c (\theta | \bm{x}) = \frac{\exp \left ( \beta R(\theta, \bm{x}; \gamma) \right )}{\sum_{\theta \in \Theta} \exp \left ( \beta R(\theta, \bm{x}; \gamma) \right )} 
+    $$
+\end{theorem}
+
+\begin{proof}
+    The proof is based on the maximum entropy principle (MEP), which states that
+    given some prior testable information to be encoded by a probability 
+    distribution, the distribution that best encodes that information is the one
+    minimizing additional assumptions besides the testable information; that is, the one
+    maximizing information entropy within the testable space. Testable information amounts to certain constraints on
+    the MEP optimization problem over the non-negative, Lebesgue-integrable function class $\mathcal{P}$.
+
+    $$
+    \begin{aligned}
+        \underset{\mathbf{P}^c(\theta \mid \bm{x}) \in \mathcal{P}}{\operatorname{max}} & \mathcal{H}_{\mathbf{P}^c}(\theta \mid \bm{x}) \\
+        \text {s.t.} & \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}) = 1 \\
+        & \mathbb{E}_{\mathbf{P}^c(\theta \mid \bm{x})}[R(\theta, \bm{x})]=\mu \;\; \forall \theta \in \Theta \\
+        & [\mathbf{P}^c(\theta_i \mid \bm{x}) - \mathbf{P}^c(\theta_j \mid \bm{x})][R(\theta_i, \bm{x}) - R(\theta_j, \bm{x})] \geq 0 \;\; \forall \theta_i, \theta_j \in \Theta
+    \end{aligned}
+    $$
+
+    where $\mu \in \mathbb{R}$ is a hyperparameter ensuring that the expected confidence is finite
+    and the last constraint imposes a monotonic relationship between the confidence and the posterior.
+    The lagrangian formulation of the problem with equality constraints is:
+
+    $$
+        \mathcal{L}(\mathbf{P}^c, \alpha, \beta) = \mathcal{H}_{\mathbf{P}^c}(\theta \mid \bm{x}) + \alpha \left ( 1 - \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}) \right ) +
+        \beta  \left ( \mathbb{E}_{\mathbf{P}^c(\theta \mid \bm{x})}[R(\theta, \bm{x})] - \mu \right )
+    $$
+
+    Its derivative with respect to $\mathbf{P}^c(\theta \mid \bm{x})$ is:
+
+    $$
+    \frac{\partial \mathcal{L}}{\partial \mathbf{P}^c(\theta \mid \bm{x})} = -1 - \log \mathbf{P}^c(\theta \mid \bm{x}) - \alpha + \beta R(\theta, \bm{x})
+    $$
+
+    which has as solution:
+
+    $$
+    \mathbf{P}^c(\theta \mid \bm{x}) = \frac{\exp \left ( \beta R(\theta, \bm{x}) \right )}{\exp \left ( 1+ \alpha \right )}
+    $$
+
+    setting $\exp \left ( 1+ \alpha \right ) = \sum_{\theta \in \Theta} \exp \left ( \beta R(\theta, \bm{x}) \right )$ and $\beta \geq 0$ 
+    ensures normalization and fulfills the monotonic relationship constraint.
+\end{proof}
+
+The regularization and PA formulations introduced in this work are applicable 
+regardless of the nature of the shift. Nevertheless, a proper formulation of each
+case is required for reference.
+
+\subsection{The posterior agreement kernel}
+
+\begin{lemma}[Exchangeability]\label{lemma:exchangeability} 
+    Let $N, K \in \mathbb{N}$ and let $\left\{\mathcal{E}_{i j} \mid i \leq N, j \leq K\right\}$ be an indexed set of values. Then,
+    $$
+    \sum_{c \in \mathcal{C}} \prod_{i=1}^N \mathcal{E}_{i, c(i)}=\prod_{i=1}^N \sum_{j=1}^K \mathcal{E}_{i j}
+    $$
+\end{lemma}
+
+\begin{proof}
+    See Appendix \ref{sec:proofs}.
+\end{proof}
+
+\begin{theorem}[Posterior factorization]\label{theorem:posterior_factorization}
+
+    The posterior distribution for a classification problem can be factorized as follows:
+    $$
+    \mathbf{P}^c(\theta \mid \bm{x}) = \prod_i^N  \mathbf{P}_i^c(\theta_i \mid \bm{x}) = \prod_{i=1}^N \frac{\exp \left ( \beta F_{\theta_i}(x_i) \right )}{\sum_{j=1}^K \exp \left ( \beta F_j(x_i) \right )}
+    $$
+\end{theorem}
+
+\begin{proof}
+    See Appendix \ref{sec:proofs}.
+\end{proof}
+
+\begin{theorem}[PA kernel for classification]
+    Let $\bm{x}'$ and $\bm{x}''$ be $N$-sized realizations of $\underbar{X}', \underbar{X}''$, respectively.
+    Let $\Theta$ be the hypothesis class represented by $c$ given support $\mathcal{X}$.
+    With no prior information about $\Theta$, the posterior agreement kernel
+    for supervised $K$-class classification tasks has the following expression.
+
+    $$
+    \operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)=\frac{1}{N} \sum_{i=1}^N \log \left\{|\Theta| \sum_{j =1}^K \mathbf{P}_i^c\left(j \mid \bm{x}' \right) \mathbf{P}_i^c \left( j \mid \bm{x}'' \right)\right\}
+    $$
+
+    where $\mathbf{P}_i^c(j \mid \bm{x})$ can be shown to be:
+
+    $$
+    \mathbf{P}_i^c\left(j \mid \bm{x}\right)=\frac{\exp\left(\beta F_{j}(x_i)\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_i)\right)}
+    $$
+\end{theorem}
+
+\begin{proof}
+    The posterior agreement $\mathcal{J}$ has the following expression, derived in Lemma \ref{lemma:pa}:
+
+    $$
+    \mathcal{J} =\mathbb{E}_{X',X''}\left[\log\left(\mathbb{E}_{\mathbf{P}^c(\theta|\bm{x}')}\frac{\mathbf{P}^c(\theta\mid \bm{x}'')}{\mathbf{\Pi}^c(\theta)}\right)\right]
+    $$
+
+    As defined previously, $\Theta$ is a discrete, finite set of possible classification 
+    vectors of the $N$ observations, and the sampling distribution $\mathbf{P}_X$ is assumed to be uniform. Therefore, the expectation operators amount to:
+
+    $$
+    \mathbb{E}_{X', X''} = \frac{1}{N} \sum_{i=1}^N \cdot
+    $$
+
+    $$
+    \mathbb{E}_{\mathbf{P}^c(\theta|\bm{x}')} = \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}') \cdot
+    $$
+
+    A non-informative prior is assumed, thus enforcing the richness condition:
+
+    $$
+    \mathbf{\Pi}^c(\theta) = |\Theta|^{-1}
+    $$
+
+    $\mathbf{P}^c(\theta|\bm{x})$ can be factorized on the terms expressed in Theorem \ref{theorem:posterior_factorization}.
+
+    $$
+    \mathbf{P}^c(\theta \mid \bm{x}) = \prod_i^N  \mathbf{P}_i^c(\theta_i \mid \bm{x}) = \prod_{i=1}^N \frac{\exp\left(\beta F_{\theta_i}(x_i)\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_i)\right)}
+    $$
+
+    Operating analogously for $\bm{x}'$ and $\bm{x}''$, the expression for the PA kernel is obtained.
+
+    $$
+    \begin{aligned}
+    \operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) = & \frac{1}{N} \sum_{i=1}^N \left[\log\left(\sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}') \frac{\mathbf{P}^c(\theta\mid \bm{x}'')}{|\Theta|^{-1}}\right)\right] \\
+    = & \frac{1}{N} \sum_{i=1}^N \left[\log\left( |\Theta| \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}') \mathbf{P}^c(\theta\mid \bm{x}'')\right)\right] \\
+    = & \frac{1}{N} \sum_{i=1}^N \left[\log \left( |\Theta| \sum_{\theta \in \Theta} \prod_{i=1}^N \frac{\exp\left(\beta F_{\theta_i}(x_i')\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_i')\right)} \frac{\exp\left(\beta F_{\theta_i}(x_i'')\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_i'')\right)} \right)\right] \\
+    \end{aligned}
+    $$
+
+    Finally, applying Lemma \ref{lemma:exchangeability} to the product inside the 
+    logarithm, we reach the final expression.
+
+\end{proof}
+
+\begin{theorem}[Properties of the PA kernel]
+    $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)$ has the following properties.
+
+    \begin{description}
+        \item[P1](Non-negativity) $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) \geq 0 \;\; \forall \bm{x} \sim \underbar{X}$ and $\beta \in \mathbb{R}^+$.
+        \item[P2](Symmetry)  $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) = \operatorname{PA}\left(\bm{x}'', \bm{x}'; \beta\right)$. This property is 
+        important from the robustness perspective, given that noise
+        instantiations are not indexed and no reference noiseless experiment can be performed.
+        \item[P3](Concavity) $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)$ is a concave function of $\beta \in \mathbb{R}^+$ $\forall \bm{x} \sim \underbar{X}$. This means that 
+        the kernel optimization problem will have a unique solution.
+    \end{description}
+\end{theorem}
+
+\begin{proof}
+    See Appendix \ref{sec:kernel}.
+\end{proof}
+
+\subsection{Analytical example}
+
+- Include the analytical example derivation, adapt notation. Probably also leave
+some things in the appendix. For example, in the appendix you can leave the means
+over the normal distribution.
+
+
+\section{Posterior agreement beyond robustness}
+
+- Alternative formulation \\
+- OJO: For cross-validation, I can consider the final feature vector associated with the image
+(i.e. before the classification layer) to be the measurement. Models trained with different
+subsets of data will have a different noise instantiation of the same measurement. therefore
+the alternative formulation is not necessary for cross-validation. \\
+- Explain why important, and formalize the data augmentation strategy (presentation) \\
+

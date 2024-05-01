@@ -1,4 +1,4 @@
-\chapter{Theoretical Background }\label{sec:theory}
+\chapter{Theoretical background }\label{sec:theory}
 
 \section{The learning framework}
 
@@ -7,33 +7,38 @@ study generalization in machine learning. In this formalism, the goal
 is to learn a target function $f^*: \mathcal{X} \to \mathcal{Y}$ by means of an approximated
 function $f \in \mathcal{F}$ using a finite set of observations. 
 
-\begin{definition}[Supervised dataset]
-    Let $\mathcal{X} \subseteq \mathbb{R}^d$ and $\mathcal{Y} \subseteq \mathbb{R}^t$ be
-    the input and output spaces, respectively. Let $X$ be the random variable associated
+\begin{definition}[Supervised dataset]\label{def:dataset}
+    Let $\mathcal{X}$ and $\mathcal{Y}$ be
+    the input and output spaces of the target function, respectively. Let $X$ be a random variable associated
     with the sampling in $\mathcal{X}$, and $\underbar{X} = (X_1, ..., X_N) \overset{\text{iid}}{\sim} X$ be a $N$-sized simple
-    random sample of $X$. A supervised dataset $D$ is a realization of $\underbar{X}$ paired with its $f^*$-mapped output values.
+    random sample of $X$. A supervised dataset $D$ is a realization of $\bm{x} \sim \underbar{X}$ paired with its $f^*$-mapped output values.
 
     $$
-    D = \{(\bm{x}_n, f^*(\bm{x}_n))\}_{n \in [N]}
+    D = \{(x_n, f^*(x_n))\}_{n \in [N]} = \{(x_n, y_n)\}_{n \in [N]}
     $$
+
+    To avoid notation clutter, we will define $\mathcal{D}$ as the class
+    of supervised datasets in $\mathcal{X}$, and slightly abuse the notation
+    by considering $\bm{x} \in \mathcal{D}$, instead of 
+    $(\bm{x}, \bm{y}) \equiv D \in \mathcal{D}$.
 \end{definition}
 
-\subsection{Empirical risk minimization}
+\subsection{Empirical risk minimization}\label{sec:erm}
 
 The quality of the approximation can be measured with the expected risk $\mathcal{R}(f)$
 
 $$
-\mathcal{R}(f)=\mathbb{E}_{x \sim X}[\mathcal{L}(f(x),f^\star(x))]
+\mathcal{R}(f)=\mathbb{E}_{X} [\mathcal{L}(f(x),f^\star(x))]
 $$
 
 where $\mathcal{L}: \mathcal{Y} \times \mathcal{Y} \to \mathbb{R}$ denotes a loss function. Glivenko-Cantelli theorem allow us to
-estimate the expected risk with its empirical (plug-in) equivalent when $N$ is large enough.
+estimate the expected risk with its empirical (plug-in) analogous when $N$ is large enough.
 
 \begin{definition}[Empirical risk] Let $D$ and $\mathcal{L}$ be the dataset and loss function of our problem, respectively. The empirical risk of $f \in \mathcal{F}$
     computed on $D$ is defined as
 
     $$
-    \hat{\mathcal{R}}_D(f)=\frac{1}{N}\sum_{n=1}^{N}\mathcal{L}(f(\bm{x}_{n}),f^{\star}(\bm{x}_{n}))
+    \hat{\mathcal{R}}_D(f)=\frac{1}{N}\sum_{n=1}^{N}\mathcal{L}(f(x_{n}),f^{\star}(x_{n}))
     $$
 \end{definition}
 
@@ -62,13 +67,13 @@ subset of $\mathcal{F}$ that the algorithm is able to represent. A complex or hi
 be able to represent a larger subset of $\mathcal{F}$ and achieve a low empirical error, but will be also
 prone to overfitting to the specific learning realization thus yielding a higher generalization error. 
 
-\subsection{Regularized risk minimization}
+\subsection{Regularized risk minimization}\label{sec:rrm}
 
 As a general principle, the inductive bias of the algorithm (i.e. the set of constraints imposed on $\mathcal{F}$ during learning) should be aligned with
 that of our target function. Given that more expressive classes are always preferred by optimization algorithms, the ERM
-objective function is usually tweaqued to include a regularization term penalizing complexity.
+objective function is tweaqued to include a regularization term penalizing complexity.
 
-\begin{definition}[Regularized empirical risk] Let $\Omega: \mathcal{F} \to \mathbb{R}$ be a complexity measure. The regularized empirical risk of a function $f$
+\begin{definition}[Regularized empirical risk] Let $\Omega: \mathcal{F} \to \mathbb{R}$ be a measure of complexity. The regularized empirical risk of a function $f$
     computed on $D$ is defined as
 
     $$
@@ -79,29 +84,31 @@ objective function is usually tweaqued to include a regularization term penalizi
 
 \end{definition}
 
-The RRM problem now includes a hyperparameter $\lambda$, that will be selected so that the generalization error is minimized.
+
 
 \section{Learning with neural networks}
 
 Neural networks are biologically-inspired machine learning models that consist of a set of 
-nodes (neurons) organized in layers and connected by weighted edges (synapses). Figure \ref{fig:nn_node} shows the 
-data transformation performed by a single node.
+nodes (neurons) organized in layers and connected by weighted edges
+(synapses). Figure \ref{fig:nn_node} illustrates the transformation
+performed within a single node. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{img/theoretical_background/nn_node.png}
+    \includegraphics[width=0.7\textwidth]{img/theoretical_background/nn_node.png}
     \caption{The output of a node is computed by applying a non-linear
     activation function $\sigma(\cdot)$ to the weighted sum of its inputs.}
     \label{fig:nn_node}
 \end{figure}
 
-Let $\bm{x}_k \in \mathbb{R}^{d_k}$ be the input to the layer $k$, and let $\bm{W} \in \mathbb{R}^{d_k \times d_{k+1}}$ be the $k$-th weight matrix. The output of the layer can be expressed as
+Let $\bm{x}_k \in \mathbb{R}^{d_k}$ be the input to the layer $k \leq L$, and let $\bm{W} \in \mathbb{R}^{d_k \times d_{k+1}}$ be the $k$-th weight matrix. The output of the layer can be expressed as
 
 $$
 \bm{x}_{k+1} = \sigma_k(\bm{z}_{k+1}) = \sigma_k(\bm{W}_k^T \bm{x}_k + \bm{b}_k)
 $$
 
-where $\sigma_k$ is the non-linear activation function at layer $k$. We can therefore express the overall transformation of a neural network
+where $\sigma_k$ is the non-linear activation function at layer $k$. We 
+can therefore express the overall transformation of a neural network
 as the composition of its layers.
 
 $$
@@ -109,7 +116,7 @@ f_{\text{NN}}(\bm{x}) = \bigcirc_{k=0}^{L-1} \sigma_k(\bm{W}_k^T \bm{x} + \bm{b}
 $$
 
 where $\bm{\gamma}$ represents the set of parameters of the network. In order to solve the learning problem, the optimization algorithm must navigate the non-convex loss
-landscape towards the minimum of the empirical risk. This is computationally achieved by means of gradient-descent-based algorithms, which compute the
+landscape towards the minimum of the empirical risk. This is computationally achieved by means of gradient-descent-based optimizers, which compute the
 gradient over the parameters by means of the backpropagation algorithm.
 
 \subsection{Backpropagation and gradient descent}
@@ -175,22 +182,29 @@ In this work we will explore a different approach to the generalization problem,
 a definition of the generalization error that relies on the implicit randomness of the
 data sampling process. 
 
-\section{Generalization error}
+\section{Posterior agreement}
 
-As we mentioned in the first lines of this chapter, the input of learning algorithms are
-realizations of the random variable $X$ defined over the input space $\mathcal{X}$. The
+As it was mentioned in the first lines of this chapter, the input of learning algorithms are
+datasets containing samples of the random variable $X$ with support $\mathcal{X}$. The
 implicit randomness embedded in the sampling process extends to the outcome of algorithms,
-even when performing a deterministic sequence of operations. An alternative intuition of 
-generalization arises from this perspective, in the sense that a learning algorithm should
-learn the same function $f$ when trained on different realizations of the same experiment. This
-intuition will be formalized in this section.\\
+even when performing a deterministic set of operations. An alternative intuition of 
+generalization arises from this perspective, in the sense that a good algorithm should be
+expected to learn the same function when trained on different realizations 
+of the same experiment; that is, when datasets are drawn from the same distribution 
+but entail different instantiations of the noise associated with the sampling process. \\
 
-\subsection{Posterior distribution}
+A regularization principle is derived from this intuition and can be formalized as a
+generalization-complexity trade-off by defining generalization as the robustness or stability
+of the learned function to sampling noise. A suitable measure of complexity in this framework
+is the informativeness of the function, which represents its ability to learn the patterns in the
+data while filtering out the noise. The more expressive (i.e. complex) a function class is,
+the higher will be the estimated information content of the data. If the information content is
+overestimated, the approximated function will overfit to the noise and thus not generalize to
+different realizations of the experiment. \\
 
-The function $f \in \mathcal{F}$ was defined mapping $\mathcal{X} \longmapsto \mathcal{Y}$, in the sense that an observation $x \in \mathcal{X}$ is mapped to
-a prediction $f(x) \in \mathcal{Y}$. In order to formalize the randomness of the data sampling process, we
-will redefine $\mathcal{X}$ so that its elements are realizations of the simple 
-random sample $\underbar{X}$, which are then mapped to a set of outcomes $\theta$.
+The robustness-informativeness regularization principle can be enforced from the set 
+of outputs of the learned model. This section will formalize this principle and derive an
+operative model selection criterion.
 
 \begin{definition}[Distribution of $\underbar{X}$]
     The simple random sample $\underbar{X} \overset{\text{iid}}{\sim} X$ has a probability distribution
@@ -200,76 +214,104 @@ random sample $\underbar{X}$, which are then mapped to a set of outcomes $\theta
      f_{\underbar{X}} = \prod_{n=1}^{N} f_{X}(x)
     $$
 
-    We will refer to this probability distribution as $\mathbf{P}_X$ to avoid notation clutter.
+    We will use $\mathbf{P}_{\underbar{X}}$ to refer to the measure of probability encoded in this distribution.
 \end{definition}
 
+\begin{definition}[Sampling experiment]
+    Let $X$ be a random variable representing a sampling experiment
+    with support $\mathcal{X}$. Let $\tau \in \mathbb{T}_{\mathcal{X}}$ be a
+    transformation of the sampling experiment $X$. The set of 
+    possible transformations $\mathbb{T}_{\mathcal{X}}$ is composed
+    of the possible experimental conditions for the data sampling 
+    process in $\mathcal{X}$. The dependency on the 
+    experimental design will be captured by the index $\tau$, 
+    and we will implicitely consider 
+    
+    $$
+        X := \tau \circ X
+    $$
+
+    to be a sampling experiment.  $\underbar{X} \sim X$ will be 
+    the simple random sample associated with specific experimental
+    conditions $\tau$, and sampling realizations 
+    $\bm{x}', \bm{x}'' \sim \underbar{X}$ will encode different 
+    noise instantiations but equal experimental conditions.
+\end{definition}
+
+\subsection{Posterior distribution}
+
+%The approximating function $f \in \mathcal{F}$ has been defined as a mapping 
+%$\mathcal{X} \longmapsto \mathcal{Y}$, in the sense that an observation $x \in \mathcal{X}$ is mapped to
+%a prediction $f(x) \in \mathcal{Y}$. A subtle abuse of notation will be made when considering
+%5$f$ to be a 
+
 \begin{definition}[Hypothesis class]
+    Let $\mathcal{D}$ be the class of datasets generated from $N$-sized realizations of $\underbar{X}$. 
     A data science algorithm learns a function $f$ implementing the following mapping:
 
     $$
     \begin{aligned}
-        f: \mathcal{X} & \longmapsto \Theta \\
-        \bm{x} = (x_1, \dots, x_N) \sim X  & \longmapsto (f(x_1), \dots, f(x_N)) = \theta
+        f: \mathcal{D} & \longmapsto \Theta \\
+        \bm{x}  & \longmapsto (f(x_1), \dots, f(x_N)) = \theta
     \end{aligned}
     $$
 
-    The output space of hypothesis $\Theta$ represents all possible outcomes of a function
-    $f$ learned on a dataset sampled from $\mathcal{X}$.
+    The hypothesis class $\Theta$ is the output space of hypothesis representing all 
+    possible outcomes of a function $f$ learned on a dataset sampled from $\underbar{X}$.
 
 \end{definition}
 
 Intuitively, this framework interprets complexity from the perspective of the possible
 set of outcomes of the function, rather than the function class itself. It can be argued
-that both perspectives are equivalent, in the sense that the function class can be mapped 
+that both perspectives are close, in the sense that the function class can be mapped 
 to the hypothesis space $\Theta$. Nevertheless, more suitable generalization regularization
 constraints can be defined in $\Theta$, especially when dealing with intractable
-function classes $\mathcal{F}_{\Gamma}$ derived from deep neural networks. \\
+function classes $\mathcal{F}_{\Gamma}$ represented by deep neural networks. \\
 
 For instance, complexity in the hypothesis class can be associated to the nature of the
 randomness displayed by $X$. Ideally, too restrictive hypothesis classes that lack desirable
-hypothesis for some realization $\bm{x}$ of $\underbar{X}$ should be avoided, and also those hypothesis
+hypothesis for some realization $\bm{x} \sim \underbar{X}$ should be avoided, and also those hypothesis
 classes containing unrealizable elements (i.e. hypothesis that are not outcome of
 any possible experiment). A richness condition can thus be postulated following
 this intuition. \\
 
 \begin{definition}[Richness condition]
-    Let $\tau \in \mathbb{T}$ be a transformation of the sampling experiment $X$. The dependency
-    of the data on the experimental design will be captured by the index $\tau$, and we will
-    implicitely consider $\underbar{X}$ to be a sample of $\tau \circ X$.  We require a
-    sufficiently rich set of experiments $\mathbb{T}$ such that every hypothesis $\theta \in \Theta$
-    is the (most likely) outcome of some realization $\bm{x}$.
+    We require a
+    sufficiently rich set of experiments $\mathbb{T}_{\mathcal{X}}$ such that every hypothesis $\theta \in \Theta$
+    is the (most likely) outcome of some realization $\bm{x} \sim \underbar{X}$.
 
     $$
-    \forall \theta, \exists \tau \in \mathbb{T} \text{ such that } f(\bm{x}) = \theta
+    \forall \theta, \exists \tau \in \mathbb{T}_{\mathcal{X}} \text{ such that } f(\bm{x}) = \theta
     $$
 \end{definition}
 
 
-Since we assume a mapping $f$ and a data distribution $\mathbf{P}_X$, we can describe
+Since we assume a mapping $f$ and a data distribution $\mathbf{P}_{\underbar{X}}$, we can describe
 the randomness of the hypothesis outcome conditioned on the the distribution of the data.
 
 \begin{definition}[Posterior]
+    Let $\mathfrak{P}^f$ be a probability distribution family under consideration.
     A probability distribution over the hypothesis class can be defined as a 
-    conditional distribution given an realization $\bm{x}$ of experiment $\underbar{X} \sim \mathbf{P}_X$. We will
-    refer to this distribution as the posterior over $\Theta$ under $f$.
+    conditional distribution given an realization $\bm{x} \sim \underbar{X}$. 
+    We will refer to this distribution as the posterior over $\Theta$ under $f$.
 
     $$
         \begin{aligned}
-            f: \mathcal{X} \times \Theta & \longmapsto \mathbb{R} \\
+            \mathbf{P}^f: \mathcal{D} \times \Theta & \longmapsto \mathbb{R} \\
             (\bm{x}, \theta) & \longmapsto \mathbf{P}^f (\theta \mid \bm{x})
         \end{aligned}
     $$
 
-    $\mathbf{P}^f$ establishes the stochastic relation between data and hypothesis.
+    $\mathbf{P}^f \in \mathfrak{P}^f$ establishes the stochastic relation between data realizations and hypotheses.
     
 \end{definition}
 
 Using these definitions we can operate over $\Theta$ within the framework of probability 
 theory. For instance, we can obtain the (prior) probability of a hypothesis to be
-selected by $f$ given $\underbar{X}$ as
+selected by $f$ as
 
 $$
- \Pi^f (\theta) = \mathbb{E}_X \mathbf{P}^f (\theta \mid \bm{x})
+ \Pi^f (\theta) = \mathbb{E}_{\underline{X}} \mathbf{P}^f (\theta \mid \bm{x})
 $$
 
 from which we can derive a probabilistic version of the richness condition, where a limit
@@ -285,23 +327,20 @@ is the leading principle that will guide the derivations that follow.
 
 \subsection{Generalization error}
 
-In order to define a generalization error within this framework, we will proceed in an
-analogous way as we did in the previuous section. We will consider two datasets $D_t$ and $D_v$
-that arise from two different sampling realizations. In this case, however, we will make
-explicit the fact that they encode different instantiations of the randomness associated
-with the sampling, and thus denote $\bm{x'}$ and $\bm{x''}$ as realizations of the two simple random
-samples $\underbar{X}', \underbar{X}'' \overset{\text{iid}}{\sim} X \mid \tau$, respectively, and associate
-each dataset with one of them. The $\tau$ indexing is now explicit, since both samples are conditionally
-independent given the experiment:
+In order to define a robustness-based generalization error, we will proceed in an
+analogous way as we did in the previuous section. We will consider the datasets $D'$ and $D''$
+that arise from different sampling realizations $\bm{x}', \bm{x}'' \sim \underbar{X}$. 
+Both realizations are conditionally independent given the experiment, as
+they only differ in the measurement noise.
 
 $$
-    \mathbf{P}(\underbar{X}', \underbar{X}'') = \mathbf{P}(\underbar{X}' \mid \tau) \mathbf{P}(\underbar{X}'' \mid \tau)
+    \mathbf{P}(\bm{x}', \bm{x}'') = \mathbf{P}(\bm{x}' \mid \tau) \mathbf{P}(\bm{x}'' \mid \tau)
 $$
 
-The selection principles for a posterior distribution will be the following:
+Two posterior selection principles are derived from the robustness-informativeness trade-off:
 \vspace{-2mm}
 \begin{description}
-    \item[P1] It should be expressive enough to cover the realizable $\Theta$.
+    \item[P1] Posteriors should be expressive enough to cover the realizable subset of the hypothesis space.
     \vspace{-3mm}
     \item[P2] Equally likely inputs drawn from the same experiment should yield similar sets of hypothesis.
 \end{description}
@@ -333,90 +372,123 @@ class and not only the generalization capabilities, we will normalize the loss d
 description length of the prior.
 
 $$
-    - \log \Pi^f (\theta) = - \log \mathbb{E}_X \mathbf{P}^f (\theta \mid \bm{x})
+    - \log \Pi^f (\theta) = - \log \mathbb{E}_{\underline{X}} \mathbf{P}^f (\theta \mid \bm{x})
 $$
 
 \begin{definition}[Generalization error]
-    Let $\bm{x'}$ and $\bm{x''}$ be realizations of $\underbar{X}', \underbar{X}''$, respectively.
-    Let $\Theta$ be the hypothesis class represented by $f$ given data $X$. The generalization error 
-    in the support $\mathcal{X}$ is defined as the out-of-sample description length:
+    Let $\bm{x'}$ and $\bm{x''}$ be realizations of sample $\underbar{X}$, 
+    contained in datasets $D'$ and $D''$, respectively.
+    Let $\Theta$ be the hypothesis class represented by $f$ given $\underbar{X}$. The generalization error 
+     is defined as the out-of-sample description length:
 
     $$
-        \mathcal{G}_{\mathcal{X}} = \mathbb{E}_{X', X''} \mathbb{E}_{\theta \mid X'} \left[ - \log \frac{\mathbf{P}^f(\theta | \bm{x}'')}{\Pi^f (\theta)} \right]
+        \mathcal{G}_{\mathcal{X}} = \mathbb{E}_{\bm{x}', \bm{x}''} \mathbb{E}_{\theta \mid \bm{x}'} \left[ - \log \frac{\mathbf{P}^f(\theta | \bm{x}'')}{\Pi^f (\theta)} \right]
     $$
     
 \end{definition}
 
+It amounts to the expected loss over the normalized posteriors on the validation data
+$\bm{x}''$ weighted over the posterior distribution on the training data $\bm{x}'$.
+Intuitively, a lower generalization error is achieved when good quality hypothesis
+on $\bm{x}''$ are likely to be drawn from $\bm{x}'$. 
 
-
-It amounts to the expected normalized loss over the validation data $\bm{x}''$ computed
-over the distribution on the hypothesis expressed by the posterior on the training data $\bm{x}'$.
-Intuitively, a lower generalization error is achieved when good quality posteriors on $\bm{x}''$ are 
-assigned a high probability by the posterior on $\bm{x}'$. 
-
-\begin{lemma}[Posterior agreement]
+\begin{lemma}[Posterior agreement]\label{lemma:pa}
     The generalization error $\mathcal{G}_{\mathcal{X}}$ is non-negative and has a lower bound $-\mathcal{J}$. We define $\mathcal{J}$ as the posterior agreement.
 \end{lemma}
 \begin{proof}
     $$
     \begin{aligned}
-        \mathcal{G}_{\mathcal{X}} & \geq \mathbb{E}_{X', X''}\left[-\log \left(\mathbb{E}_{\theta \mid X'} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)\right] \\
-        & =\mathbb{E}_{X', X''} \left[-\log \left(\sum_{\theta \in \Theta} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}'\right) \mathbf{P}^{f}\left(\theta \mid \bm{x}'' \right)}{\Pi^{f}(\theta)}\right)\right] = -\mathcal{J} \\
-        & \geq-\log \left(\mathbb{E}_{X', X''} \mathbb{E}_{\theta \mid X'} \mathbb{E}_{\theta \mid X''} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)=0 .
+        \mathcal{G}_{\mathcal{X}} & \geq \mathbb{E}_{\bm{x}', \bm{x}''}\left[-\log \left(\mathbb{E}_{\theta \mid \bm{x}'} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)\right] \\
+        & =\mathbb{E}_{\bm{x}', \bm{x}''} \left[-\log \left(\sum_{\theta \in \Theta} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}'\right) \mathbf{P}^{f}\left(\theta \mid \bm{x}'' \right)}{\Pi^{f}(\theta)}\right)\right] = -\mathcal{J} \\
+        & \geq-\log \left(\mathbb{E}_{\bm{x}', \bm{x}''} \mathbb{E}_{\theta \mid \bm{x}'} \mathbb{E}_{\theta \mid \bm{x}''} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)=0 .
     \end{aligned}
     $$
 \end{proof}
 
-where Jensen's inequality has been applied twice to the convex function $-\log(\cdot)$:
+where Jensen's inequality has been applied twice to the convex function $-\log(\cdot)$. \\
 
-$$
-    \log (\mathbb{E} [\cdot]) \leq \mathbb{E}[\log( \cdot)]
-$$
+THINGS LEFT TO MENTION:
+- Symmetric \\
+- Equivalent expression on KL and I. Interpretation of terms. \\
+
+ALSO LEFT TO MENTION \\
+- From hypothesis class selection to model selection. I think this relies on the
+interpretation of hypothesis. Regardless of whether my interpretation is right or wrong, we
+can always define the mapping $\Gamma \longmapsto \Theta$ as (not homeomorphic, but
+something similar, check carefeully), in a way that model selection is feasible (i.e. not
+only algorithm selection)
 
 \subsection{Maximum posterior agreement}
 
-Describe max posterior agreeement problem. All Joachim, but be brief.
+This section has outlined the foundations of a generalization-rooted model selection criterion
+over the hypothesis space. These final lines will formalize the maximum posterior agreement
+criterion, which follows from Lemma \ref{lemma:pa}, as an optimization problem over the function
+class.
 
-\section{Posterior agreement kernel}
+\begin{definition}[Kullback-Leibler divergence]
+    Let $\mathbf{P}$ and $\mathbf{Q}$ be two probability distributions over the same support $\Theta$. 
+    The Kullback-Leibler divergence of $Q(\theta)$ relative to $P(\theta)$ is defined as
 
-\subsection{Classification problem}
+    $$
+    \text{KL}(\mathbf{P}(\theta) \parallel \mathbf{Q}(\theta)) = \mathbb{E}_{\mathbf{P}(\theta)} \left[ \log \frac{\mathbf{P}(\theta)}{\mathbf{Q}(\theta)} \right]
+    $$
 
-Statement of the classification problem. Follow structure from 
+\end{definition} 
+
+\begin{definition}[Cross-entropy]
+    Let $\mathbf{P}$ and $\mathbf{Q}$ be two probability distributions over the same support $\Theta$. 
+    The cross-entropy of $Q(\theta)$ relative to $P(\theta)$ is defined as
+
+    $$
+    \mathcal{H}_{\mathbf{P}, \mathbf{Q}} = - \mathbb{E}_{\mathbf{P}(\theta)} \log \mathbf{Q}(\theta)
+    $$
+
+\end{definition}
+
+\begin{definition}[Posterior agreement criterion]\label{def:pa}
+    Let $\bm{x'}$ and $\bm{x''}$ be realizations of $\underbar{X}', \underbar{X}''$, respectively. 
+    The posterior agreement model-selection criterion is defined as follows.
+
+    $$
+    \begin{aligned}
+        \sup_{\mathcal{F}} & \; \mathcal{J} \\
+        \text{s.t.} & \; \text{KL}(\mathbf{\Pi}^f(\theta) \parallel |\Theta|^{-1}) \leq \xi
+    \end{aligned}
+    $$
+    
+    where $\xi \in \mathbb{R}$ represents a small allowed deviation from uniformity in the prior.
+\end{definition}
+
+\begin{theorem}
+The posterior $\mathbf{P}_{*}^f$ maximizing the posterior agreement criterion defines a lower bound
+in the generalization error $\mathcal{G}_{\mathcal{X}}$ under the richness condition.
+
+$$
+    \inf_{\mathcal{F}} \mathcal{G}_{\mathcal{X}} \geq -\sup_{\mathcal{F}} \mathcal{J}
+$$
+\end{theorem}
+
+\begin{proof}
+    We consider the lagrangian formulation of the generalization error minimization problem 
+    and apply Lemma \ref{lemma:pa}.
+
+    $$
+    \begin{aligned}
+        & \inf_{\mathcal{F}} \left \{ \mathcal{G}_{\mathcal{X}} + \alpha \text{KL} (\mathbf{\Pi}^f(\theta)) \parallel |\Theta|^{-1} \right \} \\
+        = & \; \inf_{\mathcal{F}} \left \{ \mathcal{G}_{\mathcal{X}} + \alpha \mathbb{E}_{\mathbf{\Pi}^f(\theta)} \log \mathbf{\Pi}^f(\theta) + \alpha \mathbb{E}_{\mathbf{\Pi}^f(\theta)} \log |\Theta| \right \} \\
+        \geq & \; \alpha \log |\Theta| + \inf_{\mathcal{F}} \left \{ \alpha \mathcal{H}_{\mathbf{\Pi}^f} \right \} - \sup_{\mathcal{F}} \left \{ \mathcal{J} \right \} \\
+        \geq & \; - \sup_{\mathcal{F}} \mathcal{J}
+    \end{aligned}
+    $$
+
+    The last inequality follows from the fact that the entropy does not exceed the log-cardinality
+    of the hypothesis class.
+
+    $$
+    \mathcal{H}_{\mathbf{\Pi}^f}(\theta) \leq \log |\Theta|, \;\; \forall \mathbf{\Pi}^f
+    $$
+\end{proof}
 
 
-\section{DS algorithms, NNs and distribution shift}
-MOST COMPLICATED SECTION. \\
-- Cite Joachim, introduction to DS algorithms. Introduce notation that will follow the
-rest of the thesis. Particularize for NNs (work to do).\\
-- Explain function representation problem in NNs, why it is important. (look at phd zotero) \\
-- Read about info theory, why description length  \\
-- Start with two datasets, training and validation, and their distributions (also Joachim) \\
-- Derive the OOD-error from the previous theory. More detail than Joachim. \\
 
-\section{From OOD error to PA}
-- Definitions and proofs (ommitted by Joachim) that lead to PA \\
-- Intuition behind PA, plot. \\
-- Read more about previous work from Joachim, where PA has worked. \\
-- Include (briefly) the binary symmetric channel as an example, as it is 
-important for Joachim and will be referenced later. \\
-
-\section{The PA kernel}
-- Follow derivation overleaf, include factorization theorem. \\
-- Explain change of perspective, think of (binary) classification as a binary
-symmetric channel. \\
-
-\subsection{Properties}
-(all in overleaf or papers) \\
-- Positive definiteness, explain why important \\
-- Symmetry, explain why important \\
-- Convexity analysis. \\
-- Problem with binary classification \\
-
-\subsection{Example}
-- Analytical results obtained, overleaf. \\
-
-
-\section{Generalization error in the hypothesis space}
-- Alternative formulation \\
-- Explain why important, and formalize the data augmentation strategy (presentation) \\
 

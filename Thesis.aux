@@ -10,46 +10,65 @@
 \newlabel{sec:motivation}{{1.1}{1}}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Related work}{1}{}\protected@file@percent }
 \newlabel{sec:structure}{{1.2}{1}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretical Background }{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretical background }{3}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{sec:theory}{{2}{3}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}The learning framework}{3}{}\protected@file@percent }
+\newlabel{def:dataset}{{2.1}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Empirical risk minimization}{3}{}\protected@file@percent }
+\newlabel{sec:erm}{{2.1.1}{3}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Regularized risk minimization}{4}{}\protected@file@percent }
+\newlabel{sec:rrm}{{2.1.2}{4}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Learning with neural networks}{4}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The output of a node is computed by applying a non-linear activation function $\sigma (\cdot )$ to the weighted sum of its inputs.}}{4}{}\protected@file@percent }
 \newlabel{fig:nn_node}{{2.1}{4}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Backpropagation and gradient descent}{5}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Loss landscape and parameter space}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Generalization error}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Posterior agreement}{6}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Posterior distribution}{6}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Generalization error}{7}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.4}Posterior agreement kernel}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Classification problem}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}DS algorithms, NNs and distribution shift}{8}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.6}From OOD error to PA}{9}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.7}The PA kernel}{9}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.1}Properties}{9}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.2}Example}{9}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.8}Generalization error in the hypothesis space}{9}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Results and discussion}{11}{}\protected@file@percent }
+\newlabel{lemma:pa}{{2.3.1}{8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{9}{}\protected@file@percent }
+\newlabel{def:pa}{{2.3.3}{9}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experimental setup}{11}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:something}{{3}{11}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Discussion}{13}{}\protected@file@percent }
+\newlabel{sec:experimental_setup}{{3}{11}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Problem formulation}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}The classification problem}{11}{}\protected@file@percent }
+\newlabel{def:classifier}{{3.1.1}{11}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Covariate shift robustness in classification tasks}{12}{}\protected@file@percent }
+\newlabel{properties:robustness}{{3.1.2}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Adversarial setting}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Out-of-distribution setting}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Posterior agreement as a measure of robustness}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Posterior in classification tasks}{14}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}The posterior agreement kernel}{15}{}\protected@file@percent }
+\newlabel{lemma:exchangeability}{{3.2.2}{15}}
+\newlabel{theorem:posterior_factorization}{{3.2.3}{15}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Analytical example}{17}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Posterior agreement beyond robustness}{17}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results and discussion}{19}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:again_something}{{4}{13}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Something}{15}{}\protected@file@percent }
+\newlabel{sec:something}{{4}{19}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Discussion}{21}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:something}{{A}{15}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Again Something}{17}{}\protected@file@percent }
+\newlabel{sec:again_something}{{5}{21}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Supplementary material}{23}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:again_something}{{B}{17}}
+\newlabel{sec:something}{{A}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Proof of problem formulation}{23}{}\protected@file@percent }
+\newlabel{sec:proofs}{{A.1}{23}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{25}{}\protected@file@percent }
+\newlabel{sec:kernel}{{A.2}{25}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Again Something}{29}{}\protected@file@percent }
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{sec:again_something}{{B}{29}}
 \bibstyle{plain}
 \bibdata{bibliography}
-\gdef \@abspage@last{31}
+\gdef \@abspage@last{43}

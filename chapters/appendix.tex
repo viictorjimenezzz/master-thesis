@@ -1,8 +1,287 @@
-\chapter{Something}\label{sec:something}
+\chapter{Supplementary material}\label{sec:something}
 
-Blah, blah \dots
+We will define some notation shortcuts for the following proofs.
 
- \cleardoublepage
+
+
+\section{Proof of problem formulation}\label{sec:proofs}
+
+\begin{lemma} 
+    
+    Let $N, K \in \mathbb{N}$ and let $\left\{\mathcal{E}_{i j} \mid i \leq N, j \leq K\right\}$ be an indexed set of values. Then,
+    $$
+    \sum_{c \in \mathcal{C}} \prod_{i=1}^N \mathcal{E}_{i, c(i)}=\prod_{i=1}^N \sum_{j=1}^K \mathcal{E}_{i j}
+    $$
+\end{lemma}
+
+\begin{proof}
+By induction on $N$. For the $N=1$ base case, observe that $\mathcal{C}$ has only $K$ elements, as there are only $K$ functions mapping $\{1\}$ to $\{1, \ldots, K\}$. Then
+$$
+\sum_{c \in \mathcal{C}} \prod_{i \leq N} \mathcal{E}_{i, c(i)}=\sum_{c \in \mathcal{C}} \mathcal{E}_{1, c(1)}=\sum_{j \leq K} \mathcal{E}_{1, j}=\prod_{i \leq N} \sum_{j \leq K} \mathcal{E}_{i, j} .
+$$
+
+Assume now that the result holds for some $N$. We demonstrate then that it also holds for $N+1$. Observe that there is a bijection between $\mathcal{C}$ and $\{1, \ldots, K\}^N$. Therefore, we identify every function $c \in \mathcal{C}$ with the tuple $(c(1), \ldots, c(N))$. Conversely, we identify every tuple $\left(c_1, \ldots, c_N\right) \in\{1, \ldots, K\}^N$, with the function $c$ that maps $i$ to $c_i$.
+
+$$
+\begin{aligned}
+    & \sum_{c \in \mathcal{C}} \prod_{i \leq N+1} \mathcal{E}_{i, c(i)}= \\
+    & =\sum_{\left(c_1, \ldots, c_{N+1}\right) \in\{1, \ldots, K\}^{N+1}} \prod_{i \leq N+1} \mathcal{E}_{i, c_i} \\
+    & =\sum_{\substack{\left(c_1, \ldots, c_N\right) \in\{1, \ldots, K\}^N \\
+    c_{N+1} \leq K}} \prod_{i \leq N+1} \mathcal{E}_{i, c_i} \\
+    & =\sum_{\left(c_1, \ldots, c_N\right) \in\{1, \ldots, K\}^N} \sum_{c_{N+1} \leq K} \prod_{i \leq N+1} \mathcal{E}_{i, c_i} \\
+    & =\sum_{\left(c_1, \ldots, c_N\right) \in\{1, \ldots, K\}^N} \sum_{c_{N+1} \leq K}\left(\mathcal{E}_{N+1, c(N+1)} \prod_{i \leq N} \mathcal{E}_{i, c_i}\right) \\
+    & =\left(\sum_{c_{N+1} \leq K} \mathcal{E}_{N+1, c(N+1)}\right) \sum_{\left(c_1, \ldots, c_N\right) \in\{1, \ldots, K\}^N} \prod_{i \leq N} \mathcal{E}_{i, c_i} \\
+    & =\left(\sum_{c_{N+1} \leq K} \mathcal{E}_{N+1, c(N+1)}\right) \prod_{i \leq N} \sum_{j \leq K} \mathcal{E}_{i, j} \\
+    & =\left(\sum_{j \leq K} \mathcal{E}_{N+1, j}\right) \prod_{i \leq N} \sum_{j \leq K} \mathcal{E}_{i, j} \\
+    & =\prod_{i \leq N+1} \sum_{j \leq K} \mathcal{E}_{i, j} . \\
+    &
+    \end{aligned}
+$$
+\end{proof}
+
+
+\begin{theorem}[Posterior factorization]
+
+    The posterior distribution for a classification problem can be factorized as follows:
+    $$
+    \mathbf{P}^c(\theta \mid \bm{x}) = \prod_i^N  \mathbf{P}^c(\theta_i \mid \bm{x}) = \prod_{i=1}^N \frac{\exp \left ( \beta F_{\theta_i}(x_i) \right )}{\sum_{j=1}^K \exp \left ( \beta F_j(x_i) \right )}
+    $$
+\end{theorem}
+
+\begin{proof}
+    The posterior distribution solution to the MAP problem is the following:
+
+    $$
+    \mathbf{P}^c(\theta \mid \bm{x}) \frac{\exp \left ( \beta \sum_{i=1}^N F_{\theta_i}(x_i) \right )}{\sum_{\theta \in \Theta} \exp \left ( \beta \sum_{i=1}^N F_{\theta_i}(x_i) \right )}
+    = \frac{\prod_{i=1}^N \exp \left ( \beta F_{\theta_i}(x_i) \right )}{\sum_{\theta \in \Theta} \prod_{i=1}^N \exp \left ( \beta  F_{\theta_i}(x_i) \right )}
+    $$
+
+    Using Lemma \ref{lemma:exchangeability} we can rewrite the denominator as:
+
+    $$
+    \sum_{\theta \in \Theta} \prod_{i=1}^N \exp \left ( \beta  F_{\theta_i}(x_i) \right ) = \prod_{i=1}^N \sum_{\theta \in \Theta} \exp \left ( \beta  F_{\theta_i}(x_i) \right )
+    $$
+
+    Therefore, the posterior distribution can be written as:
+
+    $$
+    \mathbf{P}^c(\theta \mid \bm{x}) = \prod_{i=1}^N  \mathbf{P}^c(\theta_i \mid \bm{x}) = \prod_{i=1}^N \frac{\exp \left ( \beta F_{\theta_i}(x_i) \right )}{\sum_{\theta \in \Theta} \exp \left ( \beta R(\theta, \bm{x}) \right )}
+    $$
+
+\end{proof}
+
+\section{Properties of the PA kernel}\label{sec:kernel}
+
+\begin{theorem}[Symmetry of the PA kernel]
+    The posterior agreement kernel is symmetric with respect to the definition of $X'$ and $X''$.
+
+    $$
+    PA(\bm{x}', \bm{x}'') = PA(\bm{x}'', \bm{x}')
+    $$
+\end{theorem}
+
+\begin{theorem}[Non-negativity of the PA kernel]
+    The posterior agreement kernel is non-negative.
+
+    $$
+    PA(\bm{x}', \bm{x}'') \geq 0
+    $$  
+\end{theorem}
+
+\begin{theorem}[Concavity of the PA kernel]
+    The posterior agreement kernel is concave in $\mathbb{R}^+$, and therefore
+    has a unique maximum.
+\end{theorem}
+
+\begin{proof}
+
+The posterior agreement kernel has been shown to have the following form:
+
+$$
+\operatorname{PA}\left(\bm{x}', \bm{x}'' \right) \propto \sum_{n=1}^N \log \left[ \sum_{j=1}^K \mathbf{P}_n^c(\theta \mid x_n') \mathbf{P}_n^c(\theta \mid x_n'') \right]
+$$
+
+where the posteriors $\mathbf{P}_n^c(\theta \mid x_n)$ are Gibbs distributions for each observation.
+
+$$
+\mathbf{P}_n^c(\theta \mid x_n') = \frac{e^{\beta F_j(x_n)}}{\sum_{k=1}^K e^{\beta F_k(x_n)}}
+$$
+
+We will require three important results from optimization theory:
+
+\begin{description}
+    \item[T1] The minimum of $G(\beta) = -\operatorname{PA}(X', X'')$ over the convex set $\mathbb{R}^+$ is unique $\iff$ $G(\beta)$ is convex.
+    \item[T2] $G$ is absolutely convex $\iff$ $\frac{d^2}{d \beta^2} G(\beta) > 0$.
+    \item[T3] The sum of convex functions is also convex.
+\end{description}
+
+
+To streamline the derivation, the following notation will be used:
+
+$$
+F_j(x_n') = F'_j
+$$
+
+$$
+e^{\beta F_j(x_n')} = e^{\beta F'_j} = e'_j
+$$
+
+The observation index $n$ will be omitted as it does not affect the convexity derivation (see \textbf{T3}). With that notation in mind, we can define $G(\beta)$ properly:
+
+$$
+G(\beta) = -k(\bm{x}', \bm{x}'') = \sum_{n=1}^N - \log \left [\sum_{j=1}^K e'_j e''_j \right] + \sum_{n=1}^N \log \left [ \sum_{k=1}^K e'_k \sum_{p=1}^K e''_p \right] 
+$$
+
+We will focus on the first term: $G^n_1(\beta) = G_1(\beta) = \log \left [\sum_{j=1}^K e'_j e''_j \right]$.
+
+$$
+\frac{d}{d \beta} G_1(\beta) = \frac{\sum_{j=1}^K (F'_j + F''_j)e'_j e''_j }{\sum_{j=1}^K e'_j e''_j }
+$$
+
+The derivative $\frac{d}{d \beta} e'_j e''_k$ will be used recurrently in this section:
+
+$$
+\frac{d}{d \beta} e'_j e''_k = F'_j e'_j e''_k +e'_j F''_k  e''_k = (F'_j + F''_k) e'_j e''_k
+$$
+
+The second derivative is straightforward:
+
+$$
+\frac{d^2}{d \beta ^2} G_1(\beta) = \frac{\sum_{j=1}^K (F'_j + F''_j)^2 e'_j e''_j }{\sum_{j=1}^K e'_j e''_j } - \frac{\left (\sum_{j=1}^K (F'_j + F''_j) e'_j e''_j \right ) ^2}{\left (\sum_{j=1}^K e'_j e''_j \right )^2}
+$$
+
+We impose the convexity condition and see whether it can be contradicted.
+
+$$
+\frac{d^2}{d \beta ^2} G_1(\beta) > 0 \iff \left(\sum_{j=1}^K e'_j e''_j \right ) \left( \sum_{j=1}^K (F'_j + F''_j)^2 e'_j e''_j  \right ) - \left (\sum_{j=1}^K (F'_j + F''_j) e'_j e''_j \right )^2 > 0
+$$
+
+Using the distributive property of the product over the sum, we can reindex our expression:
+
+$$
+\sum_{k=1}^K \sum_{j=1}^K (F'_j + F''_j)^2 e'_j e''_j e'_k e''_k - \sum_{k=1}^K \sum_{j=1}^K (F'_j + F''_j) (F'_k + F''_k) e'_j e''_j e'_k e''_k > 0 \iff
+$$
+
+$$
+\iff \sum_{k=1}^K \sum_{j=1}^K [(F'_j + F''_j) - (F'_k + F''_k) ] (F'_j + F''_j) e'_j e''_j e'_k e''_k  > 0
+$$
+
+As we can see, $\Delta_{(jj), (kk)} $ corresponds to the difference in the cost attributed to reference class $j$ and the cost attributed to class $k$, accumulated over $\bm{x}', \bm{x}''$. We can intuitively devise some symmetry in these terms, and we formalize it as follows:
+
+$$
+E_{jk} = e'_j e''_j e'_k e''_k = E_{kj}
+$$
+
+$$
+\Delta_{(jj), (kk)} = (F'_j + F''_j) - (F'_k + F''_k) = (F'_j - F'_k) + (F''_j - F''_k) = - \Delta_{(kk), (jj)}
+$$
+
+ Even if $\Delta_{(jj), (jj)} = 0$, we will still include this term to facilitate with the indexing. Overall, the sum can be expressed as:
+
+$$
+ \sum_{k=1}^K \sum_{j=1}^K [(F'_j + F''_j) - (F'_k + F''_k) ] (F'_j + F''_j) e'_j e''_j e'_k e''_k = \sum_{k=1}^K \sum_{j=1}^K (F'_j + F''_j) E_{jk} \Delta_{(jj), (kk)} = \sum_{k=1}^K \sum_{j=1}^K S_{(jj), (kk)}
+$$
+
+
+Then, the pairwise sum of symmetric combinations of indexes $k$ and $j$ yields
+
+$$
+\begin{aligned}
+    S_{(jj), (kk)} + S_{(kk), (jj)} & = (F'_j + F''_j) E_{jk} \Delta_{(jj), (kk)} + (F'_k + F''_k) E_{kj} \Delta_{(kk), (jj)} \\
+    & = E_{jk}\Delta_{(jj), (kk)} [(F'_j + F''_j) - (F'_k + F''_k)] = E_{jk}\Delta_{(jj), (kk)}^2 > 0
+\end{aligned}
+$$
+
+
+Given that the indexing sets in our nested sum are the same, it's straightforward to see that all the terms will be strictly positive, and the overall sum will be zero only if $e_j = 0 \; \forall j=\{ 1,...K \}$, which is not possible in a classification setting since $\beta \in \mathbb{R}^+$. We end up with the following expression:
+
+$$
+\frac{d^2}{d \beta ^2} G_1(\beta) = \sum_{k=1}^K \sum_{j<k}^K E_{jk}\Delta_{(jj), (kk)}^2 > 0
+$$
+
+Now we proceed analogously with the second term: 
+
+$$
+G^n_2(\beta) = G_2(\beta) = \log \left [\sum_{j=1}^K e'_j \sum_{k=1}^K e''_k \right] = \log \left [\sum_{k=1}^K \sum_{j=1}^K e'_j e''_k \right]
+$$
+
+$$
+\frac{d}{d \beta} G_2(\beta) = \frac{\sum_{k=1}^K \sum_{j=1}^K (F'_j + F''_k) e'_j e''_k}{\sum_{k=1}^K \sum_{j=1}^K e'_j e''_k}
+$$
+
+$$
+\frac{d^2}{d^2 \beta} G_2(\beta) = \frac{\sum_{k=1}^K \sum_{j=1}^K (F'_j + F''_k)^2 e'_j e''_k}{\sum_{k=1}^K \sum_{j=1}^K e'_j e''_k} - \frac{\left(\sum_{k=1}^K \sum_{j=1}^K (F'_j + F''_k) e'_j e''_k \right)^2}{\left( \sum_{k=1}^K \sum_{j=1}^K e'_j e''_k\right)^2} > 0 \iff
+$$
+$$
+\iff \left(\sum_{k=1}^K \sum_{j=1}^K e'_j e''_k \right) \left(\sum_{k=1}^K \sum_{j=1}^K (F'_j + F''_k)^2 e'_j e''_k \right) - \left(\sum_{k=1}^K \sum_{j=1}^K (F'_j + F''_k) e'_j e''_k \right)^2 > 0 \iff
+$$
+$$
+\iff \sum_{k=1}^K \sum_{q=1}^K \sum_{j=1}^K \sum_{i=1}^K (F'_j + F''_k)^2 e'_j e''_k e'_i e''_q - (F'_j + F''_k) e'_j e''_k (F'_i + F''_q) e'_i e''_q > 0 \iff
+$$
+$$
+\iff \sum_{k=1}^K \sum_{q=1}^K \sum_{j=1}^K \sum_{i=1}^K (F'_j + F''_k) e'_j e''_k e'_i e''_q [(F'_j + F''_k) - (F'_i + F''_q)] > 0
+$$
+
+We can define as well:
+
+$$
+\frac{d^2}{d^2 \beta} G_2(\beta) = \sum_{k=1}^K \sum_{q=1}^K \sum_{j=1}^K \sum_{i=1}^K S_{(jk),(iq)} = \sum_{k=1}^K \sum_{q=1}^K \sum_{j=1}^K \sum_{i=1}^K (F'_j + F''_k) E_{(jk),(iq)} \Delta_{(jk),(iq)} 
+$$
+
+$$
+E_{(jk),(iq)} = e'_j e''_k e'_i e''_q = E_{(ik),(jq)} = E_{(jq),(ik)} = E_{(iq),(jk)}
+$$
+
+$$
+\Delta_{(jk),(iq)} = (F'_j - F'_i) + (F''_k - F''_q) = - \Delta_{(iq),(jk)}
+$$
+
+The symmetry arises when adding two elements that have mirror indexes in both $\bm{x}'$ and $\bm{x}''$.
+
+$$
+\begin{aligned}
+S_{(jk),(iq)} + S_{(iq),(jk)} & = (F'_j + F''_k) E_{(jk),(iq)} \Delta_{(jk),(iq)} + (F'_i + F''_q) E_{(iq),(jk)} \Delta_{(iq),(jk)} \\
+& = E_{(jk),(iq)} \Delta_{(jk),(iq)} [(F'_j + F''_k) - (F'_i + F''_q)] = E_{(jk),(iq)} \Delta_{(jk),(iq)}^2 > 0
+\end{aligned}
+$$
+
+Given that symmetries are independent for $\bm{x}'$ and $\bm{x}''$, we end up with a similar expression:
+
+$$
+\frac{d^2}{d \beta ^2} G_2(\beta) = \sum_{k=1}^K \sum_{q<k}^K \sum_{j=1}^K \sum_{i<j}^K E_{(jk),(iq)}\Delta_{(jk),(iq)}^2 > 0
+$$
+
+Even if a further simplified version can be obtained, this one will allow us to complete the proof. We can now define the function $G(\beta)$ as the sum of the two terms:
+
+$$
+\frac{d^2}{d \beta ^2} G(\beta) = \sum_{n=1}^N \left [ \sum_{k=1}^K \sum_{q<k}^K \sum_{j=1}^K \sum_{i<j}^K E_{(jk),(iq)}\Delta_{(jk),(iq)}^2 - \sum_{k=1}^K \sum_{q<k}^K E_{(qq), (kk)}\Delta_{(qq), (kk)}^2 \right ]
+$$
+
+where we can clearly see that the particular case $\{ k=j, q=i \}$ cancels the negative terms:
+
+$$
+\begin{aligned}
+    \frac{d^2}{d \beta ^2} F^n(\beta) & = \sum_{k=1}^K \sum_{q<k}^K \sum_{j = \{ 1:K \} \setminus \{ k \} } \sum_{i = \{ 1:K | i < j\} \setminus \{ k \} } E_{(jk),(iq)}\Delta_{(jk),(iq)}^2  \\ 
+    & + \sum_{k=1}^K \sum_{q<k}^K E_{(qq), (kk)}\Delta_{(qq), (kk)}^2 - \sum_{k=1}^K \sum_{q<k}^K E_{(qq), (kk)}\Delta_{(qq), (kk)}^2 = \\
+    & = \sum_{k=1}^K \sum_{q<k}^K \sum_{j = \{ 1:K \} \setminus \{ k \} } \sum_{i = \{ 1:K | i < j\} \setminus \{ k \} } E_{(jk),(iq)}\Delta_{(jk),(iq)}^2 > 0
+\end{aligned}
+$$
+
+Which proves that $G(\beta)$ is absolutely convex in $\mathbb{R}^+$:
+
+$$
+ \frac{d^2}{d \beta ^2} G(\beta) = \sum_{n=1}^N \frac{d^2}{d \beta ^2} G^n(\beta) = \sum_{n=1}^N \left[ \sum_{k=1}^K \sum_{q<k}^K \sum_{j = \{ 1:K \} \setminus \{ k \} } \sum_{i = \{ 1:K | i < j\} \setminus \{ k \} } E_{(jk),(iq)}\Delta_{(jk),(iq)}^2 \right] > 0
+$$
+
+We must note that on the limit $\beta \to \infty$ the curvature is not defined, so it will be always a good practice to start the numerical procedure at a value $\beta_0 = 0^+$:
+
+$$
+\lim_{\beta \to 0^+} \frac{d^2}{d \beta ^2} G(\beta) > 0
+$$
+
+\end{proof}
+
+\cleardoublepage
 
 
 \chapter{Again Something}\label{sec:again_something}
