@@ -37,7 +37,8 @@
 \ProcessOptions
 
 \RequirePackage[T1]{fontenc}
-\RequirePackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+%\RequirePackage[latin1]{inputenc}
 \RequirePackage{amsmath,amssymb,amsthm}
 \RequirePackage{graphicx}
 \RequirePackage[dvips]{epsfig} 
@@ -53,6 +54,11 @@
 \RequirePackage[dvipdfm]{geometry}
 \RequirePackage{url}
 
+% For the figures
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+
+% For the maths
 \RequirePackage{bm}
 \RequirePackage{amsmath}
 
@@ -63,8 +69,10 @@
 \newtheorem*{definition}{Definition}
 \newtheorem*{properties}{Properties}
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{example}{Example}[section]
 \newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem*{attack}{Attack}
 
 \newcommand{\@supervision}{}
 \newcommand{\supervision}[1]{\gdef\@supervision{#1}}

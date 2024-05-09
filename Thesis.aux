@@ -2,73 +2,264 @@
 \@writefile{toc}{\contentsline {chapter}{Abstract}{v}{}\protected@file@percent }
 \newlabel{chap:symbole}{{}{vii}}
 \@writefile{toc}{\contentsline {chapter}{Notation}{vii}{}\protected@file@percent }
+\citation{jimenezInductiveBiasDeep}
+\citation{tsiprasRobustnessMayBe2019}
+\citation{zhangTheoreticallyPrincipledTradeoff2019}
+\citation{ilyasAdversarialExamplesAre2019}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{sec:introduction}{{1}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.1}Motivation and objectives}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}The robustness challenge}{1}{}\protected@file@percent }
 \newlabel{sec:motivation}{{1.1}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Related work}{1}{}\protected@file@percent }
-\newlabel{sec:structure}{{1.2}{1}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretical background }{3}{}\protected@file@percent }
+\citation{szegedyIntriguingPropertiesNeural2014}
+\citation{goodfellowExplainingHarnessingAdversarial2015}
+\citation{schmidtAdversariallyRobustGeneralization2018}
+\citation{tsiprasRobustnessMayBe2019}
+\citation{zhangTheoreticallyPrincipledTradeoff2019}
+\citation{madryDeepLearningModels2019}
+\citation{madryDeepLearningModels2019}
+\citation{ilyasAdversarialExamplesAre2019}
+\citation{tsiprasRobustnessMayBe2019}
+\citation{tsiprasRobustnessMayBe2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Illustrative example of three sources of variability mentioned. A pre-trained MobileNetV2 architecture is shown to be vulnerable to adversarial perturbations as the one represented in (c), and also to domain shifts as the one illustrated in (d), possibly because its inductive bias is influenced by the spurious correlation between cows and their natural background.\relax }}{2}{}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:cows}{{1.1}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Adversarial setting}{2}{}\protected@file@percent }
+\citation{tsiprasRobustnessMayBe2019}
+\citation{tsiprasRobustnessMayBe2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces  A conceptual illustration of standard vs. adversarial decision boundaries. (\textbf  {left}) A set of linearly-separable points. (\textbf  {middle}) Decision boundary learned via standard training. (\textbf  {right}) Decision boundary learned via adversarial training. Both methods achieve zero training error, but only the robust model is able to generalize to $\ell _\infty $ perturbations. Source: \cite  {madryDeepLearningModels2019} \relax }}{3}{}\protected@file@percent }
+\newlabel{fig:adversarial_complexity}{{1.2}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Scaled loss gradient with respect to input images. Input pixels yielding the most predictive power are aligned with perceptually relavant features for the case of adversarial models, while appearing completely random in the case of standard models. Source: \cite  {tsiprasRobustnessMayBe2019}\relax }}{3}{}\protected@file@percent }
+\newlabel{fig:adversarial_loss}{{1.3}{3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Adversarial examples for standard and PGD-trained models. Perturbed images produced for robust models effectively capture salient data characteristics and appear similar to examples of a different class. Source: \cite  {tsiprasRobustnessMayBe2019}\relax }}{3}{}\protected@file@percent }
+\newlabel{fig:salient_characteristics}{{1.4}{3}}
+\citation{muandetDomainGeneralizationInvariant2013}
+\citation{quinonero-candelaDatasetShiftMachine2009}
+\citation{zhouDomainGeneralizationSurvey2022}
+\citation{wangGeneralizingUnseenDomains2022}
+\citation{liuOutOfDistributionGeneralizationSurvey2023}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{wangGeneralizingUnseenDomains2022}
+\citation{wangGeneralizingUnseenDomains2022}
+\citation{liuOutOfDistributionGeneralizationSurvey2023}
+\citation{torralbaUnbiasedLookDataset2011}
+\citation{torralbaUnbiasedLookDataset2011}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Out-of-distribution setting}{4}{}\protected@file@percent }
+\newlabel{sec:intro_ood}{{1.1.2}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces The \texttt  {camelyon17} (WILDS) dataset comprises tissue patches from different hospitals. The goal is to accurately predict the presence of tumor tissue in patches taken from hospitals that are not in the training set. Source: \cite  {kohWILDSBenchmarkIntheWild2021} \relax }}{4}{}\protected@file@percent }
+\newlabel{fig:camelyon17}{{1.5}{4}}
+\citation{blanchardGeneralizingSeveralRelated}
+\citation{muandetDomainGeneralizationInvariant2013}
+\citation{peiMultiAdversarialDomainAdaptation}
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{shenWassersteinDistanceGuided2018}
+\citation{liangComprehensiveSurveyTestTime2023}
+\citation{muandetDomainGeneralizationInvariant2013}
+\citation{muandetDomainGeneralizationInvariant2013}
+\citation{zhangMixupEmpiricalRisk2018}
+\citation{zhangMixupEmpiricalRisk2018}
+\citation{yunCutMixRegularizationStrategy2019}
+\citation{yunCutMixRegularizationStrategy2019}
+\citation{yunCutMixRegularizationStrategy2019}
+\citation{yunCutMixRegularizationStrategy2019}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces  \textbf  {(left)} Confusion matrix associated with a dataset identification task. There is a clearly pronounced diagonal, which indicates that each dataset posesses unique traits that make it distinguishable from the rest. \textbf  {(right)} Cross-dataset generalization for "car" detection as function of training data. The vertical gap between two curves represents the decrease in performance resulting from training on a different dataset, and horizontal shift corresponds to the increase in amount of data needed to reach the same level of performance. Source: \cite  {torralbaUnbiasedLookDataset2011}\relax }}{5}{}\protected@file@percent }
+\newlabel{fig:dataset_bias}{{1.6}{5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces  Projections of a binary synthetic dataset in the two principal DICA dimensions. The shaded box depicts the projection of training data, whereas the unshaded boxes show projections of unseen test datasets. Source: \cite  {muandetDomainGeneralizationInvariant2013} \relax }}{5}{}\protected@file@percent }
+\newlabel{fig:dica}{{1.7}{5}}
+\citation{zhouDomainGeneralizationSurvey2022}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{szegedyIntriguingPropertiesNeural2014}
+\citation{goodfellowExplainingHarnessingAdversarial2015}
+\citation{madryDeepLearningModels2019}
+\citation{carliniEvaluatingRobustnessNeural2017}
+\citation{pintorFastMinimumnormAdversarial2021}
+\citation{liReviewAdversarialAttack2022}
+\citation{baiRecentAdvancesAdversarial2021}
+\citation{liReviewAdversarialAttack2022}
+\citation{xiaoGeneratingAdversarialExamples2019}
+\citation{miyatoVirtualAdversarialTraining2018}
+\citation{wangBetterDiffusionModels2023}
+\citation{hoDenoisingDiffusionProbabilistic2020}
+\citation{cohenCertifiedAdversarialRobustness2019}
+\citation{croceRobustBenchStandardizedAdversarial2021a}
+\citation{wangGeneralizingUnseenDomains2022}
+\citation{zhouDomainGeneralizationSurvey2022}
+\citation{liuOutOfDistributionGeneralizationSurvey2023}
+\citation{yaoImprovingOutofDistributionRobustness2022}
+\citation{zhangMixupEmpiricalRisk2018}
+\citation{yunCutMixRegularizationStrategy2019}
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{muandetDomainGeneralizationInvariant2013}
+\citation{arjovskyWassersteinGAN2017}
+\citation{liLearningGeneralizeMetaLearning2018}
+\citation{wangMetaFineTuningNeural2020}
+\citation{guoComprehensiveEvaluationFramework2023}
+\citation{wengEvaluatingRobustnessNeural2018}
+\citation{wangGeometricalApproachEvaluate2023}
+\citation{buhmannPosteriorAgreementModel2022}
+\citation{euligDiagViB6DiagnosticBenchmark2021}
+\citation{yuPACSDatasetPhysical2022}
+\citation{khoslaUndoingDamageDataset2012}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces  Mixup and Cutmix strategies can be used to interpolate between different labels and/or domains by generating intermediate observations. Source: \cite  {yunCutMixRegularizationStrategy2019} \relax }}{6}{}\protected@file@percent }
+\newlabel{fig:data_augmentation}{{1.8}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Related work}{6}{}\protected@file@percent }
+\citation{croceRobustBenchStandardizedAdversarial2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}Objectives}{7}{}\protected@file@percent }
+\citation{n.vapnikNatureStatisticalLearning2000}
+\citation{jimenezInductiveBiasDeep}
+\citation{casellaStatisticalInference2002}
+\citation{n.vapnikNatureStatisticalLearning2000}
+\citation{jimenezInductiveBiasDeep}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Theoretical background }{9}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:theory}{{2}{3}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}The learning framework}{3}{}\protected@file@percent }
-\newlabel{def:dataset}{{2.1}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Empirical risk minimization}{3}{}\protected@file@percent }
-\newlabel{sec:erm}{{2.1.1}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Regularized risk minimization}{4}{}\protected@file@percent }
-\newlabel{sec:rrm}{{2.1.2}{4}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.2}Learning with neural networks}{4}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The output of a node is computed by applying a non-linear activation function $\sigma (\cdot )$ to the weighted sum of its inputs.}}{4}{}\protected@file@percent }
-\newlabel{fig:nn_node}{{2.1}{4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Backpropagation and gradient descent}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Loss landscape and parameter space}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.3}Posterior agreement}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Posterior distribution}{6}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Generalization error}{7}{}\protected@file@percent }
-\newlabel{lemma:pa}{{2.3.1}{8}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{9}{}\protected@file@percent }
-\newlabel{def:pa}{{2.3.3}{9}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experimental setup}{11}{}\protected@file@percent }
+\newlabel{sec:theory}{{2}{9}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}The learning framework}{9}{}\protected@file@percent }
+\newlabel{def:dataset}{{2.1}{9}}
+\newlabel{def:erm}{{2.1}{9}}
+\citation{simonyanVeryDeepConvolutional2015}
+\citation{n.vapnikNatureStatisticalLearning2000}
+\citation{voulodimosDeepLearningComputer2018}
+\newlabel{def:rrm}{{2.1}{10}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Learning with neural networks}{10}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The output of a node is computed by applying a non-linear activation function $\sigma (\cdot )$ to the weighted sum of its inputs.\relax }}{10}{}\protected@file@percent }
+\newlabel{fig:nn_node}{{2.1}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Backpropagation and gradient descent}{10}{}\protected@file@percent }
+\citation{jimenezInductiveBiasDeep}
+\citation{buhmannDataScienceAlgorithms2022}
+\citation{chehreghaniInformationTheoreticModel}
+\citation{buhmannInformationTheoreticModel}
+\citation{buhmannInformationTheoreticModel2010}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Loss landscape and parameter space}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Posterior agreement}{11}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Posterior distribution}{12}{}\protected@file@percent }
+\citation{grunwaldMinimumDescriptionLength2019}
+\citation{buhmannDataScienceAlgorithms2022}
+\newlabel{def:posterior}{{2.3.1}{13}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Generalization error}{13}{}\protected@file@percent }
+\newlabel{lemma:pa}{{2.3.1}{14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{14}{}\protected@file@percent }
+\newlabel{def:pa}{{2.3.3}{15}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experimental setup}{17}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:experimental_setup}{{3}{11}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Problem formulation}{11}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}The classification problem}{11}{}\protected@file@percent }
-\newlabel{def:classifier}{{3.1.1}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Covariate shift robustness in classification tasks}{12}{}\protected@file@percent }
-\newlabel{properties:robustness}{{3.1.2}{13}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Adversarial setting}{14}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Out-of-distribution setting}{14}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Posterior agreement as a measure of robustness}{14}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Posterior in classification tasks}{14}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}The posterior agreement kernel}{15}{}\protected@file@percent }
-\newlabel{lemma:exchangeability}{{3.2.2}{15}}
-\newlabel{theorem:posterior_factorization}{{3.2.3}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Analytical example}{17}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Posterior agreement beyond robustness}{17}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results and discussion}{19}{}\protected@file@percent }
+\newlabel{sec:experimental_setup}{{3}{17}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Problem formulation}{17}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}The classification problem}{17}{}\protected@file@percent }
+\newlabel{def:classifier}{{3.1.1}{17}}
+\citation{quinonero-candelaDatasetShiftMachine2009}
+\citation{quinonero-candelaDatasetShiftMachine2009}
+\citation{quinonero-candelaDatasetShiftMachine2009}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Robustness to covariate shift}{18}{}\protected@file@percent }
+\newlabel{sec:robustness_to_covariate_shift}{{3.1.2}{18}}
+\newlabel{def:domain_shift}{{3.1.2}{18}}
+\citation{buhmannPosteriorAgreementModel2022}
+\citation{szegedyIntriguingPropertiesNeural2014}
+\citation{goodfellowExplainingHarnessingAdversarial2015}
+\newlabel{properties:robustness}{{3.1.2}{20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Adversarial setting}{20}{}\protected@file@percent }
+\citation{goodfellowExplainingHarnessingAdversarial2015}
+\citation{goodfellowExplainingHarnessingAdversarial2015}
+\citation{madryDeepLearningModels2019}
+\citation{pintorFastMinimumnormAdversarial2021}
+\citation{liuOutOfDistributionGeneralizationSurvey2023}
+\citation{wangGeneralizingUnseenDomains2022}
+\citation{wangImageQualityAssessment2004}
+\citation{guoComprehensiveEvaluationFramework2023}
+\citation{zhouDomainGeneralizationSurvey2022}
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{liuOutOfDistributionGeneralizationSurvey2023}
+\citation{arjovskyInvariantRiskMinimization2020}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Domain generalization setting}{22}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Robustness enhancement}{22}{}\protected@file@percent }
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{zhangMixupEmpiricalRisk2018}
+\citation{yunCutMixRegularizationStrategy2019}
+\citation{yaoImprovingOutofDistributionRobustness2022}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Robustness assessment with posterior agreement}{23}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Posterior in classification tasks}{23}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}The posterior agreement kernel}{25}{}\protected@file@percent }
+\newlabel{lemma:exchangeability}{{3.3.1}{25}}
+\newlabel{theorem:posterior_factorization}{{3.3.2}{25}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Analytical example}{26}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Posterior agreement beyond robustness}{26}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Results and discussion}{27}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:something}{{4}{19}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Discussion}{21}{}\protected@file@percent }
+\newlabel{sec:something}{{4}{27}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Discussion}{29}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:again_something}{{5}{21}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Supplementary material}{23}{}\protected@file@percent }
+\newlabel{sec:again_something}{{5}{29}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Supplementary material}{31}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:something}{{A}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Proof of problem formulation}{23}{}\protected@file@percent }
-\newlabel{sec:proofs}{{A.1}{23}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{25}{}\protected@file@percent }
-\newlabel{sec:kernel}{{A.2}{25}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Again Something}{29}{}\protected@file@percent }
+\newlabel{sec:something}{{A}{31}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Proof of problem formulation}{31}{}\protected@file@percent }
+\newlabel{sec:proofs}{{A.1}{31}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{33}{}\protected@file@percent }
+\newlabel{sec:kernel}{{A.2}{33}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Again Something}{37}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:again_something}{{B}{29}}
+\newlabel{sec:again_something}{{B}{37}}
 \bibstyle{plain}
 \bibdata{bibliography}
-\gdef \@abspage@last{43}
+\bibcite{arjovskyInvariantRiskMinimization2020}{1}
+\bibcite{arjovskyWassersteinGAN2017}{2}
+\bibcite{baiRecentAdvancesAdversarial2021}{3}
+\bibcite{blanchardGeneralizingSeveralRelated}{4}
+\bibcite{buhmannDataScienceAlgorithms2022}{5}
+\bibcite{buhmannInformationTheoreticModel2010}{6}
+\bibcite{buhmannPosteriorAgreementModel2022}{7}
+\bibcite{buhmannInformationTheoreticModel}{8}
+\bibcite{carliniEvaluatingRobustnessNeural2017}{9}
+\bibcite{casellaStatisticalInference2002}{10}
+\bibcite{chehreghaniInformationTheoreticModel}{11}
+\bibcite{cohenCertifiedAdversarialRobustness2019}{12}
+\bibcite{croceRobustBenchStandardizedAdversarial2021a}{13}
+\bibcite{euligDiagViB6DiagnosticBenchmark2021}{14}
+\bibcite{goodfellowExplainingHarnessingAdversarial2015}{15}
+\bibcite{grunwaldMinimumDescriptionLength2019}{16}
+\bibcite{guoComprehensiveEvaluationFramework2023}{17}
+\bibcite{hoDenoisingDiffusionProbabilistic2020}{18}
+\bibcite{ilyasAdversarialExamplesAre2019}{19}
+\bibcite{jimenezInductiveBiasDeep}{20}
+\bibcite{khoslaUndoingDamageDataset2012}{21}
+\bibcite{kohWILDSBenchmarkIntheWild2021}{22}
+\bibcite{liLearningGeneralizeMetaLearning2018}{23}
+\bibcite{liReviewAdversarialAttack2022}{24}
+\bibcite{liangComprehensiveSurveyTestTime2023}{25}
+\bibcite{liuOutOfDistributionGeneralizationSurvey2023}{26}
+\bibcite{madryDeepLearningModels2019}{27}
+\bibcite{miyatoVirtualAdversarialTraining2018}{28}
+\bibcite{muandetDomainGeneralizationInvariant2013}{29}
+\bibcite{n.vapnikNatureStatisticalLearning2000}{30}
+\bibcite{peiMultiAdversarialDomainAdaptation}{31}
+\bibcite{pintorFastMinimumnormAdversarial2021}{32}
+\bibcite{quinonero-candelaDatasetShiftMachine2009}{33}
+\bibcite{schmidtAdversariallyRobustGeneralization2018}{34}
+\bibcite{shenWassersteinDistanceGuided2018}{35}
+\bibcite{simonyanVeryDeepConvolutional2015}{36}
+\bibcite{szegedyIntriguingPropertiesNeural2014}{37}
+\bibcite{torralbaUnbiasedLookDataset2011}{38}
+\bibcite{tsiprasRobustnessMayBe2019}{39}
+\bibcite{voulodimosDeepLearningComputer2018}{40}
+\bibcite{wangMetaFineTuningNeural2020}{41}
+\bibcite{wangGeneralizingUnseenDomains2022}{42}
+\bibcite{wangGeometricalApproachEvaluate2023}{43}
+\bibcite{wangImageQualityAssessment2004}{44}
+\bibcite{wangBetterDiffusionModels2023}{45}
+\bibcite{wengEvaluatingRobustnessNeural2018}{46}
+\bibcite{xiaoGeneratingAdversarialExamples2019}{47}
+\bibcite{yaoImprovingOutofDistributionRobustness2022}{48}
+\bibcite{yuPACSDatasetPhysical2022}{49}
+\bibcite{yunCutMixRegularizationStrategy2019}{50}
+\bibcite{zhangTheoreticallyPrincipledTradeoff2019}{51}
+\bibcite{zhangMixupEmpiricalRisk2018}{52}
+\bibcite{zhouDomainGeneralizationSurvey2022}{53}
+\gdef \@abspage@last{53}

@@ -1,3 +1,275 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{arjovskyInvariantRiskMinimization2020}
+Martin Arjovsky, Léon Bottou, Ishaan Gulrajani, and David Lopez-Paz.
+\newblock Invariant {{Risk Minimization}}.
+
+\bibitem{arjovskyWassersteinGAN2017}
+Martin Arjovsky, Soumith Chintala, and Léon Bottou.
+\newblock Wasserstein {{GAN}}.
+
+\bibitem{baiRecentAdvancesAdversarial2021}
+Tao Bai, Jinqi Luo, Jun Zhao, Bihan Wen, and Qian Wang.
+\newblock Recent {{Advances}} in {{Adversarial Training}} for {{Adversarial
+  Robustness}}.
+
+\bibitem{blanchardGeneralizingSeveralRelated}
+Gilles Blanchard, Gyemin Lee, and Clayton Scott.
+\newblock Generalizing from {{Several Related Classification Tasks}} to a {{New
+  Unlabeled Sample}}.
+
+\bibitem{buhmannDataScienceAlgorithms2022}
+Joachim~M. Buhmann.
+\newblock Data {{Science Algorithms}} and the {{Rate-Distortion Tradeoff}}.
+
+\bibitem{buhmannInformationTheoreticModel2010}
+Joachim~M. Buhmann.
+\newblock Information theoretic model validation for clustering.
+
+\bibitem{buhmannPosteriorAgreementModel2022}
+Joachim~M. Buhmann.
+\newblock Posterior {{Agreement}} for {{Model Robustness Assessment}} in
+  {{Covariate Shift Scenarios}}.
+
+\bibitem{buhmannInformationTheoreticModel}
+Joachim~M Buhmann, Morteza~Haghir Chehreghani, Mario Frank, and Andreas~P
+  Streich.
+\newblock Information {{Theoretic Model Selection}} for {{Pattern Analysis}}.
+
+\bibitem{carliniEvaluatingRobustnessNeural2017}
+Nicholas Carlini and David Wagner.
+\newblock Towards {{Evaluating}} the {{Robustness}} of {{Neural Networks}}.
+
+\bibitem{casellaStatisticalInference2002}
+George Casella and Roger L.~Berger.
+\newblock {\em Statistical {{Inference}}}.
+\newblock Wadsworth Group Duxbury, second edition.
+
+\bibitem{chehreghaniInformationTheoreticModel}
+Morteza~Haghir Chehreghani, Alberto~Giovanni Busetto, and Joachim~M Buhmann.
+\newblock Information {{Theoretic Model Validation}} for {{Spectral
+  Clustering}}.
+
+\bibitem{cohenCertifiedAdversarialRobustness2019}
+Jeremy~M. Cohen, Elan Rosenfeld, and J.~Zico Kolter.
+\newblock Certified {{Adversarial Robustness}} via {{Randomized Smoothing}}.
+
+\bibitem{croceRobustBenchStandardizedAdversarial2021a}
+Francesco Croce, Maksym Andriushchenko, Vikash Sehwag, Edoardo Debenedetti,
+  Nicolas Flammarion, Mung Chiang, Prateek Mittal, and Matthias Hein.
+\newblock {{RobustBench}}: A standardized adversarial robustness benchmark.
+
+\bibitem{euligDiagViB6DiagnosticBenchmark2021}
+Elias Eulig, Piyapat Saranrittichai, Chaithanya~Kumar Mummadi, Kilian Rambach,
+  William Beluch, Xiahan Shi, and Volker Fischer.
+\newblock {{DiagViB-6}}: {{A Diagnostic Benchmark Suite}} for {{Vision Models}}
+  in the {{Presence}} of {{Shortcut}} and {{Generalization Opportunities}}.
+
+\bibitem{goodfellowExplainingHarnessingAdversarial2015}
+Ian~J. Goodfellow, Jonathon Shlens, and Christian Szegedy.
+\newblock Explaining and {{Harnessing Adversarial Examples}}.
+
+\bibitem{grunwaldMinimumDescriptionLength2019}
+Peter Grünwald and Teemu Roos.
+\newblock Minimum {{Description Length Revisited}}.
+\newblock 11(01):1930001.
+
+\bibitem{guoComprehensiveEvaluationFramework2023}
+Jun Guo, Wei Bao, Jiakai Wang, Yuqing Ma, Xinghai Gao, Gang Xiao, Aishan Liu,
+  Jian Dong, Xianglong Liu, and Wenjun Wu.
+\newblock A comprehensive evaluation framework for deep model robustness.
+\newblock 137:109308.
+
+\bibitem{hoDenoisingDiffusionProbabilistic2020}
+Jonathan Ho, Ajay Jain, and Pieter Abbeel.
+\newblock Denoising {{Diffusion Probabilistic Models}}.
+
+\bibitem{ilyasAdversarialExamplesAre2019}
+Andrew Ilyas, Shibani Santurkar, Dimitris Tsipras, Logan Engstrom, Brandon
+  Tran, and Aleksander Madry.
+\newblock Adversarial {{Examples Are Not Bugs}}, {{They Are Features}}.
+
+\bibitem{jimenezInductiveBiasDeep}
+Ortiz Jimenez.
+\newblock The inductive bias of deep learning: {{Connecting}} weights and
+  functions.
+
+\bibitem{khoslaUndoingDamageDataset2012}
+Aditya Khosla, Tinghui Zhou, Tomasz Malisiewicz, Alexei~A. Efros, and Antonio
+  Torralba.
+\newblock Undoing the {{Damage}} of {{Dataset Bias}}.
+\newblock In Andrew Fitzgibbon, Svetlana Lazebnik, Pietro Perona, Yoichi Sato,
+  and Cordelia Schmid, editors, {\em Computer {{Vision}} – {{ECCV}} 2012},
+  volume 7572, pages 158--171. Springer Berlin Heidelberg.
+
+\bibitem{kohWILDSBenchmarkIntheWild2021}
+Pang~Wei Koh, Shiori Sagawa, Henrik Marklund, Sang~Michael Xie, Marvin Zhang,
+  Akshay Balsubramani, Weihua Hu, Michihiro Yasunaga, Richard~Lanas Phillips,
+  Irena Gao, Tony Lee, Etienne David, Ian Stavness, Wei Guo, Berton~A.
+  Earnshaw, Imran~S. Haque, Sara Beery, Jure Leskovec, Anshul Kundaje, Emma
+  Pierson, Sergey Levine, Chelsea Finn, and Percy Liang.
+\newblock {{WILDS}}: {{A Benchmark}} of in-the-{{Wild Distribution Shifts}}.
+
+\bibitem{liLearningGeneralizeMetaLearning2018}
+Da~Li, Yongxin Yang, Yi-Zhe Song, and Timothy Hospedales.
+\newblock Learning to {{Generalize}}: {{Meta-Learning}} for {{Domain
+  Generalization}}.
+\newblock 32(1).
+
+\bibitem{liReviewAdversarialAttack2022}
+Yao Li, Minhao Cheng, Cho-Jui Hsieh, and Thomas C.~M. Lee.
+\newblock A {{Review}} of {{Adversarial Attack}} and {{Defense}} for
+  {{Classification Methods}}.
+\newblock 76(4):329--345.
+
+\bibitem{liangComprehensiveSurveyTestTime2023}
+Jian Liang, Ran He, and Tieniu Tan.
+\newblock A {{Comprehensive Survey}} on {{Test-Time Adaptation}} under
+  {{Distribution Shifts}}.
+
+\bibitem{liuOutOfDistributionGeneralizationSurvey2023}
+Jiashuo Liu, Zheyan Shen, Yue He, Xingxuan Zhang, Renzhe Xu, Han Yu, and Peng
+  Cui.
+\newblock Towards {{Out-Of-Distribution Generalization}}: {{A Survey}}.
+
+\bibitem{madryDeepLearningModels2019}
+Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and
+  Adrian Vladu.
+\newblock Towards {{Deep Learning Models Resistant}} to {{Adversarial
+  Attacks}}.
+
+\bibitem{miyatoVirtualAdversarialTraining2018}
+Takeru Miyato, Shin-ichi Maeda, Masanori Koyama, and Shin Ishii.
+\newblock Virtual {{Adversarial Training}}: {{A Regularization Method}} for
+  {{Supervised}} and {{Semi-Supervised Learning}}.
+
+\bibitem{muandetDomainGeneralizationInvariant2013}
+Krikamol Muandet, David Balduzzi, and Bernhard Schölkopf.
+\newblock Domain {{Generalization}} via {{Invariant Feature Representation}}.
+
+\bibitem{n.vapnikNatureStatisticalLearning2000}
+Vladimir N.~Vapnik.
+\newblock {\em The {{Nature}} of {{Statistical Learning Theory}}}.
+\newblock Second edition.
+
+\bibitem{peiMultiAdversarialDomainAdaptation}
+Zhongyi Pei, Zhangjie Cao, Mingsheng Long, and Jianmin Wang.
+\newblock Multi-{{Adversarial Domain Adaptation}}.
+
+\bibitem{pintorFastMinimumnormAdversarial2021}
+Maura Pintor, Fabio Roli, Wieland Brendel, and Battista Biggio.
+\newblock Fast {{Minimum-norm Adversarial Attacks}} through {{Adaptive Norm
+  Constraints}}.
+
+\bibitem{quinonero-candelaDatasetShiftMachine2009}
+Joaquin Quiñonero-Candela, editor.
+\newblock {\em Dataset Shift in Machine Learning}.
+\newblock Neural Information Processing Series. MIT Press.
+
+\bibitem{schmidtAdversariallyRobustGeneralization2018}
+Ludwig Schmidt, Shibani Santurkar, Dimitris Tsipras, Kunal Talwar, and
+  Aleksander Mądry.
+\newblock Adversarially {{Robust Generalization Requires More Data}}.
+
+\bibitem{shenWassersteinDistanceGuided2018}
+Jian Shen, Yanru Qu, Weinan Zhang, and Yong Yu.
+\newblock Wasserstein {{Distance Guided Representation Learning}} for {{Domain
+  Adaptation}}.
+
+\bibitem{simonyanVeryDeepConvolutional2015}
+Karen Simonyan and Andrew Zisserman.
+\newblock Very {{Deep Convolutional Networks}} for {{Large-Scale Image
+  Recognition}}.
+
+\bibitem{szegedyIntriguingPropertiesNeural2014}
+Christian Szegedy, Wojciech Zaremba, Ilya Sutskever, Joan Bruna, Dumitru Erhan,
+  Ian Goodfellow, and Rob Fergus.
+\newblock Intriguing properties of neural networks.
+
+\bibitem{torralbaUnbiasedLookDataset2011}
+Antonio Torralba and Alexei~A. Efros.
+\newblock Unbiased look at dataset bias.
+\newblock In {\em {{CVPR}} 2011}, pages 1521--1528. IEEE.
+
+\bibitem{tsiprasRobustnessMayBe2019}
+Dimitris Tsipras, Shibani Santurkar, Logan Engstrom, Alexander Turner, and
+  Aleksander Madry.
+\newblock Robustness {{May Be}} at {{Odds}} with {{Accuracy}}.
+
+\bibitem{voulodimosDeepLearningComputer2018}
+Athanasios Voulodimos, Nikolaos Doulamis, Anastasios Doulamis, and Eftychios
+  Protopapadakis.
+\newblock Deep {{Learning}} for {{Computer Vision}}: {{A Brief Review}}.
+\newblock 2018:1--13.
+
+\bibitem{wangMetaFineTuningNeural2020}
+Chengyu Wang, Minghui Qiu, Jun Huang, and Xiaofeng He.
+\newblock Meta {{Fine-Tuning Neural Language Models}} for {{Multi-Domain Text
+  Mining}}.
+
+\bibitem{wangGeneralizingUnseenDomains2022}
+Jindong Wang, Cuiling Lan, Chang Liu, Yidong Ouyang, Tao Qin, Wang Lu, Yiqiang
+  Chen, Wenjun Zeng, and Philip~S. Yu.
+\newblock Generalizing to {{Unseen Domains}}: {{A Survey}} on {{Domain
+  Generalization}}.
+
+\bibitem{wangGeometricalApproachEvaluate2023}
+Yang Wang, Bo~Dong, Ke~Xu, Haiyin Piao, Yufei Ding, Baocai Yin, and Xin Yang.
+\newblock A {{Geometrical Approach}} to {{Evaluate}} the {{Adversarial
+  Robustness}} of {{Deep Neural Networks}}.
+\newblock 19:1--17.
+
+\bibitem{wangImageQualityAssessment2004}
+Z.~Wang, A.C. Bovik, H.R. Sheikh, and E.P. Simoncelli.
+\newblock Image {{Quality Assessment}}: {{From Error Visibility}} to
+  {{Structural Similarity}}.
+\newblock 13(4):600--612.
+
+\bibitem{wangBetterDiffusionModels2023}
+Zekai Wang, Tianyu Pang, Chao Du, Min Lin, Weiwei Liu, and Shuicheng Yan.
+\newblock Better {{Diffusion Models Further Improve Adversarial Training}}.
+
+\bibitem{wengEvaluatingRobustnessNeural2018}
+Tsui-Wei Weng, Huan Zhang, Pin-Yu Chen, Jinfeng Yi, Dong Su, Yupeng Gao,
+  Cho-Jui Hsieh, and Luca Daniel.
+\newblock Evaluating the {{Robustness}} of {{Neural Networks}}: {{An Extreme
+  Value Theory Approach}}.
+
+\bibitem{xiaoGeneratingAdversarialExamples2019}
+Chaowei Xiao, Bo~Li, Jun-Yan Zhu, Warren He, Mingyan Liu, and Dawn Song.
+\newblock Generating {{Adversarial Examples}} with {{Adversarial Networks}}.
+
+\bibitem{yaoImprovingOutofDistributionRobustness2022}
+Huaxiu Yao, Yu~Wang, Sai Li, Linjun Zhang, Weixin Liang, James Zou, and Chelsea
+  Finn.
+\newblock Improving {{Out-of-Distribution Robustness}} via {{Selective
+  Augmentation}}.
+
+\bibitem{yuPACSDatasetPhysical2022}
+Samuel Yu, Peter Wu, Paul~Pu Liang, Ruslan Salakhutdinov, and Louis-Philippe
+  Morency.
+\newblock {{PACS}}: {{A Dataset}} for {{Physical Audiovisual CommonSense
+  Reasoning}}.
+
+\bibitem{yunCutMixRegularizationStrategy2019}
+Sangdoo Yun, Dongyoon Han, Seong~Joon Oh, Sanghyuk Chun, Junsuk Choe, and
+  Youngjoon Yoo.
+\newblock {{CutMix}}: {{Regularization Strategy}} to {{Train Strong
+  Classifiers}} with {{Localizable Features}}.
+
+\bibitem{zhangTheoreticallyPrincipledTradeoff2019}
+Hongyang Zhang, Yaodong Yu, Jiantao Jiao, Eric~P. Xing, Laurent~El Ghaoui, and
+  Michael~I. Jordan.
+\newblock Theoretically {{Principled Trade-off}} between {{Robustness}} and
+  {{Accuracy}}.
+
+\bibitem{zhangMixupEmpiricalRisk2018}
+Hongyi Zhang, Moustapha Cisse, Yann~N. Dauphin, and David Lopez-Paz.
+\newblock Mixup: {{Beyond Empirical Risk Minimization}}.
+
+\bibitem{zhouDomainGeneralizationSurvey2022}
+Kaiyang Zhou, Ziwei Liu, Yu~Qiao, Tao Xiang, and Chen~Change Loy.
+\newblock Domain {{Generalization}}: {{A Survey}}.
+\newblock pages 1--20.
 
 \end{thebibliography}

@@ -1,33 +1,35 @@
 \contentsline {chapter}{Abstract}{v}{}%
 \contentsline {chapter}{Notation}{vii}{}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
-\contentsline {section}{\numberline {1.1}Motivation and objectives}{1}{}%
-\contentsline {section}{\numberline {1.2}Related work}{1}{}%
-\contentsline {chapter}{\numberline {2}Theoretical background }{3}{}%
-\contentsline {section}{\numberline {2.1}The learning framework}{3}{}%
-\contentsline {subsection}{\numberline {2.1.1}Empirical risk minimization}{3}{}%
-\contentsline {subsection}{\numberline {2.1.2}Regularized risk minimization}{4}{}%
-\contentsline {section}{\numberline {2.2}Learning with neural networks}{4}{}%
-\contentsline {subsection}{\numberline {2.2.1}Backpropagation and gradient descent}{5}{}%
-\contentsline {subsection}{\numberline {2.2.2}Loss landscape and parameter space}{5}{}%
-\contentsline {section}{\numberline {2.3}Posterior agreement}{6}{}%
-\contentsline {subsection}{\numberline {2.3.1}Posterior distribution}{6}{}%
-\contentsline {subsection}{\numberline {2.3.2}Generalization error}{7}{}%
-\contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{9}{}%
-\contentsline {chapter}{\numberline {3}Experimental setup}{11}{}%
-\contentsline {section}{\numberline {3.1}Problem formulation}{11}{}%
-\contentsline {subsection}{\numberline {3.1.1}The classification problem}{11}{}%
-\contentsline {subsection}{\numberline {3.1.2}Covariate shift robustness in classification tasks}{12}{}%
-\contentsline {subsection}{\numberline {3.1.3}Adversarial setting}{14}{}%
-\contentsline {subsection}{\numberline {3.1.4}Out-of-distribution setting}{14}{}%
-\contentsline {section}{\numberline {3.2}Posterior agreement as a measure of robustness}{14}{}%
-\contentsline {subsection}{\numberline {3.2.1}Posterior in classification tasks}{14}{}%
-\contentsline {subsection}{\numberline {3.2.2}The posterior agreement kernel}{15}{}%
-\contentsline {subsection}{\numberline {3.2.3}Analytical example}{17}{}%
-\contentsline {section}{\numberline {3.3}Posterior agreement beyond robustness}{17}{}%
-\contentsline {chapter}{\numberline {4}Results and discussion}{19}{}%
-\contentsline {chapter}{\numberline {5}Discussion}{21}{}%
-\contentsline {chapter}{\numberline {A}Supplementary material}{23}{}%
-\contentsline {section}{\numberline {A.1}Proof of problem formulation}{23}{}%
-\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{25}{}%
-\contentsline {chapter}{\numberline {B}Again Something}{29}{}%
+\contentsline {section}{\numberline {1.1}The robustness challenge}{1}{}%
+\contentsline {subsection}{\numberline {1.1.1}Adversarial setting}{2}{}%
+\contentsline {subsection}{\numberline {1.1.2}Out-of-distribution setting}{4}{}%
+\contentsline {section}{\numberline {1.2}Related work}{6}{}%
+\contentsline {section}{\numberline {1.3}Objectives}{7}{}%
+\contentsline {chapter}{\numberline {2}Theoretical background }{9}{}%
+\contentsline {section}{\numberline {2.1}The learning framework}{9}{}%
+\contentsline {section}{\numberline {2.2}Learning with neural networks}{10}{}%
+\contentsline {subsection}{\numberline {2.2.1}Backpropagation and gradient descent}{10}{}%
+\contentsline {subsection}{\numberline {2.2.2}Loss landscape and parameter space}{11}{}%
+\contentsline {section}{\numberline {2.3}Posterior agreement}{11}{}%
+\contentsline {subsection}{\numberline {2.3.1}Posterior distribution}{12}{}%
+\contentsline {subsection}{\numberline {2.3.2}Generalization error}{13}{}%
+\contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{14}{}%
+\contentsline {chapter}{\numberline {3}Experimental setup}{17}{}%
+\contentsline {section}{\numberline {3.1}Problem formulation}{17}{}%
+\contentsline {subsection}{\numberline {3.1.1}The classification problem}{17}{}%
+\contentsline {subsection}{\numberline {3.1.2}Robustness to covariate shift}{18}{}%
+\contentsline {subsection}{\numberline {3.1.3}Adversarial setting}{20}{}%
+\contentsline {subsection}{\numberline {3.1.4}Domain generalization setting}{22}{}%
+\contentsline {section}{\numberline {3.2}Robustness enhancement}{22}{}%
+\contentsline {section}{\numberline {3.3}Robustness assessment with posterior agreement}{23}{}%
+\contentsline {subsection}{\numberline {3.3.1}Posterior in classification tasks}{23}{}%
+\contentsline {subsection}{\numberline {3.3.2}The posterior agreement kernel}{25}{}%
+\contentsline {subsection}{\numberline {3.3.3}Analytical example}{26}{}%
+\contentsline {section}{\numberline {3.4}Posterior agreement beyond robustness}{26}{}%
+\contentsline {chapter}{\numberline {4}Results and discussion}{27}{}%
+\contentsline {chapter}{\numberline {5}Discussion}{29}{}%
+\contentsline {chapter}{\numberline {A}Supplementary material}{31}{}%
+\contentsline {section}{\numberline {A.1}Proof of problem formulation}{31}{}%
+\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{33}{}%
+\contentsline {chapter}{\numberline {B}Again Something}{37}{}%
