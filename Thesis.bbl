@@ -80,6 +80,11 @@ Jun Guo, Wei Bao, Jiakai Wang, Yuqing Ma, Xinghai Gao, Gang Xiao, Aishan Liu,
 \newblock A comprehensive evaluation framework for deep model robustness.
 \newblock 137:109308.
 
+\bibitem{gutIntermediateCourseProbability2009}
+Allan Gut.
+\newblock {\em An {{Intermediate Course}} on {{Probability}}}.
+\newblock Springer, second edition.
+
 \bibitem{hoDenoisingDiffusionProbabilistic2020}
 Jonathan Ho, Ajay Jain, and Pieter Abbeel.
 \newblock Denoising {{Diffusion Probabilistic Models}}.
