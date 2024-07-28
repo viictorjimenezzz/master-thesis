@@ -4,10 +4,11 @@
 
 Statistical learning theory encompasses the mathematical framework used to
 study generalization in machine learning
-\cite{n.vapnikNatureStatisticalLearning2000,jimenezInductiveBiasDeep}.
+\cite{n.vapnikNatureStatisticalLearning2000}.
 In this formalism, the goal
-is to learn a target function $f^*: \mathcal{X} \longmapsto \mathcal{Y}$ by means of an approximated
-function $f \in \mathcal{F}$ using a finite set of observations. 
+is to learn a target function $f^*: \mathcal{X} \longmapsto \mathcal{Y}$ 
+by means of an approximated function $f \in \mathcal{F}$ using a 
+finite set of observations. 
 
 \begin{definition}[Supervised dataset]\label{def:dataset}
     Let $\mathcal{X}$ and $\mathcal{Y}$ be
@@ -21,37 +22,39 @@ function $f \in \mathcal{F}$ using a finite set of observations.
      target function mapping.
 
     $$
-    D = \{(x_n, f^*(x_n))\}_{n \in [N]} = \{(x_n, y_n)\}_{n \in [N]}
+    D = (\bm{x}, f^*(\bm{x})) = \{(x_n, f^*(x_n))\}_{n \in [N]}
     $$
 
     $\mathcal{D}$ will represent the class of supervised datasets generated from $\underbar{X}$.
 \end{definition}
 
-The quality of the approximation can be measured with the expected risk $\mathcal{R}(f)$
+The quality of the approximation can be measured with the expected risk $\mathcal{R}(f)$:
 
 $$
 \mathcal{R}(f)=\mathbb{E}_{X} [\mathcal{L}(f(x),f^\star(x))]
 $$
 
-where $\mathcal{L}: \mathcal{Y} \times \mathcal{Y} \to \mathbb{R}$ denotes a loss function. Glivenko-Cantelli theorem allow us to
-estimate the expected risk with its empirical (plug-in) analogous when $N$ is large enough \cite{gutIntermediateCourseProbability2009}.
+where $\mathcal{L}: \mathcal{Y} \times \mathcal{Y} \to \mathbb{R}$ denotes a loss function. 
+The Glivenko-Cantelli theorem allows us to estimate the expected risk 
+with its empirical (plug-in) analogous when $N$ is large 
+enough \cite{gutIntermediateCourseProbability2009}.
 
 \begin{definition}[Empirical risk]\label{def:erm}
-    Let $D$ and $\mathcal{L}$ be the dataset and loss function of our problem, respectively. The empirical risk of $f \in \mathcal{F}$
-    computed on $D$ is defined as
+    Let $D$ and $\mathcal{L}$ be the dataset and loss function of our problem, respectively. 
+    The empirical risk of $f \in \mathcal{F}$ computed on $D$ is defined as
 
     $$
-    \hat{\mathcal{R}}_D(f)=\frac{1}{N}\sum_{n=1}^{N}\mathcal{L}(f(x_{n}),f^{\star}(x_{n}))
+    \hat{\mathcal{R}}_D(f)=\frac{1}{N}\sum_{n=1}^{N}\mathcal{L}(f(x_{n}),f^{\star}(x_{n})).
     $$
 \end{definition}
 
-Training, therefore, amounts to minimizing the empirical risk over the function class $\mathcal{F}$.
+Training, therefore, amounts to minimizing the empirical risk over the function class $\mathcal{F}$:
 
 $$
-\text{ERM}_D = \hat{f}_D = \min_{f \in \mathcal{F}} \hat{\mathcal{R}}_D(f)
+\text{ERM}_D = \hat{f}_D = \min_{f \in \mathcal{F}} \hat{\mathcal{R}}_D(f).
 $$
 
-The best learning algorithm will be that with the lowest generalization error
+The best learning algorithm will be that achieving the lowest generalization error
 under sampling randomness, which is estimated as the empirical risk 
 on a different dataset $D' \in \mathcal{D}$. \\
 
@@ -72,11 +75,12 @@ Given that more expressive classes are always preferred by optimization algorith
 objective function is tweaqued to include a regularization term penalizing complexity.
 
 \begin{definition}[Regularized empirical risk]\label{def:rrm}
-    Let $\Omega: \mathcal{F} \to \mathbb{R}$ be a measure of complexity. The regularized empirical risk of a function $f$
-    computed on $D$ is defined as
+    Let $\Omega: \mathcal{F} \to \mathbb{R}$ be a functional quantifying the complexity
+    of the elements of the function class. The regularized empirical risk of $f \in \mathcal{F}$
+    computed on dataset $D$ is defined as
 
     $$
-    \hat{\mathcal{R}}_{\Omega}(f)=\hat{\mathcal{R}}(f) + \lambda \Omega(f)
+    \hat{\mathcal{R}}_{\Omega}(f)=\hat{\mathcal{R}}(f) + \lambda \Omega(f),
     $$
 
     where $\lambda \in \mathbb{R}$ controls the trade-off between empirical risk and generalization error.
@@ -95,75 +99,85 @@ performed within a single node
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{img/theoretical_background/nn_node.png}
+    \includegraphics[width=0.6\textwidth]{img/theoretical_background/nn_unit.png}
     \caption{The output of a node is computed by applying a non-linear
-    activation function $\sigma(\cdot)$ to the weighted sum of its inputs.}
+    activation function $\sigma$ to the weighted sum of its inputs $\bm{x}$ plus
+    a bias term $b$.}
     \label{fig:nn_node}
 \end{figure}
 
-Let $\bm{x}_k \in \mathbb{R}^{d_k}$ be the input to the layer $k \leq L$, and let $\bm{W} \in \mathbb{R}^{d_k \times d_{k+1}}$ be the $k$-th weight matrix. The output of the layer can be expressed as
+Let $\bm{x}_k \in \mathbb{R}^{d_k}$ be the input to the layer $k \leq L$, and 
+let $\bm{W} \in \mathbb{R}^{d_k \times d_{k+1}}$ be the $k$-th weight matrix. 
+The output of the layer can be expressed as
 
 $$
-\bm{x}_{k+1} = \sigma_k(\bm{z}_{k+1}) = \sigma_k(\bm{W}_k^T \bm{x}_k + \bm{b}_k)
+\bm{x}_{k+1} = \sigma_k(\bm{z}_{k+1}) = \sigma_k(\bm{W}_k^T \bm{x}_k + \bm{b}_k),
 $$
 
 where $\sigma_k$ is the non-linear activation function at layer $k$. We 
 can therefore express the overall transformation of a neural network
-as the composition of its layers.
+as the composition of its layers:
 
 $$
-f_{\text{NN}}(\bm{x}) = \bigcirc_{k=0}^{L-1} \sigma_k(\bm{W}_k^T \bm{x} + \bm{b}_k) = f(\bm{x}; \gamma)
+f_{\text{NN}}(\bm{x}) = \bigcirc_{k=0}^{L-1} \sigma_k(\bm{W}_k^T \bm{x} + \bm{b}_k) = f(\bm{x}; \gamma),
 $$
 
-where $\gamma$ represents the set of parameters of the network. In order to solve the learning problem, the optimization algorithm must navigate the non-convex loss
-landscape towards the minimum of the empirical risk. This is computationally achieved by means of gradient-descent-based optimizers, which compute the
-gradient over the parameters by means of the backpropagation algorithm.
-
-\subsection{Backpropagation and gradient descent}
-
-Let $w_{ji}^{(k)}$ be the weight from node $j$ on layer $k-1$ to node $i$ on layer $k$. Let $a_i^{(k-1)}$ be the output of node $i$ on layer $k-1$ and let $z_j^{(k)} = \sum_{i=0}^{n_k - 1} w_{ji}^{(k)} a_i^{(k-1)} + b_k^{(k)}$ be 
-the linear input of node $j$ on layer $k$, so that $a_j^{(k)} = \sigma_j(z_j^{(k)})$ is the ouput from node $j$. We can compute the gradient of the loss $\mathcal{L}$ with respect to the weights by means of the chain rule as follows: 
-
-$$  
-\frac{\partial \mathcal{L}}{\partial w_{ji}^{(k)}} = \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial a_{j}^{(k)}}{\partial z_{j}^{(k)}} \frac {\partial z_{j}^{(k)}} {\partial w_{ji}^{(k)}} =
-\frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial \sigma_j^{(k)}}{\partial z_{j}^{(k)}} a_i^{(k-1)}
-$$
-
-Given that the loss is computed as a function of the output of the network, all the edges from node $i$ of layer $k-1$ influence the loss value at that node:
-
-$$
-\frac{\partial \mathcal{L}}{\partial a_{i}^{(k-1)}} = \sum_{j=0}^{n_{k} - 1} \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}}  \frac{\partial a_{j}^{(k)}}{\partial z_{j}^{(k)}} \frac{\partial z_{j}^{(k)}}{\partial a_{i}^{(k-1)}} =
-\sum_{j=0}^{n_{k} - 1} \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial \sigma_j^{(k)}}{\partial z_{j}^{(k)}} w_{ji}^{(k)}
-$$
-
-All in all, we see that the same terms are required in different nodes to compute the gradient, making backpropagation algorithm very efficient. Equivalently, for the bias term:
-
-$$
-\frac{\partial \mathcal{L}}{\partial b_{j}^{(k)}} = \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial a_{j}^{(k)}}{\partial z_{j}^{(k)}} \frac {\partial z_{j}^{(k)}} {\partial b_{j}^{(k)}} = \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial \sigma_j^{(k)}}{\partial z_{j}^{(k)}}
-$$
-
-These derivatives are the components of the gradient vector that will be used to update the weights and biases of the network.
-
-$$
-w_{ji}^{(k)} = w_{ji}^{(k)} -\eta \frac{\partial \mathcal{L}}{\partial w_{ji}^{(k)}}
-$$
-
-$$
-b_{j}^{(k)} = b_{j}^{(k)} -\eta \frac{\partial \mathcal{L}}{\partial b_{j}^{(k)}}
-$$
-
-where $\eta$ is the learning rate. More efficient variations of gradient descent such as stochastic gradient descent or Adam are used in practice.
+where $\gamma \in \Gamma \subset \mathbb{R}^S$ represents the set of parameters of the network. In order to solve the learning problem, the optimization algorithm must navigate the non-convex loss
+landscape towards the minimum of the empirical risk. This is computationally achieved 
+by means of gradient-descent-based optimizers, which efficiently compute the
+gradient over the parameters via the backpropagation algorithm 
+\cite{rumelhartLearningRepresentationsBackpropagating1986}. In practice, more efficient
+variations of gradient descent are used, such as stochastic gradient descent 
+\cite{ruderOverviewGradientDescent2017} 
+or the Adam optimizer 
+\cite{kingmaAdamMethodStochastic2017}. \\
 
 
-\subsection{Loss landscape and parameter space}
+% \subsection{Backpropagation and gradient descent}
+
+% Let $w_{ji}^{(k)}$ be the weight from node $j$ on layer $k-1$ to node $i$ on layer $k$. Let $a_i^{(k-1)}$ be the output of node $i$ on layer $k-1$ and let $z_j^{(k)} = \sum_{i=0}^{n_k - 1} w_{ji}^{(k)} a_i^{(k-1)} + b_k^{(k)}$ be 
+% the linear input of node $j$ on layer $k$, so that $a_j^{(k)} = \sigma_j(z_j^{(k)})$ is the ouput from node $j$. We can compute the gradient of the loss $\mathcal{L}$ with respect to the weights by means of the chain rule as follows: 
+
+% $$  
+% \frac{\partial \mathcal{L}}{\partial w_{ji}^{(k)}} = \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial a_{j}^{(k)}}{\partial z_{j}^{(k)}} \frac {\partial z_{j}^{(k)}} {\partial w_{ji}^{(k)}} =
+% \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial \sigma_j^{(k)}}{\partial z_{j}^{(k)}} a_i^{(k-1)}
+% $$
+
+% Given that the loss is computed as a function of the output of the network, all the edges from node $i$ of layer $k-1$ influence the loss value at that node:
+
+% $$
+% \frac{\partial \mathcal{L}}{\partial a_{i}^{(k-1)}} = \sum_{j=0}^{n_{k} - 1} \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}}  \frac{\partial a_{j}^{(k)}}{\partial z_{j}^{(k)}} \frac{\partial z_{j}^{(k)}}{\partial a_{i}^{(k-1)}} =
+% \sum_{j=0}^{n_{k} - 1} \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial \sigma_j^{(k)}}{\partial z_{j}^{(k)}} w_{ji}^{(k)}
+% $$
+
+% All in all, we see that the same terms are required in different nodes to compute the gradient, making backpropagation algorithm very efficient. Equivalently, for the bias term:
+
+% $$
+% \frac{\partial \mathcal{L}}{\partial b_{j}^{(k)}} = \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial a_{j}^{(k)}}{\partial z_{j}^{(k)}} \frac {\partial z_{j}^{(k)}} {\partial b_{j}^{(k)}} = \frac{\partial \mathcal{L}}{\partial a_{j}^{(k)}} \frac{\partial \sigma_j^{(k)}}{\partial z_{j}^{(k)}}
+% $$
+
+% These derivatives are the components of the gradient vector that will be used to update the weights and biases of the network.
+
+% $$
+% w_{ji}^{(k)} = w_{ji}^{(k)} -\eta \frac{\partial \mathcal{L}}{\partial w_{ji}^{(k)}}
+% $$
+
+% $$
+% b_{j}^{(k)} = b_{j}^{(k)} -\eta \frac{\partial \mathcal{L}}{\partial b_{j}^{(k)}}
+% $$
+
+% where $\eta$ is the learning rate. More efficient variations of gradient descent such as stochastic gradient descent or Adam are used in practice.
 
 
-A neural network architecture $\text{NN}$ can be expressed as a parametrization of the function space $\mathcal{F}$.
+% \subsection{Loss landscape and parameter space}
+
+
+A neural network architecture $\text{NN}$ can be expressed as a parametrization of the function space $\mathcal{F}$:
 
 $$
     \begin{aligned}
         \text{NN}: \Gamma & \subseteq \mathbb{R}^{S} \longmapsto \mathcal{F}_{\Gamma} \\
-        \gamma & \longmapsto f(\bm{x}; \gamma) = f_{\text{NN}}(\bm{x})
+        \gamma & \longmapsto f(\bm{x}; \gamma) = f_{\text{NN}}(\bm{x}),
     \end{aligned}
 $$
 
@@ -171,8 +185,8 @@ where $\Gamma$ is the parameter space associated with this particular architectu
 landscape $\mathcal{F}_{\Gamma}$ consists of all mappings $f(\gamma): \mathcal{X} \longmapsto \mathcal{Y}$ that 
 that can be realized by some parameter configuration $\gamma \in \Gamma$. \\
 
-Universal approximation theorems state that arbitrarily wide or abitrarily deep architectures
-are able to represent virtually any function, but it is an open challenge to theoretically describe which
+The universal approximation theorem states that an arbitrarily wide architecture
+is able to represent virtually any function, but it is an open challenge to theoretically describe which
 complexity measure regulates generalization. A possible approach to this problem is to
 study the geometry of the loss landscape, especially in the vicinity of local minima. For instance, 
 connected flat minima are often linked to better generalization capabilities, as they
@@ -186,15 +200,15 @@ data sampling process.
 
 \section{Posterior agreement}
 
-As it was mentioned in the first lines of this chapter, the input of learning algorithms are
-datasets containing samples of the random variable $X$ with support $\mathcal{X}$. The
-implicit randomness embedded in the sampling process extends to the outcome of algorithms,
+As mentioned at the start of the chapter, the input of learning algorithms are
+datasets containing samples of a random variable $X$ with support $\mathcal{X}$. The implicit randomness embedded 
+in the sampling process extends to the learning outcome of algorithms,
 even when performing a deterministic set of operations
 \cite{buhmannDataScienceAlgorithms2022}. 
 An alternative intuition of 
 generalization arises from this perspective, in the sense that a good algorithm should be
 expected to learn the same function when trained on different realizations 
-of the same experiment; that is, when datasets are drawn from the same distribution 
+of the same experiment; that is, when datasets are drawn from the same random vector 
 but entail different instantiations of the noise associated with the sampling process. \\
 
 A regularization principle is derived from this intuition and can be formalized as a
@@ -203,23 +217,32 @@ of the learned function to sampling noise. A suitable measure of complexity in t
 is the informativeness of the function, which represents its ability to learn the patterns in the
 data while filtering out the noise. The more expressive (i.e. complex) a function class is,
 the higher will be the estimated information content of the data. If the information content is
-overestimated, the approximated function will overfit to the noise and thus not generalize to
-different realizations of the experiment
+underestimated, the approximated function will lack the capacity to learn some patterns in
+the data, whereas if informativeness is overestimated, it will overfit to the noise and 
+thus not generalize to different realizations of the experiment
 \cite{chehreghaniInformationTheoreticModel,buhmannInformationTheoreticModel,buhmannInformationTheoreticModel2010}. \\
 
 The robustness-informativeness regularization principle can be enforced from the set 
-of outputs of the learned model. This section will formalize this principle and derive an
-operative model selection criterion.
+of outputs of the learned model, when both the distribution of the data over the support 
+and the sampling randomness associated to its measurement are accounted for. This section 
+will formalize this principle and derive an expression for the minimization of
+the generalization error under this framework.
 
-\begin{definition}[Distribution of $\underbar{X}$]
-    The simple random sample $\underbar{X} \overset{\text{iid}}{\sim} X$ has a probability distribution
-    described by the density function $f_{\underbar{X}}$.
+\begin{definition}[Data distribution]
+    The (simple) random sample $\underbar{X} \overset{\text{iid}}{\sim} X$ has a probability distribution
+    described by the density function $f_{\underbar{X}}$:
 
     $$
-     f_{\underbar{X}} = \prod_{n=1}^{N} f_{X}(x)
+     f_{\underbar{X}} = \prod_{n=1}^{N} f_{X}(x).
     $$
 
-    We will use $\mathbf{P}_{\underbar{X}}$ to refer to the measure of probability encoded in this distribution.
+    We will use $\mathbf{P}_{X}$ to refer to the empirical approximation of this distribution; 
+    that is, to the distribution of samples in a dataset $D$ drawn from $\underbar{X}$:
+
+    $$
+    \mathbf{P}_{X} = \frac{1}{N} \sum_{n=1}^{N} \delta(x - x_n).
+    $$
+
 \end{definition}
 
 \begin{definition}[Sample]
@@ -231,7 +254,7 @@ operative model selection criterion.
     of the possible experimental conditions for the data sampling 
     process from $X$. The dependency of measurement 
     realizations $\bm{x} \sim \underbar{X}$ on experimental conditions 
-    will be captured by index $\tau$, and we will implicitely consider sample
+    will be captured by index $\tau$, and we will implicitly consider sample
     
     $$
         \bm{x} := \tau \circ \bm{x}
@@ -241,12 +264,30 @@ operative model selection criterion.
     nature of $\tau$, we will also refer to it as noise instantiation.
 \end{definition}
 
+These concepts will allow us to quantify the nature of the randomness that we are enforcing
+models to be invariant to. A dataset drawn from $\underbar{X}$ entails a 
+noise instantiation $\tau$ that is not observed, which implies that we don't have access to the 
+true information content of the data that derives from its true distribution $f_{\underbar{X}}$.
+
 \subsection{Posterior distribution}
 
 %The approximating function $f \in \mathcal{F}$ has been defined as a mapping 
 %$\mathcal{X} \longmapsto \mathcal{Y}$, in the sense that an observation $x \in \mathcal{X}$ is mapped to
 %a prediction $f(x) \in \mathcal{Y}$. A subtle abuse of notation will be made when considering
 %5$f$ to be a 
+
+% THIS IS NOT TRUE
+% The data informativeness approximation entailed by the model depends fundamentally
+% on the nature of the learning problem, since different tasks will demand different levels of
+% informativeness. In the supervised learning framework, we can analogously consider a target 
+% information content, which refers to the informativeness of the true mapping of the dataset 
+% class. The quality of the approximation will be thus given by the alignment of the informativeness
+% attributed to the data with the target information content, which .
+
+
+% Following this intuition, the robustness of a model will be given by 
+% its stability under different noise instantiations,  which is maximum when samples containing the same information are mapped to the same 
+% output.
 
 \begin{definition}[Hypothesis class]
     Let $\mathcal{D}$ be the class of datasets generated from $N$-sized realizations of $\underbar{X}$. 
@@ -255,12 +296,13 @@ operative model selection criterion.
     $$
     \begin{aligned}
         f: \mathcal{D} & \longmapsto \Theta \\
-        \bm{x}  & \longmapsto (f(x_1), \dots, f(x_N)) = \theta
+        \bm{x}  & \longmapsto (f(x_1), \dots, f(x_N)) = \theta.
     \end{aligned}
     $$
 
     The hypothesis class $\Theta$ is the output space of hypothesis representing all 
-    possible outcomes of a function $f$ learned on a dataset sampled from $\underbar{X}$.
+    possible outcomes of a function $f$ learned on a dataset sampled from $\underbar{X}$
+    \cite{buhmannDataScienceAlgorithms2022}.
 
 \end{definition}
 
@@ -276,11 +318,11 @@ For instance, complexity in the hypothesis class can be associated to the nature
 randomness displayed by $X$. Ideally, too restrictive hypothesis classes that lack desirable
 hypothesis for some realization $\bm{x} \sim \underbar{X}$ should be avoided, and also those hypothesis
 classes containing unrealizable elements (i.e. hypothesis that are not outcome of
-any possible realization of the experiment). A richness condition can thus be postulated following
-this intuition. \\
+any possible realization of the experiment). A richness condition for the construction of $\Theta$ 
+can thus be postulated following this intuition. \\
 
 \begin{definition}[Richness condition]
-    We require a
+    $\Theta$ should stem from a
     sufficiently rich set of experimental conditions $\mathbb{T}$ such that every hypothesis $\theta \in \Theta$
     is the outcome of some realization $\bm{x} \sim \underbar{X}$.
 
@@ -290,19 +332,19 @@ this intuition. \\
 \end{definition}
 
 
-Since we assume a mapping $f$ and a data distribution $\mathbf{P}_{\underbar{X}}$, we can describe
-the randomness of the hypothesis outcome conditioned on the the distribution of the data.
+Since we assume a mapping $f$ and a data distribution $\mathbf{P}_{X}$, we can describe
+the randomness of the hypothesis outcome conditioned on the distribution of the data.
 
 \begin{definition}[Posterior]\label{def:posterior}
     Let $\mathfrak{P}^f$ be a probability distribution family under consideration.
     A probability distribution over the hypothesis class can be defined as a 
     conditional distribution given an realization $\bm{x} \sim \underbar{X}$. 
-    We will refer to this distribution as the posterior over $\Theta$ under $f$.
+    We will refer to this distribution as the posterior over $\Theta$ under $f$:
 
     $$
         \begin{aligned}
             \mathbf{P}^f: \mathcal{D} \times \Theta & \longmapsto \mathbb{R} \\
-            (\bm{x}, \theta) & \longmapsto \mathbf{P}^f (\theta \mid \bm{x})
+            (\bm{x}, \theta) & \longmapsto \mathbf{P}^f (\theta \mid \bm{x}).
         \end{aligned}
     $$
 
@@ -315,30 +357,30 @@ theory. For instance, we can obtain the (prior) probability of a hypothesis to b
 selected by $f$ as
 
 $$
- \Pi^f (\theta) = \mathbb{E}_{\mathbb{T}} \; \mathbf{P}^f (\theta \mid \tau) = \mathbb{E}_{\underline{X}} \; \mathbf{P}^f (\theta \mid \bm{x})
+ \Pi^f (\theta) = \mathbb{E}_{\mathbb{T}} \; \mathbf{P}^f (\theta \mid \tau) = \mathbb{E}_{\underline{X}} \; \mathbf{P}^f (\theta \mid \bm{x}),
 $$
 
 from which we can derive a probabilistic version of the richness condition, where a limit
-case can be imposed with exactly one experiment per hypothesis, leading to a uniform prior:
+case can be imposed with exactly one experiment per hypothesis, leading to a uniform prior
 
 $$
 \Pi^f (\theta) = |\Theta|^{-1}
 $$
 
-Within this framework, selecting suitable hypothesis classes amounts to selecting
+when the hypothesis class is finite. Within this framework, selecting suitable hypothesis classes amounts to selecting
 posterior distributions that yield a higher probability to the desired subset of hypothesis. This
 is the leading principle that will guide the derivations that follow.
 
 \subsection{Generalization error}
 
 In order to define a robustness-based generalization error, we will proceed in an
-analogous way as we did in the previuous section. We will consider the datasets $D'$ and $D''$
-that arise from different sampling realizations $\bm{x}', \bm{x}'' \sim \underbar{X}$. 
+analogous way as we did in the previuous section. We will consider datasets $D', D'' \in \mathcal{D}$
+each arising from a different sampling realization $\bm{x}', \bm{x}'' \sim \underbar{X}$, respectively. 
 Both realizations are independent and they differ in the implicit noise entailed by
-their measurement.
+their measurement:
 
 $$
-    \mathbf{P}(\bm{x}', \bm{x}'') = \mathbf{P}(\bm{x}') \mathbf{P}(\bm{x}'')
+    \mathbf{P}_{\bm{x}', \bm{x}''} = \mathbf{P}_{\bm{x}'} \mathbf{P}_{\bm{x}''}.
 $$
 
 Two posterior selection principles are derived from the robustness-informativeness trade-off:
@@ -359,24 +401,24 @@ Two posterior selection principles are derived from the robustness-informativene
     The code length of the argument of such distribution is
 
     $$
-    \text{DL}_{f_{\gamma}}(\cdot) = -\log f_{\gamma}(\cdot)
+    \text{DL}_{f_{\gamma}}(\cdot) = -\log f_{\gamma}(\cdot).
     $$
 \end{definition}
 
 The quality of the represented function $f$ will be measured by the description
-length of its posterior, and thus a loss function can be defined as follows
-\cite{buhmannDataScienceAlgorithms2022}.
+length of its posterior \cite{buhmannDataScienceAlgorithms2022}, and 
+thus a loss function can be defined as follows:
 
 $$
-    \ell (\theta, \bm{x}) = - \log \mathbf{P}^f (\theta \mid \bm {x})
+    \ell (\theta, \bm{x}) = - \log \mathbf{P}^f (\theta \mid \bm {x}).
 $$
 
 Given that description length also accounts for the complexity of the hypothesis
 class and not only its generalization capabilities, we will normalize loss values by
-dividing by the description length of the prior.
+dividing by the description length of the prior:
 
 $$
-    - \log \Pi^f (\theta) = - \log \mathbb{E}_{\underline{X}} \mathbf{P}^f (\theta \mid \bm{x})
+    - \log \Pi^f (\theta) = - \log \mathbb{E}_{\underline{X}} \mathbf{P}^f (\theta \mid \bm{x}).
 $$
 
 \begin{definition}[Generalization error]
@@ -385,7 +427,7 @@ $$
     The generalization error is defined as the out-of-sample description length:
 
     $$
-        \mathcal{G}_{\mathcal{X}} = \mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \left[ - \log \frac{\mathbf{P}^f(\theta | \bm{x}'')}{\Pi^f (\theta)} \right]
+        \mathcal{G}_{\mathcal{X}} = \mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \left[ - \log \frac{\mathbf{P}^f(\theta | \bm{x}'')}{\Pi^f (\theta)} \right].
     $$
     
 \end{definition}
@@ -395,37 +437,28 @@ $\bm{x}''$ weighted over the posterior distribution on the training data $\bm{x}
 Intuitively, a lower generalization error is achieved when good quality hypothesis
 on $\bm{x}''$ are likely to be drawn from $\bm{x}'$. 
 
+
 \begin{lemma}[Posterior agreement]\label{lemma:pa}
-    The generalization error $\mathcal{G}_{\mathcal{X}}$ is non-negative and has a lower bound $-\mathcal{J}$. We define $\mathcal{J}$ as the posterior agreement.
+    The generalization error $\mathcal{G}_{\mathcal{X}}$ is non-negative and has a lower bound $-\mathcal{J}$. 
+    \textcolor{blue}{We define $\mathcal{J}$ as the posterior agreement.}
 \end{lemma}
 \begin{proof}
     $$
     \begin{aligned}
         \mathcal{G}_{\mathcal{X}} & \geq \mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')}\left[-\log \left(\mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)\right] \\
-        & =\mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \left[-\log \left(\sum_{\theta \in \Theta} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}'\right) \mathbf{P}^{f}\left(\theta \mid \bm{x}'' \right)}{\Pi^{f}(\theta)}\right)\right] = -\mathcal{J} \\
-        & \geq-\log \left(\mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \mathbb{E}_{\mathbf{P}^f(\theta \mid \bm{x}'')} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)=0 .
+        & = \textcolor{blue}{\boxed{\mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \left[-\log \left(\sum_{\theta \in \Theta} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}'\right) \mathbf{P}^{f}\left(\theta \mid \bm{x}'' \right)}{\Pi^{f}(\theta)}\right)\right] = -\mathcal{J}}} \\
+        & \geq-\log \left(\mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \mathbb{E}_{\mathbf{P}^f(\theta \mid \bm{x}'')} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)=0,
     \end{aligned}
     $$
-\end{proof}
 
 where Jensen's inequality has been applied twice to the convex function $-\log(\cdot)$. \\
 
-THINGS LEFT TO MENTION:
-- Symmetric \\
-- Equivalent expression on KL and I. Interpretation of terms. \\
-
-ALSO LEFT TO MENTION \\
-- From hypothesis class selection to model selection. I think this relies on the
-interpretation of hypothesis. Regardless of whether my interpretation is right or wrong, we
-can always define the mapping $\Gamma \longmapsto \Theta$ as (not homeomorphic, but
-something similar, check carefeully), in a way that model selection is feasible (i.e. not
-only algorithm selection)
+\end{proof}
 
 \subsection{Maximum posterior agreement}
 
-This section has outlined the foundations of a generalization-rooted model selection criterion
-over the hypothesis space. The maximum posterior agreement criterion, which follows 
-from Lemma \ref{lemma:pa}, will be formalized as an optimization problem over the 
+The maximum posterior agreement criterion, which follows 
+from Lemma \ref{lemma:pa}, can be formalized as an optimization problem over the 
 function class.
 
 \begin{definition}[Kullback-Leibler divergence]
@@ -433,7 +466,7 @@ function class.
     The Kullback-Leibler divergence of $Q(\theta)$ relative to $P(\theta)$ is defined as
 
     $$
-    \text{KL}(\mathbf{P}(\theta) \parallel \mathbf{Q}(\theta)) = \mathbb{E}_{\mathbf{P}(\theta)} \left[ \log \frac{\mathbf{P}(\theta)}{\mathbf{Q}(\theta)} \right]
+    \text{KL}(\mathbf{P}(\theta) \parallel \mathbf{Q}(\theta)) = \mathbb{E}_{\mathbf{P}(\theta)} \left[ \log \frac{\mathbf{P}(\theta)}{\mathbf{Q}(\theta)} \right].
     $$
 
 \end{definition} 
@@ -454,7 +487,7 @@ function class.
     $$
     \begin{aligned}
         \sup_{\mathcal{F}} & \; \mathcal{J} \\
-        \text{s.t.} & \; \text{KL}(\mathbf{\Pi}^f(\theta) \parallel |\Theta|^{-1}) \leq \xi
+        \text{s.t.} & \; \text{KL}(\mathbf{\Pi}^f(\theta) \parallel |\Theta|^{-1}) \leq \xi,
     \end{aligned}
     $$
     
@@ -463,10 +496,10 @@ function class.
 
 \begin{theorem}
 The optimal $\mathbf{P}_{*}^f$ maximizing the posterior agreement criterion defines a lower bound
-in the generalization error $\mathcal{G}_{\mathcal{X}}$ under the richness condition.
+in the generalization error $\mathcal{G}_{\mathcal{X}}$ under the richness condition:
 
 $$
-    \inf_{\mathcal{F}} \mathcal{G}_{\mathcal{X}} \geq -\sup_{\mathcal{F}} \mathcal{J}
+    \inf_{\mathcal{F}} \mathcal{G}_{\mathcal{X}} \geq -\sup_{\mathcal{F}} \mathcal{J}.
 $$
 \end{theorem}
 
@@ -484,10 +517,10 @@ $$
     $$
 
     The last inequality follows from the fact that the entropy does not exceed the log-cardinality
-    of the hypothesis class.
+    of the hypothesis class:
 
     $$
-    \mathcal{H}_{\mathbf{\Pi}^f}(\theta) \leq \log |\Theta|, \;\; \forall \mathbf{\Pi}^f
+    \mathcal{H}_{\mathbf{\Pi}^f}(\theta) \leq \log |\Theta|, \;\; \forall \mathbf{\Pi}^f.
     $$
 \end{proof}
 

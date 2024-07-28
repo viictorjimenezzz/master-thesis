@@ -53,6 +53,7 @@
 \RequirePackage{booktabs}
 \RequirePackage[dvipdfm]{geometry}
 \RequirePackage{url}
+\RequirePackage{xcolor}
 
 % For the figures
 \RequirePackage{caption}
@@ -64,8 +65,63 @@
 
 \ifingerman
 \RequirePackage{german,ae}
+
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\usepackage[table]{xcolor}
 \fi
 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\definecolor{tab:red}{rgb}{0.8392156862745098, 0.15294117647058825, 0.1568627450980392}
+\definecolor{tab:green}{rgb}{0.17254901960784313, 0.6274509803921569, 0.17254901960784313}
+\definecolor{tab:orange}{rgb}{1.0, 0.4980392156862745, 0.054901960784313725}
+\definecolor{tab:blue}{rgb}{0.12156862745098039, 0.4666666666666667, 0.7058823529411765}
+\definecolor{tab:purple}{rgb}{0.5803921568627451, 0.403921568627451, 0.7411764705882353}
+\definecolor{tab:brown}{rgb}{0.5490196078431373, 0.33725490196078434, 0.29411764705882354}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\lstdefinelanguage{Python}{
+  keywords={and, as, assert, break, class, continue, def, del, elif, else, except, False, finally, for, from, global, if, import, in, is, lambda, None, nonlocal, not, or, pass, raise, return, True, try, while, with, yield},
+  keywordstyle=\color{magenta},
+  ndkeywords={self},
+  ndkeywordstyle=\color{blue},
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  morecomment=[s]{'''}{'''},
+  commentstyle=\color{codegreen},
+  stringstyle=\color{codepurple},
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\theoremstyle{definition}
 \newtheorem*{definition}{Definition}
 \newtheorem*{properties}{Properties}
 \newtheorem{theorem}{Theorem}[section]
@@ -159,7 +215,7 @@ Zurich, \the\day. \the\month. \the\year: \hrulefill
 \begin{minipage}[c]{0.4\textwidth}
  \begin{flushright}
  \hspace*{0.4cm}
- \includegraphics[height=1.6cm]{img/IDSC_logo_Full.eps}
+ \includegraphics[height=1.6cm]{img/capcalera.eps}
  \end{flushright}
 \end{minipage}
 \vspace*{5.0cm}

@@ -2,6 +2,11 @@
 \@writefile{toc}{\contentsline {chapter}{Abstract}{v}{}\protected@file@percent }
 \newlabel{chap:symbole}{{}{vii}}
 \@writefile{toc}{\contentsline {chapter}{Notation}{vii}{}\protected@file@percent }
+\citation{quinonero-candelaDatasetShiftMachine2009}
+\citation{buhmannPosteriorAgreementModel2022}
+\citation{szegedyIntriguingPropertiesNeural2014}
+\citation{tsiprasRobustnessMayBe2019}
+\citation{quinonero-candelaDatasetShiftMachine2009}
 \citation{jimenezInductiveBiasDeep}
 \citation{tsiprasRobustnessMayBe2019}
 \citation{zhangTheoreticallyPrincipledTradeoff2019}
@@ -19,21 +24,19 @@
 \citation{zhangTheoreticallyPrincipledTradeoff2019}
 \citation{madryDeepLearningModels2019}
 \citation{madryDeepLearningModels2019}
-\citation{ilyasAdversarialExamplesAre2019}
-\citation{tsiprasRobustnessMayBe2019}
-\citation{tsiprasRobustnessMayBe2019}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Illustrative example of three sources of variability mentioned. A pre-trained MobileNetV2 architecture is shown to be vulnerable to adversarial perturbations as the one represented in (c), and also to domain shifts as the one illustrated in (d), possibly because its inductive bias is influenced by the spurious correlation between cows and their natural background.\relax }}{2}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Illustrative example of the three sources of variability mentioned. A pre-trained MobileNetV2 architecture is shown to be vulnerable to adversarial perturbations as the one represented in (c), and also to domain shifts as the one illustrated in (d), possibly because its inductive bias is influenced by the spurious correlation between cows and their natural background.\relax }}{2}{}\protected@file@percent }
 \providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
 \newlabel{fig:cows}{{1.1}{2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1.1}Adversarial setting}{2}{}\protected@file@percent }
+\citation{ilyasAdversarialExamplesAre2019}
+\citation{tsiprasRobustnessMayBe2019}
+\citation{tsiprasRobustnessMayBe2019}
 \citation{tsiprasRobustnessMayBe2019}
 \citation{tsiprasRobustnessMayBe2019}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces  A conceptual illustration of standard vs. adversarial decision boundaries. (\textbf  {left}) A set of linearly-separable points. (\textbf  {middle}) Decision boundary learned via standard training. (\textbf  {right}) Decision boundary learned via adversarial training. Both methods achieve zero training error, but only the robust model is able to generalize to $\ell _\infty $ perturbations. Source: \cite  {madryDeepLearningModels2019} \relax }}{3}{}\protected@file@percent }
 \newlabel{fig:adversarial_complexity}{{1.2}{3}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Scaled loss gradient with respect to input images. Input pixels yielding the most predictive power are aligned with perceptually relavant features for the case of adversarial models, while appearing completely random in the case of standard models. Source: \cite  {tsiprasRobustnessMayBe2019}\relax }}{3}{}\protected@file@percent }
 \newlabel{fig:adversarial_loss}{{1.3}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Adversarial examples for standard and PGD-trained models. Perturbed images produced for robust models effectively capture salient data characteristics and appear similar to examples of a different class. Source: \cite  {tsiprasRobustnessMayBe2019}\relax }}{3}{}\protected@file@percent }
-\newlabel{fig:salient_characteristics}{{1.4}{3}}
 \citation{muandetDomainGeneralizationInvariant2013}
 \citation{quinonero-candelaDatasetShiftMachine2009}
 \citation{zhouDomainGeneralizationSurvey2022}
@@ -41,15 +44,17 @@
 \citation{liuOutOfDistributionGeneralizationSurvey2023}
 \citation{kohWILDSBenchmarkIntheWild2021}
 \citation{kohWILDSBenchmarkIntheWild2021}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Adversarial examples for standard and PGD-trained models. Perturbed images produced for robust models effectively capture salient data characteristics and appear similar to examples of a different class. Source: \cite  {tsiprasRobustnessMayBe2019}\relax }}{4}{}\protected@file@percent }
+\newlabel{fig:salient_characteristics}{{1.4}{4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Out-of-distribution setting}{4}{}\protected@file@percent }
+\newlabel{sec:intro_ood}{{1.1.2}{4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces The \texttt  {camelyon17} (WILDS) dataset comprises tissue patches from different hospitals. The goal is to accurately predict the presence of tumor tissue in patches taken from hospitals that are not in the training set. Source: \cite  {kohWILDSBenchmarkIntheWild2021} \relax }}{4}{}\protected@file@percent }
+\newlabel{fig:camelyon17}{{1.5}{4}}
 \citation{wangGeneralizingUnseenDomains2022}
 \citation{wangGeneralizingUnseenDomains2022}
 \citation{liuOutOfDistributionGeneralizationSurvey2023}
 \citation{torralbaUnbiasedLookDataset2011}
 \citation{torralbaUnbiasedLookDataset2011}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.1.2}Out-of-distribution setting}{4}{}\protected@file@percent }
-\newlabel{sec:intro_ood}{{1.1.2}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.5}{\ignorespaces The \texttt  {camelyon17} (WILDS) dataset comprises tissue patches from different hospitals. The goal is to accurately predict the presence of tumor tissue in patches taken from hospitals that are not in the training set. Source: \cite  {kohWILDSBenchmarkIntheWild2021} \relax }}{4}{}\protected@file@percent }
-\newlabel{fig:camelyon17}{{1.5}{4}}
 \citation{blanchardGeneralizingSeveralRelated}
 \citation{muandetDomainGeneralizationInvariant2013}
 \citation{peiMultiAdversarialDomainAdaptation}
@@ -58,16 +63,14 @@
 \citation{liangComprehensiveSurveyTestTime2023}
 \citation{muandetDomainGeneralizationInvariant2013}
 \citation{muandetDomainGeneralizationInvariant2013}
-\citation{zhangMixupEmpiricalRisk2018}
-\citation{zhangMixupEmpiricalRisk2018}
-\citation{yunCutMixRegularizationStrategy2019}
-\citation{yunCutMixRegularizationStrategy2019}
-\citation{yunCutMixRegularizationStrategy2019}
-\citation{yunCutMixRegularizationStrategy2019}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces  \textbf  {(left)} Confusion matrix associated with a dataset identification task. There is a clearly pronounced diagonal, which indicates that each dataset posesses unique traits that make it distinguishable from the rest. \textbf  {(right)} Cross-dataset generalization for "car" detection as function of training data. The vertical gap between two curves represents the decrease in performance resulting from training on a different dataset, and horizontal shift corresponds to the increase in amount of data needed to reach the same level of performance. Source: \cite  {torralbaUnbiasedLookDataset2011}\relax }}{5}{}\protected@file@percent }
 \newlabel{fig:dataset_bias}{{1.6}{5}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces  Projections of a binary synthetic dataset in the two principal DICA dimensions. The shaded box depicts the projection of training data, whereas the unshaded boxes show projections of unseen test datasets. Source: \cite  {muandetDomainGeneralizationInvariant2013} \relax }}{5}{}\protected@file@percent }
-\newlabel{fig:dica}{{1.7}{5}}
+\citation{zhangMixupEmpiricalRisk2018}
+\citation{zhangMixupEmpiricalRisk2018}
+\citation{yunCutMixRegularizationStrategy2019}
+\citation{yunCutMixRegularizationStrategy2019}
+\citation{yunCutMixRegularizationStrategy2019}
+\citation{yunCutMixRegularizationStrategy2019}
 \citation{zhouDomainGeneralizationSurvey2022}
 \citation{kohWILDSBenchmarkIntheWild2021}
 \citation{szegedyIntriguingPropertiesNeural2014}
@@ -84,6 +87,12 @@
 \citation{hoDenoisingDiffusionProbabilistic2020}
 \citation{cohenCertifiedAdversarialRobustness2019}
 \citation{croceRobustBenchStandardizedAdversarial2021a}
+\citation{krizhevskyLearningMultipleLayers}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces  Projections of a binary synthetic dataset in the two principal DICA dimensions. The shaded box depicts the projection of training data, whereas the unshaded boxes show projections of unseen test datasets. Source: \cite  {muandetDomainGeneralizationInvariant2013} \relax }}{6}{}\protected@file@percent }
+\newlabel{fig:dica}{{1.7}{6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces  Mixup and Cutmix strategies can be used to interpolate between different labels and/or domains by generating intermediate observations. Source: \cite  {yunCutMixRegularizationStrategy2019} \relax }}{6}{}\protected@file@percent }
+\newlabel{fig:data_augmentation}{{1.8}{6}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Related work}{6}{}\protected@file@percent }
 \citation{wangGeneralizingUnseenDomains2022}
 \citation{zhouDomainGeneralizationSurvey2022}
 \citation{liuOutOfDistributionGeneralizationSurvey2023}
@@ -103,14 +112,10 @@
 \citation{yuPACSDatasetPhysical2022}
 \citation{khoslaUndoingDamageDataset2012}
 \citation{kohWILDSBenchmarkIntheWild2021}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.8}{\ignorespaces  Mixup and Cutmix strategies can be used to interpolate between different labels and/or domains by generating intermediate observations. Source: \cite  {yunCutMixRegularizationStrategy2019} \relax }}{6}{}\protected@file@percent }
-\newlabel{fig:data_augmentation}{{1.8}{6}}
-\@writefile{toc}{\contentsline {section}{\numberline {1.2}Related work}{6}{}\protected@file@percent }
 \citation{croceRobustBenchStandardizedAdversarial2021}
 \citation{kohWILDSBenchmarkIntheWild2021}
 \@writefile{toc}{\contentsline {section}{\numberline {1.3}Objectives}{7}{}\protected@file@percent }
 \citation{n.vapnikNatureStatisticalLearning2000}
-\citation{jimenezInductiveBiasDeep}
 \citation{casellaStatisticalInference2002}
 \citation{gutIntermediateCourseProbability2009}
 \citation{n.vapnikNatureStatisticalLearning2000}
@@ -125,143 +130,252 @@
 \citation{simonyanVeryDeepConvolutional2015}
 \citation{n.vapnikNatureStatisticalLearning2000}
 \citation{voulodimosDeepLearningComputer2018}
+\citation{rumelhartLearningRepresentationsBackpropagating1986}
+\citation{ruderOverviewGradientDescent2017}
+\citation{kingmaAdamMethodStochastic2017}
 \newlabel{def:rrm}{{2.1}{10}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Learning with neural networks}{10}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The output of a node is computed by applying a non-linear activation function $\sigma (\cdot )$ to the weighted sum of its inputs.\relax }}{10}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces The output of a node is computed by applying a non-linear activation function $\sigma $ to the weighted sum of its inputs $\bm  {x}$ plus a bias term $b$.\relax }}{10}{}\protected@file@percent }
 \newlabel{fig:nn_node}{{2.1}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Backpropagation and gradient descent}{10}{}\protected@file@percent }
 \citation{jimenezInductiveBiasDeep}
 \citation{buhmannDataScienceAlgorithms2022}
 \citation{chehreghaniInformationTheoreticModel}
 \citation{buhmannInformationTheoreticModel}
 \citation{buhmannInformationTheoreticModel2010}
-\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Loss landscape and parameter space}{11}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {2.3}Posterior agreement}{11}{}\protected@file@percent }
+\citation{buhmannDataScienceAlgorithms2022}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Posterior distribution}{12}{}\protected@file@percent }
+\newlabel{def:posterior}{{2.3.1}{12}}
 \citation{grunwaldMinimumDescriptionLength2019}
 \citation{buhmannDataScienceAlgorithms2022}
-\newlabel{def:posterior}{{2.3.1}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Generalization error}{13}{}\protected@file@percent }
-\newlabel{lemma:pa}{{2.3.1}{14}}
+\newlabel{lemma:pa}{{2.3.1}{13}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{14}{}\protected@file@percent }
-\newlabel{def:pa}{{2.3.3}{15}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experimental setup}{17}{}\protected@file@percent }
+\newlabel{def:pa}{{2.3.3}{14}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}Experimental setup}{15}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:experimental_setup}{{3}{17}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Problem formulation}{17}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}The classification problem}{17}{}\protected@file@percent }
-\newlabel{def:classifier}{{3.1.1}{17}}
+\newlabel{sec:experimental_setup}{{3}{15}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Problem formulation}{15}{}\protected@file@percent }
+\newlabel{def:classifier}{{3.1}{15}}
 \citation{quinonero-candelaDatasetShiftMachine2009}
 \citation{quinonero-candelaDatasetShiftMachine2009}
 \citation{quinonero-candelaDatasetShiftMachine2009}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Robustness to covariate shift}{18}{}\protected@file@percent }
-\newlabel{sec:robustness_to_covariate_shift}{{3.1.2}{18}}
-\newlabel{def:domain_shift}{{3.1.2}{18}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Robustness in covariate shift settings}{16}{}\protected@file@percent }
+\newlabel{sec:robustness_to_covariate_shift}{{3.2}{16}}
+\newlabel{def:domain_shift}{{3.2}{16}}
 \citation{buhmannPosteriorAgreementModel2022}
+\newlabel{properties:robustness}{{3.2}{17}}
 \citation{szegedyIntriguingPropertiesNeural2014}
 \citation{goodfellowExplainingHarnessingAdversarial2015}
-\newlabel{properties:robustness}{{3.1.2}{20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Adversarial setting}{20}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Adversarial setting}{18}{}\protected@file@percent }
+\newlabel{sec:adversarial_setting}{{3.3}{18}}
+\newlabel{def:adversarial_perturbation}{{3.3}{18}}
 \citation{goodfellowExplainingHarnessingAdversarial2015}
 \citation{goodfellowExplainingHarnessingAdversarial2015}
+\citation{madryDeepLearningModels2019}
 \citation{madryDeepLearningModels2019}
 \citation{pintorFastMinimumnormAdversarial2021}
 \citation{liuOutOfDistributionGeneralizationSurvey2023}
 \citation{wangGeneralizingUnseenDomains2022}
-\citation{wangImageQualityAssessment2004}
+\newlabel{attack:pgd}{{3.3}{19}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Domain generalization setting}{19}{}\protected@file@percent }
 \citation{guoComprehensiveEvaluationFramework2023}
 \citation{zhouDomainGeneralizationSurvey2022}
 \citation{arjovskyInvariantRiskMinimization2020}
 \citation{liuOutOfDistributionGeneralizationSurvey2023}
 \citation{arjovskyInvariantRiskMinimization2020}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Domain generalization setting}{22}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Robustness enhancement}{22}{}\protected@file@percent }
 \citation{arjovskyInvariantRiskMinimization2020}
 \citation{zhangMixupEmpiricalRisk2018}
 \citation{yunCutMixRegularizationStrategy2019}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Robust learners}{20}{}\protected@file@percent }
 \citation{yaoImprovingOutofDistributionRobustness2022}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Robustness assessment with posterior agreement}{23}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Posterior in classification tasks}{23}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}The posterior agreement kernel}{25}{}\protected@file@percent }
-\newlabel{lemma:exchangeability}{{3.3.1}{25}}
-\newlabel{theorem:posterior_factorization}{{3.3.2}{25}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Analytical example}{26}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Posterior agreement beyond robustness}{26}{}\protected@file@percent }
+\citation{buhmannPosteriorAgreementModel2022}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Robustness assessment with posterior agreement}{21}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}Posterior in classification tasks}{21}{}\protected@file@percent }
+\citation{bovierStatisticalMechanicsDisordered2012}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}The posterior agreement kernel}{22}{}\protected@file@percent }
+\newlabel{lemma:exchangeability}{{3.6.1}{22}}
+\newlabel{theorem:posterior_factorization}{{3.6.2}{23}}
+\citation{boydConvexOptimization2004}
+\newlabel{theorem:pa_properties}{{3.6.4}{24}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.3}Implementation}{24}{}\protected@file@percent }
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {3.1}{\ignorespaces PA metric implementation.}}{24}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Results and discussion}{27}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:something}{{4}{27}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Discussion}{29}{}\protected@file@percent }
+\newlabel{sec:results}{{4}{27}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}PA as a robustness metric}{27}{}\protected@file@percent }
+\newlabel{sec:results_robustness}{{4.1}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Empirical behaviour}{27}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Evolution of performance and robustness for the three classifiers\relax }}{27}{}\protected@file@percent }
+\newlabel{fig:empirical_plot}{{4.1}{27}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of classifier performance metrics for $p = 0.5$.\relax }}{27}{}\protected@file@percent }
+\newlabel{tab:empirical_table}{{4.1}{27}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Evolution of PA kernel optimization under different levels of prediction confidence. An illustration of the original log-odds and its associated posterior distribution can be found in Appendix \ref {subsec:appendix_empirical_behaviour}.\relax }}{28}{}\protected@file@percent }
+\newlabel{fig:prediction_confidence}{{4.2}{28}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Robustness assessment to sampling randomness}{28}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces PA and accuracy of CIFAR10 classification for increasing levels of white noise intensity.\relax }}{29}{}\protected@file@percent }
+\newlabel{fig:gaussian_noise}{{4.3}{29}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces PA kernel optimization in the CIFAR10 gaussian noise setting for different ratio of perturbed samples. Perturbation magnitude is $\ell _\infty $ = 32 / 255.\relax }}{29}{}\protected@file@percent }
+\newlabel{fig:gaussian_optimization}{{4.4}{29}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Adversarial setting}{30}{}\protected@file@percent }
+\newlabel{sec:results_adversarial}{{4.2}{30}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Original and adversarially perturbed CIFAR10 sample. Both perturbations succeed at misleading an undefended pre-trained WideResNet-28-10 net.\relax }}{31}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces  Entropy difference $\Delta H = H(\beta ^{*}) - H(\beta )$ in bits for different models, obtained for FMN and $\ell _\infty $=8/255 PGD attacks, both at $\operatorname  {AR} = 1$. Entropy values are estimated using the average posterior distribution over correctly classified samples, which constitute the largest proportion of the dataset. Figures \ref {fig:pgd_distributions_undefended}-\ref {fig:pgd_distributions_bpda} show the initial and optimal average posteriors from which these values were computed. \relax }}{32}{}\protected@file@percent }
+\newlabel{tab:entropy_gibbs}{{4.2}{32}}
+\newlabel{thm:approximated_pa}{{4.2.1}{32}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Adversarial robustness assessment with PA}{33}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces PA, AFR(T) and the AFR variation against increasing adversarial ratio at different perturbation norm bounds. The aforementioned undefended net and several RobustBench robust models are considered under a 1000 step PGD attack.\relax }}{33}{}\protected@file@percent }
+\newlabel{fig:six_figures_pa_adv}{{4.6}{33}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces (\textbf  {left}) Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. (\textbf  {right}) Optimal $\beta ^{*}$ value for each model. Results obtained through a PGD attack with $\ell _\infty = 8 / 255$.\relax }}{34}{}\protected@file@percent }
+\newlabel{fig:unrobust_posterior_short_pgd}{{4.7}{34}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces PA, AFR(T) and the AFR variation against increasing attack power for $\operatorname  {AR} = 1$. The aforementioned undefended net and several RobustBench robust models are considered under a 1000 step PGD attack.\relax }}{35}{}\protected@file@percent }
+\newlabel{fig:pgd_eps}{{4.8}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces PA, AFR(T) and the AFR variation against increasing adversarial ratio. The aforementioned undefended net and several RobustBench robust models are considered under a 1000 step FMN attack.\relax }}{35}{}\protected@file@percent }
+\newlabel{fig:adv_fmn_pa_afr}{{4.9}{35}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces (\textbf  {left}) Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. (\textbf  {right}) Optimal $\beta ^{*}$ value for each model. Results obtained through a FMN attack.\relax }}{36}{}\protected@file@percent }
+\newlabel{fig:unrobust_posterior_short_fmn}{{4.10}{36}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Interpretability of PA in the adversarial setting}{36}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces  Approximated PA contributions for a PGD attack with $\ell _\infty $ = 8/255 and $\operatorname  {AR} = 1.0$. The number of contributing samples for each term is $N_{\text  {ERR}} = \lfloor N \tau \rho \rfloor $, $N_{\text  {MIS}} = \lfloor N (1-\tau ) \rho \rfloor $ and $N_{\text  {ADV}} = \lfloor N \tau (1-\rho ) \rfloor $. The penalization argument $2 \delta _{\text  {ERR}}$ has not been included for being negligible in all cases. \relax }}{37}{}\protected@file@percent }
+\newlabel{tab:approx_pa_pgd_table}{{4.3}{37}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces  Approximated PA contributions for a FMN attack with $\operatorname  {AR} = 1.0$. The number of contributing samples for each term is $N_{\text  {ERR}} = \lfloor N \tau \rho \rfloor $, $N_{\text  {MIS}} = \lfloor N (1-\tau ) \rho \rfloor $ and $N_{\text  {ADV}} = \lfloor N \tau (1-\rho ) \rfloor $. The penalization argument $2 \delta _{\text  {ERR}}$ has not been included for being negligible in all cases, with the exception of {\color  {tab:green} \textbf  {Athalye et al.}}, in which it amounts to $0.36$ and explains the large value of $\Xi _{\text  {ERR}}$. \relax }}{38}{}\protected@file@percent }
+\newlabel{tab:approx_pa_fmn_table}{{4.4}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Relationship between prediction confidence and beta when AR=0.0. All three models have comparable performances, but their predictive output is completely different. This plot illustrates the meaning behind the value of optimal beta.\relax }}{40}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Difference.\relax }}{40}{}\protected@file@percent }
+\newlabel{fig:gaussian_optimization}{{4.12}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Difference.\relax }}{41}{}\protected@file@percent }
+\newlabel{fig:gaussian_optimization}{{4.13}{41}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Comparison using probability based distances.\relax }}{41}{}\protected@file@percent }
+\newlabel{fig:six_figures}{{4.14}{41}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Comparison using feature-space based distances.\relax }}{42}{}\protected@file@percent }
+\newlabel{fig:six_figures}{{4.15}{42}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces How metrics evolve with eps.\relax }}{42}{}\protected@file@percent }
+\newlabel{fig:gaussian_optimization}{{4.16}{42}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces Evolution for eps.\relax }}{43}{}\protected@file@percent }
+\newlabel{fig:gaussian_optimization}{{4.17}{43}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Domain generalization setting}{43}{}\protected@file@percent }
+\newlabel{results_domain_generalization}{{4.3}{43}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces Datashift for paper.\relax }}{43}{}\protected@file@percent }
+\newlabel{fig:six_figures}{{4.18}{43}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces Model selection capabilities.\relax }}{44}{}\protected@file@percent }
+\newlabel{fig:model_selection_capabilities}{{4.20}{44}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces PA evaluation.\relax }}{44}{}\protected@file@percent }
+\newlabel{fig:six_figures}{{4.19}{44}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.21}{\ignorespaces Model selection for \texttt  {paper}.\relax }}{44}{}\protected@file@percent }
+\newlabel{fig:gaussian_optimization}{{4.21}{44}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Discussion}{45}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:again_something}{{5}{29}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Supplementary material}{31}{}\protected@file@percent }
+\newlabel{sec:again_something}{{5}{45}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Theoretical Proofs and Derivations}{47}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:something}{{A}{31}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Proof of problem formulation}{31}{}\protected@file@percent }
-\newlabel{sec:proofs}{{A.1}{31}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{33}{}\protected@file@percent }
-\newlabel{sec:kernel}{{A.2}{33}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Again Something}{37}{}\protected@file@percent }
+\newlabel{sec:appendix_theory}{{A}{47}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Proof of problem formulation}{47}{}\protected@file@percent }
+\newlabel{sec:proofs}{{A.1}{47}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{49}{}\protected@file@percent }
+\newlabel{sec:appendix_pa}{{A.2}{49}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Supplementary Results}{53}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:again_something}{{B}{37}}
+\newlabel{sec:appendix_results}{{B}{53}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}PA as a robustness metric}{53}{}\protected@file@percent }
+\newlabel{sec:appendix_results_pametric}{{B.1}{53}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}Empirical behaviour}{53}{}\protected@file@percent }
+\newlabel{subsec:appendix_empirical_behaviour}{{B.1.1}{53}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Evolution of the $\beta $ optimization for a robust sample.\relax }}{53}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Evolution of the $\beta $ optimization for a non-robust sample.\relax }}{53}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.3}{\ignorespaces Logit distributions associated with the behaviour observed in Figure \ref {fig:prediction_confidence}.\relax }}{54}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.4}{\ignorespaces Evolution of $\beta $ optimization for different initial values for a non-robust classifier.\relax }}{54}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.5}{\ignorespaces Evolution of $\beta $ optimization for different initial values for a robust classifier.\relax }}{54}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Adversarial setting}{55}{}\protected@file@percent }
+\newlabel{sec:appendix_results_adversarial}{{B.2}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.6}{\ignorespaces Average $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime = y)$, $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime \neq  y)$ and $\mathbf  {P}(\hat  {y}^{\prime \prime } \mid \mathbf  {x}^{\prime \prime }, \hat  {y}^{\prime \prime } \neq  \hat  {y}^\prime )$, respectively. {\color  {tab:orange} \textbf  {Undefended}} model under PGD attack, $\ell _\infty $=8/255.\relax }}{55}{}\protected@file@percent }
+\newlabel{fig:pgd_distributions_undefended}{{B.6}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.7}{\ignorespaces Average $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime = y)$, $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime \neq  y)$ and $\mathbf  {P}(\hat  {y}^{\prime \prime } \mid \mathbf  {x}^{\prime \prime }, \hat  {y}^{\prime \prime } \neq  \hat  {y}^\prime )$, respectively. {\color  {tab:brown} \textbf  {Wang et al.}} model under PGD attack, $\ell _\infty $=8/255.\relax }}{55}{}\protected@file@percent }
+\newlabel{fig:pgd_distributions_wang2023}{{B.7}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.8}{\ignorespaces Average $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime = y)$, $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime \neq  y)$ and $\mathbf  {P}(\hat  {y}^{\prime \prime } \mid \mathbf  {x}^{\prime \prime }, \hat  {y}^{\prime \prime } \neq  \hat  {y}^\prime )$, respectively. {\color  {tab:blue} \textbf  {Engstrom et al.}} model under PGD attack, $\ell _\infty $=8/255.\relax }}{55}{}\protected@file@percent }
+\newlabel{fig:pgd_distributions_engstrom}{{B.8}{55}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.9}{\ignorespaces Average $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime = y)$, $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime \neq  y)$ and $\mathbf  {P}(\hat  {y}^{\prime \prime } \mid \mathbf  {x}^{\prime \prime }, \hat  {y}^{\prime \prime } \neq  \hat  {y}^\prime )$, respectively. {\color  {tab:red} \textbf  {Wong et al.}} model under PGD attack, $\ell _\infty $=8/255.\relax }}{56}{}\protected@file@percent }
+\newlabel{fig:pgd_distributions_wong2020}{{B.9}{56}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.10}{\ignorespaces Average $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime = y)$, $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime \neq  y)$ and $\mathbf  {P}(\hat  {y}^{\prime \prime } \mid \mathbf  {x}^{\prime \prime }, \hat  {y}^{\prime \prime } \neq  \hat  {y}^\prime )$, respectively. {\color  {tab:purple} \textbf  {Addepalli et al.}} model under PGD attack, $\ell _\infty $=8/255.\relax }}{56}{}\protected@file@percent }
+\newlabel{fig:pgd_distributions_addepalli2021}{{B.10}{56}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.11}{\ignorespaces Average $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime = y)$, $\mathbf  {P}(\hat  {y}^\prime \mid \mathbf  {x}^\prime , \hat  {y}^{\prime \prime } = \hat  {y}^\prime \neq  y)$ and $\mathbf  {P}(\hat  {y}^{\prime \prime } \mid \mathbf  {x}^{\prime \prime }, \hat  {y}^{\prime \prime } \neq  \hat  {y}^\prime )$, respectively. {\color  {tab:green} \textbf  {Athalye et al.}} model under PGD attack, $\ell _\infty $=8/255.\relax }}{56}{}\protected@file@percent }
+\newlabel{fig:pgd_distributions_bpda}{{B.11}{56}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.12}{\ignorespaces PA and AFR(P) variation under increasing adversarial ratio at different perturbation norm bounds. The undefended net and several RobustBench robust models are considered against a 1000 step PGD attack.\relax }}{57}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_afrpred_pgd}{{B.12}{57}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.13}{\ignorespaces PA and AFR(P) variation under increasing adversarial ratio. T he undefended net and several RobustBench robust models are considered against a 1000 step FMN attack.\relax }}{58}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_afrpred_fmn}{{B.13}{58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.14}{\ignorespaces Illustrative representation of the terms and posterior values constrained considered for the PA approximation. \relax }}{58}{}\protected@file@percent }
+\newlabel{fig:appendix_adv_illustration}{{B.14}{58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.15}{\ignorespaces True and approximated PA values under increasing adversarial ratio for a PGD attack with $\ell _\infty $=8/255.\relax }}{60}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_approx_pa_pgd}{{B.15}{60}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.16}{\ignorespaces True and approximated PA values under increasing adversarial ratio for a FMN attack.\relax }}{60}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_approx_pa_fmn}{{B.16}{60}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.17}{\ignorespaces Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. Results have been obtained through a PGD attack with $\ell _\infty $=8/255 and sorted by increasing $\beta ^{*}$.\relax }}{61}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_distribution_pgd}{{B.17}{61}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.18}{\ignorespaces Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. Results have been obtained through a FMN attack and sorted by increasing $\beta ^{*}$.\relax }}{61}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_distribution_fmn}{{B.18}{61}}
 \bibstyle{plain}
 \bibdata{bibliography}
 \bibcite{arjovskyInvariantRiskMinimization2020}{1}
 \bibcite{arjovskyWassersteinGAN2017}{2}
 \bibcite{baiRecentAdvancesAdversarial2021}{3}
 \bibcite{blanchardGeneralizingSeveralRelated}{4}
-\bibcite{buhmannDataScienceAlgorithms2022}{5}
-\bibcite{buhmannInformationTheoreticModel2010}{6}
-\bibcite{buhmannPosteriorAgreementModel2022}{7}
-\bibcite{buhmannInformationTheoreticModel}{8}
-\bibcite{carliniEvaluatingRobustnessNeural2017}{9}
-\bibcite{casellaStatisticalInference2002}{10}
-\bibcite{chehreghaniInformationTheoreticModel}{11}
-\bibcite{cohenCertifiedAdversarialRobustness2019}{12}
-\bibcite{croceRobustBenchStandardizedAdversarial2021a}{13}
-\bibcite{euligDiagViB6DiagnosticBenchmark2021}{14}
-\bibcite{goodfellowExplainingHarnessingAdversarial2015}{15}
-\bibcite{grunwaldMinimumDescriptionLength2019}{16}
-\bibcite{guoComprehensiveEvaluationFramework2023}{17}
-\bibcite{gutIntermediateCourseProbability2009}{18}
-\bibcite{hoDenoisingDiffusionProbabilistic2020}{19}
-\bibcite{ilyasAdversarialExamplesAre2019}{20}
-\bibcite{jimenezInductiveBiasDeep}{21}
-\bibcite{khoslaUndoingDamageDataset2012}{22}
-\bibcite{kohWILDSBenchmarkIntheWild2021}{23}
-\bibcite{liLearningGeneralizeMetaLearning2018}{24}
-\bibcite{liReviewAdversarialAttack2022}{25}
-\bibcite{liangComprehensiveSurveyTestTime2023}{26}
-\bibcite{liuOutOfDistributionGeneralizationSurvey2023}{27}
-\bibcite{madryDeepLearningModels2019}{28}
-\bibcite{miyatoVirtualAdversarialTraining2018}{29}
-\bibcite{muandetDomainGeneralizationInvariant2013}{30}
-\bibcite{n.vapnikNatureStatisticalLearning2000}{31}
-\bibcite{peiMultiAdversarialDomainAdaptation}{32}
-\bibcite{pintorFastMinimumnormAdversarial2021}{33}
-\bibcite{quinonero-candelaDatasetShiftMachine2009}{34}
-\bibcite{schmidtAdversariallyRobustGeneralization2018}{35}
-\bibcite{shenWassersteinDistanceGuided2018}{36}
-\bibcite{simonyanVeryDeepConvolutional2015}{37}
-\bibcite{szegedyIntriguingPropertiesNeural2014}{38}
-\bibcite{torralbaUnbiasedLookDataset2011}{39}
-\bibcite{tsiprasRobustnessMayBe2019}{40}
-\bibcite{voulodimosDeepLearningComputer2018}{41}
-\bibcite{wangMetaFineTuningNeural2020}{42}
-\bibcite{wangGeneralizingUnseenDomains2022}{43}
-\bibcite{wangGeometricalApproachEvaluate2023}{44}
-\bibcite{wangImageQualityAssessment2004}{45}
-\bibcite{wangBetterDiffusionModels2023}{46}
-\bibcite{wengEvaluatingRobustnessNeural2018}{47}
-\bibcite{xiaoGeneratingAdversarialExamples2019}{48}
-\bibcite{yaoImprovingOutofDistributionRobustness2022}{49}
-\bibcite{yuPACSDatasetPhysical2022}{50}
-\bibcite{yunCutMixRegularizationStrategy2019}{51}
-\bibcite{zhangTheoreticallyPrincipledTradeoff2019}{52}
-\bibcite{zhangMixupEmpiricalRisk2018}{53}
-\bibcite{zhouDomainGeneralizationSurvey2022}{54}
-\gdef \@abspage@last{53}
+\bibcite{bovierStatisticalMechanicsDisordered2012}{5}
+\bibcite{boydConvexOptimization2004}{6}
+\bibcite{buhmannDataScienceAlgorithms2022}{7}
+\bibcite{buhmannInformationTheoreticModel2010}{8}
+\bibcite{buhmannPosteriorAgreementModel2022}{9}
+\bibcite{buhmannInformationTheoreticModel}{10}
+\bibcite{carliniEvaluatingRobustnessNeural2017}{11}
+\bibcite{casellaStatisticalInference2002}{12}
+\bibcite{chehreghaniInformationTheoreticModel}{13}
+\bibcite{cohenCertifiedAdversarialRobustness2019}{14}
+\bibcite{croceRobustBenchStandardizedAdversarial2021a}{15}
+\bibcite{euligDiagViB6DiagnosticBenchmark2021}{16}
+\bibcite{goodfellowExplainingHarnessingAdversarial2015}{17}
+\bibcite{grunwaldMinimumDescriptionLength2019}{18}
+\bibcite{guoComprehensiveEvaluationFramework2023}{19}
+\bibcite{gutIntermediateCourseProbability2009}{20}
+\bibcite{hoDenoisingDiffusionProbabilistic2020}{21}
+\bibcite{ilyasAdversarialExamplesAre2019}{22}
+\bibcite{jimenezInductiveBiasDeep}{23}
+\bibcite{khoslaUndoingDamageDataset2012}{24}
+\bibcite{kingmaAdamMethodStochastic2017}{25}
+\bibcite{kohWILDSBenchmarkIntheWild2021}{26}
+\bibcite{krizhevskyLearningMultipleLayers}{27}
+\bibcite{liLearningGeneralizeMetaLearning2018}{28}
+\bibcite{liReviewAdversarialAttack2022}{29}
+\bibcite{liangComprehensiveSurveyTestTime2023}{30}
+\bibcite{liuOutOfDistributionGeneralizationSurvey2023}{31}
+\bibcite{madryDeepLearningModels2019}{32}
+\bibcite{miyatoVirtualAdversarialTraining2018}{33}
+\bibcite{muandetDomainGeneralizationInvariant2013}{34}
+\bibcite{n.vapnikNatureStatisticalLearning2000}{35}
+\bibcite{peiMultiAdversarialDomainAdaptation}{36}
+\bibcite{pintorFastMinimumnormAdversarial2021}{37}
+\bibcite{quinonero-candelaDatasetShiftMachine2009}{38}
+\bibcite{ruderOverviewGradientDescent2017}{39}
+\bibcite{rumelhartLearningRepresentationsBackpropagating1986}{40}
+\bibcite{schmidtAdversariallyRobustGeneralization2018}{41}
+\bibcite{shenWassersteinDistanceGuided2018}{42}
+\bibcite{simonyanVeryDeepConvolutional2015}{43}
+\bibcite{szegedyIntriguingPropertiesNeural2014}{44}
+\bibcite{torralbaUnbiasedLookDataset2011}{45}
+\bibcite{tsiprasRobustnessMayBe2019}{46}
+\bibcite{voulodimosDeepLearningComputer2018}{47}
+\bibcite{wangMetaFineTuningNeural2020}{48}
+\bibcite{wangGeneralizingUnseenDomains2022}{49}
+\bibcite{wangGeometricalApproachEvaluate2023}{50}
+\bibcite{wangBetterDiffusionModels2023}{51}
+\bibcite{wengEvaluatingRobustnessNeural2018}{52}
+\bibcite{xiaoGeneratingAdversarialExamples2019}{53}
+\bibcite{yaoImprovingOutofDistributionRobustness2022}{54}
+\bibcite{yuPACSDatasetPhysical2022}{55}
+\bibcite{yunCutMixRegularizationStrategy2019}{56}
+\bibcite{zhangTheoreticallyPrincipledTradeoff2019}{57}
+\bibcite{zhangMixupEmpiricalRisk2018}{58}
+\bibcite{zhouDomainGeneralizationSurvey2022}{59}
+\gdef \@abspage@last{77}

@@ -18,6 +18,17 @@ Gilles Blanchard, Gyemin Lee, and Clayton Scott.
 \newblock Generalizing from {{Several Related Classification Tasks}} to a {{New
   Unlabeled Sample}}.
 
+\bibitem{bovierStatisticalMechanicsDisordered2012}
+Anton Bovier.
+\newblock {\em Statistical {{Mechanics}} of {{Disordered Systems}}: {{A
+  Mathematical Perspective}}}.
+\newblock Cambridge University Press.
+
+\bibitem{boydConvexOptimization2004}
+Stephen Boyd and Lieven Vandenberghe.
+\newblock {\em Convex {{Optimization}}}.
+\newblock Cambridge University Press.
+
 \bibitem{buhmannDataScienceAlgorithms2022}
 Joachim~M. Buhmann.
 \newblock Data {{Science Algorithms}} and the {{Rate-Distortion Tradeoff}}.
@@ -107,6 +118,10 @@ Aditya Khosla, Tinghui Zhou, Tomasz Malisiewicz, Alexei~A. Efros, and Antonio
   and Cordelia Schmid, editors, {\em Computer {{Vision}} – {{ECCV}} 2012},
   volume 7572, pages 158--171. Springer Berlin Heidelberg.
 
+\bibitem{kingmaAdamMethodStochastic2017}
+Diederik~P. Kingma and Jimmy Ba.
+\newblock Adam: {{A Method}} for {{Stochastic Optimization}}.
+
 \bibitem{kohWILDSBenchmarkIntheWild2021}
 Pang~Wei Koh, Shiori Sagawa, Henrik Marklund, Sang~Michael Xie, Marvin Zhang,
   Akshay Balsubramani, Weihua Hu, Michihiro Yasunaga, Richard~Lanas Phillips,
@@ -114,6 +129,10 @@ Pang~Wei Koh, Shiori Sagawa, Henrik Marklund, Sang~Michael Xie, Marvin Zhang,
   Earnshaw, Imran~S. Haque, Sara Beery, Jure Leskovec, Anshul Kundaje, Emma
   Pierson, Sergey Levine, Chelsea Finn, and Percy Liang.
 \newblock {{WILDS}}: {{A Benchmark}} of in-the-{{Wild Distribution Shifts}}.
+
+\bibitem{krizhevskyLearningMultipleLayers}
+Alex Krizhevsky.
+\newblock Learning {{Multiple Layers}} of {{Features}} from {{Tiny Images}}.
 
 \bibitem{liLearningGeneralizeMetaLearning2018}
 Da~Li, Yongxin Yang, Yi-Zhe Song, and Timothy Hospedales.
@@ -171,6 +190,14 @@ Joaquin Quiñonero-Candela, editor.
 \newblock {\em Dataset Shift in Machine Learning}.
 \newblock Neural Information Processing Series. MIT Press.
 
+\bibitem{ruderOverviewGradientDescent2017}
+Sebastian Ruder.
+\newblock An overview of gradient descent optimization algorithms.
+
+\bibitem{rumelhartLearningRepresentationsBackpropagating1986}
+David~E Rumelhart, Geoffrey~E Hintont, and Ronald~J Williams.
+\newblock Learning representations by back-propagating errors.
+
 \bibitem{schmidtAdversariallyRobustGeneralization2018}
 Ludwig Schmidt, Shibani Santurkar, Dimitris Tsipras, Kunal Talwar, and
   Aleksander Mądry.
@@ -223,12 +250,6 @@ Yang Wang, Bo~Dong, Ke~Xu, Haiyin Piao, Yufei Ding, Baocai Yin, and Xin Yang.
 \newblock A {{Geometrical Approach}} to {{Evaluate}} the {{Adversarial
   Robustness}} of {{Deep Neural Networks}}.
 \newblock 19:1--17.
-
-\bibitem{wangImageQualityAssessment2004}
-Z.~Wang, A.C. Bovik, H.R. Sheikh, and E.P. Simoncelli.
-\newblock Image {{Quality Assessment}}: {{From Error Visibility}} to
-  {{Structural Similarity}}.
-\newblock 13(4):600--612.
 
 \bibitem{wangBetterDiffusionModels2023}
 Zekai Wang, Tianyu Pang, Chao Du, Min Lin, Weiwei Liu, and Shuicheng Yan.

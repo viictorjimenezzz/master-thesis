@@ -10,72 +10,78 @@ Warning--entry type for "arjovskyWassersteinGAN2017" isn't style-file defined
 Warning--entry type for "baiRecentAdvancesAdversarial2021" isn't style-file defined
 --line 33 of file bibliography.bib
 Warning--entry type for "buhmannDataScienceAlgorithms2022" isn't style-file defined
---line 119 of file bibliography.bib
+--line 135 of file bibliography.bib
 Warning--entry type for "buhmannInformationTheoreticModel2010" isn't style-file defined
---line 138 of file bibliography.bib
+--line 154 of file bibliography.bib
 Warning--entry type for "buhmannPosteriorAgreementModel2022" isn't style-file defined
---line 171 of file bibliography.bib
+--line 188 of file bibliography.bib
 Warning--entry type for "carliniEvaluatingRobustnessNeural2017" isn't style-file defined
---line 200 of file bibliography.bib
+--line 217 of file bibliography.bib
 Warning--entry type for "cohenCertifiedAdversarialRobustness2019" isn't style-file defined
---line 233 of file bibliography.bib
+--line 250 of file bibliography.bib
 Warning--entry type for "croceRobustBenchStandardizedAdversarial2021a" isn't style-file defined
---line 249 of file bibliography.bib
-Warning--entry type for "euligDiagViB6DiagnosticBenchmark2021" isn't style-file defined
 --line 266 of file bibliography.bib
+Warning--entry type for "euligDiagViB6DiagnosticBenchmark2021" isn't style-file defined
+--line 283 of file bibliography.bib
 Warning--entry type for "goodfellowExplainingHarnessingAdversarial2015" isn't style-file defined
---line 299 of file bibliography.bib
+--line 338 of file bibliography.bib
 Warning--entry type for "hoDenoisingDiffusionProbabilistic2020" isn't style-file defined
---line 383 of file bibliography.bib
+--line 424 of file bibliography.bib
 Warning--entry type for "ilyasAdversarialExamplesAre2019" isn't style-file defined
---line 415 of file bibliography.bib
+--line 456 of file bibliography.bib
+Warning--entry type for "kingmaAdamMethodStochastic2017" isn't style-file defined
+--line 526 of file bibliography.bib
 Warning--entry type for "kohWILDSBenchmarkIntheWild2021" isn't style-file defined
---line 485 of file bibliography.bib
+--line 543 of file bibliography.bib
 Warning--entry type for "liangComprehensiveSurveyTestTime2023" isn't style-file defined
---line 502 of file bibliography.bib
+--line 567 of file bibliography.bib
 Warning--entry type for "liuOutOfDistributionGeneralizationSurvey2023" isn't style-file defined
---line 628 of file bibliography.bib
+--line 696 of file bibliography.bib
 Warning--entry type for "madryDeepLearningModels2019" isn't style-file defined
---line 645 of file bibliography.bib
+--line 713 of file bibliography.bib
 Warning--entry type for "miyatoVirtualAdversarialTraining2018" isn't style-file defined
---line 661 of file bibliography.bib
+--line 729 of file bibliography.bib
 Warning--entry type for "muandetDomainGeneralizationInvariant2013" isn't style-file defined
---line 697 of file bibliography.bib
+--line 765 of file bibliography.bib
 Warning--entry type for "pintorFastMinimumnormAdversarial2021" isn't style-file defined
---line 745 of file bibliography.bib
+--line 813 of file bibliography.bib
+Warning--entry type for "ruderOverviewGradientDescent2017" isn't style-file defined
+--line 852 of file bibliography.bib
 Warning--entry type for "schmidtAdversariallyRobustGeneralization2018" isn't style-file defined
---line 811 of file bibliography.bib
+--line 903 of file bibliography.bib
 Warning--entry type for "shenWassersteinDistanceGuided2018" isn't style-file defined
---line 837 of file bibliography.bib
+--line 929 of file bibliography.bib
 Warning--entry type for "simonyanVeryDeepConvolutional2015" isn't style-file defined
---line 853 of file bibliography.bib
+--line 945 of file bibliography.bib
 Warning--entry type for "szegedyIntriguingPropertiesNeural2014" isn't style-file defined
---line 906 of file bibliography.bib
+--line 998 of file bibliography.bib
 Warning--entry type for "tsiprasRobustnessMayBe2019" isn't style-file defined
---line 941 of file bibliography.bib
+--line 1033 of file bibliography.bib
 Warning--entry type for "wangBetterDiffusionModels2023" isn't style-file defined
---line 974 of file bibliography.bib
+--line 1067 of file bibliography.bib
 Warning--entry type for "wangGeneralizingUnseenDomains2022" isn't style-file defined
---line 990 of file bibliography.bib
+--line 1083 of file bibliography.bib
 Warning--entry type for "wangMetaFineTuningNeural2020" isn't style-file defined
---line 1055 of file bibliography.bib
+--line 1150 of file bibliography.bib
 Warning--entry type for "wengEvaluatingRobustnessNeural2018" isn't style-file defined
---line 1071 of file bibliography.bib
+--line 1166 of file bibliography.bib
 Warning--entry type for "xiaoGeneratingAdversarialExamples2019" isn't style-file defined
---line 1095 of file bibliography.bib
+--line 1190 of file bibliography.bib
 Warning--entry type for "yaoImprovingOutofDistributionRobustness2022" isn't style-file defined
---line 1111 of file bibliography.bib
+--line 1206 of file bibliography.bib
 Warning--entry type for "yunCutMixRegularizationStrategy2019" isn't style-file defined
---line 1127 of file bibliography.bib
+--line 1222 of file bibliography.bib
 Warning--entry type for "yuPACSDatasetPhysical2022" isn't style-file defined
---line 1144 of file bibliography.bib
+--line 1239 of file bibliography.bib
 Warning--entry type for "zhangMixupEmpiricalRisk2018" isn't style-file defined
---line 1180 of file bibliography.bib
+--line 1275 of file bibliography.bib
 Warning--entry type for "zhangTheoreticallyPrincipledTradeoff2019" isn't style-file defined
---line 1197 of file bibliography.bib
+--line 1292 of file bibliography.bib
 Warning--I didn't find a database entry for "croceRobustBenchStandardizedAdversarial2021"
 Warning--empty journal in blanchardGeneralizingSeveralRelated
 Warning--empty year in blanchardGeneralizingSeveralRelated
+Warning--empty year in bovierStatisticalMechanicsDisordered2012
+Warning--empty year in boydConvexOptimization2004
 Warning--empty journal in buhmannInformationTheoreticModel
 Warning--empty year in buhmannInformationTheoreticModel
 Warning--empty year in casellaStatisticalInference2002
@@ -89,6 +95,8 @@ Warning--empty year in gutIntermediateCourseProbability2009
 Warning--empty journal in jimenezInductiveBiasDeep
 Warning--empty year in jimenezInductiveBiasDeep
 Warning--empty year in khoslaUndoingDamageDataset2012
+Warning--empty journal in krizhevskyLearningMultipleLayers
+Warning--empty year in krizhevskyLearningMultipleLayers
 Warning--empty journal in liLearningGeneralizeMetaLearning2018
 Warning--empty year in liLearningGeneralizeMetaLearning2018
 Warning--empty journal in liReviewAdversarialAttack2022
@@ -98,54 +106,54 @@ Warning--empty year in n.vapnikNatureStatisticalLearning2000
 Warning--empty journal in peiMultiAdversarialDomainAdaptation
 Warning--empty year in peiMultiAdversarialDomainAdaptation
 Warning--empty year in quinonero-candelaDatasetShiftMachine2009
+Warning--empty journal in rumelhartLearningRepresentationsBackpropagating1986
+Warning--empty year in rumelhartLearningRepresentationsBackpropagating1986
 Warning--empty year in torralbaUnbiasedLookDataset2011
 Warning--empty journal in voulodimosDeepLearningComputer2018
 Warning--empty year in voulodimosDeepLearningComputer2018
 Warning--empty journal in wangGeometricalApproachEvaluate2023
 Warning--empty year in wangGeometricalApproachEvaluate2023
-Warning--empty journal in wangImageQualityAssessment2004
-Warning--empty year in wangImageQualityAssessment2004
 Warning--empty journal in zhouDomainGeneralizationSurvey2022
 Warning--empty year in zhouDomainGeneralizationSurvey2022
-You've used 54 entries,
+You've used 59 entries,
             2118 wiz_defined-function locations,
-            741 strings with 16009 characters,
-and the built_in function-call counts, 18113 in all, are:
-= -- 1479
-> -- 1408
+            760 strings with 16749 characters,
+and the built_in function-call counts, 19075 in all, are:
+= -- 1555
+> -- 1450
 < -- 4
-+ -- 560
-- -- 499
-* -- 1317
-:= -- 3085
-add.period$ -- 125
-call.type$ -- 54
-change.case$ -- 408
++ -- 578
+- -- 511
+* -- 1349
+:= -- 3252
+add.period$ -- 136
+call.type$ -- 59
+change.case$ -- 427
 chr.to.int$ -- 0
-cite$ -- 87
-duplicate$ -- 485
-empty$ -- 1228
-format.name$ -- 499
-if$ -- 3585
+cite$ -- 96
+duplicate$ -- 532
+empty$ -- 1323
+format.name$ -- 511
+if$ -- 3785
 int.to.chr$ -- 0
-int.to.str$ -- 54
-missing$ -- 22
-newline$ -- 233
-num.names$ -- 111
-pop$ -- 614
+int.to.str$ -- 59
+missing$ -- 27
+newline$ -- 254
+num.names$ -- 121
+pop$ -- 661
 preamble$ -- 1
-purify$ -- 355
+purify$ -- 371
 quote$ -- 0
-skip$ -- 498
+skip$ -- 536
 stack$ -- 0
-substring$ -- 489
-swap$ -- 68
+substring$ -- 490
+swap$ -- 72
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 208
-warning$ -- 33
-while$ -- 128
-width$ -- 56
-write$ -- 416
-(There were 69 warnings)
+type$ -- 224
+warning$ -- 37
+while$ -- 136
+width$ -- 61
+write$ -- 453
+(There were 75 warnings)

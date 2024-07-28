@@ -9,27 +9,33 @@
 \contentsline {chapter}{\numberline {2}Theoretical background }{9}{}%
 \contentsline {section}{\numberline {2.1}The learning framework}{9}{}%
 \contentsline {section}{\numberline {2.2}Learning with neural networks}{10}{}%
-\contentsline {subsection}{\numberline {2.2.1}Backpropagation and gradient descent}{10}{}%
-\contentsline {subsection}{\numberline {2.2.2}Loss landscape and parameter space}{11}{}%
 \contentsline {section}{\numberline {2.3}Posterior agreement}{11}{}%
 \contentsline {subsection}{\numberline {2.3.1}Posterior distribution}{12}{}%
 \contentsline {subsection}{\numberline {2.3.2}Generalization error}{13}{}%
 \contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{14}{}%
-\contentsline {chapter}{\numberline {3}Experimental setup}{17}{}%
-\contentsline {section}{\numberline {3.1}Problem formulation}{17}{}%
-\contentsline {subsection}{\numberline {3.1.1}The classification problem}{17}{}%
-\contentsline {subsection}{\numberline {3.1.2}Robustness to covariate shift}{18}{}%
-\contentsline {subsection}{\numberline {3.1.3}Adversarial setting}{20}{}%
-\contentsline {subsection}{\numberline {3.1.4}Domain generalization setting}{22}{}%
-\contentsline {section}{\numberline {3.2}Robustness enhancement}{22}{}%
-\contentsline {section}{\numberline {3.3}Robustness assessment with posterior agreement}{23}{}%
-\contentsline {subsection}{\numberline {3.3.1}Posterior in classification tasks}{23}{}%
-\contentsline {subsection}{\numberline {3.3.2}The posterior agreement kernel}{25}{}%
-\contentsline {subsection}{\numberline {3.3.3}Analytical example}{26}{}%
-\contentsline {section}{\numberline {3.4}Posterior agreement beyond robustness}{26}{}%
+\contentsline {chapter}{\numberline {3}Experimental setup}{15}{}%
+\contentsline {section}{\numberline {3.1}Problem formulation}{15}{}%
+\contentsline {section}{\numberline {3.2}Robustness in covariate shift settings}{16}{}%
+\contentsline {section}{\numberline {3.3}Adversarial setting}{18}{}%
+\contentsline {section}{\numberline {3.4}Domain generalization setting}{19}{}%
+\contentsline {section}{\numberline {3.5}Robust learners}{20}{}%
+\contentsline {section}{\numberline {3.6}Robustness assessment with posterior agreement}{21}{}%
+\contentsline {subsection}{\numberline {3.6.1}Posterior in classification tasks}{21}{}%
+\contentsline {subsection}{\numberline {3.6.2}The posterior agreement kernel}{22}{}%
+\contentsline {subsection}{\numberline {3.6.3}Implementation}{24}{}%
 \contentsline {chapter}{\numberline {4}Results and discussion}{27}{}%
-\contentsline {chapter}{\numberline {5}Discussion}{29}{}%
-\contentsline {chapter}{\numberline {A}Supplementary material}{31}{}%
-\contentsline {section}{\numberline {A.1}Proof of problem formulation}{31}{}%
-\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{33}{}%
-\contentsline {chapter}{\numberline {B}Again Something}{37}{}%
+\contentsline {section}{\numberline {4.1}PA as a robustness metric}{27}{}%
+\contentsline {subsection}{\numberline {4.1.1}Empirical behaviour}{27}{}%
+\contentsline {subsection}{\numberline {4.1.2}Robustness assessment to sampling randomness}{28}{}%
+\contentsline {section}{\numberline {4.2}Adversarial setting}{30}{}%
+\contentsline {subsection}{\numberline {4.2.1}Adversarial robustness assessment with PA}{33}{}%
+\contentsline {subsection}{\numberline {4.2.2}Interpretability of PA in the adversarial setting}{36}{}%
+\contentsline {section}{\numberline {4.3}Domain generalization setting}{43}{}%
+\contentsline {chapter}{\numberline {5}Discussion}{45}{}%
+\contentsline {chapter}{\numberline {A}Theoretical Proofs and Derivations}{47}{}%
+\contentsline {section}{\numberline {A.1}Proof of problem formulation}{47}{}%
+\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{49}{}%
+\contentsline {chapter}{\numberline {B}Supplementary Results}{53}{}%
+\contentsline {section}{\numberline {B.1}PA as a robustness metric}{53}{}%
+\contentsline {subsection}{\numberline {B.1.1}Empirical behaviour}{53}{}%
+\contentsline {section}{\numberline {B.2}Adversarial setting}{55}{}%

@@ -6,42 +6,36 @@ machine learning and the current approaches to address it.
 
 \section{The robustness challenge}\label{sec:motivation}
 
-Robustness is defined as the ability of a model to maintain its
-predictive power on unseen observations that present 
-some kind or transformation or variation.
-This work will provide experimental results for the principal sources
-of variability that are relevant in the context
+PARAGRAPH MISSING: Context on machine learning, deep learning and classification tasks. \\
+
+Robustness can be defined as the ability of a machine learning 
+model to maintain its predictive power on unseen observations that present 
+some kind of transformation or variation \cite{quinonero-candelaDatasetShiftMachine2009}.
+Overall, three sources of variability are relevant in the context
 of image classification, namely sampling randomness, adversarial
-attacks, and out-of-distribution generalization.\\
+attacks, and out-of-distribution generalization (see Figure \ref{fig:cows}) 
+\cite{buhmannPosteriorAgreementModel2022}. \\
 
-%In this work, 
-%the mathematical formulation associated with these variations will
-%be established, and extensive experimental results will be provided
-%for the principal sources of variability that are relevant in the context
-%of image classification, namely sampling randomness, adversarial
-%attacks, and domain generalization.\\
-
-Out of these three, only sampling 
-randomness is commonly accounted for, 
-in the sense that model selection and benchmarking are conducted
-using randomized subsets of unseen observations. In this way, the most
-generalizable features, and in turn the most generalizable models, are
-naturally selected. As it will be outlined in this chapter, 
+Out of these, only sampling randomness is commonly accounted for by 
+standard model validation techniques, in the sense that model selection 
+and benchmarking are conducted using randomized subsets of unseen observations. 
+In this way, the most generalizable features, and in turn the most generalizable 
+models, are naturally selected. As it will be outlined in this chapter, 
 this approach presents fundamental limitations
 that are rooted in the very nature of deep learning models and
 the data from which they learn. \\
 
 First, the operative principles of neural networks make them vulnerable
-to small perturbations in the input space,
-often unnoticeable to humans, that lead to high-confidence
-incorrect predictions.
+to small perturbations in the input space, which are
+often filtered out in human perception, that can lead to high-confidence
+incorrect predictions \cite{szegedyIntriguingPropertiesNeural2014}.
 This issue is commonly known as adversarial
 vulnerability, and an ongoing arms race incentivizes the design 
 of new ways of perturbing models and new ways of defending them
 against such attacks. Strategies 
 that foster robustness to adversarial attacks are possible, but
 come at a price of hindering conventional generalization to 
-sampling randomness in the original data. \\
+sampling randomness in the original data \cite{tsiprasRobustnessMayBe2019}. \\
 
 Second, the nature of the data used for training and selecting
 models is known to influence heavily the features that the model 
@@ -49,8 +43,10 @@ will learn to be the most predictive. Lack of representativity of
 certain aspects of the data and the presence of spurious 
 correlations can lead to models that generalize well to sampling 
 randomness within the same dataset but that fail to do so when those 
-accidental relationships are not present, which is known as an
-out-of-distribution setting. \\
+accidental relationships are not present. This is known as an
+out-of-distribution setting, given that samples in which the model is tested
+are not drawn from the same probability distribution that generated
+training samples \cite{quinonero-candelaDatasetShiftMachine2009}. \\
 
 At the core of the robustness challenge lies the poor
 understanding of how models construct their inductive bias and the nature
@@ -90,7 +86,7 @@ same features humans are naturally invariant to \cite{ilyasAdversarialExamplesAr
         \includegraphics[width=\textwidth]{img/introduction/cow_ood.jpg}
         \caption{Domain}
     \end{subfigure}
-       \caption{Illustrative example of three sources of variability
+       \caption{Illustrative example of the three sources of variability
        mentioned. A pre-trained MobileNetV2 
        architecture is shown to be vulnerable to adversarial perturbations 
        as the one represented in (c), and also to domain shifts 
@@ -101,7 +97,7 @@ same features humans are naturally invariant to \cite{ilyasAdversarialExamplesAr
 
 This thesis will encompass both phenomena under the same theoretical
 framework, and devise a common approach to the measurement of
-the distribution shift entailed by both adversarial and domain
+the distribution shift entailed by both adversarial and distribution
 variability. Robustness will be characterized from the space of
 outcomes of the model, by means of a (posterior) probability 
 distribution that will rank models and methods according to the
@@ -109,9 +105,9 @@ agreement in their predictions when subject to different noise instantiations.
 
 \subsection{Adversarial setting}
 
-As it was already mentioned, certain perturbations of
+As it was already mentioned, certain perturbations to
 original test images, which can be almost imperceptible
-to the human eye, can lead to high-confidence
+to the human eye, can lead to highly-confident but
 incorrect predictions by deep neural networks, even when their
 standard performance metrics are high.
 Adversarial examples have been shown to transfer
@@ -122,9 +118,9 @@ all of these cases \cite{szegedyIntriguingPropertiesNeural2014}. \\
 
 These intriguing phenomena were initially hypothesized to arise 
 from a lack of smoothness over the input space, a property
-commonly assumed in other learners, deriving from their
+commonly assumed in other learners, that derives from their
 non-linear nature. Nevertheless,
-extensive research on the field has ellucidated that the root
+extensive research on the field has elucidated that the root
 cause is instead the linearity of its learning units, which makes them
 vulnerable in certain directions of high-dimensional
 spaces where small
@@ -132,12 +128,13 @@ effects can add up to significally change the outcome
 \cite{goodfellowExplainingHarnessingAdversarial2015}. \\
 
 Following this intuition, several attacks have been proposed
-to evaluate the robustness of models to adversarial examples by
-finding vulnerable directions and adjusting the perturbation to have
+to evaluate the robustness of models to adversarial samples. One common
+principle to induce model failure is finding vulnerable directions in
+the feature space and adjusting the perturbation to have
 the desired misleading effect.  Adversarial examples generated
 by these attacks can be used to train robust models via regularization,
-pushing generalization to those features present in the worst-case
-bounded perturbations and thus selecting models insensitivized
+promoting generalization to those features present in the worst-case
+examples and thus selecting models insensitivized
 to them. \\
 
 Nevertheless, adversarial learning entails decision boundaries 
@@ -188,12 +185,12 @@ difference between robust and non-robust features
 %\end{figure}
 
 Features selected by standard training
-are the most predictive towards generalization
+are the most predictive towards generalizing
 to sampling randomness within the same dataset, but they do
 not necessarily represent the features implicitly selected 
 by humans and are not invariant to a human-based notion 
 of similarity. Instead, features selected via adversarial training 
-have been shown to represent this
+have been shown to better model this
 invariance, and thus align much better with 
 human perception (see Figure \ref{fig:adversarial_loss})
 \cite{ilyasAdversarialExamplesAre2019}. 
@@ -223,7 +220,7 @@ human perception (see Figure \ref{fig:adversarial_loss})
 Furthermore, adversarial perturbations of robust models have 
 been shown to display salient characteristics;
 that is, their features are perceived to belong to the
-class they are "misclassified" to, as it is illutrateed in 
+class they are misclassified to, as illutrated in 
 Figure \ref{fig:salient_characteristics}. 
 
 \begin{figure}[H]
@@ -238,9 +235,9 @@ Figure \ref{fig:salient_characteristics}.
 \end{figure}
 
 Overall, these and other findings suggest that robustness in the adversarial setting
-is a fundamental property of data rather than models, and
-the phenomenon of transferability can be explained in
-these terms. Training strategies that are able to navigate the 
+is a fundamental property of the features that are represented by models, 
+rather than of the models themselves, and the phenomenon of transferability can be
+explained in these terms. Training strategies that manage to navigate the 
 robustness-generalization trade-off will be the ones providing 
 the best results, provided that the data distribution
 is representative of the true underlying features. \\
@@ -248,16 +245,16 @@ is representative of the true underlying features. \\
 \subsection{Out-of-distribution setting}\label{sec:intro_ood}
 
 Most learning algorithms work under the fundamental assumption that
-a causal relationship exists between input and output spaces and
-the target function to learn represents that causality and thus
-remains invariant regardless of the available data,
-implying that suitable approximations of this 
-function can be obtained when data samples are independent 
+a causal relationship exists between input and output spaces. The target function to 
+learn represents that causality and must therefore remain 
+invariant regardless of the available data, which implies that 
+suitable approximations of this 
+function can be obtained as long as data samples are independent 
 and identically distributed in the input space
 \cite{muandetDomainGeneralizationInvariant2013,quinonero-candelaDatasetShiftMachine2009}. 
 Nevertheless, this is not always
 the case, as often real-world data does not match the same statistical
-patterns as the data used for training, which defines a
+patterns of the data used for training. Ultimately, this phenomenon induces a
 distribution shift that leads to poor generalization performance
 \cite{zhouDomainGeneralizationSurvey2022,wangGeneralizingUnseenDomains2022,liuOutOfDistributionGeneralizationSurvey2023}. \\
 
@@ -284,7 +281,7 @@ about the learning framework itself. For instance,
 Figure \ref{fig:dataset_bias} refers to a cross-generalization analysis in which popular
 machine learning datasets were shown to be biased towards
 specific representation of features. Considering the fact that all
-data is sampled from the same source (i.e. internet), 
+data is sampled from the same source (i.e. Internet), 
 numerous human-induced biases are shown to determine the 
 nature of representations, the most significant of all being 
 negative bias, which arises when the negative subset\footnote{
@@ -299,7 +296,7 @@ significantly worse in other datasets, even when trained with
 the same observations of that class.\\
 
 Several approaches can be taken to address this issue, depending
-on the nature of the distribution shift and the access to its
+on the nature of the shift and the access to its
 causal structure (see Figure 3 and Table 2 in 
 \cite{wangGeneralizingUnseenDomains2022}).
 Nevertheless, the common goal is to push the model towards
@@ -351,8 +348,8 @@ from the source
 \cite{blanchardGeneralizingSeveralRelated}. In particular, two strategies will be considered, 
 namely domain alignment and data augmentation/generation. \\
 
-On the one hand, domain alignment stems from the output stability condition, and can be 
-formulated as a regularization problem that pushes towards the 
+On the one hand, domain alignment stems from the target invariance hypothesis, 
+and can be formulated as a regularization problem that pushes towards the 
 minimization of the dissimilarity of feature  representations originated 
 from different source environments. The feature space in which the 
 alignment is performed (e.g. kernel latent space 
@@ -378,7 +375,7 @@ determine the the particularities of the method
 \end{figure}
 
 On the other hand, data augmentation/generation strategies 
-do not need to assume output stability and instead 
+do not need to assume target invariance and instead 
 achieve cross-domain generalization by generating new samples that
 diversify the original dataset with the hope of capturing 
 the underlying causal structure of the problem. Augmented samples
@@ -489,10 +486,11 @@ diffusion models
 \cite{wangBetterDiffusionModels2023,hoDenoisingDiffusionProbabilistic2020}
 and adaptive-boundary methods
 \cite{cohenCertifiedAdversarialRobustness2019}.
-In this project, the Robustbench benchmark attacks 
+In this project, the Robustbench attack library
 \cite{croceRobustBenchStandardizedAdversarial2021a}
-computed in the \texttt{CIFAR10} dataset will will
-be used as a standard for adversarial robustness evaluation. \\
+will be used for adversarial robustness evaluation 
+in the \texttt{CIFAR10} dataset
+\cite{krizhevskyLearningMultipleLayers}. \\
 
 In the domain generalization front, the existing rich taxonomy 
 of methods can be classified into three main groups, namely
