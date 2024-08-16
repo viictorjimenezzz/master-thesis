@@ -1,12 +1,37 @@
-\chapter{Introduction to conclusions}\label{sec:something}
+\chapter{Introduction to conclusions}\label{sec:conclusions}
 
-Blah, blah \dots
+In the first paragraphs: outline of the thought process. \\
 
- \cleardoublepage
+\begin{itemize}
+    \item Analyze the robustness challenge in image classification tasks. Mention the three different
+    sources of randomness, and the trade-off existing when making kmodels robust to them, which
+    arises from a fundamental difference in the inductive bias of the model. This thesis introduces
+    notation for a probability theory.\\
+    \item The trade-off can be reformulated from an information theoretic perspective, as an estimation
+    of the information content of the data, and the deried resolution over the hypothesis space. A robust learner
+    is such that it correctly estimates the information content of the data and results in a hypothesis space that
+    is stable to the randomness associated with the data generation process.  \\
+    \item The complexity of a model can be derived from the normalized description length value, and thus generalization
+    error between  pair of datasets can be defined by averaging it over the hypothesis space using the probabikity distribution
+    of the first dataset. \\
+    \item A lower bound for the generalization error can be obtainedd, leading to the expression of PA. An operative version of
+    posterior agreement for finite hypothesis spaces is introduced and accessible using an efficient implementation that is easily
+    to use by the ML community. \\
+    \item Results were obtained 
+\end{itemize}
 
 
-\chapter{Future work}\label{sec:again_something}
+What you did:
+- Probability theory formulation of the covariate shift setting and the three sources of robustness.
+- Derivation of the posterior agreement kernel for finite hypothesis classes. Proof of its properties, in particular convexity.
+- Efficient implementation of the PA metric.
+- Definition of a robustness metric, which is fundamentally different from a performance metric, and proof that PA
+does comply with the required properties.
+- Proved the suitability of PA as a robustness measure in the adversarial setting. In this setting, a model is considered to
+be more robust the better it performs in adversarial samples. In this sense, the robustness measure provided by PA was approximated
+and broken down to show that it accounts for both sampling randomness and randomness to perturbations, efficiently combining
+the usual standard accuracy-based metrics, but providing higher discriminability and consistency over different levels of
+attack power and samples ratio.
+- Proved that PA provides a consistent algorithm selection assessment based on its predictive power under distribution shifts.
 
-Or Afterword...
-
- \cleardoublepage
+\cleardoublepage

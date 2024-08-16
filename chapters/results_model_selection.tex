@@ -1,0 +1,179 @@
+\chapter{Model selection}\label{chapter:model_selection}
+
+Chapter \ref{chapter:robustness_assessment} explored the robustness assessment
+capabilities of the PA kernel in image classification tasks, and provided extensive 
+evidence of its suitability as an algorithm selection criterion in covariate shift settings. 
+This chapter extends our previous findings by investigating 
+how the PA kernel can be leveraged for robust epoch-wise model selection
+with early stopping, potentially mitigating overfitting and enhancing
+generalization performance under distribution shifts.
+
+\section{Model selection under controled experimental conditions}
+
+Building upon the exploratory results on the domain generalization setting previously obtained, 
+we will assess the robust model selection capabilities of PA across a
+wide range of distribution shift settings in a controlled experimental setup. In particular,
+different shift factors will be considered for the source environments and also different learning
+targets. These findings will help identify the experimental conditions in which the 
+discriminative rationale of PA is most effective. \\
+
+Experiments have been conducted in a setting similar to that described in Section 
+\ref{results_domain_generalization}, with a reduced dataset size to avoid repetition of MNIST 
+samples. This approach ensures that each training sample uniquely represents a specific instance 
+of the "number drawing experiment", along with the corresponding domain 
+shift perturbation. Given that shift perturbations are not entirely deterministic 
+(see \texttt{diagvibsix} implementation), this approach prevents the model's inductive bias 
+from being influenced by an implicit data augmentation process. \\
+
+Both SGD and Adam optimizers under various learning rate values have been considered, 
+so that the most informative results are displayed. In practice, Adam should be intuitively preferred
+in this setting, as it navigates the loss landscape in a less continuous way and
+explores a wider range of feature combinations, thus increasing the likelihood that domain-invariant
+features are considereed for PA assessment. Nevertheless, SGD is more stable and can be used to
+analyze the convergence of PA across training epochs. \\
+
+One of the key parameters analyzed in these experiments is the shape factor of the images, which 
+serves as the learning objective for the classification task. First, ERM and IRM learners are 
+trained for a binary classification task involving the digit pair (1, 7), which have 
+close latent representations and thus entail higher variability in learning outcomes. In this 
+setting, optimal posteriors are less informative and thus agreement in the non-predicted
+class is relevant for the PA penalization, as can be seen in Figure \ref{fig:modsel_17_posterior}. 
+This behaviour is relevant for domain generalization, as models with similar validation accuracy 
+might display different confidence levels in their
+predictions and thus different generalization capabilities to unseen domains. \\
+
+These results will be contrasted with those obtained through a 4-class classification 
+involving the digits (1, 7, 4, 9). Given that (1, 7) and (4, 9) pairs are likely to be easily
+discriminated, the behavior of validation accuracy should be similar to that of a binary 
+classification task. However, PA is expected to discriminate both experiments and select the 
+weights that better encode a domain-invariant representation by considering the whole posterior, 
+not only the predicted class. An alternative experiment that considers binary classification of 
+the digit pairs themselves was not pursued, as we seek a consistent inductive bias across all
+the experiments presented in this work, which should be constructed only from the features 
+determining each digit and the implicit contribution of shifted factors. \\
+
+HERE PLOT OF THE POSTERIORS. \\
+
+The characterization of the inductive bias is outside of the scope of this work, but given the
+simplicity of the experimental setup and the learning task associated, it is reasonable to assume 
+that it encompassess all the relevant features that are present in the data,
+including the noise instantiation, the nature of the shift, and their relative frequency in the
+dataset. The optimization process will iteratively navigate the loss landscape and implicitly
+balance these features in a different way, leading to different predictive outcomes.  \\
+
+In this regard, will examine two primary sources of inductive bias by varying the nature of the
+shift defining environments 0 and 1, namely based on the hue factor, as was the case in the
+previous chapter, and based on the position factor. These represent the two most significant 
+sources of variability from an image representation perspective, and comparing the model selection 
+capabilities across these settings will provide insight into the consistency of the metric. \\
+
+The last variable to consider is the availability of target domains during validation; that is,
+for model selection purposes. The domain generalization challenge requires that target domains are
+inaccessible, which in our case helps select robustness-fostering algorithms from the 
+vanilla ERM. Nevetheless, with the purpose of increasing the characterization of the robustness 
+selection criterion, we will consider different degrees of incremental shift on the validation 
+dataset, which should improve the effectiveness of the selection. \\
+
+The last variable that will be considered is the availability of target domains during validation; 
+that is, for model selection purposes. The domain generalization setting requires the assumption
+that target domains are entirely inaccessible, thus discriminating robustness-fostering learners
+from vanilla ERM. However, with the purpose of increasing the characterization of the robustness 
+selection criterion, we will consider different degrees of incremental shift on the validation 
+dataset, which should improve the effectiveness of the 
+selection. Tables \ref{tab:msel_hue} and \ref{tab:msel_pos} describe the data composition of the
+experiments considered. \\
+
+HERE DATASETS. \\
+
+- Results to show: Table with accuracy and F1 of the selected models under all conditions. 
+Maybe compare validation accuracy, etc \\
+
+- Single plot. x axis is the configuration of the validation and model selection dataset,
+and y axis is the percentage of increase in performance of the accuracy-selected model With
+respect to the PA-selected model. \\
+
+\section{Vulnerabilities of PA for GO/SO}
+
+In the preceding chapters, evidence was provided supporting PA as a suitable robustness metric 
+that effectively captures generalization capabilities under both sampling randomness and 
+covariate shift. So far, experiments in the domain generalization setting have been conducted 
+under synthetic conditions in which distribution shift is the only accountable source of randomenss 
+between  $\bm{x}$ and $\bm{x}^{\prime \prime}$. These experiments have shown that PA successfully 
+discriminates robust from non-robust learners and also provides increased early-stopping performance compared with
+current baseline metrics. \\
+
+However, real-world datasets are subject to sampling randomness and often exhibit feature
+distributions that are severely misaligned with the true distribution in the sample space, 
+which is commonly known as subpopulation shift. This section aims to reproduce these conditions 
+by considering controlled environments where the presence of certain image factors is deliberately 
+manipulated to induce an inductive bias towards suboptimal representations. These representations 
+may generalize well to sampling variability within source environments but fail to adapt to 
+distributional shifts in target environments, which poses an additional challenge to
+our domain generalization problem. \\
+
+Epoch-wise model selection under these conditions entails a fundamentally different approach,
+especially regarding experiments performed in the previous chapter. Evaluating PA on a model
+selected by performance standards (i.e. validation accuracy) and 
+
+- Here interpretation of the validation accuracy 
+
+
+
+can be used as an early stopping criterion
+for model selection. Nevertheless, real world applications do not usually have a 
+
+
+
+More especifically,
+we aim at characterizing the response of the metric under different variations in the inductive
+bias of the model, which implicitly shifts according to the availability of certain features
+in the data. In this regard, two 
+
+1. Why epochwise is different than general model selection. KEY: Validation accuracy. The
+main problem in any robustness measurement is that we are not able to distinguish sampling
+randomness from robustness to adversarial shifts
+
+
+2. We want to explore the difference between validation accuracy and PA for different inductive
+bias.
+
+
+
+3. Results show that
+
+
+If the goal is to show that it performs better than accuracy, that can be easily shown, but the improvement is non-significative.
+. But the principal challenge is theoretical: real-world covariate shift encompasses both distribution shift and sampling randomness, and PA (in the way we have been handling it) does not distinguish between them. When we compare the evolution of the training in between epochs, we will select the most robust features, but they won't necessarily be the most generalizable ones, they will depend on the nature of the data.
+=> Here follows experiments on GO/SO. Explain the conclusions derived by those experiments.
+    1) Even when features are very similar, PA keeps increasing.
+    2) Model with more generalization opportunities is the least robust in high-shift scenarios. THIS IS THE KEY. The fact that robustness is so disentangled from accuracy (cite theoretical properties again) turns against us because what we want is actually to perform good. The reason is that SO entail a reduction in the effective feature space that the model navigates, which makes it more robust by definition.
+=> Show the simple GO/SO experiment with paired samples. No sampling noise between X' and X'', only distribution shift.
+. Alternative way of thinking about it is forgetting about images. We are comparing different models
+ trained on different instantiations of the features that represent our data. The randomness 
+ associated with the sampling process does not present homeocedasticity, as noise magnitude 
+ increases with the distance between domains. The more generalizable, the more room for variation. 
+ In such case, PA would select the best model when the goal is to make features converge. In some 
+ sense it is, but overfitting to examples or subpopulation shifts would yield the same response.
+
+ For instance, I try to justify why PA does not always select the best performing model by reformulating the problem so that the inputs are image features rather than images themselves. Every epoch represents an instantiation of the "feature extraction" experiment, and in such case a model overfitting to the shortcut opportunities in the data is also considered robust, since we don't control how much of the robustness "value" is attributed to sampling randomness and how much to the distribution shift. Sampling randomness can be modelled with the taus, and the key is that it presents heterocedasticity, in the sense that its "spread" is reduced when the model learns (also if it learns the wrong features) and that affects the PA value.
+
+ The most "elegant" way I have been able to devise (in the sense that it compiles both a measure of sampling noise and a measure of distribution shift) is comparing the first PCA direction in the feature space between both environments. The spread of each label in the PCA direction accounts for sampling randomness, whereas the MSE between components of the same sample in different environments accounts for distribution shift.
+
+
+
+ \section{Model selection on benchmark datasets}
+
+In light of the results obtained in the previous sections, we will finally assess the model selection
+capabilities of PA on benchmark datasets. In particular, several WILDS 
+\cite{kohWILDSBenchmarkIntheWild2021} datasets will be considered, as they provide a comprehensive
+set of domain generalization tasks that are representative of real-world scenarios. Each of the
+datasets under consideration entails a specific configuration of learning opportunities that will
+shift the inductive bias towards suboptimal representations for out-of-distribution
+generalization. The performance displayed by PA in the previous chapter will be considered when
+evaluating its behaviour under these conditions.\\
+
+
+ - Show plot of the posteriors for each dataset. \\
+ - Show table with results on model selection. \\
+
+ \cleardoublepage

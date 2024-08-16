@@ -70,6 +70,12 @@ Francesco Croce, Maksym Andriushchenko, Vikash Sehwag, Edoardo Debenedetti,
   Nicolas Flammarion, Mung Chiang, Prateek Mittal, and Matthias Hein.
 \newblock {{RobustBench}}: A standardized adversarial robustness benchmark.
 
+\bibitem{dasKeepingBadGuys2017}
+Nilaksh Das, Madhuri Shanbhogue, Shang-Tse Chen, Fred Hohman, Li~Chen,
+  Michael~E. Kounavis, and Duen~Horng Chau.
+\newblock Keeping the {{Bad Guys Out}}: {{Protecting}} and {{Vaccinating Deep
+  Learning}} with {{JPEG Compression}}.
+
 \bibitem{euligDiagViB6DiagnosticBenchmark2021}
 Elias Eulig, Piyapat Saranrittichai, Chaithanya~Kumar Mummadi, Kilian Rambach,
   William Beluch, Xiahan Shi, and Volker Fischer.

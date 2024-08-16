@@ -593,7 +593,7 @@ presence of adversarial samples.
     \centering
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/FMN.pdf}
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/FMN_logPA.png}
     \end{subfigure}
     \begin{subfigure}[b]{0.45\textwidth}
         \centering
@@ -796,6 +796,69 @@ misclassified samples and adversarial samples.
     misleading adversarial samples, respectively. Results have been obtained through a FMN attack 
     and sorted by increasing $\beta^{*}$.}
     \label{fig:appendix_adversarial_distribution_fmn}
+\end{figure}
+
+The results obtained in this section culminate with the comparison of PA with other metrics that 
+are usually employed to assess dissimilarity in the response of models under different conditions. In
+particular, confidence-based metrics such as Kullback-Leibler divergence and Wasserstein distance are 
+used to compare the probability output of original and perturbed datasets, and feature-space-based
+metrics assess the overall distribution of the latent representation of the samples before
+the discriminant function.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/PGD_KL.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/FMN_KL.png}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/PGD_W.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/FMN_W.png}
+    \end{subfigure}
+
+    \caption{Comparison of FMN and PGD attacks using probability-based distances.}
+    \label{fig:comparison_prob_metrics}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/PGD_CD.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/FMN_CD.png}
+    \end{subfigure}
+
+    \vspace{1em}
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/PGD_FID.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/FMN_FID.png}
+    \end{subfigure}
+
+    \caption{Comparison of FMN and PGD attacks using feature-space-based distances.}
+    \label{fig:comparison_feat_metrics}
 \end{figure}
 
 

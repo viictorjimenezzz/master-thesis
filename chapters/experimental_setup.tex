@@ -231,7 +231,7 @@ should then find the sweet spot between resolution and stability. \\
 \begin{description}
     \item[P1](Non-increasing) The metric should be non-increasing with respect to the
     response of the model under increasing levels of shift.
-    \item[P2](Model-independent) The metric should differentiate models only by their generalization capabilities against 
+    \item[P2](Independent discriminability) The metric should differentiate models only by their generalization capabilities against 
     covariate shift. For instance, the metric should be independent of the task
     performance of the model.
 \end{description}
@@ -415,7 +415,7 @@ sample and the decision boundary.
 %that successful robust models must encode a human prior over
 %the sample space. \\
 
-\section{Domain generalization setting}
+\section{Domain generalization setting}\label{sec:domain_generalization_setting}
 
 As described in the introductory chapter, domain generalization
 refers to a specific setting in which several instantiations of
@@ -461,7 +461,7 @@ domains, the performance of the selected model will be reported for each of
 the target domains. In particular, average accuracy and worst-case accuracy
 will be provided \cite{zhouDomainGeneralizationSurvey2022}.
 
-\section{Robust learners}
+\section{Robust learners}\label{sec:robust_learners}
 
 This project will evaluate the suitability of posterior agreement as a robustness
 metric in the adversarial and out-of-distribution settings. In accordance with
