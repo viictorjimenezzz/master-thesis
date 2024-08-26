@@ -1,6 +1,17 @@
-\chapter{Introduction to conclusions}\label{sec:conclusions}
+\chapter{Conclusions}\label{sec:conclusions}
 
-In the first paragraphs: outline of the thought process. \\
+The objectives of this thesis centered on assessing the suitability of the posterior agreement framework 
+as a robust model selection criterion within the context of deep learning for image classification tasks. The work entailed 
+deriving and implementing an operative version of posterior agreement for discrete hypothesis classes, exploring its 
+properties and comparing its discriminative power against that of baseline accuracy-based metrics. Experiments in adversarial 
+and domain generalization settings were conducted to explore the source of the robustness measure provided by PA
+and its capabilities for selecting robustness-fostering algorithms. Additionally, results were provided on the 
+effectiveness of PA as an early-stopping criterion for epoch-wise model selection, with experiments designed to 
+assess its validity in both controlled syntetic environments and real-world scenarios, ultimately culminating in 
+performance measures in benchmark out-of-distribution datasets. These objectives guided the research process, shaping the 
+experiments and analyses that ultimately conform the conclusions of this work. \\
+
+
 
 \begin{itemize}
     \item Analyze the robustness challenge in image classification tasks. Mention the three different
@@ -33,5 +44,10 @@ and broken down to show that it accounts for both sampling randomness and random
 the usual standard accuracy-based metrics, but providing higher discriminability and consistency over different levels of
 attack power and samples ratio.
 - Proved that PA provides a consistent algorithm selection assessment based on its predictive power under distribution shifts.
+
+
+Results have been outlined a deductive way, starting with an 
+empirical exploration of the robustness properties of the PA kernel and culminating
+with performance results in benchmark datasets.
 
 \cleardoublepage

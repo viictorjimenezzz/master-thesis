@@ -22,16 +22,19 @@ the supervision of Prof. Dr. Joachim M. Buhmann. The thesis was co-supervised at
 \chapter*{Abstract}
  \addcontentsline{toc}{chapter}{Abstract}
 
- Posterior Agreement (PA) has been proposed as a theoretically-grounded alternative for model
- robustness assessment in covariate shift settings. In this work, we provide further evidence in favor of
- this hypothesis and we explore the use of PA as a model selection criterion for deep learning models in supervised 
+ Posterior Agreement (PA) has been proposed as a theoretically-grounded alternative 
+ for model robustness assessment in covariate shift settings. In this work, we provide 
+ further evidence in favor of this hypothesis and we explore the use of PA as a model 
+ selection criterion for deep learning models in supervised 
  classification tasks. \\
  
- Starting from the theoretical principles leading to PA, we derive a computationally-efficient approximation to its value in 
- discrete hypothesis set problems, and we show that it is a valid alternative to cross-validation in the presence of distribution shifts. Additionally, we follow some threads from the original hypothesis and we extend the use of PA to some other specific settings 
- in which a domain shift can be defined, such as subpopulation (unbalanced) settings, mislabelled datasets and data augmentation strategies. \\
+ Starting from the theoretical principles leading to the formulation of PA, we derive a 
+ computationally-efficient implementation for discrete hypothesis set problems and use
+ it as a robustness metric in the presence of adversarially-perturbed
+ and domain-shifted data. We show that PA outperforms stardard accuracy-based metrics
+ in both settings and possesses superior discriminative power and consistency across
+ increasing levels of shift power and shift ratio. \\
 
- REWRITE AT THE END
  \cleardoublepage
 
 

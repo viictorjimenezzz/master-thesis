@@ -2,9 +2,12 @@
 
 This chapter delineates the covariate shift setting within the 
 supervised classification framework and introduces an operative
-formulation of posterior agreement. This formulation represents 
-the cornerstone of this work as it allows for robustness-based
-model selection in discrete hypothesis classes.
+formulation of posterior agreement. This formulation enables
+robustness-based model selection in discrete hypothesis class problems.
+
+% This formulation represents 
+% the cornerstone of this work as it enables robustness-based
+% model selection in discrete hypothesis class problems.
 
 \section{Problem formulation}
 
@@ -15,12 +18,10 @@ classifiers.
 
 \begin{definition}[Classifier]\label{def:classifier}
     Let $\mathcal{X}$ and $\mathcal{Y} \subset\mathbb{N}$ be the input and output spaces of the target function, respectively.
-    Let $K \in \mathbb{N}$ be the cardinality of $\mathcal{Y}$.
-    A $K$-class classifier can be defined as the 
-    composition of three functions:
+    Let $K \in \mathbb{N} < \infty$ be the cardinality of $\mathcal{Y}$.
 
     \begin{itemize}
-        \item A feature extractor, mapping the input space to a $d$-dimensional feature space.
+        \item Let $\eta$ be a feature extractor, mapping the input space to a $d$-dimensional feature space.
             $$ 
             \begin{aligned}
                 \Phi: \mathcal{X} & \longmapsto \mathbb{R}^d \\
@@ -28,16 +29,16 @@ classifiers.
             \end{aligned}
             $$
 
-        \item A discriminant function, assigning a score
-        to each of the $K$ classes given a feature vector. 
+        \item Let $\bm{F}$ be a discriminant function, assigning a score
+        to each of the $K$ classes. 
             $$
             \begin{aligned}
                 \bm{F}: \mathbb{R}^d  & \longmapsto \mathbb{R}^K \\
                 z & \longmapsto \left ( F_1(z), \dots, F_K(z) \right ) = \bm{F}(z)
             \end{aligned}
             $$
-        \item A decision rule, yielding the class label from a vector of scores.
-        We will set it to be the maximum a posteriori (MAP) rule.
+        \item Let $\Phi$ be a decision rule, yielding the class label from a vector of scores.
+        It will be set to the maximum a posteriori (MAP) rule.
             $$
                 \begin{aligned}
                     \eta: \mathbb{R}^K & \longmapsto \mathcal{Y} = \{1, \dots, K \} \\
@@ -46,24 +47,28 @@ classifiers.
             $$
     \end{itemize}
 
-    A classifier is defined as the composition of these three functions:
-
+    A $K$-class classifier can be defined as the composition of these three functions:
     $$
     c = \eta \circ \bm{F} \circ \Phi.
     $$
+
+    The results presented in this work are limited to neural network classifiers, which
+    entail a parametrization in $\Gamma \subseteq \mathbb{R}^{S}$ that can be expressed
+    as
+
+    $$
+        \begin{aligned}
+        c: \mathcal{X} \times \Gamma & \longmapsto \mathcal{Y} = \{1, \dots, K \} \\
+        (x, \gamma) & \longmapsto c(x; \gamma) = \hat{y},
+        \end{aligned}
+    $$
+
+    thus $c(x; \gamma) = \eta \circ (\bm{F} \circ \Phi)(x; \gamma)$. \\
 \end{definition}
 
-The results presented in this work are limited to neural network classifiers, which are
-parametrized NN architectures in $\Gamma \subseteq \mathbb{R}^{S}$, such that:
 
-$$
-    \begin{aligned}
-    c: \mathcal{X} \times \Gamma & \longmapsto \mathcal{Y} = \{1, \dots, K \} \\
-    (x, \gamma) & \longmapsto c(x; \gamma) = \hat{y},
-    \end{aligned}
-$$
 
-thus $c(x; \gamma) = \eta \circ (\bm{F} \circ \Phi)(x; \gamma)$. \\
+
 
 The concepts defined in the previous chapter allow us to 
 formalize the learning problem in which our robustness experiments
@@ -75,10 +80,10 @@ $K$-class classification.
     Let $c$ be a neural network classifier, parametrized
     in $\Gamma \subseteq \mathbb{R}^{S}$.
     Let $\operatorname{RRM}_D$ be the regularized risk minimization problem for $c$ on $D$.
-    Let $\mathcal{L}$ be the cross-entropy loss function for the classifier $c$.
+    Let $\mathcal{L}$ be the cross-entropy loss function for the classifier $c$:
 
     $$
-    \mathcal{L}(x, y) = - \log F_y(\Phi(x); \gamma)
+    \mathcal{L}(x, y) = - \log F_y(\Phi(x); \gamma).
     $$
 
     The $K$-class classification problem is the $\operatorname{RRM}_D$ 
@@ -89,9 +94,9 @@ $K$-class classification.
 
 \end{definition}
 
-No further characterization of the regularization factor will be provided
-in this chapter, as specific learning models and methods will be introduced
-together with the results.
+No further characterization of the regularization factor $\lambda \Omega(\gamma)$ will be provided
+in this chapter, as the specific learning algorithms considered will be introduced
+later in the text.
 
 \section{Robustness in covariate shift settings}\label{sec:robustness_to_covariate_shift}
 
@@ -142,17 +147,19 @@ context of classification tasks.
     $$
 
     lead to a covariate shift known as out-of-distribution (OOD), given that 
-    the fundamental source of distribution shift is the difference in the probability
-    measure over the support induced by each experiment. \cite{quinonero-candelaDatasetShiftMachine2009}
+    the fundamental source of variability is the difference in the probability
+    measure over the support induced by each experiment
+    \cite{quinonero-candelaDatasetShiftMachine2009}.
+    In simpler terms, $X' \neq X'' \Longrightarrow \mathbf{P}_{\bm{x}'} \not \sim \mathbf{P}_{\bm{x}''}$ in general.
 \end{definition}
 
 In the OOD case, $\bm{x}'$ and $\bm{x}''$ are
 drawn from different random variables, each with a distinct probability 
 landscape over the support, namely source and target domains, that result 
-in implicit differences (sometimes unbalanced) in the distribution of some features.
+in implicit and/or explicit differences (sometimes unbalanced) in the distribution of some features.
 Therefore, empirical distributions $\mathbf{P}_{\bm{x}'}$ and $\mathbf{P}_{\bm{x}''}$ will
-be different in general, and thus a covariate shift will be induced
-leading to a non-zero generalization error.
+be different in general and induce a covariate shift that leads
+to a non-zero generalization error.
 
 \begin{definition}[Adversarial shift]
     Let $\bm{x}' \sim \underbar{X}$ be a sample drawn from experiment
@@ -231,7 +238,7 @@ should then find the sweet spot between resolution and stability. \\
 \begin{description}
     \item[P1](Non-increasing) The metric should be non-increasing with respect to the
     response of the model under increasing levels of shift.
-    \item[P2](Independent discriminability) The metric should differentiate models only by their generalization capabilities against 
+    \item[P2](Independent discriminability) The metric should differentiate models exclusively by their generalization capabilities against 
     covariate shift. For instance, the metric should be independent of the task
     performance of the model.
 \end{description}
@@ -248,27 +255,28 @@ the following example.
     label. We will examine the following 
     three classifiers evaluating observations in $D \in \mathcal{D}$:
 
-    \begin{description}
-        \item[C1] A random classifier, returning
+    \begin{itemize}
+        \item A random classifier, returning
         a random prediction to each observation in the dataset. Overall performance 
         tends to 50\% accuracy as dataset size increases. 
-        \item[C2] A constant classifier, returning exactly the same
+        \item A constant classifier, returning exactly the same
         prediction for each observation in the dataset. Overall performance is 50\% accuracy,
         as the dataset is exactly balanced.
-        \item[C3] A perfect classifier, returning the correct prediction
+        \item A perfect classifier, returning the correct prediction
         to each observation in the dataset. Overall performance is 100\% accuracy. 
-    \end{description}
+    \end{itemize}
 
-    In terms of performance, \textbf{C1} and \textbf{C2} are equivalent when
-    the dataset is large enough, and \textbf{C3} would be selected as the best.
+    In terms of performance, the random and constant classifiers are equivalent when
+    the dataset is large enough, and the perfect classifier would obviously be selected as the best.
     Nevertheless, a robustness metric compliant with \textbf{P2} would
-    evaluate \textbf{C1} to be non-robust, while \textbf{C2} and
-    \textbf{C3} would be considered equivalent and achieve maximum robustness, since their
-    set of hypothesis remains the same for every dataset in $\mathcal{D}$.
+    evaluate the random classifier to be non-robust, while both perfect and
+    constant classifiers would be considered equivalent and achieve
+    maximum robustness, since their output hypothesis remains constant for 
+    every dataset in $\mathcal{D}$.
 \end{example}
 
-In general, any accuracy-based metric would discriminate the perfect and
-constant classifiers based on their performance, even if both are maximally robust
+In general, a performance-based robustness metric would discriminate the perfect and
+constant classifiers based on their accuracy, even if both are maximally robust
 by construction, and would even consider the latter to be as robust as 
 a random classifier, which is unrobust by definition. It is now straightforward to see 
 that accuracy or any task-dependent metric does not comply with \textbf{P2}. \\
@@ -445,16 +453,16 @@ datasets. These datasets encode specific variations in the causal structure gene
 the data, and we expect our robustness assessment to be sensitive to the intensity
 of these variations. \\
 
-In this work, we will also explore a more epistemologically grounded
+In this work, we will also explore a more epistemologically-grounded
 approach to robustness assessment that will be agnostic to the nature of the model
 generating the images and in general to the concept of image itself. Even though some \
 general-purpose metrics exist to evaluate structural similarity between pairs 
 of image-representing tensors (see \cite{guoComprehensiveEvaluationFramework2023}),
 we will use the geometrical properties of the feature space and the resulting
 probability distribution over the output space to quantify the shift. Even though
-this approach might seem biased towards the specific parameters of the classifier 
-network, we will redefine the model selection problem in a way that these definitions
-make sense.\\
+this approach might seem biased towards the specific parameters of the classifier, 
+the model selection problem will be reformulated so that any bias contribution
+is placed under the expected randomness of input data.\\
 
 Taking into account the magnitude of the existing covariate shift among source
 domains, the performance of the selected model will be reported for each of
@@ -467,9 +475,10 @@ This project will evaluate the suitability of posterior agreement as a robustnes
 metric in the adversarial and out-of-distribution settings. In accordance with
 \textbf{P2} (see Properties \ref{properties:robustness}), we must eventually
 assess whether our metric is able to differentiate between robust and non-robust
-models. For that reason, we will consider ERM (see Definition \ref{def:erm}) as
-our baseline vanilla model and compare its generalization performance to covariate
-shift with two models representing two different robustness enhancement strategies. \\
+models and, consequently, algorithms. For that reason, we will consider ERM 
+(see Definition \ref{def:erm}) as our baseline vanilla algorithm and compare its 
+generalization performance to covariate shift with two algorithms representing two 
+different robustness-fostering strategies. \\
 
 As a first approach, NN architectures will be trained by means of IRM, a regularization method driven 
 by feature alignment \cite{arjovskyInvariantRiskMinimization2020}.
@@ -611,7 +620,9 @@ with cardinality $|\Theta| = K^N$.
     given some prior testable information to be encoded by a probability 
     distribution, the distribution that best encodes that information is the one
     minimizing additional assumptions besides the testable information; that is, the one
-    maximizing information entropy within the testable space. Testable information amounts to certain constraints on
+    maximizing information entropy within the testable space
+    \cite{logicofscience}.
+    Testable information amounts to certain constraints on
     the MEP optimization problem over the non-negative, Lebesgue-integrable function class $\mathcal{P}$.
 
     $$
@@ -775,7 +786,7 @@ we can proceed to analyze its properties and its suitability as a robustness met
     $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)$ has the following properties.
 
     \begin{description}
-        \item[P1](Non-negativity) $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) \geq 0 \;\; \forall \bm{x} \sim \underbar{X}$ and $\beta \in \mathbb{R}^+$.
+        \item[P1](Sign) $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) \leq 0 \;\; \forall \bm{x} \sim \underbar{X}$ and $\beta \in \mathbb{R}^+$.
         \item[P2](Symmetry)  $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) = \operatorname{PA}\left(\bm{x}'', \bm{x}'; \beta\right)$. This property is 
         important from the robustness perspective, given that noise
         instantiations are not indexed and no reference noiseless experiment can be performed.
@@ -790,7 +801,8 @@ we can proceed to analyze its properties and its suitability as a robustness met
 \end{proof}
 
 \begin{theorem}
-    The posterior agreement kernel for classification tasks complies with the desired properties of a robustness metric (see Properties \ref{properties:robustness}).
+    The posterior agreement kernel for classification tasks complies with the desired 
+    properties of a robustness metric, as defined in Properties \ref{properties:robustness}.
 \end{theorem}
 \begin{proof}
     See Appendix \ref{sec:appendix_pa}.

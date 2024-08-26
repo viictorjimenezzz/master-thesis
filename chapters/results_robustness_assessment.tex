@@ -58,7 +58,7 @@ navigated during the kernel optimization, in which matching samples penalize the
 metric value the lower the value of $\beta$ is, whereas mismatching samples will
 penalize the overall value the further from zero $\beta$ is. Given the highly non-linear
 nature of the logarithm in the interval $[0,1]$, the metric will penalize 
-disagreement much more than agreement, as shown in Figure \ref{fig:empirical_plot}.
+disagreement much more than agreement, as shown in Figure~\ref{fig:empirical_plot}.
 A truly random classifier (i.e. balanced on the two classes) would yield the minimum
 PA value for any possible original sample, as shown in the blue dashed line.\\
 
@@ -78,6 +78,10 @@ information is especially valuable in the covariate shift setting, given that ro
 models that rely on less accessible sets of features will most likely yield conservative
 predictions on in-distribution samples, but at the same time keep a high prediction
 power on out-of-distribution observations. \\
+
+HERE INTERPRETATION OF INFORMATIVENESS AND BETA \\
+
+ALSO HERE INTERPRETATION OF BETA CONVERGENCE AND WHY WE DONT SET IT MANUALLY. \\
 
 \begin{figure}[H]
     \centering
@@ -117,7 +121,7 @@ relevant in any classification context, as it represents general measure of the
 quality of the features learned by the model. The presence of white noise, at least 
 at low levels, does not perturb the set of features that define a particular class from
 a human perspective, and should therefore not perturb very significantly the
-predictions yielded by the model. \\
+model's predictions. \\
 
 HERE THE PLOT OF THE LEVENSHTEIN DISTANCE PLOT HERE. \\
 
@@ -141,16 +145,25 @@ language or replacement of complete words. \\
     \label{fig:gaussian_noise}
 \end{figure}
 
-In this second example, a 10.000 observation sample of CIFAR10 images was perturbed
-with white noise at different levels of intensity. The magnitude of the perturbation
-is expressed in the same terms as those of an adversarial 
+In this second example, a 10.000 observation sample of CIFAR10
+\cite{krizhevskyLearningMultipleLayers}
+images was perturbed with white noise at different levels of intensity. The 
+magnitude of the perturbation is expressed in the same terms as those of an adversarial 
 attack (see Section \ref{sec:adversarial_setting}) for further 
 reference, but translate to using $\sigma = 3 \ell_\infty$, as 99.73\% of the
 total mass of the gaussian distribution lies within the interval $\pm 3\sigma$. \\
 
-As expected, PA is highly sensitive to the presence of white noise,
-and is able to capture the generalization capabilities of the model in a much more
-informative way than accuracy. We can obtain a higher understanding of the degree of
+Gaussian perturbations genuinely simulate increasing levels of sampling randomness, as the 
+perceptual features that should drive the inductive bias of the model are still present, even 
+if in a proportionally dissimilar way as they were encoded. In contrast to adversarial attacks, 
+these perturbations are not expected to distort the predictive outcome abruptly. As a result, 
+any robustness score will be driven by the standard generalization error, including validation 
+accuracy. Figure \ref{fig:gaussian_noise} shows that 
+PA is highly sensitive to the presence of white noise and effectively captures the factor 
+of increase in the magnitude of the perturbations, which highlights its superior discriminative 
+power with respect to accuracy. \\
+
+We can obtain a higher understanding of the degree of
 sensitivity of the metric if we adjust the perturbation so that if only affects
 a certain ratio of observations. \\
 
@@ -173,8 +186,8 @@ a certain ratio of observations. \\
 As expected, $\beta$ tends to infinity in the unperturbed case, and converges
 quickly to its optimal value in the rest of cases, even if the sample size is considerably
 large and memory-intensive. The decay in the PA value is less pronounced the higher
-fraction of perturbed samples are there, as we observed in the artificial setting, which
-is consistent with the concept of robustness itself, as it already approaches
+fraction of perturbed samples are there, which is consistent with the concept 
+of robustness defined, as it already approaches
 the lower bound for these kinds of perturbation even when the whole sample has yet not
 been perturbed. \\
 
@@ -238,12 +251,21 @@ The results provided in this section have been obtained using the CIFAR10 datase
 \cite{krizhevskyLearningMultipleLayers},
 which is widely regarded as a standard benchmark for robustness evaluation. CIFAR10 is
 a balanced dataset containing 60.000 coloured 32 $\times$ 32 pixel images belonging to 10
-different classes. We will consider a pre-trained WideResNet-28-10 as a baseline, undefended
-model and compare it to some state-of-the-art robust models provided by the 
+different classes. We will consider a pre-trained WideResNet-28-10
+\cite{BMVC2016_87}
+as a baseline, undefended model and compare it to some state-of-the-art robust ResNet50
+\cite{resnet50}
+models provided by the 
 RobustBench \cite{croceRobustBenchStandardizedAdversarial2021a}
 library under PGD \cite{madryDeepLearningModels2019}
 and FMN \cite{pintorFastMinimumnormAdversarial2021}
-attacks, both run for a thousand steps (see Section \ref{sec:adversarial_setting}). 
+attacks, both run for 1000 steps (see Section \ref{sec:adversarial_setting}).
+The defenses applied are those proposed by 
+{\color{tab:blue} \textbf{Engstrom et al.}} \cite{engstrom2019adversarial}, 
+{\color{tab:green} \textbf{Athalye et al.}} \cite{AthalyeC018}, 
+{\color{tab:red} \textbf{Wong et al.}} \cite{WongRK20}, 
+{\color{tab:purple} \textbf{Addepalli et al.}} \cite{Addepalli2022ScalingAT}
+and {\color{tab:brown} \textbf{Wang et al.}} \cite{wang2023betterdiffusionmodelsimprove}.
 The PGD attack power will be specified in terms of $\ell_\infty$, which corresponds
 to the maximum perturbation allowed for each pixel. This is consistent with the characterization
 of adversarial perturbation given in the previous chapter, as every perturbation will be bounded
@@ -328,7 +350,7 @@ optimal posteriors. \\
         \bottomrule
         \end{tabular}
         \caption{
-        Entropy difference $\Delta H = H(\beta^{*}) - H(\beta)$
+        Entropy difference $\Delta H = H(\beta^{*}) - H(1)$
         for different models, obtained for FMN and $\ell_\infty$ = 8/255 
         PGD attacks, both at $\operatorname{AR} = 1$. Entropy values are 
         estimated using the average posterior distribution over correctly classified
@@ -434,7 +456,11 @@ perturbed samples in the CIFAR10 dataset.
 
     \caption{PA, AFR(T) and the AFR variation against increasing adversarial ratio at different
     perturbation norm bounds. The aforementioned undefended net and several RobustBench
-    robust models are considered under a 1000 step PGD attack.}
+    robust models are considered under a 1000 step PGD attack.
+    When AR = 0, $\operatorname{PA} \longrightarrow 0$ as $\beta \longrightarrow \infty$ in all cases, but
+    the convergence rate depends on the prediction confidence (see Figure \ref{fig:prediction_confidence}) and thus yields an assessment equivalent to that
+    of AFR (T).
+    }
     \label{fig:six_figures_pa_adv}
 \end{figure}
 
@@ -447,24 +473,32 @@ mislead its predictions. \\
 
 From both PA and AFR stems the fact that {\color{tab:green} \textbf{Athalye et al.}}
 is significantly less robust to PGD attacks than its RobustBench counterparts, as 
-its performance decreases
-way more significantly with increasing $\operatorname{AR}$. It is interesting to see, however,
-than the rate at which its performance decreases is inversely proportional to the 
-attack power, which indicates that the principle by which robustness is achieved
-is more effective for large-norm perturbations. \\
+its performance decreases way more significantly with increasing $\operatorname{AR}$. 
+We observe than the rate at which its performance decreases is inversely proportional to the 
+attack power, which is consistent with the behaviour expected from a JPEG compression defense 
+mechanism as it is less effective for small perturbations \cite{dasKeepingBadGuys2017}. \\
 
-A fundamental difference between these two models, that cannot be
-inferred from a purely performance-based metric, is the nature of the shift in
+A fundamental difference between these two models, which cannot be
+inferred from a purely performance-based metric, is the nature of the misalignment in
 the probabilistic output of the model, which is the source of the robust and non-robust
 behaviour observed. Figure \ref{fig:unrobust_posterior_short_pgd} \textbf{(right)}
-shows the optimal $\beta^{*}$ value for each model, which is an indication of
+shows the optimal $\beta^{*}$ value for each model, which follows
 the entropy of the posterior distribution and discriminates the two non-robust
 models from the rest and from each other. The {\color{tab:orange} \textbf{Undefended}}
 model provides overconfident predictions that maximize disagreement in misleading and 
 misclassified samples, whereas {\color{tab:green} \textbf{Athalye et al.}} provides 
 uncertain predictions that minimize disagreement in adversarial samples but have 
-the opposite effect in correctly classified ones. This insight clarifies the 
-unintuitive behaviour observed earlier, by which {\color{tab:green} \textbf{Athalye et al.}} 
+the opposite effect in correctly classified ones. \\
+
+Following the interpretation outlined in Chapter \ref{sec:theory}, we show that $\beta^{*}$ effectively measures the quality of 
+the informativeness estimation made by each model. The {\color{tab:orange} \textbf{Undefended}} 
+model overestimates the information content of the features it has learned, and thus overfits 
+to these and is unable to generalize under adversarial perturbations. On the other hand, 
+{\color{tab:green} \textbf{Athalye et al.}} underestimates the information content and thus
+provides overly uncertain predictions. The maximum mutual information between posteriors is 
+lower than its robust counterparts for both models, the former because information is not 
+mutual and the latter because there is less information.
+This insight clarifies the unintuitive behaviour observed earlier, by which {\color{tab:green} \textbf{Athalye et al.}} 
 robustness value decreases at a lower rate with increasing attack power, despite maintaining a
 constant decrease in performance of $\Delta \operatorname{AFR} \sim 0.1$. \\
 
@@ -570,7 +604,9 @@ it with the assessment provided by AFR.
 
 As expected, the effectiveness of the FMN attack is superior to that of PGD attacks, as
 the decrease in performance is substantially more significant for all models, especially the ones
-previously considered robust. It is likely that these models have been defended with a
+previously considered robust. In this case, the assessment provided by PA is 
+
+It is likely that these models have been defended with a
 compression strategy that succeeds at filtering out small perturbations, which are
 the ones employed by FMN, and for that reason maintain their performance at low
 adversarial ratio values \cite{dasKeepingBadGuys2017}.
@@ -934,6 +970,8 @@ as the original dataset, thus removing sampling randomness contributions from th
 Table \ref{tab:data_shift_table} stipulates the specific factors conforming each environment in this
 experiment and Figure \ref{fig:data_shift_images} illustrates them with some examples.
 
+CITE MORE INFO IN \ref{def:diagvib6_experiments} \\
+
 \begin{definition}[Shifted factors experiment]\label{def:shifted_factors_experiment}
     The classification task involves the prediction of the shape factor (i.e. the digit)
     of handwritten fours and nines from the MNIST dataset. In particular, source and target
@@ -947,7 +985,8 @@ experiment and Figure \ref{fig:data_shift_images} illustrates them with some exa
     $$
 
     where $X_j$ represents the random variable associated to domain $j$, 
-    being $j$ the number of shifted factors with respect to the original MNIST sample. Datasets are generated by considering
+    being $j$ the number of shifted factors with respect to domain $X_0$. 
+    Datasets are generated by considering
     four different realizations of the experiment, namely $\tau_0^{\text{train}}$, $\tau_1^{\text{train}}$, $\tau^{\text{val}}$
     and $\tau^{\text{test}}$, each sampling from disjoint subsets of MNIST. Following the notation introduced
     in Chapter \ref{sec:experimental_setup}, we can define:
@@ -965,7 +1004,6 @@ experiment and Figure \ref{fig:data_shift_images} illustrates them with some exa
     which means that distribution shift is the only accountable source of randomness.
     Overall, two sets of $40\,000$ images for training, two sets of $20\,000$ 
     images for validation, and six sets of $10\,000$ images for testing are generated. 
-
 \end{definition}
 
 \begin{table}[H]
@@ -986,7 +1024,7 @@ experiment and Figure \ref{fig:data_shift_images} illustrates them with some exa
     for 'centered center' and 'centered low', respectively.
     }
     \label{tab:data_shift_table}
-    \end{table}
+\end{table}
 
 
 \begin{figure}[H]
@@ -1133,6 +1171,30 @@ leads to a predictive behaviour that aligns slightly better with the original pr
 %     \caption{Model selection capabilities.}
 %     \label{fig:model_selection_capabilities}
 % \end{figure}
+
+HERE TO COMPARE WITH ACCURACY \\
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l|cc|cc|cc|cc|cc}
+    \multirow{2}{*}{\# SF} & \multicolumn{2}{c|}{1} & \multicolumn{2}{c|}{2} & \multicolumn{2}{c|}{3} & \multicolumn{2}{c}{4} & \multicolumn{2}{c}{5} \\
+    & PA & $\operatorname{AFR}_{\text{P}}$ & PA & $\operatorname{AFR}_{\text{P}}$ & PA & $\operatorname{AFR}_{\text{P}}$ & PA & $\operatorname{AFR}_{\text{P}}$ \\
+    \midrule
+    {\color{tab:blue} \textbf{ERM}} & -91.47 & 1 & -97.68 & 0.9960 & -102.90 & 0.9920 & -109.21 & \textbf{0.9876} \\
+    {\color{tab:orange} \textbf{IRM}} & -89.20 & 1 & -94.21 & 0.9964 & -104.61 & \textbf{0.9904} & -110.34 & 0.9888 \\
+    {\color{tab:green} \textbf{LISA}} & -77.83 & 1 & -81.95 & 0.9976 & -84.58 & 0.9956 & -89.39 & 0.9916 \\
+    \bottomrule
+    \end{tabular}
+    \caption{
+        Comparison of PA and $\operatorname{AFR}_{\text{P}}$ for a 
+        PGD attack with $\ell_\infty$ = 16 / 255 across different adversarial 
+        ratio values. The worst robustness score is emboldened for every case.
+        PA displays higher consistency and discriminative power 
+        across varying $\operatorname{AR}$ with respect to to 
+        $\operatorname{AFR}_{\text{P}}$.
+    }
+    \label{tab:pa_afrpred_comparison_table}
+\end{table}
 
 As shown in Figure \ref{fig:datashift_selection}, PA-based model selection behaves differently in robust
 and non-robust algorithms. Following the reasoning derived in previous sections, it is likely that the PA

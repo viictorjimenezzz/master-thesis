@@ -8,7 +8,7 @@ how the PA kernel can be leveraged for robust epoch-wise model selection
 with early stopping, potentially mitigating overfitting and enhancing
 generalization performance under distribution shifts.
 
-\section{Model selection under controled experimental conditions}
+\section{Model selection under controled experimental conditions}\label{chapter:msel_controlled}
 
 Building upon the exploratory results on the domain generalization setting previously obtained, 
 we will assess the robust model selection capabilities of PA across a
@@ -54,6 +54,8 @@ determining each digit and the implicit contribution of shifted factors. \\
 
 HERE PLOT OF THE POSTERIORS. \\
 
+YOU MUST ADD A CONTROL DATASET WITH ONLY RANDOMNESS !!! \\
+
 The characterization of the inductive bias is outside of the scope of this work, but given the
 simplicity of the experimental setup and the learning task associated, it is reasonable to assume 
 that it encompassess all the relevant features that are present in the data,
@@ -84,6 +86,8 @@ selection. Tables \ref{tab:msel_hue} and \ref{tab:msel_pos} describe the data co
 experiments considered. \\
 
 HERE DATASETS. \\
+
+NOTE THAT FIRST ENVIRONMENT IS COMMON. TAKE IT INTO ACCOUNT WHEN GIVING RESULTS. \\
 
 - Results to show: Table with accuracy and F1 of the selected models under all conditions. 
 Maybe compare validation accuracy, etc \\

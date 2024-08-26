@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{Addepalli2022ScalingAT}
+Sravanti Addepalli, Samyak Jain, Gaurang Sriramanan, and R.~Venkatesh Babu.
+\newblock Scaling adversarial training to large perturbation bounds.
+\newblock In {\em European Conference on Computer Vision}, 2022.
+
 \bibitem{arjovskyInvariantRiskMinimization2020}
 Martin Arjovsky, Léon Bottou, Ishaan Gulrajani, and David Lopez-Paz.
 \newblock Invariant {{Risk Minimization}}.
@@ -7,6 +12,13 @@ Martin Arjovsky, Léon Bottou, Ishaan Gulrajani, and David Lopez-Paz.
 \bibitem{arjovskyWassersteinGAN2017}
 Martin Arjovsky, Soumith Chintala, and Léon Bottou.
 \newblock Wasserstein {{GAN}}.
+
+\bibitem{AthalyeC018}
+Anish Athalye, Nicholas Carlini, and David~A. Wagner.
+\newblock Obfuscated gradients give a false sense of security: Circumventing
+  defenses to adversarial examples.
+\newblock In {\em International Conference on Machine Learning}, volume~80,
+  pages 274--283. {PMLR}, 2018.
 
 \bibitem{baiRecentAdvancesAdversarial2021}
 Tao Bai, Jinqi Luo, Jun Zhao, Bihan Wen, and Qian Wang.
@@ -76,6 +88,11 @@ Nilaksh Das, Madhuri Shanbhogue, Shang-Tse Chen, Fred Hohman, Li~Chen,
 \newblock Keeping the {{Bad Guys Out}}: {{Protecting}} and {{Vaccinating Deep
   Learning}} with {{JPEG Compression}}.
 
+\bibitem{engstrom2019adversarial}
+Logan Engstrom, Andrew Ilyas, Shibani Santurkar, Dimitris Tsipras, Brandon
+  Tran, and Aleksander Madry.
+\newblock Adversarial robustness as a prior for learned representations, 2019.
+
 \bibitem{euligDiagViB6DiagnosticBenchmark2021}
 Elias Eulig, Piyapat Saranrittichai, Chaithanya~Kumar Mummadi, Kilian Rambach,
   William Beluch, Xiahan Shi, and Volker Fischer.
@@ -102,6 +119,12 @@ Allan Gut.
 \newblock {\em An {{Intermediate Course}} on {{Probability}}}.
 \newblock Springer, second edition.
 
+\bibitem{resnet50}
+Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun.
+\newblock Deep residual learning for image recognition.
+\newblock In {\em Computer Vision and Pattern Recognition}, pages 770--778.
+  {IEEE} Computer Society, 2016.
+
 \bibitem{hoDenoisingDiffusionProbabilistic2020}
 Jonathan Ho, Ajay Jain, and Pieter Abbeel.
 \newblock Denoising {{Diffusion Probabilistic Models}}.
@@ -110,6 +133,11 @@ Jonathan Ho, Ajay Jain, and Pieter Abbeel.
 Andrew Ilyas, Shibani Santurkar, Dimitris Tsipras, Logan Engstrom, Brandon
   Tran, and Aleksander Madry.
 \newblock Adversarial {{Examples Are Not Bugs}}, {{They Are Features}}.
+
+\bibitem{logicofscience}
+E.~T. Jaynes.
+\newblock {\em Probability Theory: The Logic of Science}.
+\newblock Cambridge University Press, first edition.
 
 \bibitem{jimenezInductiveBiasDeep}
 Ortiz Jimenez.
@@ -162,6 +190,11 @@ Jiashuo Liu, Zheyan Shen, Yue He, Xingxuan Zhang, Renzhe Xu, Han Yu, and Peng
   Cui.
 \newblock Towards {{Out-Of-Distribution Generalization}}: {{A Survey}}.
 
+\bibitem{m.bishopPatternRecognitionMachine2006}
+Cristopher M.~Bishop.
+\newblock {\em Pattern {{Recognition}} and {{Machine Learning}}}.
+\newblock Springer.
+
 \bibitem{madryDeepLearningModels2019}
 Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and
   Adrian Vladu.
@@ -181,6 +214,11 @@ Krikamol Muandet, David Balduzzi, and Bernhard Schölkopf.
 Vladimir N.~Vapnik.
 \newblock {\em The {{Nature}} of {{Statistical Learning Theory}}}.
 \newblock Second edition.
+
+\bibitem{p.murphyProbabilisticMachineLearning2022}
+Kevin P.~Murphy.
+\newblock {\em Probabilistic {{Machine Learning}}. {{An Introduction}}.}
+\newblock The MIT Press.
 
 \bibitem{peiMultiAdversarialDomainAdaptation}
 Zhongyi Pei, Zhangjie Cao, Mingsheng Long, and Jianmin Wang.
@@ -261,11 +299,20 @@ Yang Wang, Bo~Dong, Ke~Xu, Haiyin Piao, Yufei Ding, Baocai Yin, and Xin Yang.
 Zekai Wang, Tianyu Pang, Chao Du, Min Lin, Weiwei Liu, and Shuicheng Yan.
 \newblock Better {{Diffusion Models Further Improve Adversarial Training}}.
 
+\bibitem{wang2023betterdiffusionmodelsimprove}
+Zekai Wang, Tianyu Pang, Chao Du, Min Lin, Weiwei Liu, and Shuicheng Yan.
+\newblock Better diffusion models further improve adversarial training, 2023.
+
 \bibitem{wengEvaluatingRobustnessNeural2018}
 Tsui-Wei Weng, Huan Zhang, Pin-Yu Chen, Jinfeng Yi, Dong Su, Yupeng Gao,
   Cho-Jui Hsieh, and Luca Daniel.
 \newblock Evaluating the {{Robustness}} of {{Neural Networks}}: {{An Extreme
   Value Theory Approach}}.
+
+\bibitem{WongRK20}
+Eric Wong, Leslie Rice, and J.~Zico Kolter.
+\newblock Fast is better than free: Revisiting adversarial training.
+\newblock In {\em International Conference on Learning Representations}, 2020.
 
 \bibitem{xiaoGeneratingAdversarialExamples2019}
 Chaowei Xiao, Bo~Li, Jun-Yan Zhu, Warren He, Mingyan Liu, and Dawn Song.
@@ -288,6 +335,13 @@ Sangdoo Yun, Dongyoon Han, Seong~Joon Oh, Sanghyuk Chun, Junsuk Choe, and
   Youngjoon Yoo.
 \newblock {{CutMix}}: {{Regularization Strategy}} to {{Train Strong
   Classifiers}} with {{Localizable Features}}.
+
+\bibitem{BMVC2016_87}
+Sergey Zagoruyko and Nikos Komodakis.
+\newblock Wide residual networks.
+\newblock In Edwin R.~Hancock Richard C.~Wilson and William A.~P. Smith,
+  editors, {\em Proceedings of the British Machine Vision Conference (BMVC)},
+  pages 87.1--87.12. BMVA Press, September 2016.
 
 \bibitem{zhangTheoreticallyPrincipledTradeoff2019}
 Hongyang Zhang, Yaodong Yu, Jiantao Jiao, Eric~P. Xing, Laurent~El Ghaoui, and

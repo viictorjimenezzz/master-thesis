@@ -86,7 +86,7 @@ $$
     The posterior agreement kernel is non-negative.
 
     $$
-    PA(\bm{x}', \bm{x}'') \geq 0
+    PA(\bm{x}', \bm{x}'') \leq 0
     $$  
 \end{theorem}
 
@@ -860,6 +860,249 @@ the discriminant function.
     \caption{Comparison of FMN and PGD attacks using feature-space-based distances.}
     \label{fig:comparison_feat_metrics}
 \end{figure}
+
+
+\chapter{Dataset reference}\label{sec:datasets}
+
+Experiments in the domain generalization setting for both robustness
+assessment and model selection purposes have been conducted with
+MNIST images under specific configurations of factors, by means of the
+DiagVib-6 data generation pipeline
+\cite{euligDiagViB6DiagnosticBenchmark2021}.
+In general, two experimental frameworks can be defined, namely a control setting
+that replicates standard conditions in the absence of distribution shift and
+a covariate shift setting in which several image factors are manipulated. The synthetic
+nature of the dataset allows for a fine-grained control over image factors and 
+thus the isolation of the different sources of randomness
+to which models are exposed. \\
+
+In the first case, datasets $\bm{x}^\prime$ and 
+$\bm{x}^{\prime \prime}$ are exclusively subject to sampling randomness, 
+in the sense that each observation in $\bm{x}^\prime$ is paired with an 
+observation in $\bm{x}^{\prime \prime}$ that belongs to the same class and has the same
+configuration of factors but represents a different MNIST instance. In 
+the second case, a single MNIST instantiation is used to generate both 
+$\bm{x}^\prime$ and $\bm{x}^{\prime \prime}$, each with a different configuration of factors, 
+thereby removing any contribution of sampling randomness from the robustness score.
+
+
+\begin{definition}[DiagVib-6 experiments]\label{def:diagvib6_experiments}
+    The classification task involves the prediction of the shape factor (i.e. the digit)
+    of handwritten fours and nines from the MNIST dataset. Following the notation introduced in
+    Chapter \ref{sec:experimental_setup}, we can define source and target domains as follows:
+
+    $$
+    \begin{aligned}
+        &\mathcal{S} = \{ X_0, X_1\},\\
+        &\mathcal{T} = \{ X_1, X_2, X_3, X_4, X_5\},
+    \end{aligned}
+    $$
+
+    where $X_j$ represents the random variable associated to domain $j$, 
+    being $j$ the number of shifted factors with respect to domain $X_0$. Ideally, domain generalization
+    requires datasets sampled from target domains to be used exclusively for testing, while training, validation
+    and model selection are performed on source domains. Even if a more flexible approach has been
+    considered for model selection, performance results are provided on test datasets only:
+
+    $$
+    D_j^{\text{test}} = \{\bm{x}_j^{\text{test}}\}, \; \text{where } \bm{x}_j^{\text{test}} := \bm{x}_j^{\text{test}} \circ \tau^{\text{test}}, \;j = 1,\dots,5
+    $$
+
+    and $\tau^{\text{test}}$ represents a single sampling experiment. In this way, difference in performance
+    can only be attributed to a lack of generalization capabilities under distribution shift. Regarding the generation 
+    of training and validation datasets, two main experimental settings have been considered.
+
+    \begin{itemize}
+        \item In the control setting, each dataset is generated from a different sampling realizations in 
+        disjoint subsets of MNIST, thereby avoiding repetition of instances.
+    
+        $$
+        \begin{aligned}
+            &D^{\text{train}} = \{\bm{x}_0^{\text{train}}, \bm{x}_1^{\text{train}}\}, \; \text{where } \bm{x}_j := \bm{x}_j \circ \tau_j^{\text{train}}, \;j = 0,1 \\
+            &D^{\text{val}} = \{\bm{x}_0^{\text{val}}, \bm{x}_1^{\text{val}}\}, \; \text{where } \bm{x}_j := \bm{x}_j \circ \tau_j^{\text{val}}, \;j=0,1 \\
+        \end{aligned}
+        $$
+
+        where $\tau_0^{\text{train}} \neq \tau_1^{\text{train}}$ and $\tau_0^{\text{val}} \neq \tau_1^{\text{val}}$.
+
+        \item In the shifted setting, a single sampling realization is considered during validation, which 
+        allows robustness assessment to be performed under distribution shift only.
+
+        $$
+        \begin{aligned}
+            &D^{\text{train}} = \{\bm{x}_0^{\text{train}}, \bm{x}_1^{\text{train}}\}, \; \text{where } \bm{x}_j := \bm{x}_j \circ \tau_j^{\text{train}}, \;j = 0,1 \\
+            &D^{\text{val}} = \{\bm{x}_0^{\text{val}}, \bm{x}_1^{\text{val}}\}, \; \text{where } \bm{x}_j := \bm{x}_j \circ \tau^{\text{val}}, \;j=0,1 \\
+        \end{aligned}
+        $$
+
+        where $\tau_0^{\text{train}} \neq \tau_1^{\text{train}}$ and $\tau_0^{\text{val}} = \tau_1^{\text{val}} =  \tau^{\text{val}}$.
+
+    
+
+    \end{itemize}
+
+    four different realizations of the experiment, namely $\tau_0^{\text{train}}$, $\tau_1^{\text{train}}$, $\tau^{\text{val}}$
+    and $\tau^{\text{test}}$, each sampling from disjoint subsets of MNIST. 
+\end{definition}
+
+This section of the appendix will serve as a reference for the specific dataset configurations that 
+have been considered in the experiments.
+
+\section{Robustness assessment}
+
+\begin{definition}[Dataset for robustness assessment]
+    The configuration of factors used for experiments in Section \ref{results_domain_generalization}
+    considers only incrementally shifted observations.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|c|c|c|c|c|c}
+        \# Shift Factors & 0 & 1 & 2 & 3 & 4 & 5 \\
+        \midrule
+        Hue & red & \textbf{blue} & blue & blue & blue & blue \\
+        Lightness & dark & dark & \textbf{bright} & bright & bright & bright \\
+        Position  & CC & CC & CC & \textbf{LC} & LC & LC \\
+        Scale  & normal & normal & normal & normal & \textbf{large} & large \\
+        Texture & blank & blank & blank & blank & blank & \textbf{tiles} \\
+        \textit{Shape} & \textit{4,9} &  \textit{4,9} &  \textit{4,9} & \textit{4,9} & \textit{4,9} & \textit{4,9} \\
+        \bottomrule
+        \end{tabular}
+        \caption{
+        Image factors associated to each of the environments considered in this experiment. CC and LC account
+        for 'centered center' and 'centered low', respectively.
+        }
+    \end{table}
+\end{definition}
+
+\section{Model selection}
+
+\subsection{Controlled conditions}
+
+Section \ref{chapter:msel_controlled} reported test accuracy results for different configurations of 
+pairs of datasets that were considered for robust model selection through early stopping. Test datasets entail
+a single sampling realization and represent incremental shifts of image factors.
+
+\begin{definition}[Test datasets -- \texttt{hue}] Some experiments in Section \ref{chapter:msel_controlled}
+    considered source domains to be shifted in the \texttt{hue} factor. Consequently, target
+    domains entailed incremental shifts in the remaining factors.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|c|c|c|c|c|c}
+        \# Shift Factors & 0 & 1 & 2 & 3 & 4 & 5 \\
+        \midrule
+        Hue & red & \textbf{green} & green & green & green & green \\
+        Lightness & dark & dark & \textbf{bright} & bright & bright & bright \\
+        Position  & CC & CC & CC & CC & \textbf{UL} & UL \\
+        Scale  & large & large & large & large & large & \textbf{small} \\
+        Texture & blank & blank & blank & \textbf{tiles} & tiles & tiles \\
+        \textit{Shape} & \textit{1,4,7,9} &  \textit{1,4,7,9} &  \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} \\
+        \bottomrule
+        \end{tabular}
+        \caption{
+        Image factors associated to each of the environments considered in this experiment. CC and UL account
+        for 'centered center' and 'upper left', respectively.
+        }
+        \label{ds:hue_test}
+    \end{table}
+\end{definition}
+
+\begin{definition}[Test datasets -- \texttt{position}] Some experiments in Section \ref{chapter:msel_controlled}
+    considered source domains to be shifted in the \texttt{position} factor. Consequently, target
+    domains entailed incremental shifts in the remaining factors.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|c|c|c|c|c|c}
+        \# Shift Factors & 0 & 1 & 2 & 3 & 4 & 5 \\
+        \midrule
+        Hue & green & green & green & \textbf{red} & green & green \\
+        Lightness & dark & dark & dark & dark & \textbf{bright} & bright \\
+        Position  & UL & \textbf{CC} & CC & CC & CC & CC \\
+        Scale  & large & large & \textbf{small} & small & small & small\\
+        Texture & blank & blank & blank & blank & blank & \textbf{tiles} \\
+        \textit{Shape} & \textit{1,4,7,9} &  \textit{1,4,7,9} &  \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9}\\
+        \bottomrule
+        \end{tabular}
+        \caption{
+        Image factors associated to each of the environments considered in this experiment. CC and UL account
+        for 'centered center' and 'upper left', respectively.
+        }
+        \label{ds:pos_test}
+    \end{table}
+\end{definition}
+
+It is important to note that test datasets corresponding to the first shifted factor have the same
+configuration in both cases, which allows the comparison not only of different 
+robustness configurations but also of algorithms that are trained to perform the same task but 
+are subject to shifts of different nature. \\
+
+Regarding validation and model selection datasets, several configurations have been considered to
+account for different degrees of accessibility to the target domains.\\
+
+\begin{definition}[Training and validation datasets -- \texttt{hue}]
+    
+    
+\end{definition}
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c|c}
+        \# Shift Factors & Factor & 0 & 1 & 2 & 3 & 4 & 5 \\
+        \midrule
+        \multirow{2}{*}{Hue} 
+        & Value & green & green & green & \textbf{red} & green & green \\
+        & Lightness & dark & dark & dark & dark & \textbf{bright} & bright \\
+        \midrule
+        \multirow{2}{*}{Position} 
+        & Value & UL & \textbf{CC} & CC & CC & CC & CC \\
+        & Scale & large & large & \textbf{small} & small & small & small \\
+        \midrule
+        \multirow{2}{*}{Texture} 
+        & Value & blank & blank & blank & blank & blank & \textbf{tiles} \\
+        & \textit{Shape} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} \\
+        \bottomrule
+    \end{tabular}
+    \caption{
+    Image factors associated with each of the environments considered in this experiment. CC and UL account
+    for 'centered center' and 'upper left', respectively.
+    }
+    \label{ds:pos_test}
+\end{table}
+
+
+\subsection{SO/GO opportunities}
+
+Model selection experiments have been conducted under controlled conditions, in which test performance
+under different robust model selection strategies was reported also for a \texttt{control} validation
+dataset pair, in which 
+
+\begin{definition}[Dataset \texttt{control}]
+    The configuration of factors used for experiments in Section \ref{results_domain_generalization}
+    considers only incrementally shifted observations.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{l|c|c|c|c|c|c}
+        \# Shift Factors & 0 & 1 & 2 & 3 & 4 & 5 \\
+        \midrule
+        Hue & red & \textbf{blue} & blue & blue & blue & blue \\
+        Lightness & dark & dark & \textbf{bright} & bright & bright & bright \\
+        Position  & CC & CC & CC & \textbf{LC} & LC & LC \\
+        Scale  & normal & normal & normal & normal & \textbf{large} & large \\
+        Texture & blank & blank & blank & blank & blank & \textbf{tiles} \\
+        \textit{Shape} & \textit{4,9} &  \textit{4,9} &  \textit{4,9} & \textit{4,9} & \textit{4,9} & \textit{4,9} \\
+        \bottomrule
+        \end{tabular}
+        \caption{
+        Image factors associated to each of the environments considered in this experiment. CC and LC account
+        for 'centered center' and 'centered low', respectively.
+        }
+        \label{tab:data_shift_table}
+    \end{table}
+\end{definition}
+
+
 
 
  \cleardoublepage

@@ -1,20 +1,34 @@
 \chapter{Introduction}\label{sec:introduction}
 
-This chapter aims to set the stage for the detailed analysis and discussion that will follow, by 
+This chapter aims to set the stage for the detailed analysis and discussion that will follow by 
 providing a general overview of the problem of model robustness in 
 machine learning and the current approaches to address it.
 
 \section{The robustness challenge}\label{sec:motivation}
 
-PARAGRAPH MISSING: Context on machine learning, deep learning and classification tasks. \\
+The field of machine learning revolves around the ambition of having computers
+perform certain tasks without being programmed with task-specific instructions,
+but instead by training them to find patterns in a data sample from which these 
+instructions can be inferred. During training, algorithms learn from data and
+experience to incrementally improve their task performance. In the process, a set
+of assumptions are implicitly adopted about the statistical model generating the data 
+and its connection with the desired task outcome. These assumptions constitute an 
+inductive bias, and both architectures and training procedures are designed to
+learn optimal biases that generalize to unseen data samples and thus lead to robust
+implementations of the task at hand
+\cite{p.murphyProbabilisticMachineLearning2022,m.bishopPatternRecognitionMachine2006}.
+This project will focus on the assessment of the robustness of deep learning models 
+performing image classification tasks.\\ 
 
-Robustness can be defined as the ability of a machine learning 
-model to maintain its predictive power on unseen observations that present 
-some kind of transformation or variation \cite{quinonero-candelaDatasetShiftMachine2009}.
+In a broad sense, robustness can be defined as the ability of a machine learning 
+model to maintain its predictive power on observations that present 
+some kind of transformation or variation 
+with respect to the ones used for its training
+\cite{quinonero-candelaDatasetShiftMachine2009}.
 Overall, three sources of variability are relevant in the context
 of image classification, namely sampling randomness, adversarial
-attacks, and out-of-distribution generalization (see Figure \ref{fig:cows}) 
-\cite{buhmannPosteriorAgreementModel2022}. \\
+perturbations and distribution shift, which are illustrated in Figure \ref{fig:cows} 
+\cite{buhmannPosteriorAgreementModel2022}.\\
 
 Out of these, only sampling randomness is commonly accounted for by 
 standard model validation techniques, in the sense that model selection 
@@ -54,14 +68,14 @@ of the transformations between the space of weights and the space of
 functions that they are able to represent \cite{jimenezInductiveBiasDeep}. 
 Features learned by the optimal standard classifier can be completely 
 different from those learned by a robust classifier, regardless 
-of the amount of data provided, which results in a fundamental limitation of standard performance
-in robust models \cite{tsiprasRobustnessMayBe2019,zhangTheoreticallyPrincipledTradeoff2019}.
+of the amount of data provided, which results in a fundamental limitation for task 
+performance in robust models \cite{tsiprasRobustnessMayBe2019,zhangTheoreticallyPrincipledTradeoff2019}.
 Besides, the feature space that deep learning models navigate is fundamentally 
 different than that in which humans implicitly rely on, and we 
 should therefore not expect models to be invariant to the 
-same features humans are naturally invariant to \cite{ilyasAdversarialExamplesAre2019}. \\
+same features humans are instinctively invariant to \cite{ilyasAdversarialExamplesAre2019}. \\
 
-\begin{figure}[H]
+\begin{figure}
     \centering
     \begin{subfigure}[b]{0.22\textwidth}
         \centering
@@ -84,28 +98,27 @@ same features humans are naturally invariant to \cite{ilyasAdversarialExamplesAr
     \begin{subfigure}[b]{0.22\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/introduction/cow_ood.jpg}
-        \caption{Domain}
+        \caption{Distribution}
     \end{subfigure}
-       \caption{Illustrative example of the three sources of variability
-       mentioned. A pre-trained MobileNetV2 
-       architecture is shown to be vulnerable to adversarial perturbations 
-       as the one represented in (c), and also to domain shifts 
+       \caption{Illustrative example of the three expected sources of variability. 
+       A pre-trained MobileNetV2 model is shown to be vulnerable to adversarial perturbations 
+       as the one represented in (c), and also to distribution shifts 
        as the one illustrated in (d), possibly because its inductive bias is influenced
-       by the spurious correlation between cows and their natural background.}
+       by the spurious correlation between cows and rural landscapes.}
        \label{fig:cows}
 \end{figure}
 
-This thesis will encompass both phenomena under the same theoretical
+This thesis will encompass all these phenomena under the same theoretical
 framework, and devise a common approach to the measurement of
-the distribution shift entailed by both adversarial and distribution
-variability. Robustness will be characterized from the space of
+the shift entailed by both adversarial and distribution
+variability sources. Robustness will be characterized from the space of
 outcomes of the model, by means of a (posterior) probability 
-distribution that will rank models and methods according to the
-agreement in their predictions when subject to different noise instantiations.
+distribution that will rank models and algorithms according to the
+agreement in their predictions when facing different realizations of the same experiment.
 
 \subsection{Adversarial setting}
 
-As it was already mentioned, certain perturbations to
+As it was previously mentioned, certain perturbations on
 original test images, which can be almost imperceptible
 to the human eye, can lead to highly-confident but
 incorrect predictions by deep neural networks, even when their
@@ -118,8 +131,8 @@ all of these cases \cite{szegedyIntriguingPropertiesNeural2014}. \\
 
 These intriguing phenomena were initially hypothesized to arise 
 from a lack of smoothness over the input space, a property
-commonly assumed in other learners, that derives from their
-non-linear nature. Nevertheless,
+commonly assumed in other learners, that derives from the
+non-linear nature of deep learning architectures. Nevertheless,
 extensive research on the field has elucidated that the root
 cause is instead the linearity of its learning units, which makes them
 vulnerable in certain directions of high-dimensional
@@ -127,15 +140,15 @@ spaces where small
 effects can add up to significally change the outcome
 \cite{goodfellowExplainingHarnessingAdversarial2015}. \\
 
-Following this intuition, several attacks have been proposed
-to evaluate the robustness of models to adversarial samples. One common
-principle to induce model failure is finding vulnerable directions in
-the feature space and adjusting the perturbation to have
-the desired misleading effect.  Adversarial examples generated
-by these attacks can be used to train robust models via regularization,
-promoting generalization to those features present in the worst-case
-examples and thus selecting models insensitivized
-to them. \\
+Building on this intuition, numerous attacks have been proposed to evaluate the 
+robustness of models against adversarial samples. A common strategy for inducing model 
+failure involves identifying vulnerable directions in the feature space and adjusting 
+perturbations to produce the desired misleading effect. Adversarial examples 
+generated through these attacks can then be used to train robust models via 
+regularization, thereby promoting generalization to those features present in the 
+worst-case examples and thus selecting models insensitivized
+to them
+\cite{baiRecentAdvancesAdversarial2021}.\\
 
 Nevertheless, adversarial learning entails decision boundaries 
 that are more complex than the ones derived via standard training
@@ -145,13 +158,13 @@ architectures, at the risk of
 overfitting to adversarial examples themselves
 \cite{schmidtAdversariallyRobustGeneralization2018}. 
 These limitations express a fundamental trade-off 
-that arises from an intrinsic 
-difference between robust and non-robust features
+that arises from the intrinsic 
+disparity between robust and non-robust features
 \cite{tsiprasRobustnessMayBe2019, zhangTheoreticallyPrincipledTradeoff2019}. \\
 
-\begin{figure}[h]
+\begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{img/introduction/adversarial_complexity.png}
+    \includegraphics[width=0.65\textwidth]{img/introduction/adversarial_complexity.png}
     \caption{
     A conceptual illustration of standard vs. adversarial 
     decision boundaries. (\textbf{left}) A set of linearly-separable points. 
@@ -159,32 +172,12 @@ difference between robust and non-robust features
     (\textbf{right}) Decision boundary learned via adversarial training.
     Both methods achieve zero training error, but only the robust model
     is able to generalize to $\ell_\infty$ perturbations.
-    Source: \cite{madryDeepLearningModels2019}
+    \cite{madryDeepLearningModels2019}
     }
     \label{fig:adversarial_complexity}
 \end{figure}
 
-%\begin{figure}[H]
-%    \centering
-%    \begin{subfigure}[b]{0.3\textwidth}
-%        \centering
-%        \includegraphics[width=\textwidth]{img/introduction/adversarial_db_1.jpg}
-%    \end{subfigure}
-%    \hspace{1cm}
-%    \begin{subfigure}[b]{0.3\textwidth}
-%        \centering
-%        \includegraphics[width=\textwidth]{img/introduction/adversarial_db_2.jpg}
-%    \end{subfigure}
-%    \caption{(left) Decision boundary learned via standard training. 
-%    (right) Decision boundary learned by an adversarial training method, where 
-%    the orange dotted line represents the decision boundary in the left figure.
-%    Both methods achieve zero training error, but only
-%    the robust model is able to generalize to adversarial examples. 
-%    Source: \cite{zhangTheoreticallyPrincipledTradeoff2019}}
-%    \label{fig:decision_boundaries}
-%\end{figure}
-
-Features selected by standard training
+Features selected via standard training
 are the most predictive towards generalizing
 to sampling randomness within the same dataset, but they do
 not necessarily represent the features implicitly selected 
@@ -192,45 +185,44 @@ by humans and are not invariant to a human-based notion
 of similarity. Instead, features selected via adversarial training 
 have been shown to better model this
 invariance, and thus align much better with 
-human perception (see Figure \ref{fig:adversarial_loss})
-\cite{ilyasAdversarialExamplesAre2019}. 
+human perception, as seen in Figure \ref{fig:adversarial_loss}
+\cite{ilyasAdversarialExamplesAre2019}. Furthermore, adversarial perturbations of robust 
+models display salient characteristics;
+that is, features that are perceived to belong to the
+class they are misclassified to, as illustrated in Figure \ref{fig:salient_characteristics}
+\cite{tsiprasRobustnessMayBe2019}. \\
 
 \begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.35\textwidth}
+    \begin{subfigure}[b]{0.28\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/introduction/adversarial_loss_1.jpg}
         \caption{MNIST}
     \end{subfigure}
     \hspace{1cm}
-    \begin{subfigure}[b]{0.35\textwidth}
+    \begin{subfigure}[b]{0.28\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/introduction/adversarial_loss_2.jpg}
         \caption{Restricted ImageNet}
     \end{subfigure}
        \caption{Scaled loss gradient with respect to input images.
-       Input pixels yielding the most predictive power are aligned 
+       Input pixels yielding the highest predictive power are aligned 
        with perceptually relavant features for the case of adversarial
        models, while appearing completely random in the case of 
        standard models.
-       Source: \cite{tsiprasRobustnessMayBe2019}}
+       \cite{tsiprasRobustnessMayBe2019}}
        \label{fig:adversarial_loss}
 \end{figure}
 
-Furthermore, adversarial perturbations of robust models have 
-been shown to display salient characteristics;
-that is, their features are perceived to belong to the
-class they are misclassified to, as illutrated in 
-Figure \ref{fig:salient_characteristics}. 
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{img/introduction/adversarial_salient.png}
-    \caption{Adversarial examples for standard and PGD-trained models.
+    \includegraphics[width=0.45\textwidth]{img/introduction/adversarial_salient.png}
+    \caption{Adversarial examples for standard and adversarially-trained models.
     Perturbed images produced for robust models 
-    effectively capture salient data characteristics and 
-    appear similar to examples of a different class. 
-    Source: \cite{tsiprasRobustnessMayBe2019}}
+    effectively capture salient data characteristics.
+    % and appear similar to examples of a different class. 
+    \cite{tsiprasRobustnessMayBe2019}}
     \label{fig:salient_characteristics}
 \end{figure}
 
@@ -238,9 +230,9 @@ Overall, these and other findings suggest that robustness in the adversarial set
 is a fundamental property of the features that are represented by models, 
 rather than of the models themselves, and the phenomenon of transferability can be
 explained in these terms. Training strategies that manage to navigate the 
-robustness-generalization trade-off will be the ones providing 
+robustness-generalization trade-off will be the ones yielding 
 the best results, provided that the data distribution
-is representative of the true underlying features. \\
+is representative of the true underlying features. 
 
 \subsection{Out-of-distribution setting}\label{sec:intro_ood}
 
@@ -258,23 +250,20 @@ patterns of the data used for training. Ultimately, this phenomenon induces a
 distribution shift that leads to poor generalization performance
 \cite{zhouDomainGeneralizationSurvey2022,wangGeneralizingUnseenDomains2022,liuOutOfDistributionGeneralizationSurvey2023}. \\
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{img/introduction/camelyon17.png}
-    \caption{The \texttt{camelyon17} (WILDS) dataset comprises tissue patches from 
-    different hospitals. The goal is to accurately predict the presence of 
-    tumor tissue in patches taken from hospitals that are not in the 
-    training set.
-    Source: \cite{kohWILDSBenchmarkIntheWild2021}
+    \includegraphics[width=0.5\textwidth]{img/introduction/camelyon17.png}
+    \caption{The \texttt{camelyon17} (WILDS) dataset comprises images of stained 
+    lymph node tissue patches sampled from different hospitals.
+    \cite{kohWILDSBenchmarkIntheWild2021}
     }
     \label{fig:camelyon17}
 \end{figure}
 
 A distribution shift can arise for various reasons, namely the 
-unfeasibility of collecting diverse enough data, the lack of 
-representativity of certain features, the changing or time-dependent
-nature of the data and also the implicit bias
-induced in the data collection process. This last point
+unfeasibility of collecting diverse enough data, the changing or time-dependent
+nature of the data, or the implicit bias
+introduced during the data collection process. This last case
 is particularly relevant, as it can serve as a generalization of all
 the previous cases and raise epistemological questions
 about the learning framework itself. For instance, 
@@ -288,22 +277,12 @@ negative bias, which arises when the negative subset\footnote{
     When certain observations in a dataset are labelled as belonging 
     to a specific class, the remaining observations are implicitly
     assigned to not belong to that class, and therefore define a
-    negative set in the model feature space.
+    negative set in the model's feature space.
 }
 of the dataset is not representative of the input subspace 
 excluding that  particular class and results in a model that performs 
 significantly worse in other datasets, even when trained with 
 the same observations of that class.\\
-
-Several approaches can be taken to address this issue, depending
-on the nature of the shift and the access to its
-causal structure (see Figure 3 and Table 2 in 
-\cite{wangGeneralizingUnseenDomains2022}).
-Nevertheless, the common goal is to push the model towards
-domain-invariant representations that foster robustness in the
-face of distribution shifts, sometimes relaxing the causality condition
-to an assumption of invariance or stability of the distribution in the output space
-\cite{wangGeneralizingUnseenDomains2022,liuOutOfDistributionGeneralizationSurvey2023}. \\
 
 \begin{figure}[H]
     \centering
@@ -317,19 +296,29 @@ to an assumption of invariance or stability of the distribution in the output sp
         \includegraphics[width=\textwidth]{img/introduction/dataset_bias_cross_generalization.png}
     \end{subfigure}
        \caption{
-        \textbf{(left)} Confusion matrix associated with a dataset
-        identification task. There is a clearly pronounced diagonal,
-        which indicates that each dataset posesses unique traits that
+        \textbf{(left)} Confusion matrix generated in a dataset
+        identification task. A clearly pronounced diagonal 
+        indicates that each dataset posesses unique traits that
         make it distinguishable from the rest.
         \textbf{(right)} Cross-dataset generalization
-        for "car" detection as function of training data. The vertical 
-        gap between two curves represents the decrease in performance 
-        resulting from training on a different dataset, and horizontal 
-        shift corresponds to the increase in amount of data needed 
-        to reach the same level of performance.
-        Source: \cite{torralbaUnbiasedLookDataset2011}}
+        for \texttt{car} detection as function of training data. 
+        The vertical gap between lines represents the decrease in performance 
+        when training on a different dataset, and the horizontal 
+        shift corresponds to the increase in the amount of data needed 
+        to reach the same performance.
+        \cite{torralbaUnbiasedLookDataset2011}}
        \label{fig:dataset_bias}
 \end{figure}
+
+Several approaches can be taken to address this issue, depending
+on the nature of the shift and the accessibility of the
+causal structure of the data (see Figure 3 and Table 2 in 
+\cite{wangGeneralizingUnseenDomains2022}).
+Nevertheless, the common goal is to push the model towards
+domain-invariant representations that foster robustness in the
+face of distribution shifts, sometimes relaxing the causality condition
+to an assumption of invariance or stability of the distribution in the output space
+\cite{wangGeneralizingUnseenDomains2022,liuOutOfDistributionGeneralizationSurvey2023}. \\
 
 In general, every formulation considers a set of source domains 
 encompassing data that is available for the training of the model,
@@ -342,8 +331,8 @@ and adjust feature representations to be invariant
 between both, which is known as domain adaptation. \\
 
 In this work we will focus instead on domain generalization, which 
-refers to the case in which sampling from target domains is 
-not feasible and feature invariance can be only enforced 
+refers to the case in which target domains are not accessible 
+and feature invariance can be only enforced 
 from the source
 \cite{blanchardGeneralizingSeveralRelated}. In particular, two strategies will be considered, 
 namely domain alignment and data augmentation/generation. \\
@@ -360,28 +349,19 @@ or model-based
 \cite{arjovskyInvariantRiskMinimization2020}) 
 and the similarity metric will
 determine the the particularities of the method
-\cite{shenWassersteinDistanceGuided2018,liangComprehensiveSurveyTestTime2023}.
+\cite{shenWassersteinDistanceGuided2018,liangComprehensiveSurveyTestTime2023}. \\
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.67\textwidth]{img/introduction/dica.png}
+    \includegraphics[width=0.65\textwidth]{img/introduction/dica.png}
     \caption{
     Projections of a binary synthetic dataset in the two principal DICA
     dimensions. The shaded box depicts the projection of training 
     data, whereas the unshaded boxes show projections of unseen 
-    test datasets. Source: \cite{muandetDomainGeneralizationInvariant2013}
+    test datasets. \cite{muandetDomainGeneralizationInvariant2013}
     }
     \label{fig:dica}
 \end{figure}
-
-On the other hand, data augmentation/generation strategies 
-do not need to assume target invariance and instead 
-achieve cross-domain generalization by generating new samples that
-diversify the original dataset with the hope of capturing 
-the underlying causal structure of the problem. Augmented samples
-can either be randomizations of original observations (e.g. transformations
-such as rescaling or rotations) or new samples filling the distribution
-gaps between domains. \\
 
 \begin{figure}[H]
     \centering
@@ -410,10 +390,19 @@ gaps between domains. \\
         Mixup and Cutmix strategies can be used to interpolate
         between different labels and/or domains
         by generating intermediate observations.
-        Source: \cite{yunCutMixRegularizationStrategy2019}
+        \cite{yunCutMixRegularizationStrategy2019}
         }
        \label{fig:data_augmentation}
 \end{figure}
+
+On the other hand, data augmentation/generation strategies 
+do not need to assume target invariance and instead 
+achieve cross-domain generalization by generating new samples that
+diversify the original dataset with the hope of capturing 
+the underlying causal structure of the data generation process. Augmented samples
+can either be randomizations of original observations (e.g. transformations
+such as rescaling or rotations) or new samples filling the distribution
+gaps between domains, as illustrated in Figure \ref{fig:data_augmentation}. \\
 
 Unlike in the adversarial setting, there is no common way of measuring
 the shift in distribution betweeen source domains, and current approaches
@@ -521,7 +510,7 @@ as CLEVER \cite{wengEvaluatingRobustnessNeural2018}, ACTS
 or
 PA
 \cite{buhmannPosteriorAgreementModel2022}, 
-which is the one we will explore in this work. 
+which is the one explored in this work. 
 In general, robustness is often reported and compared using 
 robustness benchmark datasets. Some of the most relevant
 for image classification tasks are 
@@ -536,28 +525,57 @@ or WILDS
 
 \section{Objectives}
 
-WRITE AT THE END \\
-
-The main objective of this thesis is thus to assess
-the suitability of this framework in the context of deep 
-learning model robustness in image classification tasks. 
-For that, an operative version of posterior
-agreement will be derived, and an efficient implementation of its
-computation will be used as a metric to evaluate and select models
-based on the robustness of their response to different sources and
-levels of variability. The results of this work will be compared
+The main goal of this project is to assess
+the suitability of the posterior agreement framework in the 
+context of deep learning model robustness for image 
+classification tasks. For that, an operative version of posterior
+agreement for finite, discrete hypothesis classes must be derived and
+efficiently implemented, so that it can be used as a metric to evaluate 
+and select models based on the robustness of their response to different 
+sources and levels of randomness. The results obtained should be compared
 with the current state-of-the-art in robustness evaluation, namely
-robustbench
-\cite{croceRobustBenchStandardizedAdversarial2021}
+Robustbench
+\cite{croceRobustBenchStandardizedAdversarial2021a}
 and WILDS 
 \cite{kohWILDSBenchmarkIntheWild2021}
 benckmarks in the adversarial and
 out-of-distribution settings, respectively, and an overall
 analysis of the use of the metric as an early-stopping 
-criterion will be provided.\\
+criterion should be provided.\\
+
+In order to conduct a comprehensive assessment, a series of steps should be undertaken in a 
+deductive manner, so that evidence is provided starting from first principles and culminating
+with performance evaluations on benchmark datasets. To begin with, the content of this work should
+be self-contained, and for that a formal statement of the learning problem should be given. Both 
+learning algorithms and classification models should be defined, including the nuances of their
+parametrization via deep neural networks. \\
+
+Next, the robustness challenge should be formulated within the framework of probability theory,
+providing a rigorous mathematical foundation for understanding the principal sources of randomness that
+are relevant in the context of this work. The generalization capabilities to specific sources of randomness
+will determine the robustness score of a model, which for PA is conceived as a 
+measure of the stability of the probabilistic output of the model to the randomness of the data 
+sampling process. In this sense, the fundamental generalization-complexity trade-off must be reframed
+within the context of information theory by relating complexity to the expected information content
+of the data. The estimated informativeness will determine the resolution of the hypothesis space and
+thus its stability under perturbations of various kinds. Once an operative PA metric is derived, 
+its properties should be investigated and further assessed with artificial data, so that PA can be compared 
+with baseline accuracy-based metrics at a fundamental level. \\
+
+Experiments should be performed the adversarial setting first, for being adversarial perturbations
+intentionally designed to change the prediction of the model and thus entailing a performance-based notion of
+robustness that aligns with accuracy measures. After that, a customized implementation of 
+the DiagVib-6 
+\cite{euligDiagViB6DiagnosticBenchmark2021} 
+syntetic data generation pipeline should be used to evaluate the suitability of PA in the domain
+generalization setting. This will allow for a detailed analysis of the model selection capabilities of PA 
+under different experimental conditions, especially regarding the source, power and rate of the shift 
+entailed by each dataset and the accessibility of target domains for model validation and selection.\\
 
 
-- Lead to the derivative work that will be presented in the thesis.=> benchmarking \\
-- Lead to derivative but next level (more useful, current interest...) work => model selection \\
-- Lead to non-derivative (i.e. probably unsuccessful) work => model selection beyond robustness \\
-- Outline the structure of the thesis in terms of hypothesis. \\
+All in all, both analytical and numerical tools should be used to provide a comprehensive analysis
+of the model-selection capabilities of PA and the source of its discriminative power. \\
+
+
+
+
