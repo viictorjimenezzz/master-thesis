@@ -382,6 +382,7 @@ valuable in the covariate shift setting.
         \includegraphics[width=\textwidth]{img/results_discussion/empirical/ldiff=2.0.png}
     \end{subfigure}
     \caption{Logit distributions associated with the behaviour observed in Figure \ref{fig:prediction_confidence}.}
+    \label{fig:logits_confidence}
 \end{figure}
 
 We see that in the case of a non-robust model, the higher the beta the more pointy is the distribution. Given that 
@@ -422,7 +423,32 @@ is less and less defined.
     \caption{Evolution of $\beta$ optimization for different initial values for a robust classifier.}
 \end{figure}
 
+Some exploratory experiments in real scenarios were performed, comparing
+the evolution of PA and accuracy when datasets are perturbed with random noise. 
+An even more significant difference can be observed when perturbations are not
+random, but instead are designed to mislead the model's predictions. In these
+settings, PA arises as a reliable alternative. \\
 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/empirical/adversarial_logPA.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/results_discussion/empirical/adversarial_AFR_true.png}
+    \end{subfigure}
+    \caption{
+    PA and accuracy for the IMDB sentiment classification 
+    task under simple adversarial attacks. Observations are perturbed by replacing
+    some words with positive or negative adjectives that either encourage (amplification)
+    or discourage (contradiction) the true sentiment of the review.
+    The attack power is defined as $2^W$, being $W$ the number of words replaced.
+    }
+    \label{fig:imdb_adversarial}
+\end{figure}
 
 \section{Adversarial setting}\label{sec:appendix_results_adversarial}
 
@@ -431,116 +457,7 @@ between initial (i.e. $\beta=1$) and optimal posterior distributions, which is s
 to decrease significantly in robust models, due to the fact that few samples
 are misclassified and therefore maximum agreement is achieved with higher
 inverse temperature values. Entropy is computed for the average posterior distribution
-on correctly classified samples, which represent the largest portion of the dataset.
-
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Standard_orig_PGD_0.0314.png}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Standard_adv_PGD_0.0314.png}
-    \end{subfigure}
-
-    \caption{Average $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime = y)$,
-    $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime \neq y)$ and
-    $\mathbf{P}(\hat{y}^{\prime \prime} \mid \mathbf{x}^{\prime \prime}, \hat{y}^{\prime \prime} \neq \hat{y}^\prime)$,
-    respectively. {\color{tab:orange} \textbf{Undefended}} model under PGD attack, $\ell_\infty$=8/255.}
-    \label{fig:pgd_distributions_undefended}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Wang2023Better_WRN-28-10_orig_PGD_0.0314.png}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Wang2023Better_WRN-28-10_adv_PGD_0.0314.png}
-    \end{subfigure}
-
-    \caption{Average $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime = y)$,
-    $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime \neq y)$ and
-    $\mathbf{P}(\hat{y}^{\prime \prime} \mid \mathbf{x}^{\prime \prime}, \hat{y}^{\prime \prime} \neq \hat{y}^\prime)$,
-    respectively. {\color{tab:brown} \textbf{Wang et al.}} model under PGD attack, $\ell_\infty$=8/255.}
-    \label{fig:pgd_distributions_wang2023}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Engstrom2019Robustness_orig_PGD_0.0314.png}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Engstrom2019Robustness_adv_PGD_0.0314.png}
-    \end{subfigure}
-
-    \caption{Average $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime = y)$,
-    $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime \neq y)$ and
-    $\mathbf{P}(\hat{y}^{\prime \prime} \mid \mathbf{x}^{\prime \prime}, \hat{y}^{\prime \prime} \neq \hat{y}^\prime)$,
-    respectively. {\color{tab:blue} \textbf{Engstrom et al.}} model under PGD attack, $\ell_\infty$=8/255.}
-    \label{fig:pgd_distributions_engstrom}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Wong2020Fast_orig_PGD_0.0314.png}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Wong2020Fast_adv_PGD_0.0314.png}
-    \end{subfigure}
-
-    \caption{Average $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime = y)$,
-    $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime \neq y)$ and
-    $\mathbf{P}(\hat{y}^{\prime \prime} \mid \mathbf{x}^{\prime \prime}, \hat{y}^{\prime \prime} \neq \hat{y}^\prime)$,
-    respectively. {\color{tab:red} \textbf{Wong et al.}} model under PGD attack, $\ell_\infty$=8/255.}
-    \label{fig:pgd_distributions_wong2020}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Addepalli2021Towards_RN18_orig_PGD_0.0314.png}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/Addepalli2021Towards_RN18_adv_PGD_0.0314.png}
-    \end{subfigure}
-
-    \caption{Average $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime = y)$,
-    $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime \neq y)$ and
-    $\mathbf{P}(\hat{y}^{\prime \prime} \mid \mathbf{x}^{\prime \prime}, \hat{y}^{\prime \prime} \neq \hat{y}^\prime)$,
-    respectively. {\color{tab:purple} \textbf{Addepalli et al.}} model under PGD attack, $\ell_\infty$=8/255.}
-    \label{fig:pgd_distributions_addepalli2021}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/BPDA_orig_PGD_0.0314.png}
-    \end{subfigure}
-    \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/results_discussion/adversarial/BPDA_adv_PGD_0.0314.png}
-    \end{subfigure}
-
-    \caption{Average $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime = y)$,
-    $\mathbf{P}(\hat{y}^\prime \mid \mathbf{x}^\prime, \hat{y}^{\prime \prime} = \hat{y}^\prime \neq y)$ and
-    $\mathbf{P}(\hat{y}^{\prime \prime} \mid \mathbf{x}^{\prime \prime}, \hat{y}^{\prime \prime} \neq \hat{y}^\prime)$,
-    respectively. {\color{tab:green} \textbf{Athalye et al.}} model under PGD attack, $\ell_\infty$=8/255.}
-    \label{fig:pgd_distributions_bpda}
-\end{figure}
+on correctly classified samples, which represent the largest portion of the dataset. \\
 
 One of the claims made about PA is that its discriminative power is superior to that
 of AFR, because its value is not so much driven by the sampling randomness associated
@@ -621,7 +538,7 @@ analytically.
 \end{theorem}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.4\textwidth]{img/results_discussion/adversarial/demonstration.png}
+    \includegraphics[width=0.3\textwidth]{img/results_discussion/adversarial/demonstration.png}
     \caption{Illustrative representation of the terms and posterior values constrained
     considered for the PA approximation.
     }
@@ -950,14 +867,14 @@ have been considered in the experiments.
 
 \section{Robustness assessment}
 
-\begin{definition}[Dataset for robustness assessment]
+\begin{dataset}[Robustness assessment]
     The configuration of factors used for experiments in Section \ref{results_domain_generalization}
     considers only incrementally shifted observations.
 
     \begin{table}[H]
         \centering
         \begin{tabular}{l|c|c|c|c|c|c}
-        \# Shift Factors & 0 & 1 & 2 & 3 & 4 & 5 \\
+          & \#0 & \#1 & \#2 & \#3 & \#4 & \#5 \\
         \midrule
         Hue & red & \textbf{blue} & blue & blue & blue & blue \\
         Lightness & dark & dark & \textbf{bright} & bright & bright & bright \\
@@ -972,7 +889,7 @@ have been considered in the experiments.
         for 'centered center' and 'centered low', respectively.
         }
     \end{table}
-\end{definition}
+\end{dataset}
 
 \section{Model selection}
 
@@ -982,14 +899,14 @@ Section \ref{chapter:msel_controlled} reported test accuracy results for differe
 pairs of datasets that were considered for robust model selection through early stopping. Test datasets entail
 a single sampling realization and represent incremental shifts of image factors.
 
-\begin{definition}[Test datasets -- \texttt{hue}] Some experiments in Section \ref{chapter:msel_controlled}
+\begin{dataset}[Test \texttt{hue}] Some experiments in Section \ref{chapter:msel_controlled}
     considered source domains to be shifted in the \texttt{hue} factor. Consequently, target
     domains entailed incremental shifts in the remaining factors.
 
     \begin{table}[H]
         \centering
         \begin{tabular}{l|c|c|c|c|c|c}
-        \# Shift Factors & 0 & 1 & 2 & 3 & 4 & 5 \\
+         &\#0 & \#1 & \#2 & \#3 & \#4 & \#5 \\
         \midrule
         Hue & red & \textbf{green} & green & green & green & green \\
         Lightness & dark & dark & \textbf{bright} & bright & bright & bright \\
@@ -1005,16 +922,16 @@ a single sampling realization and represent incremental shifts of image factors.
         }
         \label{ds:hue_test}
     \end{table}
-\end{definition}
+\end{dataset}
 
-\begin{definition}[Test datasets -- \texttt{position}] Some experiments in Section \ref{chapter:msel_controlled}
+\begin{dataset}[Test \texttt{position}] Some experiments in Section \ref{chapter:msel_controlled}
     considered source domains to be shifted in the \texttt{position} factor. Consequently, target
     domains entailed incremental shifts in the remaining factors.
 
     \begin{table}[H]
         \centering
         \begin{tabular}{l|c|c|c|c|c|c}
-        \# Shift Factors & 0 & 1 & 2 & 3 & 4 & 5 \\
+         & \#0 & \#1 & \#2 & \#3 & \#4 & \#5 \\
         \midrule
         Hue & green & green & green & \textbf{red} & green & green \\
         Lightness & dark & dark & dark & dark & \textbf{bright} & bright \\
@@ -1030,77 +947,330 @@ a single sampling realization and represent incremental shifts of image factors.
         }
         \label{ds:pos_test}
     \end{table}
-\end{definition}
+\end{dataset}
 
-It is important to note that test datasets corresponding to the first shifted factor have the same
-configuration in both cases, which allows the comparison not only of different 
-robustness configurations but also of algorithms that are trained to perform the same task but 
-are subject to shifts of different nature. \\
-
-Regarding validation and model selection datasets, several configurations have been considered to
-account for different degrees of accessibility to the target domains.\\
-
-\begin{definition}[Training and validation datasets -- \texttt{hue}]
-    
-    
-\end{definition}
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{c|c|c|c|c|c|c|c}
-        \# Shift Factors & Factor & 0 & 1 & 2 & 3 & 4 & 5 \\
-        \midrule
-        \multirow{2}{*}{Hue} 
-        & Value & green & green & green & \textbf{red} & green & green \\
-        & Lightness & dark & dark & dark & dark & \textbf{bright} & bright \\
-        \midrule
-        \multirow{2}{*}{Position} 
-        & Value & UL & \textbf{CC} & CC & CC & CC & CC \\
-        & Scale & large & large & \textbf{small} & small & small & small \\
-        \midrule
-        \multirow{2}{*}{Texture} 
-        & Value & blank & blank & blank & blank & blank & \textbf{tiles} \\
-        & \textit{Shape} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} & \textit{1,4,7,9} \\
-        \bottomrule
-    \end{tabular}
-    \caption{
-    Image factors associated with each of the environments considered in this experiment. CC and UL account
-    for 'centered center' and 'upper left', respectively.
-    }
-    \label{ds:pos_test}
-\end{table}
-
-
-\subsection{SO/GO opportunities}
-
-Model selection experiments have been conducted under controlled conditions, in which test performance
-under different robust model selection strategies was reported also for a \texttt{control} validation
-dataset pair, in which 
-
-\begin{definition}[Dataset \texttt{control}]
-    The configuration of factors used for experiments in Section \ref{results_domain_generalization}
-    considers only incrementally shifted observations.
+\begin{dataset}[Training and validation \texttt{hue}]
+    Some experiments in Section \ref{chapter:msel_controlled}
+    considered source domains to be shifted in the \texttt{hue} factor.
 
     \begin{table}[H]
         \centering
-        \begin{tabular}{l|c|c|c|c|c|c}
-        \# Shift Factors & 0 & 1 & 2 & 3 & 4 & 5 \\
-        \midrule
-        Hue & red & \textbf{blue} & blue & blue & blue & blue \\
-        Lightness & dark & dark & \textbf{bright} & bright & bright & bright \\
-        Position  & CC & CC & CC & \textbf{LC} & LC & LC \\
-        Scale  & normal & normal & normal & normal & \textbf{large} & large \\
-        Texture & blank & blank & blank & blank & blank & \textbf{tiles} \\
-        \textit{Shape} & \textit{4,9} &  \textit{4,9} &  \textit{4,9} & \textit{4,9} & \textit{4,9} & \textit{4,9} \\
-        \bottomrule
+        \begin{tabular}{c|c|c|c|c|c|c|c}
+             & Env. & Hue & Lightness & Position & Scale & Texture & \textit{Shape} \\
+            \specialrule{1.5pt}{1pt}{1pt}  % Thicker line
+            \multirow{2}{*}{Training} 
+            & 0 & red & dark & CC & large & blank & \textit{1,4,7,9} \\
+            & 1 & \textbf{blue} & dark & CC & large & blank & \textit{1,4,7,9} \\
+            \specialrule{1.5pt}{1pt}{1pt}  % Thicker line
+            \multirow{1}{*}{Validation} 
+            & 0 & red & dark & CC & large & blank & \textit{1,4,7,9} \\
+            \hline
+            \multirow{1}{*}{SD} 
+            & 1 & red & dark & CC & large & blank & \textit{1,4,7,9} \\
+            \multirow{1}{*}{ID} 
+            & 1 & \textbf{blue} & dark & CC & large & blank & \textit{1,4,7,9} \\
+            \multirow{1}{*}{1F-MD} 
+            & 1 & \textbf{magenta} & dark & CC & large & blank & \textit{1,4,7,9} \\
+            \multirow{1}{*}{5F-MD} 
+            & 1 & \textbf{green} & \textbf{bright} & \textbf{UL} & \textbf{small} & \textbf{tiles} & \textit{1,4,7,9} \\
+            \specialrule{1.5pt}{1pt}{1pt}  % Thicker line
+            \multirow{2}{*}{Validation OOD} 
+            & 0 & \textbf{yellow} & dark & CC & large & blank & \textit{1,4,7,9} \\
+            & 1 & \textbf{magenta} & dark & CC & large & blank & \textit{1,4,7,9} \\
+            \specialrule{1.5pt}{1pt}{1pt}  % Thicker line
         \end{tabular}
         \caption{
-        Image factors associated to each of the environments considered in this experiment. CC and LC account
-        for 'centered center' and 'centered low', respectively.
+        Image factors associated with each of the environments considered in this experiment. CC and UL account
+        for 'centered center' and 'upper left', respectively.
         }
-        \label{tab:data_shift_table}
+        \label{ds:pos_test}
     \end{table}
+\end{dataset}
+
+\begin{dataset}[Training and validation \texttt{position}]
+    Some experiments in Section \ref{chapter:msel_controlled}
+    considered source domains to be shifted in the \texttt{position} factor.
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{c|c|c|c|c|c|c|c}
+             & Env. & Hue & Lightness & Position & Scale & Texture & \textit{Shape} \\
+            \specialrule{1.5pt}{1pt}{1pt}  % Thicker line
+            \multirow{2}{*}{Training} 
+            & 0 & green & dark & UL & large & blank & \textit{1,4,7,9} \\
+            & 0 & green & dark & LR & large & blank & \textit{1,4,7,9} \\
+            \specialrule{1.5pt}{1pt}{1pt}  % Thicker line
+            \multirow{1}{*}{Validation} 
+            & 0 & green & dark & UL & large & blank & \textit{1,4,7,9} \\
+            \hline
+            \multirow{1}{*}{SD} 
+            & 1 & green & dark & UL & large & blank & \textit{1,4,7,9} \\
+            \multirow{1}{*}{ID} 
+            & 1 & green & dark & \textbf{LR} & large & blank & \textit{1,4,7,9} \\
+            \multirow{1}{*}{1F-MD} 
+            & 1 & green & dark & \textbf{UR} & large & blank & \textit{1,4,7,9} \\
+            \multirow{1}{*}{5F-MD} 
+            & 1 & \textbf{red} & \textbf{bright} & \textbf{CC} & \textbf{small} & \textbf{tiles} & \textit{1,4,7,9} \\
+            \specialrule{1.5pt}{1pt}{1pt}  % Thicker line
+            \multirow{2}{*}{Validation OOD} 
+            & 0 & green & dark & \textbf{UR} & large & blank & \textit{1,4,7,9} \\
+            & 1 & green & dark & \textbf{LL} & large & blank & \textit{1,4,7,9} \\
+            \specialrule{1.5pt}{1pt}{1pt}  % Thicker line
+        \end{tabular}
+        \caption{
+        Image factors associated with each of the environments considered in this experiment. UL, LR, UR and CC account
+        for 'upper left', 'lower right', 'upper left' and 'centered center', respectively.
+        }
+        \label{ds:pos_test}
+    \end{table}
+\end{dataset}
+
+\subsection{ID model selection}
+
+Model selection experiments have been conducted under controlled conditions, in which test performance
+under different robust model selection strategies was reported also for a \texttt{control} validation
+dataset pair, in which. \\
+
+\begin{definition}[ID setting under ZGO]\label{def:zgo_experiments}
+    Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
+    learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The zero 
+    shortcut opportunity datasets are obtained as follows:
+
+    \begin{figure}[H]
+        \centering
+        % LEGEND
+        \begin{subfigure}[b]{\textwidth}
+            \centering
+            % Here, you would include your legend, for example, a dummy image
+            \includegraphics[width=0.6\textwidth]{img/datasets/_legend.pdf}
+        \end{subfigure}
+        \vspace{-0.2cm} % Add some vertical space between the legend and the subfigures
+
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/ZGO_fact=hue_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/ZGO_fact=hue_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/ZGO_fact=pos_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/ZGO_fact=pos_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+    \end{figure}
 \end{definition}
+
+\begin{definition}[ID setting under 1-CGO]\label{def:1_cgo_experiments}
+    Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
+    learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The 
+    single compositional generalization opportunity datasets are obtained as follows:
+
+    \begin{figure}[H]
+        \centering
+        % LEGEND
+        \begin{subfigure}[b]{\textwidth}
+            \centering
+            % Here, you would include your legend, for example, a dummy image
+            \includegraphics[width=0.6\textwidth]{img/datasets/_legend.pdf}
+        \end{subfigure}
+        \vspace{-0.2cm} % Add some vertical space between the legend and the subfigures
+
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/1-CGO_fact=hue_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/1-CGO_fact=hue_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/1-CGO_fact=pos_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/1-CGO_fact=pos_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+    \end{figure}
+\end{definition}
+
+\begin{definition}[ID setting under 2-CGO]\label{def:2_cgo_experiments}
+    Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
+    learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The 
+    double compositional generalization opportunity datasets are obtained as follows:
+
+    \begin{figure}[H]
+        \centering
+        % LEGEND
+        \begin{subfigure}[b]{\textwidth}
+            \centering
+            % Here, you would include your legend, for example, a dummy image
+            \includegraphics[width=0.6\textwidth]{img/datasets/_legend.pdf}
+        \end{subfigure}
+        \vspace{-0.2cm} % Add some vertical space between the legend and the subfigures
+
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/2-CGO_fact=hue_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/2-CGO_fact=hue_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/2-CGO_fact=pos_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/2-CGO_fact=pos_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+    \end{figure}
+\end{definition}
+
+
+\begin{definition}[ID setting under 3-CGO]\label{def:3_cgo_experiments}
+    Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
+    learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The 
+    triple compositional generalization opportunity datasets are obtained as follows:
+
+    \begin{figure}[H]
+        \centering
+        % LEGEND
+        \begin{subfigure}[b]{\textwidth}
+            \centering
+            % Here, you would include your legend, for example, a dummy image
+            \includegraphics[width=0.6\textwidth]{img/datasets/_legend.pdf}
+        \end{subfigure}
+        \vspace{-0.2cm} % Add some vertical space between the legend and the subfigures
+
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/3-CGO_fact=hue_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/3-CGO_fact=hue_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/3-CGO_fact=pos_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/3-CGO_fact=pos_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+    \end{figure}
+\end{definition}
+
+
+\begin{definition}[ID setting under ZSO]\label{def:zso_experiments}
+    Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
+    learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The 
+    zero shortcut opportunity datasets are obtained as follows:
+
+    \begin{figure}[H]
+        \centering
+        % LEGEND
+        \begin{subfigure}[b]{\textwidth}
+            \centering
+            % Here, you would include your legend, for example, a dummy image
+            \includegraphics[width=0.6\textwidth]{img/datasets/_legend.pdf}
+        \end{subfigure}
+        \vspace{-0.2cm} % Add some vertical space between the legend and the subfigures
+
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/ZSO_fact=hue_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/ZSO_fact=hue_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+        \hfill
+        \begin{subfigure}[b]{0.45\textwidth}
+            \centering
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/ZSO_fact=pos_env=0.pdf}
+            \end{subfigure}
+            \begin{subfigure}[b]{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{img/datasets/ZSO_fact=pos_env=1.pdf}
+            \end{subfigure}
+        \end{subfigure}
+    \end{figure}
+\end{definition}
+
+Models trained and selected using each of the previous datasets will be evaluated
+on a test dataset replicating validation conditions (i.e. \#0) and five additional test
+datasets exploiting the shortcut opportunities present in the data, so that the quality of
+the inductive bias of the selected model can be assessed. Each test dataset is shifted 
+progressively in the factors that were not considered during training and validation.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|c|c|c|c|c|c}
+    \texttt{hue} & \#0 & \#1 & \#2 & \#3 & \#4 & \#5 \\
+    \midrule
+    Position & CC & CC & \textbf{CR} & CR & CR & CR \\
+    Scale & large & large & large & \textbf{small} & small & small \\
+    Brightness & bright & bright & bright & bright & \textbf{dark} & dark \\
+    Texture & tiles & tiles & tiles & tiles & tiles & \textbf{wood} \\
+    \midrule
+    \addlinespace
+    \addlinespace
+    \texttt{position} & \#0 & \#1 & \#2 & \#3 & \#4 & \#5 \\
+    \midrule
+    Scale & large & large & \textbf{small} & small & small & small \\
+    Hue & blue & blue & blue & \textbf{red} & red & red \\
+    Brightness & bright & bright & bright & bright & \textbf{dark} & dark \\
+    Texture & tiles & tiles & tiles & tiles & tiles & \textbf{wood} \\
+    \bottomrule
+    \end{tabular}
+    \caption{
+        Image factors associated to each of the environments considered in test datasets,
+        excluding the predicted and learned factors in which the shortcut or generalization
+        opportunities are encoded. CC and CR stand for 'center center' and 'upper left', respectively.
+    }
+    \label{tab:sogo_test}
+\end{table}
 
 
 

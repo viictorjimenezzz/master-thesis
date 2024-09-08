@@ -13,38 +13,36 @@
 \contentsline {subsection}{\numberline {2.3.1}Posterior distribution}{12}{}%
 \contentsline {subsection}{\numberline {2.3.2}Generalization error}{13}{}%
 \contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{14}{}%
-\contentsline {chapter}{\numberline {3}Experimental setup}{15}{}%
-\contentsline {section}{\numberline {3.1}Problem formulation}{15}{}%
-\contentsline {section}{\numberline {3.2}Robustness in covariate shift settings}{16}{}%
-\contentsline {section}{\numberline {3.3}Adversarial setting}{18}{}%
-\contentsline {section}{\numberline {3.4}Domain generalization setting}{19}{}%
-\contentsline {section}{\numberline {3.5}Robust learners}{20}{}%
-\contentsline {section}{\numberline {3.6}Robustness assessment with posterior agreement}{21}{}%
-\contentsline {subsection}{\numberline {3.6.1}Posterior in classification tasks}{21}{}%
-\contentsline {subsection}{\numberline {3.6.2}The posterior agreement kernel}{22}{}%
-\contentsline {subsection}{\numberline {3.6.3}Implementation}{24}{}%
-\contentsline {chapter}{\numberline {4}Robustness assessment}{27}{}%
-\contentsline {section}{\numberline {4.1}PA as a robustness metric}{27}{}%
-\contentsline {subsection}{\numberline {4.1.1}Empirical behaviour}{27}{}%
-\contentsline {subsection}{\numberline {4.1.2}Robustness assessment to sampling randomness}{29}{}%
-\contentsline {section}{\numberline {4.2}Adversarial setting}{30}{}%
-\contentsline {subsection}{\numberline {4.2.1}Adversarial robustness assessment with PA}{33}{}%
-\contentsline {subsection}{\numberline {4.2.2}Interpretability of PA in the adversarial setting}{38}{}%
-\contentsline {section}{\numberline {4.3}Domain generalization setting}{41}{}%
-\contentsline {chapter}{\numberline {5}Model selection}{47}{}%
-\contentsline {section}{\numberline {5.1}Model selection under controled experimental conditions}{47}{}%
-\contentsline {section}{\numberline {5.2}Vulnerabilities of PA for GO/SO}{49}{}%
-\contentsline {section}{\numberline {5.3}Model selection on benchmark datasets}{50}{}%
-\contentsline {chapter}{\numberline {6}Conclusions}{51}{}%
-\contentsline {chapter}{\numberline {A}Theoretical Proofs and Derivations}{53}{}%
-\contentsline {section}{\numberline {A.1}Proof of problem formulation}{53}{}%
-\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{55}{}%
-\contentsline {chapter}{\numberline {B}Supplementary Results}{59}{}%
-\contentsline {section}{\numberline {B.1}PA as a robustness metric}{59}{}%
-\contentsline {subsection}{\numberline {B.1.1}Empirical behaviour}{59}{}%
-\contentsline {section}{\numberline {B.2}Adversarial setting}{61}{}%
-\contentsline {chapter}{\numberline {C}Dataset reference}{69}{}%
-\contentsline {section}{\numberline {C.1}Robustness assessment}{70}{}%
-\contentsline {section}{\numberline {C.2}Model selection}{70}{}%
-\contentsline {subsection}{\numberline {C.2.1}Controlled conditions}{70}{}%
-\contentsline {subsection}{\numberline {C.2.2}SO/GO opportunities}{71}{}%
+\contentsline {chapter}{\numberline {3}Experimental setup}{17}{}%
+\contentsline {section}{\numberline {3.1}Problem formulation}{17}{}%
+\contentsline {section}{\numberline {3.2}Robustness in covariate shift settings}{18}{}%
+\contentsline {section}{\numberline {3.3}Adversarial setting}{20}{}%
+\contentsline {section}{\numberline {3.4}Domain generalization setting}{21}{}%
+\contentsline {section}{\numberline {3.5}Robust learners}{22}{}%
+\contentsline {section}{\numberline {3.6}Robustness assessment with posterior agreement}{23}{}%
+\contentsline {subsection}{\numberline {3.6.1}Posterior in classification tasks}{23}{}%
+\contentsline {subsection}{\numberline {3.6.2}The posterior agreement kernel}{24}{}%
+\contentsline {subsection}{\numberline {3.6.3}Implementation}{26}{}%
+\contentsline {chapter}{\numberline {4}Robustness assessment}{29}{}%
+\contentsline {section}{\numberline {4.1}In-distribution setting}{29}{}%
+\contentsline {section}{\numberline {4.2}Adversarial setting}{33}{}%
+\contentsline {subsection}{\numberline {4.2.1}Adversarial robustness assessment with PA}{36}{}%
+\contentsline {subsection}{\numberline {4.2.2}Interpretability of PA in the adversarial setting}{41}{}%
+\contentsline {section}{\numberline {4.3}Out-of-distribution setting}{44}{}%
+\contentsline {chapter}{\numberline {5}Model selection}{49}{}%
+\contentsline {section}{\numberline {5.1}Model selection under controled experimental conditions}{49}{}%
+\contentsline {section}{\numberline {5.2}ID model selection}{52}{}%
+\contentsline {section}{\numberline {5.3}Model selection on benchmark datasets}{55}{}%
+\contentsline {chapter}{\numberline {6}Conclusions}{57}{}%
+\contentsline {chapter}{\numberline {A}Theoretical Proofs and Derivations}{59}{}%
+\contentsline {section}{\numberline {A.1}Proof of problem formulation}{59}{}%
+\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{61}{}%
+\contentsline {chapter}{\numberline {B}Supplementary Results}{65}{}%
+\contentsline {section}{\numberline {B.1}PA as a robustness metric}{65}{}%
+\contentsline {subsection}{\numberline {B.1.1}Empirical behaviour}{65}{}%
+\contentsline {section}{\numberline {B.2}Adversarial setting}{67}{}%
+\contentsline {chapter}{\numberline {C}Dataset reference}{74}{}%
+\contentsline {section}{\numberline {C.1}Robustness assessment}{75}{}%
+\contentsline {section}{\numberline {C.2}Model selection}{75}{}%
+\contentsline {subsection}{\numberline {C.2.1}Controlled conditions}{75}{}%
+\contentsline {subsection}{\numberline {C.2.2}ID model selection}{77}{}%

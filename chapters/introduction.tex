@@ -53,10 +53,10 @@ sampling randomness in the original data \cite{tsiprasRobustnessMayBe2019}. \\
 
 Second, the nature of the data used for training and selecting
 models is known to influence heavily the features that the model 
-will learn to be the most predictive. Lack of representativity of 
-certain aspects of the data and the presence of spurious 
+will learn to be the most predictive. The lack of representativity of 
+certain aspects of the data or the presence of spurious 
 correlations can lead to models that generalize well to sampling 
-randomness within the same dataset but that fail to do so when those 
+randomness within the same experiment but that fail to do so when those 
 accidental relationships are not present. This is known as an
 out-of-distribution setting, given that samples in which the model is tested
 are not drawn from the same probability distribution that generated
@@ -144,9 +144,9 @@ Building on this intuition, numerous attacks have been proposed to evaluate the
 robustness of models against adversarial samples. A common strategy for inducing model 
 failure involves identifying vulnerable directions in the feature space and adjusting 
 perturbations to produce the desired misleading effect. Adversarial examples 
-generated through these attacks can then be used to train robust models via 
-regularization, thereby promoting generalization to those features present in the 
-worst-case examples and thus selecting models insensitivized
+generated through these attacks can then be used to train robust models through 
+regularization, thereby promoting generalization to the features present in 
+worst-case examples and thus selecting models that are insensitivized
 to them
 \cite{baiRecentAdvancesAdversarial2021}.\\
 
@@ -227,7 +227,7 @@ class they are misclassified to, as illustrated in Figure \ref{fig:salient_chara
 \end{figure}
 
 Overall, these and other findings suggest that robustness in the adversarial setting
-is a fundamental property of the features that are represented by models, 
+is a fundamental property of the data features that are represented by models, 
 rather than of the models themselves, and the phenomenon of transferability can be
 explained in these terms. Training strategies that manage to navigate the 
 robustness-generalization trade-off will be the ones yielding 
@@ -323,17 +323,17 @@ to an assumption of invariance or stability of the distribution in the output sp
 In general, every formulation considers a set of source domains 
 encompassing data that is available for the training of the model,
 including any validation subsets used for model selection, 
-regularization, or other hyperparameter tuning, and a set of target 
+regularization or hyperparameter tuning, and a set of target 
 domains encompassing unseen data on which model performance will
 be evaluated. Within this framework, a straightforward approach
 to improving robustness is to directly sample target domains
 and adjust feature representations to be invariant 
-between both, which is known as domain adaptation. \\
+between both, which is commonly known as domain adaptation. \\
 
 In this work we will focus instead on domain generalization, which 
 refers to the case in which target domains are not accessible 
-and feature invariance can be only enforced 
-from the source
+and feature invariance can be only enforced
+from source domains
 \cite{blanchardGeneralizingSeveralRelated}. In particular, two strategies will be considered, 
 namely domain alignment and data augmentation/generation. \\
 
@@ -341,14 +341,9 @@ On the one hand, domain alignment stems from the target invariance hypothesis,
 and can be formulated as a regularization problem that pushes towards the 
 minimization of the dissimilarity of feature  representations originated 
 from different source environments. The feature space in which the 
-alignment is performed (e.g. kernel latent space 
-\cite{muandetDomainGeneralizationInvariant2013}, 
-adversarial
-\cite{peiMultiAdversarialDomainAdaptation}
-or model-based
-\cite{arjovskyInvariantRiskMinimization2020}) 
-and the similarity metric will
-determine the the particularities of the method
+alignment is performed (e.g. a kernel latent space, as Figure \ref{fig:dica} illustrates)
+and the similarity metric considered will
+determine the peculiarity of the method
 \cite{shenWassersteinDistanceGuided2018,liangComprehensiveSurveyTestTime2023}. \\
 
 \begin{figure}[H]
@@ -397,19 +392,20 @@ determine the the particularities of the method
 
 On the other hand, data augmentation/generation strategies 
 do not need to assume target invariance and instead 
-achieve cross-domain generalization by generating new samples that
+achieve cross-domain generalization by generating artificial observations that
 diversify the original dataset with the hope of capturing 
-the underlying causal structure of the data generation process. Augmented samples
+the underlying causal structure of the data generation process. Augmented observations
 can either be randomizations of original observations (e.g. transformations
 such as rescaling or rotations) or new samples filling the distribution
-gaps between domains, as illustrated in Figure \ref{fig:data_augmentation}. \\
+gaps between domains (e.g. through interpolation, as illustrated 
+in Figure \ref{fig:data_augmentation}). \\
 
 Unlike in the adversarial setting, there is no common way of measuring
 the shift in distribution betweeen source domains, and current approaches
 are often constrained to specific datasets or training strategies. 
 Robustness is instead quantified during (cross-)validation, either by reserving
-a subset of each domain, leaving one domain out, or
-by directly accessing target domains if they are available, 
+a subset of each domain, leaving one domain out or
+directly accessing target domains if they are available, 
 which is known as the oracle approach. This last strategy is often
 used to provide an upper bound estimate of model robustness, 
 as it usually provides over-confident performance estimates
@@ -439,7 +435,7 @@ unveiled the nature of the susceptibility of deep learning
 models to adversarial examples and FGSM 
 \cite{goodfellowExplainingHarnessingAdversarial2015}
 was introduced as an intuitive
-approach for model regularization. 
+approach for robust regularization. 
 Since then, several gradient-based methods have been
 proven to enhance adversarial robustness, such as PGD
 \cite{madryDeepLearningModels2019}, C\&W 
@@ -461,7 +457,7 @@ their knowledge of the model's architecture and parameters. In that
 sense, white-box and black-box
 attacks can be distinguished, where the former have full 
 access to the model and the latter only 
-to the model's predictions. In black-box settings the loss gradient
+to the model's predictions. In black-box settings, the loss gradient
 is unknown and other strategies such as score-based or
 decision-based attacks are used
 \cite{liReviewAdversarialAttack2022}. Regarding adversarial training (i.e. defenses), 
@@ -477,33 +473,34 @@ and adaptive-boundary methods
 \cite{cohenCertifiedAdversarialRobustness2019}.
 In this project, the Robustbench attack library
 \cite{croceRobustBenchStandardizedAdversarial2021a}
-will be used for adversarial robustness evaluation 
-in the \texttt{CIFAR10} dataset
+will be leveraged to evaluate adversarial robustness 
+in the CIFAR10 dataset
 \cite{krizhevskyLearningMultipleLayers}. \\
 
 In the domain generalization front, the existing rich taxonomy 
-of methods can be classified into three main groups, namely
-data manipulation, representation learning 
-and alternative learning strategies
+of methods can be classified into two main groups, namely
+data manipulation and representation learning 
 \cite{wangGeneralizingUnseenDomains2022,zhouDomainGeneralizationSurvey2022,liuOutOfDistributionGeneralizationSurvey2023}.
-Data manipulation strategies refer to augmentation and generation,
-as for example randomization or adversarial augmentation
+First, data manipulation strategies involve both augmentation and generation,
+as for example image randomization or adversarial augmentation
 \cite{yaoImprovingOutofDistributionRobustness2022,zhangMixupEmpiricalRisk2018,yunCutMixRegularizationStrategy2019}.
-Representation learning strategies are primarily divided 
-into domain-invariant methods (e.g. IRM
-\cite{arjovskyInvariantRiskMinimization2020} or
+Second, representation learning strategies are primarily divided 
+into domain-invariant methods (e.g. model-based
+\cite{arjovskyInvariantRiskMinimization2020},
 kernel-based
-\cite{muandetDomainGeneralizationInvariant2013,arjovskyWassersteinGAN2017}) 
+\cite{muandetDomainGeneralizationInvariant2013,arjovskyWassersteinGAN2017}
+or adversarial-based
+\cite{peiMultiAdversarialDomainAdaptation}) 
 and feature disentanglement methods, which encompass causality-inspired
 approaches and general multi-component analysis. Other 
-learning strategies include meta-learning
-\cite{liLearningGeneralizeMetaLearning2018,wangMetaFineTuningNeural2020},
-ensemble learning or self-supervised learning. \\
+learning strategies include meta-learning,
+ensemble learning or self-supervised learning
+\cite{liLearningGeneralizeMetaLearning2018,wangMetaFineTuningNeural2020}. \\
 
 Regarding robustness characterization, a wide range of metrics
 have been conceived (see
-\cite{guoComprehensiveEvaluationFramework2023} for reference), but
-accuracy-based criteria are still the most common. Alternatively, 
+\cite{guoComprehensiveEvaluationFramework2023}), but
+accuracy-based criteria are still the most common. As an alternative, 
 some  theoretically-grounded approaches have been proposed, such
 as CLEVER \cite{wengEvaluatingRobustnessNeural2018}, ACTS 
 \cite{wangGeometricalApproachEvaluate2023}
@@ -514,7 +511,9 @@ which is the one explored in this work.
 In general, robustness is often reported and compared using 
 robustness benchmark datasets. Some of the most relevant
 for image classification tasks are 
-MNIST (and its multiple variations, such as DiagVib-6
+MNIST 
+\cite{lecun1998mnist}
+(and its multiple variations, such as DiagVib-6
 \cite{euligDiagViB6DiagnosticBenchmark2021}),
 PACS
 \cite{yuPACSDatasetPhysical2022},

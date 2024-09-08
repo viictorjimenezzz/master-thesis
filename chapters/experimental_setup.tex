@@ -3,7 +3,7 @@
 This chapter delineates the covariate shift setting within the 
 supervised classification framework and introduces an operative
 formulation of posterior agreement. This formulation enables
-robustness-based model selection in discrete hypothesis class problems.
+robustness-based model selection in discrete hypothesis class scenarios.
 
 % This formulation represents 
 % the cornerstone of this work as it enables robustness-based
@@ -16,12 +16,12 @@ can be defined, this project will focus on the supervised classification
 of images. The function space to navigate is composed of parametrized
 classifiers.
 
-\begin{definition}[Classifier]\label{def:classifier}
+\begin{definition}[\emph{Classifier}]\label{def:classifier}
     Let $\mathcal{X}$ and $\mathcal{Y} \subset\mathbb{N}$ be the input and output spaces of the target function, respectively.
     Let $K \in \mathbb{N} < \infty$ be the cardinality of $\mathcal{Y}$.
 
     \begin{itemize}
-        \item Let $\eta$ be a feature extractor, mapping the input space to a $d$-dimensional feature space.
+        \item Let $\Phi$ be a feature extractor, mapping the input space to a $d$-dimensional feature space.
             $$ 
             \begin{aligned}
                 \Phi: \mathcal{X} & \longmapsto \mathbb{R}^d \\
@@ -37,12 +37,12 @@ classifiers.
                 z & \longmapsto \left ( F_1(z), \dots, F_K(z) \right ) = \bm{F}(z)
             \end{aligned}
             $$
-        \item Let $\Phi$ be a decision rule, yielding the class label from a vector of scores.
+        \item Let $\eta$ be a decision rule, yielding the class label from a vector of scores.
         It will be set to the maximum a posteriori (MAP) rule.
             $$
                 \begin{aligned}
                     \eta: \mathbb{R}^K & \longmapsto \mathcal{Y} = \{1, \dots, K \} \\
-                    \bm{F}(z) & \longmapsto \hat{y} = \arg \max_{j} F_j(z)
+                    \bm{F}(z) & \longmapsto \hat{y} = \arg \max_{k} F_k(z)
                 \end{aligned}
             $$
     \end{itemize}
@@ -53,7 +53,7 @@ classifiers.
     $$
 
     The results presented in this work are limited to neural network classifiers, which
-    entail a parametrization in $\Gamma \subseteq \mathbb{R}^{S}$ that can be expressed
+    entail a parametrization in $\Gamma \subseteq \mathbb{R}^{|\Gamma|}$ that can be expressed
     as
 
     $$
@@ -66,28 +66,24 @@ classifiers.
     thus $c(x; \gamma) = \eta \circ (\bm{F} \circ \Phi)(x; \gamma)$. \\
 \end{definition}
 
+The concepts introduced in the previous chapter provide the 
+foundation for the formalization of the learning problem in which our 
+robustness experiments will be conduted. We will refer to this 
+problem as a $K$-class classification.
 
-
-
-
-The concepts defined in the previous chapter allow us to 
-formalize the learning problem in which our robustness experiments
-will be conducted. We will refer to this problem as a 
-$K$-class classification.
-
-\begin{definition}[$K$-class classification]
+\begin{definition}[\emph{$K$-class classification}]
     Let $D \in \mathcal{D}$ be a supervised dataset.
     Let $c$ be a neural network classifier, parametrized
-    in $\Gamma \subseteq \mathbb{R}^{S}$.
-    Let $\operatorname{RRM}_D$ be the regularized risk minimization problem for $c$ on $D$.
-    Let $\mathcal{L}$ be the cross-entropy loss function for the classifier $c$:
+    in $\Gamma \subseteq \mathbb{R}^{|\Gamma|}$.
+    Let $\operatorname{RRM}$ be the regularized risk minimization problem for $c$ on $D$.
+    Let $L$ be the cross-entropy loss function for classifier $c$, computed as
 
     $$
-    \mathcal{L}(x, y) = - \log F_y(\Phi(x); \gamma).
+    L(x, y) = - \log F_y(\Phi(x); \gamma).
     $$
 
-    The $K$-class classification problem is the $\operatorname{RRM}_D$ 
-    with loss function $\mathcal{L}$ parametrized in $\Gamma$. 
+    The $K$-class classification is the $\operatorname{RRM}$ problem parametrized in $\Gamma$
+    with cross-entropy loss $L$:
     $$
         \gamma^* = \arg \min_{\gamma \in \Gamma} - \frac{1}{N}\sum_{n=1}^{N} \log F_{y_n}(x_n; \gamma) + \lambda \Omega(\gamma)
     $$
@@ -95,7 +91,7 @@ $K$-class classification.
 \end{definition}
 
 No further characterization of the regularization factor $\lambda \Omega(\gamma)$ will be provided
-in this chapter, as the specific learning algorithms considered will be introduced
+in this section, as the specific learning algorithms considered will be introduced
 later in the text.
 
 \section{Robustness in covariate shift settings}\label{sec:robustness_to_covariate_shift}
@@ -107,8 +103,8 @@ of such randomness. In the context of the $K$-class classification
 problem, sampling randomness can be formalized as a shift in the
 distribution of the input space, also known as covariate shift. 
 
-\begin{definition}[Covariate shift]
-    Let $\bm{x}'$ and $\bm{x}''$ be two $N$-sized samples of $\underbar{X} \overset{\text{iid}}{\sim} X$.
+\begin{definition}[\emph{Covariate shift}]
+    Let $\bm{x}'$ and $\bm{x}''$ be two samples of $\bm{X} \overset{\text{iid}}{\sim} X$ with size $N$.
     A covariate shift exists between $\bm{x}'$ and $\bm{x}''$ if their
     (empirical) distributions are significantly different\footnote{
         The notion of difference relies on the nature of the data. Common measures 
@@ -117,10 +113,10 @@ distribution of the input space, also known as covariate shift.
         means or variances. These methods help establish whether observed 
         differences are statistically significant. \cite{quinonero-candelaDatasetShiftMachine2009}
     }
-    for $N$ large enough:
+    for $N$ large enough. This is expressed as:
 
     $$
-    \mathbf{P}_{\bm{x}'} \not \sim \mathbf{P}_{\bm{x}''}
+    \mathbf{P}_{\bm{x}'} \not \sim \mathbf{P}_{\bm{x}''}.
     $$
     
     It must be noted that, since the target function is assumed
@@ -131,29 +127,30 @@ distribution of the input space, also known as covariate shift.
 
 The presence of covariate shift as defined above already leads
 to a non-zero generalization error, given that $\bm{x}'$ and $\bm{x}''$ 
-represent different noise instantiations and result in different 
+represent different randomness instantiations and result in different 
 learning outcomes. Nevertheless, this definition can be further
 expanded to encompass more practical sources of shift in the 
 context of classification tasks.
 
-\begin{definition}[Distribution shift]\label{def:domain_shift}
+\begin{definition}[\emph{Distribution shift}]\label{def:domain_shift}
     Let $X'$ and $X''$ be two random variables associated to different sampling 
-    experiments in $\mathcal{X}$ such that $f_{X'} \neq f_{X''}$.
-    The randomness entailed by their respective measurement process is also different
-    in general (i.e. $\mathbb{T}' \neq \mathbb{T}''$). In such case
+    experiments in $\mathcal{X}$ such that $P_{X'} \not \sim P_{X''}$.
+    The effective randomness entailed by their respective measurement
+    process is also different in general (i.e. $\mathcal{T}_{\mathbf{X}'} \neq \mathcal{T}_{\mathbf{X}''}$).
+    In such case
 
     $$
-        \bm{x}' \sim \underbar{X}' \overset{\text{iid}}{\sim} X' \text{ and } \bm{x}'' \sim \underbar{X}'' \overset{\text{iid}}{\sim} X''
+        \bm{x}' \sim \bm{X}' \overset{\text{iid}}{\sim} X' \text{ and } \bm{x}'' \sim \bm{X}'' \overset{\text{iid}}{\sim} X''
     $$
 
-    lead to a covariate shift known as out-of-distribution (OOD), given that 
+    lead to a covariate shift known as out-of-distribution, given that 
     the fundamental source of variability is the difference in the probability
     measure over the support induced by each experiment
     \cite{quinonero-candelaDatasetShiftMachine2009}.
     In simpler terms, $X' \neq X'' \Longrightarrow \mathbf{P}_{\bm{x}'} \not \sim \mathbf{P}_{\bm{x}''}$ in general.
 \end{definition}
 
-In the OOD case, $\bm{x}'$ and $\bm{x}''$ are
+In the out-of-distribution setting, $\bm{x}'$ and $\bm{x}''$ are
 drawn from different random variables, each with a distinct probability 
 landscape over the support, namely source and target domains, that result 
 in implicit and/or explicit differences (sometimes unbalanced) in the distribution of some features.
@@ -161,8 +158,8 @@ Therefore, empirical distributions $\mathbf{P}_{\bm{x}'}$ and $\mathbf{P}_{\bm{x
 be different in general and induce a covariate shift that leads
 to a non-zero generalization error.
 
-\begin{definition}[Adversarial shift]
-    Let $\bm{x}' \sim \underbar{X}$ be a sample drawn from experiment
+\begin{definition}[\emph{Adversarial shift}]
+    Let $\bm{x}' \sim \bm{X}$ be a sample drawn from experiment
     $X$. Let $\bm{\Delta}$ be a perturbation over
     the sample space. In this case, $\bm{x}''$ is generated by perturbing $\bm{x}'$ as
 
@@ -175,18 +172,18 @@ to a non-zero generalization error.
     output of the model.
 \end{definition}
 
-In adversarial examples, sampling randomness is not the source of
-distribution shift, as both $\bm{x}'$ and $\bm{x}''$ arise from
+In the adversarial setting, sampling randomness is not the source of
+covariate shift, as both $\bm{x}'$ and $\bm{x}''$ arise from
 the same realization of the experiment. \\
 
-In this work we must consider a wider concept of sampling 
-randomness that does not only comprise the implicit
-noise instantiation of each realization $\bm{x} \sim \underbar{X}$
+Overall, this work must pursue a wider approach to generalization  
+that does not only comprise the implicit
+randomness embedded in each realization $\bm{x} \sim \bm{X}$
 but also the explicit shift in the distribution of the input space
 generated by intentional or unintentional perturbations of the 
 data generation process. This broader interpretation aligns practical
 covariate shift experiments with the robustness framework
-defined in the theoretical introduction.\\
+introduced in the first chapter.\\
 
 Once the possible sources of randomness in the data 
 generation process have been established and formalized, 
@@ -194,66 +191,60 @@ a general concept of robustness measure must be introduced
 accordingly, so that the suitability of posterior agreement
 as a robustness metric can be assessed.
 
-\begin{definition}[Robustness metric]
-    Let $D'$ and $D''$ be datasets generated from realizations $\bm{x}'$ and $\bm{x}''$,
+\begin{definition}[\emph{Robustness metric}]
+    Let $D', D'' \in \mathcal{D}$ be supervised datasets generated from realizations $\bm{x}', \bm{x}'' \sim \bm{X}$,
     respectively. 
     A robustness metric is a function $\Omega: \mathcal{D}'' \times \mathcal{F} \longmapsto \mathbb{R}$ 
-    that quantifies the generalization
-    capability of a learned $\hat{f}_{D'} \in \mathcal{F}$ to observations in $D''$. \\
+    that quantifies the generalization capabilities of a model trained with $D'$ to observations in $D''$. \\
 
     The baseline robustness metric in supervised classification tasks is
     accuracy, defined as the proportion of correct predictions 
-    achieved by a learned classifier $\hat{c}_{D'}$ over 
+    achieved by a pre-trained classifier $\hat{c}$ over 
     dataset $D''$:
 
     $$
-    \operatorname{ACC}_{D'}(D'') = \frac{1}{N} \sum_{n=1}^N \delta_{y_n''} \left ( \hat{c}_{D'}(x_n'') \right ).
+    \operatorname{Accuracy} = \frac{1}{N} \sum_{n=1}^N \delta_{y_n''} \left ( \hat{c}(x_n'') \right ), \; (x_n'', y_n'') \in D''.
     $$
 
 \end{definition}
 
-As it was argued before, we will 
-interpret the concept of generalization from the 
-perspective of the possible learning outcomes
-of a specific experiment. The ultimate goal 
-of robustness measurement is thus the characterization of the "resolution" 
+As it was argued before, generalization will be interpreted from the 
+perspective of the possible learning outcomes of an experiment. The ultimate goal 
+of robustness measurement is thus the characterization of the resolution
 limit that can be achieved in the hypothesis space 
 consistent with the intrinsic randomness entailed by each 
 possible realization of the experiment. \\
 %\cite{chehreghaniInformationTheoreticModel,buhmannInformationTheoreticModel}.\\
 
-The resolution limit does not depend on the model but on the 
+The optimal resolution limit is not determined by the model but instead by 
 nature of the randomness of the data generation process. 
 Therefore, a robustness metric should evaluate how stable are hypothesis 
-to different realizations of the same experiment, regardless 
-of the complexity of the model. The more 
-complex the model is, the higher will be the resolution of its
-associated hypothesis space, but the more prone will be to overfit
-to the noise and thus yield unstable hypothesis. A regularization 
-or model selection procedure derived from the robustness metric 
-should then find the sweet spot between resolution and stability. \\
+to different realizations of the same experiment in a model-agnostic way. As model 
+complexity increases, so does the number of hypotheses navigated, but this
+also increases the risk of overfitting to sampling randomness, leading to unstable 
+hypotheses. A regularization or model selection procedure derived from a robustness metric 
+should therefore find the sweet spot between resolution and stability. \\
 
-\begin{properties}[Robustness metric]\label{properties:robustness}
+\begin{proposition}[\emph{Properties of a robustness metric}]\label{properties:robustness}
     A suitable robustness metric should possess the following two properties:
 \begin{description}
     \item[P1](Non-increasing) The metric should be non-increasing with respect to the
-    response of the model under increasing levels of shift.
-    \item[P2](Independent discriminability) The metric should differentiate models exclusively by their generalization capabilities against 
+    response of the model under increasing levels of covariate shift.
+    \item[P2](Independent discriminability) The metric should discriminate models exclusively by their generalization capabilities against 
     covariate shift. For instance, the metric should be independent of the task
     performance of the model.
 \end{description}
-\end{properties}
+\end{proposition}
 
 The first property is commonly satisfied, but the second one entails
 a specific interpretation of stability that is not straightforward to
 quantify \cite{buhmannPosteriorAgreementModel2022}. Let us consider
 the following example.
 
-\begin{example}
-    Let $\mathcal{D}$ be a class of balanced binary supervised datasets; that is,
-    containing exactly the same number of observations of each 
-    label. We will examine the following 
-    three classifiers evaluating observations in $D \in \mathcal{D}$:
+\begin{example}\label{example:robustness}
+    Let $\mathcal{D}$ be a class of balanced, binary, supervised datasets, each containing an equal 
+    number of observations from both classes. The following three classifiers will be evaluated
+    on observations in $D \in \mathcal{D}$:
 
     \begin{itemize}
         \item A random classifier, returning
@@ -267,11 +258,11 @@ the following example.
     \end{itemize}
 
     In terms of performance, the random and constant classifiers are equivalent when
-    the dataset is large enough, and the perfect classifier would obviously be selected as the best.
+    the dataset is large enough, and the perfect classifier would be selected as the best.
     Nevertheless, a robustness metric compliant with \textbf{P2} would
     evaluate the random classifier to be non-robust, while both perfect and
     constant classifiers would be considered equivalent and achieve
-    maximum robustness, since their output hypothesis remains constant for 
+    maximum robustness since their output hypothesis remains constant for 
     every dataset in $\mathcal{D}$.
 \end{example}
 
@@ -292,8 +283,8 @@ of the shift magnitude that will be considered in the experiments.
 The magnitude of adversarial shifts will be quantified by an aggregated
 measure of the perturbation applied to the each observation in the dataset.
 
-\begin{definition}[Perturbation]\label{def:adversarial_perturbation}
-    Let $\bm{x}'$ be a realization of $\underbar{X} \overset{\text{iid}}{\sim} X$ with support $\mathcal{X} \subset \mathbb{R}^d$.
+\begin{definition}[\emph{Perturbation}]\label{def:adversarial_perturbation}
+    Let $\bm{x}'$ be a realization of $\bm{X} \overset{\text{iid}}{\sim} X$ with support $\mathcal{X} \subset \mathbb{R}^d$.
     Let $x \in \bm{x}'$ be an observation of the sample.
     Let $\mathbf{B}_p^\epsilon(x)$ be the $\ell_p$-norm ball of radius 
     $\epsilon$ centered at $x$. A perturbation $\Delta$ is defined as
@@ -315,7 +306,7 @@ measure of the perturbation applied to the each observation in the dataset.
 \end{definition}
 
 As it was previously outlined, the existence of adversarial
-examples in NNs was initially associated with their heavily non-linear nature 
+examples was initially associated with their heavily non-linear nature 
 and, as a consequence, to a lack of smoothness over the hypothesis space
 \cite{szegedyIntriguingPropertiesNeural2014}.
 Nevertheless, it is instead the linearity of their units and the high 
@@ -324,7 +315,7 @@ to perturbations in certain directions
 \cite{goodfellowExplainingHarnessingAdversarial2015}.\\
 
 \begin{example}
-Let $w \in \mathbb{R}^d$ be the weight vector of a NN unit.
+Let $w \in \mathbb{R}^d$ be the weight vector of a neural network unit.
 The difference in activation responses between perturbed and original
 observations
 
@@ -336,10 +327,10 @@ will be maximum when $\Delta \propto \operatorname{sign}(w)$; that is,
 when the perturbation is aligned with the weights. 
 \end{example}
 
-Following the same intuition, we can define the most adversarial direction of 
-perturbation as the one maximizing the resulting loss.
+Following this intuition, the most adversarial direction of 
+perturbation can be obtained by maximizing the resulting loss.
 
-\begin{attack}[FGSM]
+\begin{attack}[\emph{FGSM}]
     Perturbations are generated by alignment with the gradient of the 
     loss with respect to the original observation:
     
@@ -358,7 +349,7 @@ A multi-step version can be immediately derived that sistematically
 perturbs observations in the most adversarial direction at each
 optimization step.
 
-\begin{attack}[PGD]
+\begin{attack}[\emph{PGD}]
     Perturbations are generated by iteratively applying the FGSM
     perturbation to each step and projecting the result back to the
     $\epsilon_p$-constrained ball:
@@ -395,18 +386,18 @@ sample misclassified with maximum confidence within $\mathbf{B}_p^\epsilon(x)$,
 while adapting its radius to minimize the distance between the perturbed
 sample and the decision boundary.
 
-\begin{attack}[FMN]
+\begin{attack}[\emph{FMN}]
     Perturbations are generated as follows:
     
     $$
         \begin{aligned}
             \Delta^\star = \arg \min_\Delta & \; ||\Delta||_p \\
-            \text { s.t. } & F_y(x; \gamma)- \max_{j \neq y} F_j(x; \gamma) < 0, \\
+            \text { s.t. } & F_y(x; \gamma)- \max_{k \neq y} F_k(x; \gamma) < 0, \\
             & x + \Delta \in \mathbf{B}_p^\epsilon(x).
         \end{aligned}
     $$
 
-    This is known as the fast minimum-norm (FMN) attack
+    This is known as the fast minimum-norm attack
     \cite{pintorFastMinimumnormAdversarial2021}.
 \end{attack}
 
@@ -427,42 +418,42 @@ sample and the decision boundary.
 
 As described in the introductory chapter, domain generalization
 refers to a specific setting in which several instantiations of
-the data are shifted in the OOD sense, and only a subset of them
-are available. We can formalize the problem as follows.
+the data are shifted in the out-of-distribution sense, and only a subset of them
+are available. The problem can be formalized as follows:
 
-\begin{definition}[Domain generalization]
-    Let $\mathcal{S} = \{X^S_1, \cdots, X^S_S\}$ and $\mathcal{T} = \{X^T_1, \cdots, X^T_T\}$ 
+\begin{definition}[\emph{Domain generalization}]
+    Let $\mathbb{S} = \{X_s^1, \cdots, X_s^{|\mathbb{S}|}\}$ and $\mathbb{T} = \{X_t^1, \cdots, X_t^{|\mathbb{T}|}\}$ 
     be two sets of random variables associated with specific probability measures 
     over the input space $\mathcal{X}$. The probability measure 
     induced by each random variable implicitly selects a region of
-    the support $\mathcal{X}$, so in this context we will metonymically 
-    refer to them as domains. Set $\mathcal{S}$ encompasses source domains,
-    and $\mathcal{T}$ target domains (see Section \ref{sec:intro_ood})
+    the support $\mathcal{X}$, so in this context they will be metonymically 
+    referred to as domains. The set $\mathbb{S}$ encompasses source domains,
+    and the set $\mathbb{T}$ target domains (see Section \ref{sec:intro_ood})
     \cite{liuOutOfDistributionGeneralizationSurvey2023,wangGeneralizingUnseenDomains2022}. \\
 
     According to Definition \ref{def:domain_shift}, datasets sampled from each domain
-    entail a OOD shift that will lead to non-zero generalization error. The 
-    domain generalization problem consists of selecting the model with
+    exhibit an out-of-distribution shift resulting in a non-zero generalization error. The 
+    domain generalization problem involves selecting the model with
     the lowest generalization error between source target domains without
-    having access to the target domains at all. 
+    having access to target domains at all. 
 \end{definition}
 
 Unlike the adversarial case, there is no standard way of quantifying
 the magnitude of the shift besides reporting model performance in benchmark
-datasets. These datasets encode specific variations in the causal structure generating
-the data, and we expect our robustness assessment to be sensitive to the intensity
+datasets. These datasets encode specific variations in the causal structure that generates
+the data, and a robustness metric is expected to be sensitive to the intensity
 of these variations. \\
 
-In this work, we will also explore a more epistemologically-grounded
-approach to robustness assessment that will be agnostic to the nature of the model
-generating the images and in general to the concept of image itself. Even though some \
+In this work, we will explore an epistemologically-grounded
+approach to robustness assessment that is agnostic to the nature of the process
+generating the images and in general to the concept of image itself. Even though some
 general-purpose metrics exist to evaluate structural similarity between pairs 
 of image-representing tensors (see \cite{guoComprehensiveEvaluationFramework2023}),
-we will use the geometrical properties of the feature space and the resulting
-probability distribution over the output space to quantify the shift. Even though
+only the geometrical properties of the feature space and the resulting
+probability distribution over the output space will be used to quantify the shift. Even though
 this approach might seem biased towards the specific parameters of the classifier, 
 the model selection problem will be reformulated so that any bias contribution
-is placed under the expected randomness of input data.\\
+can be accounted for under the expected randomness of the experiment.\\
 
 Taking into account the magnitude of the existing covariate shift among source
 domains, the performance of the selected model will be reported for each of
@@ -473,11 +464,11 @@ will be provided \cite{zhouDomainGeneralizationSurvey2022}.
 
 This project will evaluate the suitability of posterior agreement as a robustness
 metric in the adversarial and out-of-distribution settings. In accordance with
-\textbf{P2} (see Properties \ref{properties:robustness}), we must eventually
-assess whether our metric is able to differentiate between robust and non-robust
-models and, consequently, algorithms. For that reason, we will consider ERM 
-(see Definition \ref{def:erm}) as our baseline vanilla algorithm and compare its 
-generalization performance to covariate shift with two algorithms representing two 
+\textbf{P2} (see Properties \ref{properties:robustness}), it must be eventually
+assessed whether the PA metric is able to differentiate between robust and non-robust
+models and, consequently, betweeen learning algorithms selecting those models.
+For that reason, we will consider ERM as our baseline vanilla algorithm and compare its 
+generalization performance under covariate shift with two algorithms representing two 
 different robustness-fostering strategies. \\
 
 As a first approach, NN architectures will be trained by means of IRM, a regularization method driven 
@@ -490,23 +481,23 @@ that the invariance of such representations
 under different source domains can be enforced
 \cite{liuOutOfDistributionGeneralizationSurvey2023}.
 
-\begin{definition}[IRM]
-    Let $\mathcal{R}^d$ be the risk of a classifier $c$
-    over domain $d \in \mathcal{S}$. The IRM problem minimizes risk over all domains
+\begin{definition}[\emph{IRM}]
+    Let $R^d$ be the risk of a classifier $c$
+    over domain $d \in \mathbb{S}$. The IRM problem minimizes risk over all domains
     while enforcing the feature extractor to yield domain-invariant representations
     \cite{arjovskyInvariantRiskMinimization2020}:
 
     $$
         \begin{aligned}
-            c^* = \min_{c = \eta \circ \bm{F} \circ \Phi} & \; \sum_{d \in \mathcal{S}} \mathcal{R}^d(c) \\
-            \text{s.t.} & \; (\eta \circ \bm{F}) = \arg \min_{\bar{c}} \mathcal{R}^d(\bar{c}) \; \forall d \in \mathcal{S}.
+            c^* = \min_{c = \eta \circ \bm{F} \circ \Phi} & \; \sum_{d \in \mathbb{S}} R^d(c) \\
+            \text{s.t.} & \; (\eta \circ \bm{F}) = \arg \min_{\bar{c}} R^d(\bar{c}) \; \forall d \in \mathbb{S}.
         \end{aligned}
     $$
 
     A surrogate version of the problem simplifies its implementation:
 
     $$
-        c^* = \min_{c} \sum_{d \in \mathcal{S}} \mathcal{R}^d(c) + \lambda || \nabla_{w \mid w = 1} \mathcal{R}^d(w \cdot c) ||^2,
+        c^* = \min_{c} \sum_{d \in \mathbb{S}} R^d(c) + \lambda || \nabla_{w \mid w = 1} R^d(w \cdot c) ||^2,
     $$
 
     where $w$ is a dummy classifier added to the problem to relax the invariance
@@ -531,7 +522,7 @@ strategies will be considered, namely Mixup
 and CutMix
 \cite{yunCutMixRegularizationStrategy2019}.
 
-\begin{definition}[LISA]
+\begin{definition}[\emph{LISA}]
     Let $D_1$ and $D_2$ be datasets associated with two different source domains.
     A convex interpolation with weight $\lambda \sim \operatorname{Beta}(\alpha, \beta)$ 
     generates a new sample that lies in the 
@@ -571,31 +562,29 @@ and CutMix
 
 \section{Robustness assessment with posterior agreement}
 
-As it was argued in Section \ref{sec:robustness_to_covariate_shift}, accuracy and
-by extension the custom law of quantifying robustness by reporting
-model performance in benchmark datasets does not offer any theoretical
-mechanism for the true characterization of robustness and ultimately depends 
-on the nature of the shift that the model is being made robust to. \\
+As it was argued in Section \ref{sec:robustness_to_covariate_shift}, the extended practice 
+of quantifying robustness by reporting test accuracy in benchmark datasets 
+does not offer any theoretical mechanism for the characterization of the model 
+and is ultimately biased towards the nature of the data and the shift. In this section, a practical 
+version of posterior agreement will be derived, so that it can be used in 
+classification tasks to evaluate generalization capabilities under different sources of randomness. \\
 
-In this section we will derive a practical version of posterior agreement (PA) that
-can be used in supervised classification tasks to assess the generalization performance
-to different kinds of shifts. Even before reaching the final expression, a 
-fundamental distinction between PA and accuracy can be made, namely the fact
-that posterior agreement is computed with the output of the discriminant function,
-which encodes the confidence in the classification, whereas accuracy only
-considers the output prediction label. Confidence information increases 
-the discriminative power of the metric, for instance when
-comparing models with similar predictive capabilities, but also involves a probability
-distribution over the output space that allows for a broader theoretical
-interpretation.
+From an information-theoretic perspective, a fundamental distinction between PA and 
+accuracy can already be stated, namely the fact that PA is computed with the output 
+of the discriminant function $\mathbf{F}$, which encodes information about the prediction confidence, 
+whereas accuracy is limited to the decision $\eta \circ \mathbf{F}$. Primarily, confidence information 
+increases the discriminative power of a robustness metric, particularly 
+when comparing models with similar performance. Nevertheless, it also allows for a 
+more consistent assessment of the true generalization capabilities, as it is less affected by low-information 
+sources of randomness such as sampling variability within the same distribution or
+even random noise, regardless of their effect on the task at hand. \\
 
 \subsection{Posterior in classification tasks}
 
-Definition \ref{def:posterior} established the posterior as the probability
-distribution over the hypothesis space encoding the stochastic nature of
+Definition \ref{def:posterior} established the posterior as a probability
+distribution over the hypothesis class encoding the stochastic nature of
 model outputs. The hypothesis class $\Theta$ of a $K$-class classification problem is the set of
-all possible vectors of labels associating each of the $N$ samples
-to one of the $K$ classes, which is
+all possible vectors of labels associating each of the $N$ samples to one of the $K$ classes. This amounts to
 
 $$
 \Theta = \{1, \dots, K \}^N
@@ -603,11 +592,23 @@ $$
 
 with cardinality $|\Theta| = K^N$.
 
-\begin{theorem}[Classification posterior]
-    Let $\Theta$ be the classification hypothesis class associated with the 
-    $K$-class classification problem with approximating function $c$.
-    The posterior distribution class $\mathfrak{P}^c$ is the Gibbs
-    distribution family with inverse temperature parameter $\beta$
+\begin{proposition}[\emph{Classification confidence}]
+    Let $D \in \mathcal{D}$ be a supervised dataset generated from realization $\bm{x} \sim \bm{X}$. Let $F_k$ 
+    be the $k$-th component of the prediction scores vector. The cost function driving posterior selection 
+    will be the negative prediction confidence:
+
+    $$
+    R(\theta, \bm{x}; \gamma) = \sum_{n=1}^N - F_{\theta_n}(x_n; \gamma),
+    $$
+
+    where $\theta_n \in \mathcal{Y}$ is the prediction to observation $x_n \in D$.
+\end{proposition}
+
+\begin{theorem}[\emph{Classification posterior}]
+    Let $\Theta$ be the hypothesis class associated with the 
+    $K$-class classification problem with classifier $c$.
+    The family of posterior distributions $\mathfrak{P}^c$ to consider is the Gibbs
+    distribution with inverse temperature parameter $\beta$
     \cite{buhmannPosteriorAgreementModel2022}
 
     $$
@@ -627,26 +628,26 @@ with cardinality $|\Theta| = K^N$.
 
     $$
     \begin{aligned}
-        \underset{\mathbf{P}^c(\theta \mid \bm{x}) \in \mathcal{P}}{\operatorname{max}} & \mathcal{H}_{\mathbf{P}^c}(\theta \mid \bm{x}) \\
+        \underset{\mathbf{P}^c(\theta \mid \bm{x}) \in \mathcal{P}}{\operatorname{max}} & H_{\mathbf{P}^c}(\theta \mid \bm{x}) \\
         \text {s.t.} & \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}) = 1 \\
-        & \mathbb{E}_{\mathbf{P}^c(\theta \mid \bm{x})}[R(\theta, \bm{x})]=\mu \;\; \forall \theta \in \Theta \\
-        & [\mathbf{P}^c(\theta_i \mid \bm{x}) - \mathbf{P}^c(\theta_j \mid \bm{x})][R(\theta_i, \bm{x}) - R(\theta_j, \bm{x})] \geq 0 \;\; \forall \theta_i, \theta_j \in \Theta
+        & \mathbb{E}_{\mathbf{P}^c(\theta \mid \bm{x})}R(\theta, \bm{x})=\mu \;\; \forall \theta \in \Theta \\
+        & \left( \mathbf{P}^c(\theta_i \mid \bm{x}) - \mathbf{P}^c(\theta_j \mid \bm{x} ) \right) \left( R(\theta_i, \bm{x}) - R(\theta_j, \bm{x}) \right) \geq 0 \;\; \forall \theta_i, \theta_j \in \Theta
     \end{aligned}
     $$
 
     where $\mu \in \mathbb{R}$ is a hyperparameter ensuring that the expected confidence is finite
     and the last constraint imposes a monotonic relationship between the confidence and the posterior.
-    The lagrangian formulation of the problem with equality constraints is:
+    The lagrangian formulation of the problem with equality constraints is
 
     $$
-        \mathcal{L}(\mathbf{P}^c, \alpha, \beta) = \mathcal{H}_{\mathbf{P}^c}(\theta \mid \bm{x}) + \alpha \left ( 1 - \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}) \right ) +
-        \beta  \left ( \mathbb{E}_{\mathbf{P}^c(\theta \mid \bm{x})}[R(\theta, \bm{x})] - \mu \right )
+        \Lambda(\mathbf{P}^c, \alpha, \beta) = H_{\mathbf{P}^c}(\theta \mid \bm{x}) + \alpha \left ( 1 - \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}) \right ) +
+        \beta  \left ( \mathbb{E}_{\mathbf{P}^c(\theta \mid \bm{x})}[R(\theta, \bm{x})] - \mu \right ).
     $$
 
-    Its derivative with respect to $\mathbf{P}^c(\theta \mid \bm{x})$ is:
+    Its derivative with respect to $\mathbf{P}^c(\theta \mid \bm{x})$ can be computed as
 
     $$
-    \frac{\partial \mathcal{L}}{\partial \mathbf{P}^c(\theta \mid \bm{x})} = -1 - \log \mathbf{P}^c(\theta \mid \bm{x}) - \alpha + \beta R(\theta, \bm{x}),
+    \frac{\partial \Lambda}{\partial \mathbf{P}^c(\theta \mid \bm{x})} = -1 - \log \mathbf{P}^c(\theta \mid \bm{x}) - \alpha + \beta R(\theta, \bm{x}),
     $$
 
     which has a unique solution
@@ -669,25 +670,12 @@ by enforcing the MEP principle (in this case, the second law of thermodynamics) 
 the constraints of finite energy and number of particles
 \cite{bovierStatisticalMechanicsDisordered2012}.
 
-\begin{definition}[Classification confidence]
-    Let $D \in \mathcal{D}$ be a dataset associated with a realization $\bm{x} \sim \underbar{X}$. Let $F_j(\cdot; \gamma)$ 
-    be the $j$-th component of the score vector returned by the discriminant of the classifier.
-    The cost function driving posterior selection will be the negative
-    confidence in the prediction:
-
-    $$
-    R(\theta, \bm{x}; \gamma) = - \sum_n^N F_{\theta_i}(x_i; \gamma),
-    $$
-
-    where $\theta_i$ is the class label associated with the $i$-th sample in the dataset.
-\end{definition}
-
 \subsection{The posterior agreement kernel}
 
-\begin{lemma}[Exchangeability]\label{lemma:exchangeability} 
+\begin{lemma}[\emph{Exchangeability}]\label{lemma:exchangeability} 
     Let $N, K \in \mathbb{N}$ and let $\left\{\mathcal{E}_{i j} \mid i \leq N, j \leq K\right\}$ be an indexed set of values. Then,
     $$
-    \sum_{c \in \mathcal{C}} \prod_{i=1}^N \mathcal{E}_{i, c(i)}=\prod_{i=1}^N \sum_{j=1}^K \mathcal{E}_{i j}
+    \sum_{c \in \mathcal{C}} \prod_{n=1}^N \mathcal{E}_{i, c(i)}=\prod_{n=1}^N \sum_{k=1}^K \mathcal{E}_{i j}
     $$
 \end{lemma}
 
@@ -695,20 +683,20 @@ the constraints of finite energy and number of particles
     See Appendix \ref{sec:proofs}.
 \end{proof}
 
-\begin{theorem}[Posterior factorization]\label{theorem:posterior_factorization}
+\begin{lemma}[\emph{Posterior factorization}]\label{theorem:posterior_factorization}
 
     The posterior distribution for a classification problem can be factorized as follows:
     $$
-    \mathbf{P}^c(\theta \mid \bm{x}) = \prod_i^N  \mathbf{P}_i^c(\theta_i \mid \bm{x}) = \prod_{i=1}^N \frac{\exp \left ( \beta F_{\theta_i}(x_i) \right )}{\sum_{j=1}^K \exp \left ( \beta F_j(x_i) \right )}
+    \mathbf{P}^c(\theta \mid \bm{x}) = \prod_{n=1}^N  \mathbf{P}_n^c(\theta_n \mid \bm{x}) = \prod_{n=1}^N \frac{\exp \left ( \beta F_{\theta_n}(x_n) \right )}{\sum_{k=1}^K \exp \left ( \beta F_k(x_n) \right )}
     $$
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
     See Appendix \ref{sec:proofs}.
 \end{proof}
 
-\begin{theorem}[\textcolor{blue}{PA kernel for classification}]
-    Let $\bm{x}'$ and $\bm{x}''$ be $N$-sized realizations of $\underbar{X}$.
+\begin{theorem}[\textcolor{blue}{\emph{PA kernel for classification}}]
+    Let $\bm{x}'$ and $\bm{x}''$ be $N$-sized realizations of $\bm{X}$.
     Let $\Theta$ be the hypothesis class represented by classifier $c$ under $\mathcal{D}$.
     With no prior information about $\Theta$, the posterior agreement kernel
     for supervised $K$-class classification tasks has the following expression:
@@ -716,17 +704,17 @@ the constraints of finite energy and number of particles
     $$
     \textcolor{blue}{
         \boxed{
-            \operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)=\frac{1}{N} \sum_{i=1}^N \log \left\{|\Theta| \sum_{j =1}^K \mathbf{P}^c\left(j \mid x_i' \right) \mathbf{P}^c \left( j \mid x_i'' \right)\right\}
+            \operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)=\frac{1}{N} \sum_{n=1}^N \log \left\{|\Theta| \sum_{k= 1}^K \mathbf{P}^c\left(k \mid x_n' \right) \mathbf{P}^c \left( k \mid x_n'' \right)\right\},
         }
     }
     $$
 
-    where $\mathbf{P}^c(j \mid x_i)$ can be shown to be
+    where $\mathbf{P}^c(j \mid x_n)$ can be shown to be
 
     $$
     \textcolor{blue}{
         \boxed{
-            \mathbf{P}^c\left(j \mid x_i\right)=\frac{\exp\left(\beta F_{j}(x_i)\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_i)\right)}.
+            \mathbf{P}^c\left(k \mid x_n\right)=\frac{\exp\left(\beta F_{k}(x_n)\right)}{\sum_{q=1}^K\exp\left(\beta F_q(x_n)\right)}.
         }
     }
     $$
@@ -736,7 +724,7 @@ the constraints of finite energy and number of particles
     The posterior agreement $\mathcal{J}$ has the following expression, derived in Lemma \ref{lemma:pa}:
 
     $$
-    \mathcal{J} =\mathbb{E}_{\mathbf{P}_{\bm{x}', \bm{x}''}}\left[\log\left(\mathbb{E}_{\mathbf{P}^c(\theta|\bm{x}')}\frac{\mathbf{P}^c(\theta\mid \bm{x}'')}{\mathbf{\Pi}^c(\theta)}\right)\right]
+    \mathcal{J} =\mathbb{E}_{\mathbf{P}_{\bm{x}', \bm{x}''}}\left[\log\left(\mathbb{E}_{\mathbf{P}^c(\theta|\bm{x}')}\frac{\mathbf{P}^c(\theta\mid \bm{x}'')}{\mathbf{\Pi}^c(\theta)}\right)\right].
     $$
 
     As defined previously, $\Theta$ is a discrete, finite set of possible classification 
@@ -744,7 +732,7 @@ the constraints of finite energy and number of particles
     assumed to be uniform. Therefore, the expectation operators amount to:
 
     $$
-    \mathbb{E}_{\mathbf{P}_{\bm{x}', \bm{x}''}} = \frac{1}{N} \sum_{i=1}^N \cdot
+    \mathbb{E}_{\mathbf{P}_{\bm{x}', \bm{x}''}} = \frac{1}{N} \sum_{n=1}^N \cdot
     $$
 
     $$
@@ -760,16 +748,16 @@ the constraints of finite energy and number of particles
     $\mathbf{P}^c(\theta|\bm{x})$ can be factorized on the terms expressed in Theorem \ref{theorem:posterior_factorization}.
 
     $$
-    \mathbf{P}^c(\theta \mid \bm{x}) = \prod_i^N  \mathbf{P}_i^c(\theta_i \mid \bm{x}) = \prod_{i=1}^N \frac{\exp\left(\beta F_{\theta_i}(x_i)\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_i)\right)}.
+    \mathbf{P}^c(\theta \mid \bm{x}) = \prod_{n=1}^N  \mathbf{P}_n^c(\theta_n \mid \bm{x}) = \prod_{n=1}^N \frac{\exp\left(\beta F_{\theta_n}(x_n)\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_n)\right)}.
     $$
 
     Operating analogously for $\bm{x}'$ and $\bm{x}''$, the expression for the PA kernel is obtained.
 
     $$
     \begin{aligned}
-    \operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) = & \frac{1}{N} \sum_{i=1}^N \left[\log\left(\sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}') \frac{\mathbf{P}^c(\theta\mid \bm{x}'')}{|\Theta|^{-1}}\right)\right] \\
-    = & \frac{1}{N} \sum_{i=1}^N \left[\log\left( |\Theta| \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}') \mathbf{P}^c(\theta\mid \bm{x}'')\right)\right] \\
-    = & \frac{1}{N} \sum_{i=1}^N \left[\log \left( |\Theta| \sum_{\theta \in \Theta} \prod_{i=1}^N \frac{\exp\left(\beta F_{\theta_i}(x_i')\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_i')\right)} \frac{\exp\left(\beta F_{\theta_i}(x_i'')\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_i'')\right)} \right)\right]. \\
+    \operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) = & \frac{1}{N} \sum_{n=1}^N \left[\log\left(\sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}') \frac{\mathbf{P}^c(\theta\mid \bm{x}'')}{|\Theta|^{-1}}\right)\right] \\
+    = & \frac{1}{N} \sum_{n=1}^N \left[\log\left( |\Theta| \sum_{\theta \in \Theta} \mathbf{P}^c(\theta \mid \bm{x}') \mathbf{P}^c(\theta\mid \bm{x}'')\right)\right] \\
+    = & \frac{1}{N} \sum_{n=1}^N \left[\log \left( |\Theta| \sum_{\theta \in \Theta} \prod_{n=1}^N \frac{\exp\left(\beta F_{\theta_n}(x_n')\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_n')\right)} \frac{\exp\left(\beta F_{\theta_n}(x_n'')\right)}{\sum_{k=1}^K\exp\left(\beta F_k(x_n'')\right)} \right)\right]. \\
     \end{aligned}
     $$
 
@@ -782,15 +770,20 @@ Once the expression of the posterior agreement for classification tasks has been
 we can proceed to analyze its properties and its suitability as a robustness metric. 
 
 
-\begin{theorem}[Properties of the PA kernel]\label{theorem:pa_properties}
-    $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)$ has the following properties.
+\begin{theorem}[\emph{Properties of the PA kernel}]\label{theorem:pa_properties}
+    The posterior agreement kernel for $K$-classification problems $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)$ 
+    has the following properties $\forall \bm{x}', \bm{x}'' \sim \bm{X}$ and $\beta \in \mathbb{R}^+$.
+
 
     \begin{description}
-        \item[P1](Sign) $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) \leq 0 \;\; \forall \bm{x} \sim \underbar{X}$ and $\beta \in \mathbb{R}^+$.
+        \item[P1](Boundedness) $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) \leq N \log{K}$. This makes sense
+        from an information-theoretical perspective, as the minimum description length in the absence of generalization error amounts
+        to that of the prior, which was set to be non-informative. It is clear that $\log_2 K$ bits are needed to encode a uniform
+        distribution over the classes for each observation.
         \item[P2](Symmetry)  $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right) = \operatorname{PA}\left(\bm{x}'', \bm{x}'; \beta\right)$. This property is 
-        important from the robustness perspective, given that noise
-        instantiations are not indexed and no reference noiseless experiment can be performed.
-        \item[P3](Concavity) $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)$ is a concave function of $\beta \in \mathbb{R}^+$ $\forall \bm{x} \sim \underbar{X}$. This means that 
+        important from the robustness perspective, given that randomness instantiations
+        are not indexed and no reference experiment can be performed.
+        \item[P3](Concavity) $\operatorname{PA}\left(\bm{x}', \bm{x}'' ; \beta\right)$ is a concave function of $\beta \in \mathbb{R}^+$. This means that 
         the kernel optimization problem will have a unique solution
         \cite{boydConvexOptimization2004}.
     \end{description}
@@ -814,11 +807,13 @@ Following the derivation in the previous section, an operative version of the
 posterior agreement kernel for the $K$-class classification problem is given by
 
 $$
-\operatorname{PA}\left(\boldsymbol{x}^{\prime}, \boldsymbol{x}^{\prime \prime} ; \beta\right)=\sum_{i=1}^N \log \left\{ \sum_{j=1}^K \mathbf{P}_i^c\left(j \mid \boldsymbol{x}^{\prime}\right) \mathbf{P}_i^c\left(j \mid \boldsymbol{x}^{\prime \prime}\right)\right\},
+\operatorname{PA}\left(\boldsymbol{x}^{\prime}, \boldsymbol{x}^{\prime \prime} ; \beta\right)=\sum_{n=1}^N \log \left\{ \sum_{k=1}^K \mathbf{P}_n^c\left(j \mid \boldsymbol{x}^{\prime}\right) \mathbf{P}_n^c\left(j \mid \boldsymbol{x}^{\prime \prime}\right)\right\},
 $$
 
 where factors $|\Theta|$ and $1/N$ have not been considered as they are merely for
-scale, making kernel values now range in $(-\infty, 0]$. \\
+scale. Kernel values are now bounded to the range $(-\infty, 0]$. \\
+
+HERE TALK ABOUT THE RANGE OF OPTIMAL PA AND HOW IT WILL NOT BE INDICATED \\
 
 The goal of this project is to use $\operatorname{PA}\left(\boldsymbol{x}^{\prime}, \boldsymbol{x}^{\prime \prime} ; \beta^{*}\right)$
 to assess the generalization capabilities of different models and eventually select the most robust one at
@@ -827,23 +822,29 @@ computationally demanding task, both in terms of memory and time, and hard-codin
 kernel optimization inside the training loop for every task
 is also highly impractical. \\
 
-For these reasons, a custom implementation of the kernel optimization task has been
+For these reasons, a custom implementation\footnote{https://github.com/viictorjimenezzz/pa-metric} of the kernel optimization task has been
 developed with the purpose of this project. The implementation is wrapped under the
-the \texttt{torchmetrics}\footnote{https://lightning.ai/docs/torchmetrics/stable/}
+the Torchmetrics\footnote{https://lightning.ai/docs/torchmetrics/stable/}
 framework, which allows for a flawless integration in any machine learning project.
-Here is a small code snippet showcasing a simple evaluation:
+Here is a small code snippet showcasing a simple evaluation: \\
 
-\begin{lstlisting}[language=Python, caption=PA metric implementation.]
-    from pametric import PosteriorAgreementBase, LogitsDataset
+% \begin{lstlisting}[language=Python, caption=PA metric implementation. See full implementation here.]
+%     from pametric import PosteriorAgreementBase, LogitsDataset
 
-    # Initialization
-    pa_metric = PosteriorAgreementBase(pa_epochs, beta_0)
-    
-    # Within the training or evaluation logic:
-    logits_dataloader = DataLoader(LogitsDataset([logits0, logits1], y))
-    pa_results = pa_metric(logits_dataloader)
-    logPA = pa_results["logPA"]
-\end{lstlisting}
+%     pa_metric = PosteriorAgreementBase(pa_epochs, beta_0)
+%     results = pa_metric(
+%         DataLoader(LogitsDataset([logits0, logits1], y))
+%     )
+%     logPA, beta = results["logPA"], results["beta"]
+% \end{lstlisting}
+
+\fboxrule=1pt           % Frame line width
+\fboxsep=1pt            % Distance between frame and content
+\colorbox{gray!30}{     % Background color with 20% grey
+    % \fbox{              % Adds the frame
+    \includegraphics[width=0.98\textwidth]{img/theoretical_background/pametric_code.png}  % Your image here
+    % }
+}
 
 \begin{properties}[PA metric implementation]
     The most relevant features of the numerical implementation of the metric are the following:

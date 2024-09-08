@@ -70,7 +70,28 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 
+\renewcommand{\footnoterule}{\vfill\kern -3pt \hrule width 0.4\columnwidth \kern 2.6pt}
+
 \usepackage[table]{xcolor}
+
+\usepackage{booktabs, arydshln, hhline}  % for the tables
+
+\makeatletter
+\def\adl@drawiv#1#2#3{%
+        \hskip.5\tabcolsep
+        \xleaders#3{#2.5\@tempdimb #1{1}#2.5\@tempdimb}%
+                #2\z@ plus1fil minus1fil\relax
+        \hskip.5\tabcolsep}
+\newcommand{\cdashlinelr}[1]{%
+  \noalign{\vskip\aboverulesep
+           \global\let\@dashdrawstore\adl@draw
+           \global\let\adl@draw\adl@drawiv}
+  \cdashline{#1}
+  \noalign{\global\let\adl@draw\@dashdrawstore
+           \vskip\belowrulesep}}
+           
+
+\makeatother
 \fi
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -84,6 +105,9 @@
 \definecolor{tab:blue}{rgb}{0.12156862745098039, 0.4666666666666667, 0.7058823529411765}
 \definecolor{tab:purple}{rgb}{0.5803921568627451, 0.403921568627451, 0.7411764705882353}
 \definecolor{tab:brown}{rgb}{0.5490196078431373, 0.33725490196078434, 0.29411764705882354}
+
+\usepackage{pythonhighlight}
+\usepackage{fancybox}   % For fancy boxes
 
 \lstdefinestyle{mystyle}{
     backgroundcolor=\color{backcolour},   
@@ -118,17 +142,24 @@
   commentstyle=\color{codegreen},
   stringstyle=\color{codepurple},
   morestring=[b]',
-  morestring=[b]"
+  morestring=[b]",
+  basicstyle=\normalfont\small,   % Matches regular text font and size
+  backgroundcolor=\color{white}   % White background
 }
+
+
 
 \theoremstyle{definition}
 \newtheorem*{definition}{Definition}
+\newtheorem*{proposition}{Proposition}
 \newtheorem*{properties}{Properties}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{example}{Example}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem*{attack}{Attack}
+\newtheorem*{dataset}{Dataset}
+\newtheorem{experiment}{Experiment}
 
 \newcommand{\@supervision}{}
 \newcommand{\supervision}[1]{\gdef\@supervision{#1}}
@@ -160,6 +191,13 @@
 
 \newcommand{\@identification}{}
 \newcommand{\identification}[1]{\gdef\@identification{#1}}
+
+\def\Plus{\texttt{+}}
+\def\minust{\texttt{-}}
+\def\Minus{\raisebox{0.1ex}{\minust}}
+\def\Equal{\texttt{=}}
+\def\plusminust{\raisebox{0.12ex}{\Plus}\kern-0.52em\raisebox{-0.35ex}{\Minus}}
+\def\PlusMinus{{\plusminust}\hspace{0.05em}}
 
 \newcommand{\@declaration}{}
 \newcommand{\declaration}{\gdef\@declaration{
@@ -214,8 +252,8 @@ Zurich, \the\day. \the\month. \the\year: \hrulefill
 \hfill
 \begin{minipage}[c]{0.4\textwidth}
  \begin{flushright}
- \hspace*{0.4cm}
- \includegraphics[height=1.6cm]{img/capcalera.eps}
+ \hspace*{2.0cm}
+ \includegraphics[height=1.6cm]{img/capcalera.pdf}
  \end{flushright}
 \end{minipage}
 \vspace*{5.0cm}
@@ -250,7 +288,7 @@ Zurich, \the\day. \the\month. \the\year: \hrulefill
 \begin{flushleft}
 \hspace*{-1.5cm}
 \vspace{-1.5cm}
-\texttt{\@identification}
+\texttt{900-0030-00L}
 \end{flushleft}
 
 \end{center}
@@ -309,7 +347,7 @@ Prof.~Dr.~R.~D'Andrea, Prof.~Dr.~L.~Guzzella}
 %Master thesis, \@date\\[2.5ex]
 %\fi
 {\bf Supervision: \\[1ex]}
-\@supervision
+\@
 \fi
 \vspace{1cm}
 

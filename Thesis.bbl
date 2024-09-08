@@ -168,6 +168,12 @@ Pang~Wei Koh, Shiori Sagawa, Henrik Marklund, Sang~Michael Xie, Marvin Zhang,
 Alex Krizhevsky.
 \newblock Learning {{Multiple Layers}} of {{Features}} from {{Tiny Images}}.
 
+\bibitem{lecun1998mnist}
+Yann LeCun, Corinna Cortes, and Christopher~J.C. Burges.
+\newblock {The MNIST database of handwritten digits}.
+\newblock \url{http://yann.lecun.com/exdb/mnist}, 1998.
+\newblock Accessed: 2024-09-07.
+
 \bibitem{liLearningGeneralizeMetaLearning2018}
 Da~Li, Yongxin Yang, Yi-Zhe Song, and Timothy Hospedales.
 \newblock Learning to {{Generalize}}: {{Meta-Learning}} for {{Domain
@@ -194,6 +200,14 @@ Jiashuo Liu, Zheyan Shen, Yue He, Xingxuan Zhang, Renzhe Xu, Han Yu, and Peng
 Cristopher M.~Bishop.
 \newblock {\em Pattern {{Recognition}} and {{Machine Learning}}}.
 \newblock Springer.
+
+\bibitem{maas2011learning}
+Andrew~L. Maas, Raymond~E. Daly, Peter~T. Pham, Dan Huang, Andrew~Y. Ng, and
+  Christopher Potts.
+\newblock Learning word vectors for sentiment analysis.
+\newblock In {\em Proceedings of the 49th Annual Meeting of the Association for
+  Computational Linguistics: Human Language Technologies}, pages 142--150,
+  2011.
 
 \bibitem{madryDeepLearningModels2019}
 Aleksander Madry, Aleksandar Makelov, Ludwig Schmidt, Dimitris Tsipras, and
@@ -241,6 +255,14 @@ Sebastian Ruder.
 \bibitem{rumelhartLearningRepresentationsBackpropagating1986}
 David~E Rumelhart, Geoffrey~E Hintont, and Ronald~J Williams.
 \newblock Learning representations by back-propagating errors.
+
+\bibitem{sanh2019distilbert}
+Victor Sanh, Lysandre Debut, Julien Chaumond, and Thomas Wolf.
+\newblock Distilbert, a distilled version of bert: smaller, faster, cheaper and
+  lighter.
+\newblock In {\em Proceedings of the 5th Workshop on Energy Efficient Machine
+  Learning and Cognitive Computing}. Association for Computational Linguistics,
+  2019.
 
 \bibitem{schmidtAdversariallyRobustGeneralization2018}
 Ludwig Schmidt, Shibani Santurkar, Dimitris Tsipras, Kunal Talwar, and
