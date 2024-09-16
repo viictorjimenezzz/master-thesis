@@ -1,7 +1,5 @@
 \relax 
 \@writefile{toc}{\contentsline {chapter}{Abstract}{v}{}\protected@file@percent }
-\newlabel{chap:symbole}{{}{vii}}
-\@writefile{toc}{\contentsline {chapter}{Notation}{vii}{}\protected@file@percent }
 \citation{p.murphyProbabilisticMachineLearning2022}
 \citation{m.bishopPatternRecognitionMachine2006}
 \citation{quinonero-candelaDatasetShiftMachine2009}
@@ -39,7 +37,7 @@
 \citation{tsiprasRobustnessMayBe2019}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces  A conceptual illustration of standard vs. adversarial decision boundaries. (\textbf  {left}) A set of linearly-separable points. (\textbf  {middle}) Decision boundary learned via standard training. (\textbf  {right}) Decision boundary learned via adversarial training. Both methods achieve zero training error, but only the robust model is able to generalize to $\ell _\infty $ perturbations. \cite  {madryDeepLearningModels2019} \relax }}{3}{}\protected@file@percent }
 \newlabel{fig:adversarial_complexity}{{1.2}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Scaled loss gradient with respect to input images. Input pixels yielding the highest predictive power are aligned with perceptually relavant features for the case of adversarial models, while appearing completely random in the case of standard models. \cite  {tsiprasRobustnessMayBe2019}\relax }}{3}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Scaled loss gradient with respect to input images. Input pixels yielding the highest predictive power are aligned with perceptually relevant features for the case of adversarial models, while appearing completely random in the case of standard models. \cite  {tsiprasRobustnessMayBe2019}\relax }}{3}{}\protected@file@percent }
 \newlabel{fig:adversarial_loss}{{1.3}{3}}
 \citation{muandetDomainGeneralizationInvariant2013}
 \citation{quinonero-candelaDatasetShiftMachine2009}
@@ -70,7 +68,7 @@
 \citation{yunCutMixRegularizationStrategy2019}
 \citation{yunCutMixRegularizationStrategy2019}
 \citation{yunCutMixRegularizationStrategy2019}
-\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces  \textbf  {(left)} Confusion matrix generated in a dataset identification task. A clearly pronounced diagonal indicates that each dataset posesses unique traits that make it distinguishable from the rest. \textbf  {(right)} Cross-dataset generalization for \texttt  {car} detection as function of training data. The vertical gap between lines represents the decrease in performance when training on a different dataset, and the horizontal shift corresponds to the increase in the amount of data needed to reach the same performance. \cite  {torralbaUnbiasedLookDataset2011}\relax }}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1.6}{\ignorespaces  \textbf  {(left)} Confusion matrix generated in a dataset identification task. A clearly pronounced diagonal indicates that each dataset possesses unique traits that make it distinguishable from the rest. \textbf  {(right)} Cross-dataset generalization for \texttt  {car} detection as function of training data. The vertical gap between lines represents the decrease in performance when training on a different dataset, and the horizontal shift corresponds to the increase in the amount of data needed to reach the same performance. \cite  {torralbaUnbiasedLookDataset2011}\relax }}{5}{}\protected@file@percent }
 \newlabel{fig:dataset_bias}{{1.6}{5}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.7}{\ignorespaces  Projections of a binary synthetic dataset in the two principal DICA dimensions. The shaded box depicts the projection of training data, whereas the unshaded boxes show projections of unseen test datasets. \cite  {muandetDomainGeneralizationInvariant2013} \relax }}{5}{}\protected@file@percent }
 \newlabel{fig:dica}{{1.7}{5}}
@@ -159,7 +157,11 @@
 \citation{buhmannDataScienceAlgorithms2022}
 \newlabel{lemma:pa}{{2.3.1}{14}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{14}{}\protected@file@percent }
+\citation{buhmannDataScienceAlgorithms2022}
+\citation{buhmannDataScienceAlgorithms2022}
 \newlabel{def:pa}{{2.3.3}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces  Qualitative illustration of the optimization over the inverse temperature parameter $\beta $. When $\beta \DOTSB \relbar \joinrel \rightarrow 0$, the informativeness of the posterior is reduced, eventually converging to a uniform distribution. When $\beta \DOTSB \relbar \joinrel \rightarrow \infty $, the informativeness of the posterior grows, leading to an increasingly peaked distribution. Posterior Agreement is maximum at a value $\beta ^{*}$ in which hypothesis selected from the posterior over $\theta \mid \bm  {x^\prime }$ are assigned a high probability by the posterior over $\theta \mid \bm  {x^{\prime \prime }}$, which in this case aligns with the maximum posterior overlap. \cite  {buhmannDataScienceAlgorithms2022} \relax }}{15}{}\protected@file@percent }
+\newlabel{fig:illustrate_beta}{{2.2}{15}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {3}Experimental setup}{17}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -169,7 +171,7 @@
 \citation{quinonero-candelaDatasetShiftMachine2009}
 \citation{quinonero-candelaDatasetShiftMachine2009}
 \citation{quinonero-candelaDatasetShiftMachine2009}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Robustness in covariate shift settings}{18}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Robustness under covariate shift}{18}{}\protected@file@percent }
 \newlabel{sec:robustness_to_covariate_shift}{{3.2}{18}}
 \newlabel{def:domain_shift}{{3.2}{18}}
 \citation{buhmannPosteriorAgreementModel2022}
@@ -207,36 +209,37 @@
 \citation{logicofscience}
 \citation{bovierStatisticalMechanicsDisordered2012}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}The posterior agreement kernel}{24}{}\protected@file@percent }
+\newlabel{sec:pa_kernel}{{3.6.2}{24}}
 \newlabel{lemma:exchangeability}{{3.6.1}{24}}
 \newlabel{theorem:posterior_factorization}{{3.6.2}{25}}
 \citation{boydConvexOptimization2004}
 \newlabel{theorem:pa_properties}{{3.6.3}{26}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.3}Implementation}{26}{}\protected@file@percent }
+\newlabel{prop:pa_inductive_bias}{{3.6.2}{27}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.3}Implementation}{27}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {chapter}{\numberline {4}Robustness assessment}{29}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chapter:robustness_assessment}{{4}{29}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}In-distribution setting}{29}{}\protected@file@percent }
 \newlabel{sec:results_robustness}{{4.1}{29}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Comparison of accuracy and PA values for the case $p = 1/2$.\relax }}{29}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces  Comparison of accuracy and PA values for the case $p = 1/2$. \relax }}{29}{}\protected@file@percent }
 \newlabel{tab:empirical_table}{{4.1}{29}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces  Evolution of PA and accuracy for constant, perfect and random classifiers across different values of $p \in [0,1]$. Accuracy does not comply with the desired properties of a robustness metric and provides an inconsistent assessment that is exclusively driven by task performance. In contrast, PA continuously discriminates robust from unrobust classifiers for $p \in (0,1)$ and reaches its minimum (blue dashed line) for the random classifier when $p \in (0.3,0.7)$. \relax }}{30}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces  Evolution of PA and accuracy for constant, perfect and random classifiers across different values of $p \in [0,1]$. Accuracy does not comply with the desired properties of a robustness metric and provides an inconsistent assessment that is exclusively driven by task performance. In contrast, PA continuously discriminates robust from unrobust classifiers for $p \in (0,1)$ and reaches its minimum $-N \log 2$ (blue dashed line) for the random classifier when $p \in (0.3,0.7)$. \relax }}{30}{}\protected@file@percent }
 \newlabel{fig:empirical_plot}{{4.1}{30}}
 \citation{krizhevskyLearningMultipleLayers}
 \citation{BMVC2016_87}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Evolution of PA kernel optimization under different levels of prediction confidence. An illustration of the original log-odds and its associated posterior distribution can be found in Appendix \ref {subsec:appendix_empirical_behaviour}.\relax }}{31}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Evolution of the PA kernel optimization under different levels of prediction confidence for a random classifier with $p = 1/2$, computed over a sample of size $N=100$. The rate of convergence is shown to depend on the informativeness of the posterior at $\beta _0 = 1$, and consequently on the confidence gap $\Delta $. An illustration of the original log-odds and its associated posterior distribution can be found in Appendix \ref {subsec:appendix_empirical_behaviour}. \relax }}{31}{}\protected@file@percent }
 \newlabel{fig:prediction_confidence}{{4.2}{31}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces PA and accuracy displayed by the CIFAR10 classifier under increasing levels of white noise. Robustness and task performance are shown to be non-linearly related. \relax }}{31}{}\protected@file@percent }
 \newlabel{fig:gaussian_noise}{{4.3}{31}}
 \citation{maas2011learning}
 \citation{sanh2019distilbert}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces PA kernel optimization in the CIFAR10 gaussian noise setting for different ratio of perturbed samples. Perturbation magnitude is $\ell _\infty $ = 32 / 255.\relax }}{32}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces PA kernel optimization in the CIFAR10 gaussian noise setting for different ratio of perturbed observations. Perturbation magnitude is $\ell _\infty $ = 32 / 255.\relax }}{32}{}\protected@file@percent }
 \newlabel{fig:gaussian_optimization}{{4.4}{32}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces PA and accuracy for the IMDB sentiment classification under Levenshtein perturbations. The attack power is defined as $2^L$, being $L$ the Levenshtein distance between pairs of observations in $\bm  {x}^\prime $ and $\bm  {x}^{\prime \prime }$.\relax }}{32}{}\protected@file@percent }
 \newlabel{fig:imdb_levenshtein}{{4.5}{32}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Adversarial setting}{33}{}\protected@file@percent }
 \newlabel{sec:results_adversarial}{{4.2}{33}}
-\newlabel{thm:approximated_pa}{{4.2.1}{34}}
 \citation{krizhevskyLearningMultipleLayers}
 \citation{BMVC2016_87}
 \citation{resnet50}
@@ -248,143 +251,210 @@
 \citation{WongRK20}
 \citation{Addepalli2022ScalingAT}
 \citation{wang2023betterdiffusionmodelsimprove}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces  Entropy difference $\Delta H = H(\beta ^{*}) - H(1)$ for different models, obtained for FMN and $\ell _\infty $ = 8/255 PGD attacks, both at $\alpha = 1$. Entropy values are estimated using the average posterior distribution over correctly classified samples, which constitute the largest proportion of the dataset. Figures \ref {fig:pgd_distributions_undefended}-\ref {fig:pgd_distributions_bpda} show the initial and optimal average posteriors from which these values were computed. \relax }}{35}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces  Entropy difference $\Delta H = H(\beta ^{*}) - H(1)$ for different models, obtained for FMN and PGD $\ell _\infty $ = 8/255 attacks with $\alpha = 1$. Entropy values are computed with the average posterior over correctly classified observations, which constitute the largest proportion of the dataset. Defended models converge to $\beta ^{*} > 1$, whereas the undefended model displays $\beta ^{*} < 1$. This is consistent with the interpretation of robustness in terms of the optimal informativeness of the posterior. \relax }}{35}{}\protected@file@percent }
 \newlabel{tab:entropy_gibbs}{{4.2}{35}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Original and adversarially-perturbed CIFAR10 sample of class \texttt  {horse}. Both perturbations succeed at misleading an undefended, pre-trained WideResNet-28-10 architecture.\relax }}{35}{}\protected@file@percent }
-\citation{dasKeepingBadGuys2017}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces PA, $\operatorname  {AFR}_\text  {T}$ and the AFR variation against increasing adversarial ratio $\alpha \in [0,1]$ at different perturbation norm bounds $\ell _infty$. A pre-trained, undefended WideResNet-28-10 and five RobustBench defended models are subject to a 1000 step PGD attack. When $\alpha $ = 0, $\operatorname  {PA} \DOTSB \relbar \joinrel \rightarrow 0$ as $\beta \DOTSB \relbar \joinrel \rightarrow \infty $ in all cases, but the convergence rate depends on the prediction confidence (see Figure \ref {fig:prediction_confidence}) and thus yields an assessment equivalent to that of $\operatorname  {AFR}_\text  {T}$. \relax }}{36}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Original and adversarially-perturbed CIFAR10 observation of class \texttt  {horse}. Both perturbations succeed at misleading an undefended, pre-trained WideResNet-28-10 architecture.\relax }}{35}{}\protected@file@percent }
+\citation{croceRobustBenchStandardizedAdversarial2021a}
+\citation{croceRobustBenchStandardizedAdversarial2021a}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces PA, $\operatorname  {AFR}_\text  {T}$ and the AFR variation against increasing adversarial ratio $\alpha \in [0,1]$ at different perturbation norm bounds $\ell _\infty $. A pre-trained, undefended WideResNet-28-10 and five RobustBench \cite  {croceRobustBenchStandardizedAdversarial2021a} defended models are subject to a 1000 step PGD attack. When $\alpha $ = 0, $\operatorname  {PA} \DOTSB \relbar \joinrel \rightarrow 0$ as $\beta \DOTSB \relbar \joinrel \rightarrow \infty $ in all cases, but the convergence rate depends on the prediction confidence (see Figure \ref {fig:prediction_confidence}) and thus yields an assessment equivalent to that of $\operatorname  {AFR}_\text  {T}$. \relax }}{36}{}\protected@file@percent }
 \newlabel{fig:six_figures_pa_adv}{{4.7}{36}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces (\textbf  {left}) Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. (\textbf  {right}) Optimal $\beta ^{*}$ value for each model. Results obtained through a PGD attack with $\ell _\infty = 8 / 255$.\relax }}{37}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces (\textbf  {left}) Average posterior probability of the predicted class for correctly classified original observations, misclassified original observations and misleading adversarial observations. The probabilities assigned to correct ($\hat  {y}' = y$) and incorrect ($\hat  {y}' \neq  y$, $\hat  {y}'' \neq  y$) predictions overlap in both {\color  {tab:orange} \textbf  {Undefended}} and {\color  {tab:green} \textbf  {Athalye et al.}} models, whereas the opposite happens for the {\color  {tab:brown} \textbf  {Wang et al.}} case. This highlights the suitability of its inductive bias with respect to both sampling randomness and adversarial perturbations. (\textbf  {right}) Optimal $\beta ^{*}$ value achieved by each model. {\color  {tab:orange} \textbf  {Undefended}} and {\color  {tab:green} \textbf  {Athalye et al.}} models appear as outliers as they overestimate and underestimate, respectively, the information content of the features. Their poor robustness performance against PGD attacks reported in Figure \ref {fig:six_figures_pa_adv} can be explained in these terms. These results have been obtained through a PGD attack with $\ell _\infty $=8/255, and they are consistent across different values of $\ell _\infty $. \relax }}{37}{}\protected@file@percent }
 \newlabel{fig:unrobust_posterior_short_pgd}{{4.8}{37}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces  Approximated PA contributions for a PGD attack with $\ell _\infty $ = 8/255 and $\alpha = 1.0$. The number of originally misclassified and adversarially misleading observations is $N_{\text  {MIS}} = \lfloor N (1-\operatorname  {AFR}_\text  {T}^0) \operatorname  {AFR}_\text  {P} \rfloor $ and $N_{\text  {ADV}} = \lfloor N \operatorname  {AFR}_\text  {T}^0 (1-\operatorname  {AFR}_\text  {P}) \rfloor $, respectively. The penalization argument $2 \delta _{\text  {ERR}}$ has not been included for being negligible in all cases. \relax }}{38}{}\protected@file@percent }
+\newlabel{tab:approx_pa_pgd_table}{{4.3}{38}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces PA, $\operatorname  {AFR}_\text  {T}$ and the AFR variation against increasing attack power for $\alpha = 1$. The undefended net and several RobustBench robust models are considered under a 1000 step PGD attack.\relax }}{39}{}\protected@file@percent }
+\newlabel{fig:pgd_eps}{{4.9}{39}}
 \citation{dasKeepingBadGuys2017}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces PA, $\operatorname  {AFR}_\text  {T}$ and the AFR variation against increasing attack power for $\alpha = 1$. The aforementioned undefended net and several RobustBench robust models are considered under a 1000 step PGD attack.\relax }}{38}{}\protected@file@percent }
-\newlabel{fig:pgd_eps}{{4.9}{38}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces PA, $\operatorname  {AFR}_\text  {T}$ and the AFR variation against increasing adversarial ratio. The aforementioned undefended net and several RobustBench robust models are considered under a 1000 step FMN attack.\relax }}{38}{}\protected@file@percent }
-\newlabel{fig:adv_fmn_pa_afr}{{4.10}{38}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces (\textbf  {left}) Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. (\textbf  {right}) Optimal $\beta ^{*}$ value for each model. Results obtained through a FMN attack.\relax }}{39}{}\protected@file@percent }
-\newlabel{fig:unrobust_posterior_short_fmn}{{4.11}{39}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces  Comparison of PA, $\operatorname  {AFR}_{\text  {P}}$ and $\operatorname  {AFR}_{\text  {T}}$ scores for a PGD attack with $\ell _\infty $ = 16 / 255 and an FMN attack across different adversarial ratio values. The worst robustness score is emboldened for every case. PA displays higher consistency and discriminative power across varying $\alpha $ with respect to accuracy-based metrics. \relax }}{40}{}\protected@file@percent }
-\newlabel{tab:pa_afrpred_comparison_table}{{4.3}{40}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces  Kendall rank correlation coefficient comparing the consistency of the model ranking provided by each metric at different adversarial ratio values. The raking at a specific $\alpha $ is compared with that with $\alpha $ = 1.0. PA is shown to display the highest consistency, especially under low attack power settings. \relax }}{40}{}\protected@file@percent }
-\newlabel{tab:kendall_comparison_table}{{4.4}{40}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Interpretability of PA in the adversarial setting}{40}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces  Approximated PA contributions for a PGD attack with $\ell _\infty $ = 8/255 and $\alpha = 1.0$. The number of originally misclassified and adversarially misleading samples is $N_{\text  {MIS}} = \lfloor N (1-\operatorname  {AFR}_T^0) \operatorname  {AFR}_P \rfloor $ and $N_{\text  {ADV}} = \lfloor N \operatorname  {AFR}_T^0 (1-\operatorname  {AFR}_P) \rfloor $, respectively. The penalization argument $2 \delta _{\text  {ERR}}$ has not been included for being negligible in all cases. \relax }}{41}{}\protected@file@percent }
-\newlabel{tab:approx_pa_pgd_table}{{4.5}{41}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces  Approximated PA contributions for a FMN attack with $\alpha = 1.0$. The number of originally misclassified and adversarially misleading samples is $N_{\text  {MIS}} = \lfloor N (1-\operatorname  {AFR}_T^0) \operatorname  {AFR}_P \rfloor $ and $N_{\text  {ADV}} = \lfloor N \operatorname  {AFR}_T^0 (1-\operatorname  {AFR}_P) \rfloor $, respectively. The penalization argument $2 \delta _{\text  {ERR}}$ has not been included for being negligible in all cases with the exception of the {\color  {tab:green} \textbf  {Athalye et al.}} model, which amounts to 0.36. \relax }}{42}{}\protected@file@percent }
-\newlabel{tab:approx_pa_fmn_table}{{4.6}{42}}
-\citation{buhmannDataScienceAlgorithms2022}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces  The two metrics considered are FID, which amounts to the group-based dissimilarity in the feature space, and Wasserstein distance, which measures the average distance between probability distributions. \relax }}{43}{}\protected@file@percent }
-\newlabel{fig:adv_metric_comparison}{{4.12}{43}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces PA, $\operatorname  {AFR}_\text  {T}$ and the AFR variation against increasing adversarial ratio. The undefended net and several RobustBench robust models are considered under a 1000 step FMN attack.\relax }}{40}{}\protected@file@percent }
+\newlabel{fig:adv_fmn_pa_afr}{{4.10}{40}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces (\textbf  {left}) Average posterior probability of the predicted class under FMN attack for correctly classified original observations, misclassified original observations, and misleading adversarial observations. The probabilities assigned to correct ($\hat  {y}' = y$) and incorrect ($\hat  {y}' \neq  y$, $\hat  {y}'' \neq  y$) predictions are shown to overlap also for the {\color  {tab:brown} \textbf  {Wang et al.}} model, which highlights the effectiveness of the FMN attack with respect to PGD. (\textbf  {right}) Optimal $\beta ^{*}$ value for each model. \relax }}{40}{}\protected@file@percent }
+\newlabel{fig:unrobust_posterior_short_fmn}{{4.11}{40}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.4}{\ignorespaces  Approximated PA contributions for a FMN attack with $\alpha = 1.0$. The number of originally misclassified and adversarially misleading observations is $N_{\text  {MIS}} = \lfloor N (1-\operatorname  {AFR}_\text  {T}^0) \operatorname  {AFR}_\text  {P} \rfloor $ and $N_{\text  {ADV}} = \lfloor N \operatorname  {AFR}_\text  {T}^0 (1-\operatorname  {AFR}_\text  {P}) \rfloor $, respectively. The penalization argument $2 \delta _{\text  {ERR}}$ has not been included for being negligible in all cases except for the {\color  {tab:green} \textbf  {Athalye et al.}} model, which amounts to 0.36. \relax }}{41}{}\protected@file@percent }
+\newlabel{tab:approx_pa_fmn_table}{{4.4}{41}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.5}{\ignorespaces  Comparison of PA, $\operatorname  {AFR}_{\text  {P}}$ and $\operatorname  {AFR}_{\text  {T}}$ scores for a PGD attack with $\ell _\infty $ = 16 / 255 and an FMN attack across different adversarial ratio values. Among robust models, the worst robustness score is emboldened for every case. PA displays higher consistency and discriminative power across varying $\alpha $ with respect to accuracy-based metrics. In the PGD case, PA is aligned with $\operatorname  {AFR}_{\text  {T}}$ because sampling randomness is the principal source of unrobustness. In the FMN case, PA is aligned with $\operatorname  {AFR}_{\text  {P}}$ because adversarial perturbations are the principal source of unrobustness. \relax }}{42}{}\protected@file@percent }
+\newlabel{tab:pa_afrpred_comparison_table}{{4.5}{42}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces (\textbf  {left}) Average posterior probability of the predicted class in the original and perturbed datasets with $\alpha = 1$. (\textbf  {middle}) Average Fr\'echet Inception Distance (FID) between feature space representations of $\bm  {x}'$ and $\bm  {x}''$. (\textbf  {right}) Average Wasserstein (W) distance between posteriors $\mathbf  {P}^f(\cdot | \bm  {x'})$ and $\mathbf  {P}^f(\cdot | \bm  {x''})$ at $\beta _0 = 1$. \relax }}{42}{}\protected@file@percent }
+\newlabel{fig:adv_metric_comparison}{{4.12}{42}}
+\citation{euligDiagViB6DiagnosticBenchmark2021}
 \@writefile{toc}{\contentsline {section}{\numberline {4.3}Out-of-distribution setting}{43}{}\protected@file@percent }
 \newlabel{results_domain_generalization}{{4.3}{43}}
-\citation{euligDiagViB6DiagnosticBenchmark2021}
-\newlabel{def:shifted_factors_experiment}{{4.3}{44}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and LC account for 'centered center' and 'centered low', respectively. \relax }}{45}{}\protected@file@percent }
-\newlabel{tab:data_shift_table}{{4.7}{45}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces  Illustration of the training, validation and test datasets. Samples for each training environment belong to different MNIST subsets, whereas samples of validation and test are corresponding. \relax }}{45}{}\protected@file@percent }
-\newlabel{fig:data_shift_images}{{4.13}{45}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Evolution of PA under increasing levels of shift power. Weights maximizing validation accuracy were selected for ERM, IRM and LISA algorithms. Results for incremental presence of shifted samples indicate that PA is able to differentiate weak and robust models. \relax }}{46}{}\protected@file@percent }
-\newlabel{fig:six_figures}{{4.14}{46}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces  Pairwise cosine similarity between feature space representations of original and augmented images, for each of the shifted datasets. The abrupt decrease in similarity for the fifth environment indicates a discontinuity in the feature representation of images, which leads to non-comparable predictive outcomes. \relax }}{46}{}\protected@file@percent }
-\newlabel{tab:CS_shift}{{4.8}{46}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.9}{\ignorespaces  Comparison of PA, $\operatorname  {AFR}_{\text  {P}}$ and $\operatorname  {AFR}_{\text  {T}}$ scores for ERM, IRM and LISA learning algorithms under different levels of shift power. The highest robustness score is emboldened for every case. PA is able to discriminate algorithms consistently and distinguish the first shifted factor, which is seen by the model during training, from the rest. \relax }}{46}{}\protected@file@percent }
-\newlabel{tab:shift_comparison_table}{{4.9}{46}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Model selection}{47}{}\protected@file@percent }
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{yaoImprovingOutofDistributionRobustness2022}
+\citation{kingmaAdamMethodStochastic2017}
+\newlabel{exp:shifted_factors_experiment}{{4.3}{44}}
+\@writefile{toc}{\contentsline {paragraph}{Experiment 5a.}{44}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4.6}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and LC account for 'centered center' and 'centered low', respectively. \relax }}{44}{}\protected@file@percent }
+\newlabel{tab:data_shift_table}{{4.6}{44}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces  Illustration of the training, validation and test datasets. Samples composing training datasets belong to different MNIST subsets, whereas samples composing validation and test datasets are corresponding (i.e. they are the same observation). \relax }}{44}{}\protected@file@percent }
+\newlabel{fig:data_shift_images}{{4.13}{44}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces  Evolution of PA under increasing levels of shift power and shift ratio $\alpha $ for \textbf  {Experiment 5a}. PA is sensitive to the domain from which samples are drawn (i.e. source for dataset 1, target for the rest) and provides a consistent assessment across increasing levels of domain shift and shift ratio. In particular, {\color  {tab:green} \textbf  {Yao et al.}} achieves the highest score for the first dataset, whereas {\color  {tab:orange} \textbf  {Arjovsky et al.}} algorithm is considered the most robust for the remaining cases. \relax }}{45}{}\protected@file@percent }
+\newlabel{fig:pa_datashift_nonpaired}{{4.14}{45}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.7}{\ignorespaces  Comparison of PA, $\operatorname  {AFR}_{\text  {P}}$ and $\operatorname  {AFR}_{\text  {T}}$ scores for ERM, IRM and LISA learning algorithms with $\alpha =1$ for \textbf  {Experiment 5a}. The highest robustness score is emboldened for every case. PA provides a consistent assessment across target domains and selects {\color  {tab:orange} \textbf  {Arjovsky et al.}} as the most robust model. In contrast, accuracy-based metrics are less discriminative and significantly inconsistent across datasets, thus yielding no clear verdict. \relax }}{45}{}\protected@file@percent }
+\newlabel{tab:shift_comparison_table_nonpaired}{{4.7}{45}}
+\@writefile{toc}{\contentsline {paragraph}{Experiment 5b.}{46}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces  Evolution of PA under increasing levels of shift power and shift ratio $\alpha $ for \textbf  {Experiment 5b}. Even in the presence of sampling randomness, PA is highly sensitive to source and domain environments and provides a consistent assessment of the generalization capabilities of the different models. \relax }}{46}{}\protected@file@percent }
+\newlabel{fig:pa_datashift_paired}{{4.15}{46}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.8}{\ignorespaces  Comparison of PA, $\operatorname  {AFR}_{\text  {P}}$ and $\operatorname  {AFR}_{\text  {T}}$ scores for ERM, IRM and LISA learning algorithms with $\alpha =1$ for \textbf  {Experiment 5b}. The highest robustness score is emboldened for every case. PA is able to discriminate algorithms consistently and distinguish the first shifted factor dataset, which is drawn from source domains, from the rest. \relax }}{47}{}\protected@file@percent }
+\newlabel{tab:shift_comparison_table}{{4.8}{47}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.9}{\ignorespaces  Average pairwise cosine similarity between feature space representations of original and augmented images (i.e. $\bm  {x}_0^{\text  {test}}$ vs. $\bm  {x}_j^{\text  {test}}$), for each of the shifted datasets in \textbf  {Experiment 5b}. The abrupt decrease in similarity for the fifth environment indicates a discontinuity in the feature representation of images, which leads to non-comparable predictive outcomes. \relax }}{47}{}\protected@file@percent }
+\newlabel{tab:CS_shift}{{4.9}{47}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces  Average posterior probability of the predicted class for each of the test datasets, under the conditions established for \textbf  {Experiment 5a} (left) and \textbf  {Experiment 5b} (right). The first dataset is distinguished from the rest for belonging to the source domains. \relax }}{47}{}\protected@file@percent }
+\newlabel{fig:pa_datashift_posteriors}{{4.16}{47}}
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{kingmaAdamMethodStochastic2017}
+\citation{jolliffe2002principal}
+\@writefile{lot}{\contentsline {table}{\numberline {4.10}{\ignorespaces  Comparison of $\beta ^{*}$ obtained after 1000 optimization epochs for both experiments conducted in the out-of-distribution setting. Given that performance in source domains is almost identical across models, the informativeness of the predictions is the main driver of the robustness assessment provided by PA. \relax }}{48}{}\protected@file@percent }
+\newlabel{tab:datashift_betas}{{4.10}{48}}
+\@writefile{toc}{\contentsline {paragraph}{Experiment 5c.}{48}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces  Normalized $\bm  {z}_0$ vs $\bm  {z}_1$ plot for ERM (top) and IRM (bottom) algorithms at three different training stages. Projections are colored by class membership, and the dashed line illustrates the $\bm  {z}_0 = \bm  {z}_1$ case. Under this configuration, ERM projections display either a high cross-domain error or a high class-conditional variance. In contrast, IRM is able to encode a representation that reduces both measures at the same time, thus indicating a more robust inductive bias. \relax }}{49}{}\protected@file@percent }
+\newlabel{fig:PCA_shift}{{4.17}{49}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Model selection}{51}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chapter:model_selection}{{5}{47}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Model selection under controled experimental conditions}{47}{}\protected@file@percent }
-\newlabel{chapter:msel_controlled}{{5.1}{47}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces REMOVEopt=adam-lr=0.0001-mf=hue-npair=FalseREMOVE Test performance on increasingly shifted datasets for models selected during ERM and IRM procedures. Different validation datasets are used, and the selection capabilities of PA and validation accuracy are compared.\relax }}{49}{}\protected@file@percent }
-\newlabel{tab:label}{{5.1}{49}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces REMOVEopt=adam-lr=0.0001-mf=hue-npair=TrueREMOVE Test performance on increasingly shifted datasets for models selected during ERM and IRM procedures. Different validation datasets are used, and the selection capabilities of PA and validation accuracy are compared.\relax }}{49}{}\protected@file@percent }
-\newlabel{tab:label}{{5.2}{49}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces REMOVEopt=adam-lr=0.0001-mf=pos-npair=FalseREMOVE Test performance on increasingly shifted datasets for models selected during ERM and IRM procedures. Different validation datasets are used, and the selection capabilities of PA and validation accuracy are compared.\relax }}{50}{}\protected@file@percent }
-\newlabel{tab:label}{{5.3}{50}}
-\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces REMOVEopt=adam-lr=0.0001-mf=pos-npair=TrueREMOVE Test performance on increasingly shifted datasets for models selected during ERM and IRM procedures. Different validation datasets are used, and the selection capabilities of PA and validation accuracy are compared.\relax }}{50}{}\protected@file@percent }
-\newlabel{tab:label}{{5.4}{50}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}ID model selection}{50}{}\protected@file@percent }
+\newlabel{chapter:model_selection}{{5}{51}}
 \citation{euligDiagViB6DiagnosticBenchmark2021}
-\newlabel{def:zso_theory}{{5.2}{51}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Blabla...\relax }}{51}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces REMOVEopt=sgd-lr=0.0001-mf=hue-npair=FalseREMOVE Test performance on increasingly shifted datasets for models selected during ERM and IRM procedures. Different validation datasets are used, and the selection capabilities of PA and validation accuracy are compared.\relax }}{52}{}\protected@file@percent }
-\newlabel{tab:label}{{5.5}{52}}
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{yaoImprovingOutofDistributionRobustness2022}
+\citation{ruderOverviewGradientDescent2017}
+\citation{kingmaAdamMethodStochastic2017}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}DiagVib-6 Benchmark}{52}{}\protected@file@percent }
+\newlabel{chapter:msel_controlled}{{5.1}{52}}
+\@writefile{toc}{\contentsline {paragraph}{Experiment 6.}{52}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces  Image factors associated with each of the environments considered in this experiment. CC and UL account for 'centered center' and 'upper left', respectively. \relax }}{53}{}\protected@file@percent }
+\newlabel{ds:hue_trainval}{{5.1}{53}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.2}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and UL account for 'centered center' and 'upper left', respectively. \relax }}{53}{}\protected@file@percent }
+\newlabel{ds:hue_test}{{5.2}{53}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.3}{\ignorespaces  Test performance under increasing levels of shift for models selected through different configurations of validation datasets. PA, AFR$_{\text  {P}}$ and accuracy are used as early stopping criteria for model selection in the hue factor experiment (see Tables \ref {ds:hue_trainval}-\ref {ds:hue_test}).\relax }}{54}{}\protected@file@percent }
+\newlabel{tab:dg_hue_notpaired}{{5.3}{54}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.4}{\ignorespaces Test performance under increasing levels of shift for models selected through different configurations of validation datasets. PA, AFR$_{\text  {P}}$ and accuracy are used as early stopping criteria for model selection in the position factor experiment (see Tables \ref {ds:pos_trainval}-\ref {ds:pos_test}). \relax }}{55}{}\protected@file@percent }
+\newlabel{tab:dg_pos_notpaired}{{5.4}{55}}
+\citation{euligDiagViB6DiagnosticBenchmark2021}
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{yaoImprovingOutofDistributionRobustness2022}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}In-distribution DiagVib-6}{56}{}\protected@file@percent }
+\newlabel{def:zso_theory}{{5.2}{56}}
+\@writefile{toc}{\contentsline {paragraph}{Experiment 7.}{56}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Representation of the co-occurrence pattern in between learning factors $F^L$ and predicted factors $F^P$ for the ZGO, CGO and ZSO settings that will be considered in this experiment. \relax }}{56}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.5}{\ignorespaces  Test performance under increasing levels of shift for models selected through different configurations of factor co-occurrence for the hue learning factor experiment. Specifically, the performance of models selected through validation accuracy (Acc) and the difference between accuracy-based and PA-based selection ($\Delta $Acc) is reported. PA is able to select models that perform better than the one selected through accuracy in the most cases. \relax }}{57}{}\protected@file@percent }
+\newlabel{tab:sogo_hue_improve}{{5.5}{57}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.6}{\ignorespaces  Test performance under increasing levels of shift for models selected through different configurations of factor co-occurrence for the position learning factor experiment. Specifically, the performance of models selected through validation accuracy (Acc) and the difference between accuracy-based and PA-based selection ($\Delta $Acc) is reported. PA is able to select models that perform better than the one selected through accuracy in the most cases. \relax }}{58}{}\protected@file@percent }
+\newlabel{tab:sogo_pos_improve}{{5.6}{58}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces  Average posterior distribution at the predicted class for the different ZGO, CGO and ZSO settings for the hue and position learning factor experiments. The posterior distribution is computed for the first test dataset, which is the one assessing the performance in the complementary co-occurring learning factors. \relax }}{58}{}\protected@file@percent }
+\newlabel{fig:posterior_sogo}{{5.2}{58}}
 \citation{kohWILDSBenchmarkIntheWild2021}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Model selection on benchmark datasets}{53}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusions}{55}{}\protected@file@percent }
+\citation{arjovskyInvariantRiskMinimization2020}
+\citation{yaoImprovingOutofDistributionRobustness2022}
+\citation{faiss}
+\@writefile{lot}{\contentsline {table}{\numberline {5.7}{\ignorespaces  A comparison of the $\beta ^{*}$ values obtained in \textbf  {Experiment 7} reveals that ERM models are entirely non-robust up until the ZSO setting, whereas IRM models demonstrate generalization capabilities (i.e. $\beta ^{*}> 1$) starting from the 1-CGO setting. \relax }}{59}{}\protected@file@percent }
+\newlabel{tab:sogo_betas}{{5.7}{59}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}WILDS Benchmark}{59}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Experiment 8.}{59}{}\protected@file@percent }
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\citation{kohWILDSBenchmarkIntheWild2021}
+\@writefile{toc}{\contentsline {paragraph}{Experiment 9.}{60}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.8}{\ignorespaces  Relative frequency of the gender-hair color combinations in the \texttt  {celebA} \cite  {kohWILDSBenchmarkIntheWild2021} dataset. The \texttt  {blonde} class is underrepresented, especially in male pictures. \relax }}{60}{}\protected@file@percent }
+\newlabel{tab:celebA_freqtable}{{5.8}{60}}
+\@writefile{toc}{\contentsline {paragraph}{Experiment 10.}{60}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5.9}{\ignorespaces  Hospital of origin of the lymph node patches that compose training, validation and test datasets in the \texttt  {camelyon17} \cite  {kohWILDSBenchmarkIntheWild2021} dataset. \relax }}{60}{}\protected@file@percent }
+\newlabel{tab:camelyon17_idval}{{5.9}{60}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.10}{\ignorespaces  Average and worst-case test accuracy for the \texttt  {waterbirds} \cite  {kohWILDSBenchmarkIntheWild2021} dataset. PA outperforms AFR$_\text  {P}$ due to the vulnerability of the latter to the specific sampling instantiation. More specifically, while PA has a monotonically increasing evolution during training, AFR$_\text  {P}$ is only monotonic in mean, and the variation around the mean at every epoch hinders its selection consistency. \relax }}{60}{}\protected@file@percent }
+\newlabel{tab:waterbirds}{{5.10}{60}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.11}{\ignorespaces  Average and worst-case test accuracy for the \texttt  {celebA} \cite  {kohWILDSBenchmarkIntheWild2021} dataset. Robustness-based selection metrics outperform accuracy in most cases. \relax }}{60}{}\protected@file@percent }
+\newlabel{tab:celebA}{{5.11}{60}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.12}{\ignorespaces  Test accuracy for the \texttt  {camelyon17} \cite  {kohWILDSBenchmarkIntheWild2021} dataset. No significant improvement is observed, with the exception of the LISA model. \relax }}{61}{}\protected@file@percent }
+\newlabel{tab:camelyon17}{{5.12}{61}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Conclusions}{63}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:conclusions}{{6}{55}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Theoretical Proofs and Derivations}{57}{}\protected@file@percent }
+\newlabel{sec:conclusions}{{6}{63}}
+\@writefile{toc}{\newpage }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Theoretical Proofs and Derivations}{67}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:appendix_theory}{{A}{57}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.1}Proof of problem formulation}{57}{}\protected@file@percent }
-\newlabel{sec:proofs}{{A.1}{57}}
-\@writefile{toc}{\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{59}{}\protected@file@percent }
-\newlabel{sec:appendix_pa}{{A.2}{59}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {B}Supplementary Results}{63}{}\protected@file@percent }
+\newlabel{sec:appendix_theory}{{A}{67}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.1}Proof of problem formulation}{67}{}\protected@file@percent }
+\newlabel{sec:proofs}{{A.1}{67}}
+\@writefile{toc}{\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{69}{}\protected@file@percent }
+\newlabel{sec:appendix_pa}{{A.2}{69}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Supplementary Results}{73}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:appendix_results}{{B}{63}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.1}PA as a robustness metric}{63}{}\protected@file@percent }
-\newlabel{sec:appendix_results_pametric}{{B.1}{63}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}Empirical behaviour}{63}{}\protected@file@percent }
-\newlabel{subsec:appendix_empirical_behaviour}{{B.1.1}{63}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Evolution of the $\beta $ optimization for a robust sample.\relax }}{63}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Evolution of the $\beta $ optimization for a non-robust sample.\relax }}{63}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.3}{\ignorespaces Logit distributions associated with the behaviour observed in Figure \ref {fig:prediction_confidence}.\relax }}{64}{}\protected@file@percent }
-\newlabel{fig:logits_confidence}{{B.3}{64}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.4}{\ignorespaces Evolution of $\beta $ optimization for different initial values for a non-robust classifier.\relax }}{64}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.5}{\ignorespaces Evolution of $\beta $ optimization for different initial values for a robust classifier.\relax }}{64}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {B.6}{\ignorespaces  PA and accuracy for the IMDB sentiment classification task under simple adversarial attacks. Observations are perturbed by replacing some words with positive or negative adjectives that either encourage (amplification) or discourage (contradiction) the true sentiment of the review. The attack power is defined as $2^W$, being $W$ the number of words replaced. \relax }}{65}{}\protected@file@percent }
-\newlabel{fig:imdb_adversarial}{{B.6}{65}}
-\@writefile{toc}{\contentsline {section}{\numberline {B.2}Adversarial setting}{65}{}\protected@file@percent }
-\newlabel{sec:appendix_results_adversarial}{{B.2}{65}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.7}{\ignorespaces PA and AFR(P) variation under increasing adversarial ratio at different perturbation norm bounds. The undefended net and several RobustBench robust models are considered against a 1000 step PGD attack.\relax }}{66}{}\protected@file@percent }
-\newlabel{fig:appendix_adversarial_afrpred_pgd}{{B.7}{66}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.8}{\ignorespaces PA and AFR(P) variation under increasing adversarial ratio. T he undefended net and several RobustBench robust models are considered against a 1000 step FMN attack.\relax }}{67}{}\protected@file@percent }
-\newlabel{fig:appendix_adversarial_afrpred_fmn}{{B.8}{67}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.9}{\ignorespaces Illustrative representation of the terms and posterior values constrained considered for the PA approximation. \relax }}{67}{}\protected@file@percent }
-\newlabel{fig:appendix_adv_illustration}{{B.9}{67}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.10}{\ignorespaces True and approximated PA values under increasing adversarial ratio for a PGD attack with $\ell _\infty $=8/255.\relax }}{69}{}\protected@file@percent }
-\newlabel{fig:appendix_adversarial_approx_pa_pgd}{{B.10}{69}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.11}{\ignorespaces True and approximated PA values under increasing adversarial ratio for a FMN attack.\relax }}{69}{}\protected@file@percent }
-\newlabel{fig:appendix_adversarial_approx_pa_fmn}{{B.11}{69}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.12}{\ignorespaces Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. Results have been obtained through a PGD attack with $\ell _\infty $=8/255 and sorted by increasing $\beta ^{*}$.\relax }}{70}{}\protected@file@percent }
-\newlabel{fig:appendix_adversarial_distribution_pgd}{{B.12}{70}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.13}{\ignorespaces Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. Results have been obtained through a FMN attack and sorted by increasing $\beta ^{*}$.\relax }}{70}{}\protected@file@percent }
-\newlabel{fig:appendix_adversarial_distribution_fmn}{{B.13}{70}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.14}{\ignorespaces Comparison of FMN and PGD attacks using probability-based distances.\relax }}{71}{}\protected@file@percent }
-\newlabel{fig:comparison_prob_metrics}{{B.14}{71}}
-\@writefile{lof}{\contentsline {figure}{\numberline {B.15}{\ignorespaces Comparison of FMN and PGD attacks using feature-space-based distances.\relax }}{71}{}\protected@file@percent }
-\newlabel{fig:comparison_feat_metrics}{{B.15}{71}}
+\newlabel{sec:appendix_results}{{B}{73}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.1}Robustness assessment}{73}{}\protected@file@percent }
+\newlabel{sec:appendix_results_pametric}{{B.1}{73}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.1}In-distribution setting}{73}{}\protected@file@percent }
+\newlabel{subsec:appendix_empirical_behaviour}{{B.1.1}{73}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.1}{\ignorespaces Evolution of the $\beta $ optimization for a robust sample.\relax }}{73}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.2}{\ignorespaces Evolution of the $\beta $ optimization for a non-robust sample.\relax }}{73}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.3}{\ignorespaces Logit distributions associated with the behaviour observed in Figure \ref {fig:prediction_confidence}.\relax }}{74}{}\protected@file@percent }
+\newlabel{fig:logits_confidence_app}{{B.3}{74}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.4}{\ignorespaces Evolution of $\beta $ optimization for different initial values for a non-robust classifier.\relax }}{74}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.5}{\ignorespaces Evolution of $\beta $ optimization for different initial values for a robust classifier.\relax }}{74}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {B.6}{\ignorespaces  PA and accuracy for the IMDB sentiment classification task under simple adversarial attacks. Observations are perturbed by replacing some words with positive or negative adjectives that either encourage (amplification) or discourage (contradiction) the true sentiment of the review. The attack power is defined as $2^W$, being $W$ the number of words replaced. \relax }}{75}{}\protected@file@percent }
+\newlabel{fig:imdb_adversarial}{{B.6}{75}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.1.2}Adversarial setting}{76}{}\protected@file@percent }
+\newlabel{sec:appendix_results_adversarial}{{B.1.2}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.7}{\ignorespaces PA and AFR$_{\text  {P}}$ variation under increasing adversarial ratio at different perturbation norm bounds. The undefended net and several RobustBench robust models are considered against a 1000 step PGD attack.\relax }}{76}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_afrpred_pgd}{{B.7}{76}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.8}{\ignorespaces PA and AFR$_{\text  {P}}$ variation under increasing adversarial ratio. T he undefended net and several RobustBench robust models are considered against a 1000 step FMN attack.\relax }}{77}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_afrpred_fmn}{{B.8}{77}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.9}{\ignorespaces Illustrative representation of the terms and posterior values constrained considered for the PA approximation. \relax }}{77}{}\protected@file@percent }
+\newlabel{fig:appendix_adv_illustration}{{B.9}{77}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.10}{\ignorespaces True and approximated PA values under increasing adversarial ratio for a PGD attack with $\ell _\infty $=8/255.\relax }}{79}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_approx_pa_pgd}{{B.10}{79}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.11}{\ignorespaces True and approximated PA values under increasing adversarial ratio for a FMN attack.\relax }}{79}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_approx_pa_fmn}{{B.11}{79}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.12}{\ignorespaces Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. Results have been obtained through a PGD attack with $\ell _\infty $=8/255 and sorted by increasing $\beta ^{*}$.\relax }}{79}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_distribution_pgd}{{B.12}{79}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.13}{\ignorespaces Average posterior probability of the predicted class for correctly classified original samples, misclassified original samples, and misleading adversarial samples, respectively. Results have been obtained through a FMN attack and sorted by increasing $\beta ^{*}$.\relax }}{80}{}\protected@file@percent }
+\newlabel{fig:appendix_adversarial_distribution_fmn}{{B.13}{80}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.14}{\ignorespaces Comparison of FMN and PGD attacks using probability-based distances.\relax }}{80}{}\protected@file@percent }
+\newlabel{fig:comparison_prob_metrics}{{B.14}{80}}
+\@writefile{lof}{\contentsline {figure}{\numberline {B.15}{\ignorespaces Comparison of FMN and PGD attacks using feature-space-based distances.\relax }}{81}{}\protected@file@percent }
+\newlabel{fig:comparison_feat_metrics}{{B.15}{81}}
+\@writefile{toc}{\contentsline {section}{\numberline {B.2}Model Selection}{82}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.1}DiagVib-6 Benchmark}{82}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.1}{\ignorespaces Test performance under increasing levels of shift for models selected through different configurations of validation datasets. PA, AFR$_{\text  {P}}$ and accuracy are used as early stopping criteria for model selection in the hue factor experiment (see Tables \ref {ds:hue_trainval}-\ref {ds:hue_test}). \relax }}{82}{}\protected@file@percent }
+\newlabel{tab:dg_hue_paired}{{B.1}{82}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.2}{\ignorespaces Test performance under increasing levels of shift for models selected through different configurations of validation datasets. PA, AFR$_{\text  {P}}$ and accuracy are used as early stopping criteria for model selection in the position factor experiment (see Tables \ref {ds:pos_trainval}-\ref {ds:pos_test}). \relax }}{82}{}\protected@file@percent }
+\newlabel{tab:dg_pos_paired}{{B.2}{82}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {B.2.2}In-distribution DiagVib-6}{83}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {B.3}{\ignorespaces  Test performance under increasing levels of shift for models selected through different configurations of factor co-occurrence. PA, AFR$_{\text  {P}}$ and accuracy are used as early stopping criteria for model selection in the hue factor experiment (see Tables \ref {tab:sogo_test} and \ref {def:zgo_experiments}-\ref {def:zso_experiments}). \relax }}{83}{}\protected@file@percent }
+\newlabel{tab:sogo_hue_full}{{B.3}{83}}
+\@writefile{lot}{\contentsline {table}{\numberline {B.4}{\ignorespaces  Test performance under increasing levels of shift for models selected through different configurations of factor co-occurrence. PA, AFR$_{\text  {P}}$ and accuracy are used as early stopping criteria for model selection in the position factor experiment (see Tables \ref {tab:sogo_test} and \ref {def:zgo_experiments}-\ref {def:zso_experiments}). \relax }}{83}{}\protected@file@percent }
+\newlabel{tab:sogo_pos_full}{{B.4}{83}}
 \citation{euligDiagViB6DiagnosticBenchmark2021}
-\@writefile{toc}{\contentsline {chapter}{\numberline {C}Dataset reference}{72}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Dataset reference}{84}{}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{sec:datasets}{{C}{72}}
-\newlabel{def:diagvib6_experiments}{{C}{72}}
-\@writefile{toc}{\contentsline {section}{\numberline {C.1}Robustness assessment}{73}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and LC account for 'centered center' and 'centered low', respectively. \relax }}{73}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {C.2}Model selection}{73}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {C.2.1}Controlled conditions}{73}{}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and UL account for 'centered center' and 'upper left', respectively. \relax }}{73}{}\protected@file@percent }
-\newlabel{ds:hue_test}{{C.2}{73}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.3}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and UL account for 'centered center' and 'upper left', respectively. \relax }}{74}{}\protected@file@percent }
-\newlabel{ds:pos_test}{{C.3}{74}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.4}{\ignorespaces  Image factors associated with each of the environments considered in this experiment. CC and UL account for 'centered center' and 'upper left', respectively. \relax }}{74}{}\protected@file@percent }
-\newlabel{ds:pos_test}{{C.4}{74}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.5}{\ignorespaces  Image factors associated with each of the environments considered in this experiment. UL, LR, UR and CC account for 'upper left', 'lower right', 'upper left' and 'centered center', respectively. \relax }}{74}{}\protected@file@percent }
-\newlabel{ds:pos_test}{{C.5}{74}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {C.2.2}ID model selection}{75}{}\protected@file@percent }
-\newlabel{def:zgo_experiments}{{C.2.2}{75}}
-\newlabel{def:1_cgo_experiments}{{C.2.2}{75}}
-\newlabel{def:2_cgo_experiments}{{C.2.2}{75}}
-\newlabel{def:3_cgo_experiments}{{C.2.2}{75}}
-\newlabel{def:zso_experiments}{{C.2.2}{76}}
-\@writefile{lot}{\contentsline {table}{\numberline {C.6}{\ignorespaces  Image factors associated to each of the environments considered in test datasets, excluding the predicted and learned factors in which the shortcut or generalization opportunities are encoded. CC and CR stand for 'center center' and 'upper left', respectively. \relax }}{76}{}\protected@file@percent }
-\newlabel{tab:sogo_test}{{C.6}{76}}
+\newlabel{sec:datasets}{{C}{84}}
+\newlabel{def:diagvib6_experiments}{{C}{84}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.1}Robustness assessment}{85}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {C.1}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and LC account for 'centered center' and 'centered low', respectively. \relax }}{85}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {C.2}Model selection}{85}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2.1}DiagVib-6 Benchmark}{85}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {C.2}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and UL account for 'centered center' and 'upper left', respectively. \relax }}{85}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {C.3}{\ignorespaces  Image factors associated to each of the environments considered in this experiment. CC and UL account for 'centered center' and 'upper left', respectively. \relax }}{86}{}\protected@file@percent }
+\newlabel{ds:pos_test}{{C.3}{86}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.4}{\ignorespaces  Image factors associated with each of the environments considered in this experiment. CC and UL account for 'centered center' and 'upper left', respectively. \relax }}{86}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {C.5}{\ignorespaces  Image factors associated with each of the environments considered in this experiment. UL, LR, UR and CC account for 'upper left', 'lower right', 'upper left' and 'centered center', respectively. \relax }}{86}{}\protected@file@percent }
+\newlabel{ds:pos_trainval}{{C.5}{86}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2.2}In-distribution DiagVib-6}{87}{}\protected@file@percent }
+\newlabel{def:zgo_experiments}{{C.2.2}{87}}
+\newlabel{def:1_cgo_experiments}{{C.2.2}{87}}
+\newlabel{def:2_cgo_experiments}{{C.2.2}{87}}
+\newlabel{def:3_cgo_experiments}{{C.2.2}{87}}
+\newlabel{def:zso_experiments}{{C.2.2}{88}}
+\@writefile{lot}{\contentsline {table}{\numberline {C.6}{\ignorespaces  Image factors associated to each of the environments considered in test datasets, excluding the predicted and learned factors in which the shortcut or generalization opportunities are encoded. CC and CR stand for 'center center' and 'upper left', respectively. \relax }}{88}{}\protected@file@percent }
+\newlabel{tab:sogo_test}{{C.6}{88}}
 \bibstyle{plain}
 \bibdata{bibliography}
 \bibcite{Addepalli2022ScalingAT}{1}
@@ -407,57 +477,59 @@
 \bibcite{dasKeepingBadGuys2017}{18}
 \bibcite{engstrom2019adversarial}{19}
 \bibcite{euligDiagViB6DiagnosticBenchmark2021}{20}
-\bibcite{goodfellowExplainingHarnessingAdversarial2015}{21}
-\bibcite{grunwaldMinimumDescriptionLength2019}{22}
-\bibcite{guoComprehensiveEvaluationFramework2023}{23}
-\bibcite{gutIntermediateCourseProbability2009}{24}
-\bibcite{resnet50}{25}
-\bibcite{hoDenoisingDiffusionProbabilistic2020}{26}
-\bibcite{ilyasAdversarialExamplesAre2019}{27}
-\bibcite{logicofscience}{28}
-\bibcite{jimenezInductiveBiasDeep}{29}
-\bibcite{khoslaUndoingDamageDataset2012}{30}
-\bibcite{kingmaAdamMethodStochastic2017}{31}
-\bibcite{kohWILDSBenchmarkIntheWild2021}{32}
-\bibcite{krizhevskyLearningMultipleLayers}{33}
-\bibcite{lecun1998mnist}{34}
-\bibcite{liLearningGeneralizeMetaLearning2018}{35}
-\bibcite{liReviewAdversarialAttack2022}{36}
-\bibcite{liangComprehensiveSurveyTestTime2023}{37}
-\bibcite{liuOutOfDistributionGeneralizationSurvey2023}{38}
-\bibcite{m.bishopPatternRecognitionMachine2006}{39}
-\bibcite{maas2011learning}{40}
-\bibcite{madryDeepLearningModels2019}{41}
-\bibcite{miyatoVirtualAdversarialTraining2018}{42}
-\bibcite{muandetDomainGeneralizationInvariant2013}{43}
-\bibcite{n.vapnikNatureStatisticalLearning2000}{44}
-\bibcite{p.murphyProbabilisticMachineLearning2022}{45}
-\bibcite{peiMultiAdversarialDomainAdaptation}{46}
-\bibcite{pintorFastMinimumnormAdversarial2021}{47}
-\bibcite{quinonero-candelaDatasetShiftMachine2009}{48}
-\bibcite{ruderOverviewGradientDescent2017}{49}
-\bibcite{rumelhartLearningRepresentationsBackpropagating1986}{50}
-\bibcite{sanh2019distilbert}{51}
-\bibcite{schmidtAdversariallyRobustGeneralization2018}{52}
-\bibcite{shenWassersteinDistanceGuided2018}{53}
-\bibcite{simonyanVeryDeepConvolutional2015}{54}
-\bibcite{szegedyIntriguingPropertiesNeural2014}{55}
-\bibcite{torralbaUnbiasedLookDataset2011}{56}
-\bibcite{tsiprasRobustnessMayBe2019}{57}
-\bibcite{voulodimosDeepLearningComputer2018}{58}
-\bibcite{wangMetaFineTuningNeural2020}{59}
-\bibcite{wangGeneralizingUnseenDomains2022}{60}
-\bibcite{wangGeometricalApproachEvaluate2023}{61}
-\bibcite{wangBetterDiffusionModels2023}{62}
-\bibcite{wang2023betterdiffusionmodelsimprove}{63}
-\bibcite{wengEvaluatingRobustnessNeural2018}{64}
-\bibcite{WongRK20}{65}
-\bibcite{xiaoGeneratingAdversarialExamples2019}{66}
-\bibcite{yaoImprovingOutofDistributionRobustness2022}{67}
-\bibcite{yuPACSDatasetPhysical2022}{68}
-\bibcite{yunCutMixRegularizationStrategy2019}{69}
-\bibcite{BMVC2016_87}{70}
-\bibcite{zhangTheoreticallyPrincipledTradeoff2019}{71}
-\bibcite{zhangMixupEmpiricalRisk2018}{72}
-\bibcite{zhouDomainGeneralizationSurvey2022}{73}
-\gdef \@abspage@last{91}
+\bibcite{faiss}{21}
+\bibcite{goodfellowExplainingHarnessingAdversarial2015}{22}
+\bibcite{grunwaldMinimumDescriptionLength2019}{23}
+\bibcite{guoComprehensiveEvaluationFramework2023}{24}
+\bibcite{gutIntermediateCourseProbability2009}{25}
+\bibcite{resnet50}{26}
+\bibcite{hoDenoisingDiffusionProbabilistic2020}{27}
+\bibcite{ilyasAdversarialExamplesAre2019}{28}
+\bibcite{logicofscience}{29}
+\bibcite{jimenezInductiveBiasDeep}{30}
+\bibcite{jolliffe2002principal}{31}
+\bibcite{khoslaUndoingDamageDataset2012}{32}
+\bibcite{kingmaAdamMethodStochastic2017}{33}
+\bibcite{kohWILDSBenchmarkIntheWild2021}{34}
+\bibcite{krizhevskyLearningMultipleLayers}{35}
+\bibcite{lecun1998mnist}{36}
+\bibcite{liLearningGeneralizeMetaLearning2018}{37}
+\bibcite{liReviewAdversarialAttack2022}{38}
+\bibcite{liangComprehensiveSurveyTestTime2023}{39}
+\bibcite{liuOutOfDistributionGeneralizationSurvey2023}{40}
+\bibcite{m.bishopPatternRecognitionMachine2006}{41}
+\bibcite{maas2011learning}{42}
+\bibcite{madryDeepLearningModels2019}{43}
+\bibcite{miyatoVirtualAdversarialTraining2018}{44}
+\bibcite{muandetDomainGeneralizationInvariant2013}{45}
+\bibcite{n.vapnikNatureStatisticalLearning2000}{46}
+\bibcite{p.murphyProbabilisticMachineLearning2022}{47}
+\bibcite{peiMultiAdversarialDomainAdaptation}{48}
+\bibcite{pintorFastMinimumnormAdversarial2021}{49}
+\bibcite{quinonero-candelaDatasetShiftMachine2009}{50}
+\bibcite{ruderOverviewGradientDescent2017}{51}
+\bibcite{rumelhartLearningRepresentationsBackpropagating1986}{52}
+\bibcite{sanh2019distilbert}{53}
+\bibcite{schmidtAdversariallyRobustGeneralization2018}{54}
+\bibcite{shenWassersteinDistanceGuided2018}{55}
+\bibcite{simonyanVeryDeepConvolutional2015}{56}
+\bibcite{szegedyIntriguingPropertiesNeural2014}{57}
+\bibcite{torralbaUnbiasedLookDataset2011}{58}
+\bibcite{tsiprasRobustnessMayBe2019}{59}
+\bibcite{voulodimosDeepLearningComputer2018}{60}
+\bibcite{wangMetaFineTuningNeural2020}{61}
+\bibcite{wangGeneralizingUnseenDomains2022}{62}
+\bibcite{wangGeometricalApproachEvaluate2023}{63}
+\bibcite{wangBetterDiffusionModels2023}{64}
+\bibcite{wang2023betterdiffusionmodelsimprove}{65}
+\bibcite{wengEvaluatingRobustnessNeural2018}{66}
+\bibcite{WongRK20}{67}
+\bibcite{xiaoGeneratingAdversarialExamples2019}{68}
+\bibcite{yaoImprovingOutofDistributionRobustness2022}{69}
+\bibcite{yuPACSDatasetPhysical2022}{70}
+\bibcite{yunCutMixRegularizationStrategy2019}{71}
+\bibcite{BMVC2016_87}{72}
+\bibcite{zhangTheoreticallyPrincipledTradeoff2019}{73}
+\bibcite{zhangMixupEmpiricalRisk2018}{74}
+\bibcite{zhouDomainGeneralizationSurvey2022}{75}
+\gdef \@abspage@last{101}

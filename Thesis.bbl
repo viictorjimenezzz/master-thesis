@@ -99,6 +99,13 @@ Elias Eulig, Piyapat Saranrittichai, Chaithanya~Kumar Mummadi, Kilian Rambach,
 \newblock {{DiagViB-6}}: {{A Diagnostic Benchmark Suite}} for {{Vision Models}}
   in the {{Presence}} of {{Shortcut}} and {{Generalization Opportunities}}.
 
+\bibitem{faiss}
+{Facebook AI Research}.
+\newblock Faiss: A library for efficient similarity search and clustering of
+  dense vectors.
+\newblock \url{https://github.com/facebookresearch/faiss}, 2017.
+\newblock Accessed: 2024-09-15.
+
 \bibitem{goodfellowExplainingHarnessingAdversarial2015}
 Ian~J. Goodfellow, Jonathon Shlens, and Christian Szegedy.
 \newblock Explaining and {{Harnessing Adversarial Examples}}.
@@ -143,6 +150,11 @@ E.~T. Jaynes.
 Ortiz Jimenez.
 \newblock The inductive bias of deep learning: {{Connecting}} weights and
   functions.
+
+\bibitem{jolliffe2002principal}
+Ian~T. Jolliffe.
+\newblock {\em Principal Component Analysis}.
+\newblock Springer Series in Statistics. Springer, New York, 2nd edition, 2002.
 
 \bibitem{khoslaUndoingDamageDataset2012}
 Aditya Khosla, Tinghui Zhou, Tomasz Malisiewicz, Alexei~A. Efros, and Antonio

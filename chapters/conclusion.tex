@@ -1,53 +1,119 @@
 \chapter{Conclusions}\label{sec:conclusions}
+\addtocontents{toc}{\protect\newpage}
 
-The objectives of this thesis centered on assessing the suitability of the posterior agreement framework 
-as a robust model selection criterion within the context of deep learning for image classification tasks. The work entailed 
-deriving and implementing an operative version of posterior agreement for discrete hypothesis classes, exploring its 
-properties and comparing its discriminative power against that of baseline accuracy-based metrics. Experiments in adversarial 
-and domain generalization settings were conducted to explore the source of the robustness measure provided by PA
-and its capabilities for selecting robustness-fostering algorithms. Additionally, results were provided on the 
-effectiveness of PA as an early-stopping criterion for epoch-wise model selection, with experiments designed to 
-assess its validity in both controlled syntetic environments and real-world scenarios, ultimately culminating in 
-performance measures in benchmark out-of-distribution datasets. These objectives guided the research process, shaping the 
-experiments and analyses that ultimately conform the conclusions of this work. \\
+The main goal of this project was the assessment of the suitability of the Posterior Agreement framework 
+as a robust model selection criterion within the context of deep learning models for image classification tasks. 
+The work entailed deriving and implementing an operative version of PA for discrete hypothesis 
+classes, exploring its properties, and comparing its discriminative power against that of baseline 
+accuracy-based metrics. These objectives guided the research process, shaping the 
+experiments and analyses that ultimately lead to these conclusions. \\
+
+% \section*{Robustness assessment}
+
+The first step towards evaluating the suitability of PA as a robustness metric involved
+its characterization under the three sources of randomness that are relevant in image 
+classification tasks, namely sampling randomness (i.e. in-distribution setting), adversarial perturbations 
+and distribution shifts, which were described and formalized in Chapter 3. \\
+
+\textbf{Experiment 1} concerned the empirical exploration of the properties of PA by artificially generating
+predictions from random, perfect, and constant classifiers. Results showed that PA complies with the
+desired properties of a robustness metric (see Proposition \ref{properties:robustness}) and successfully
+discriminates the random classifier, which is maximally unrobust, from the perfect and constant classifiers, which
+are robust by definition. The PA score aligned with this intuition and provided a consistent assessment that
+was independent of the task performance (see Figure 4.1). \\ 
+
+These results motivated the exploration of more realistic in-distribution scenarios, specifically to evaluate
+the sensitivity of the metric under the presence of noise in the data. \textbf{Experiment 2} and \textbf{Experiment 3}
+involved two different models for two different learning tasks in which samples were perturbed with random noise.
+In both cases, PA was shown to correlate non-linearly with the performance of the model and to display higher sensitivity
+to small perturbations, even the output prediction of the classifiers was not affected (Figures 4.3-4.5).\\
+
+In light of the properties displayed by PA, the extension of the robustness measurement to the adversarial setting
+was considered in \textbf{Experiment 4}. This setting involved the assessment of the discriminative power of PA under
+adversarial perturbations generated through PGD and FMN attacks in the CIFAR10 dataset (see Figure 4.6). PA was shown to be
+highly sensitive to perturbations and provided consistent discriminative power under increasing levels of 
+attack power and attack ratio, distinguishing clearly between robust and non-robust defenses (see Figure 4.7, 4.9). \\
+
+The robustness assessment in the adversarial setting was further analyzed by breaking down PA contributions for
+correctly classified original observations, misclassified original observations and misleading adversarial observations.
+The comparison of $\beta^{*}$ between defenses and the analysis of the average posterior probability in these cases
+was shown to expand the understanding of the behavior of models under covariate shift, and to provide additional
+discriminative power based on the informativeness of the posterior (see Figures 4.8, 4.11). \\
+
+An approximation of the PA contributions in this setting effectively distinguished the primary sources 
+of randomness influencing the PA score in each experiment, thereby providing a clearer understanding
+of the sources of robust and unrobust behavior measured (see Tables 4.3-4.4). The results indicated that sampling 
+randomness was the main contributor to the PA score for poorly effective attacks like PGD, therefore aligning 
+its assessment with AFR$_{\text{T}}$. In contrast, generalization error to adversarial perturbations
+was shown to dominate the PA score for highly effective attacks like FMN, thus aligning instead with AFR$_{\text{P}}$. \\
+
+Robustness assessment in the out-of-distribution setting was considered in \textbf{Experiment 5a-5b}, 
+where the DiagVib-6 data generation pipeline was leveraged to generate synthetic datasets in which shifts were
+defined as modification of certain image factors for a MNIST digit prediction task. Datasets were subject to
+both sampling randomness and domain shift, and also to domain shift only, and robustness was evaluated through PA 
+on performance-selected models. PA was shown to possess a
+superior discriminative power with respect to accuracy-based metrics (see Figures 4.14-4.15). In particular, PA was able to discriminate
+models under different levels of shift power and shift ratio, and to be sensitive to the presence of 
+both sampling randomness and covariate shift. PA was able to discriminate the most robust model in the source domain, 
+and then provide a consistent assessment on the most robust model on target domains (see Tables 4.7-4.8). \\
+ 
+% \section*{Model selection}
+
+The successful results on robustness assessment motivated the exploration of PA as an early-stoppping
+criterion for robust model selection. From a data-agnostic perspective, this approach presented two main limitations. 
+First, the vulnerability of robustness-based assessments to overfitting to features that are not relevant
+for the learning task. Second, the possibility of overfitting to unsuitable biases encoding spurious correlations
+that are only manifested in source domains, and therefore not be suitable for domain adaptation tasks. 
+Two main experiments were designed to evaluate these conditions by leveraging the DiagVib-6 synthetic
+data generation pipeline.\\
+
+In \textbf{Experiment 6}, the model selection capabilities of PA were assessed in a set of validation datasets
+having increasing access to target domains (see Tables 5.1-5.2). Results showed that PA 
+consistently outperformed accuracy-based metrics in settings in which validation datasets were subject to both sampling
+randomness and domain shift instantiations (see Tables 5.3-5.4). This behavior was found to be consistent
+across image factors and learning algorithms. \\
+
+In \textbf{Experiment 7}, the inductive bias of the model was manipulated to overfit to specific co-occurrences of
+image factors and the model selection capabilities of PA were assessed in this context (see Figure 5.1). More specifically, 
+a zero-generalization dataset was initially considered and then iteratively ampliated to contain more generalizable 
+features. In all of these settings, robustness-based model selection, and in particular PA-based selection, was shown to
+improve performance on shifted test sets that contained a complementary co-occurrence data configuration. \\
+
+Finally, the domain adaptation capabilities of PA were assessed on three WILDS benchmark datasets, each encompassing
+a specific subpopulation shift or out-of-distribution setting to which the model's generalization capabilities were
+assessed (see \textbf{Experiment 8-10}). Even if these results have a merely exploratory purpose,
+PA was shown to select the best performing models in all scenarios, sometimes aligning with performance-based criteria
+and others with robustness-based criteria instead (see Tables 5.10-5.12). \\
+
+All in all, both algorithm selection and model selection by means of PA was conducted on a wide range of settings,
+encompassing all possible sources of generalization error in image classification tasks. PA was shown to be sensitive to
+different sources of randomness and to possess a superior discriminative power and consistency with respect to baseline
+accuracy-based metrics. Furthermore, PA demonstrated superior model selection capabilities in the same-distribution and
+in-distribution settings, in both synthetic experiments and benchmark datasets. \\ 
 
 
+\section*{Future work}
 
-\begin{itemize}
-    \item Analyze the robustness challenge in image classification tasks. Mention the three different
-    sources of randomness, and the trade-off existing when making kmodels robust to them, which
-    arises from a fundamental difference in the inductive bias of the model. This thesis introduces
-    notation for a probability theory.\\
-    \item The trade-off can be reformulated from an information theoretic perspective, as an estimation
-    of the information content of the data, and the deried resolution over the hypothesis space. A robust learner
-    is such that it correctly estimates the information content of the data and results in a hypothesis space that
-    is stable to the randomness associated with the data generation process.  \\
-    \item The complexity of a model can be derived from the normalized description length value, and thus generalization
-    error between  pair of datasets can be defined by averaging it over the hypothesis space using the probabikity distribution
-    of the first dataset. \\
-    \item A lower bound for the generalization error can be obtainedd, leading to the expression of PA. An operative version of
-    posterior agreement for finite hypothesis spaces is introduced and accessible using an efficient implementation that is easily
-    to use by the ML community. \\
-    \item Results were obtained 
-\end{itemize}
+The results presented in this work provide a solid foundation for future research in PA-based 
+robustness assessment and model selection in discrete, finite hypothesis class problems. In particular, some areas of interest for future work include
+PA-driven training, PA-based cross-validation and the analysis of the phenomenon of double descent through
+the lens of posterior agreement. \\
 
+Regarding PA-driven training, results suggest that PA favors classifiers with desirable inductive biases, 
+aligning with the common understanding of what constitutes a good model. This opens the possibility of 
+using PA as a guiding criterion for optimizing deep learning models, potentially replacing performance-based 
+metrics when tuning parameters such as learning rates or regularization weights. \\
 
-What you did:
-- Probability theory formulation of the covariate shift setting and the three sources of robustness.
-- Derivation of the posterior agreement kernel for finite hypothesis classes. Proof of its properties, in particular convexity.
-- Efficient implementation of the PA metric.
-- Definition of a robustness metric, which is fundamentally different from a performance metric, and proof that PA
-does comply with the required properties.
-- Proved the suitability of PA as a robustness measure in the adversarial setting. In this setting, a model is considered to
-be more robust the better it performs in adversarial samples. In this sense, the robustness measure provided by PA was approximated
-and broken down to show that it accounts for both sampling randomness and randomness to perturbations, efficiently combining
-the usual standard accuracy-based metrics, but providing higher discriminability and consistency over different levels of
-attack power and samples ratio.
-- Proved that PA provides a consistent algorithm selection assessment based on its predictive power under distribution shifts.
+PA-based cross-validation could also be an interesting area of research. This work provides evidence in favor of
+the model selection capabilities of PA in same-distribution settings. In that sense, the maximization of PA could be
+considered the objective of a cross-validation pipeline for parameter tuning, model selection or hyperparameter optimization, in which
+instances of the same model with different subsets of training data are expected converge to the same distribution over
+the hypothesis space. \\
 
-
-Results have been outlined a deductive way, starting with an 
-empirical exploration of the robustness properties of the PA kernel and culminating
-with performance results in benchmark datasets.
+Finally, the exploration of the phenomenon of double descent is perhaps the most intriguing yet challenging 
+avenue for future work. In deep learning models, the hypothesis class could be defined as a (re-)parametrization of
+the space of weights of the model. In such case, the nature of the inductive bias driving models further ahead of
+the interpolation threshold could be analyzed from the perspective of the posterior agreement. In particular, by assessing
+the values of PA obtained when comparing models with similar performance at both sides of the interpolation threshold. \\
 
 \cleardoublepage

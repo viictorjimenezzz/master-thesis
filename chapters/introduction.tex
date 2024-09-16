@@ -137,7 +137,7 @@ extensive research on the field has elucidated that the root
 cause is instead the linearity of its learning units, which makes them
 vulnerable in certain directions of high-dimensional
 spaces where small
-effects can add up to significally change the outcome
+effects can add up to significantly change the outcome
 \cite{goodfellowExplainingHarnessingAdversarial2015}. \\
 
 Building on this intuition, numerous attacks have been proposed to evaluate the 
@@ -146,7 +146,7 @@ failure involves identifying vulnerable directions in the feature space and adju
 perturbations to produce the desired misleading effect. Adversarial examples 
 generated through these attacks can then be used to train robust models through 
 regularization, thereby promoting generalization to the features present in 
-worst-case examples and thus selecting models that are insensitivized
+worst-case examples and thus selecting models that are insensitive
 to them
 \cite{baiRecentAdvancesAdversarial2021}.\\
 
@@ -207,7 +207,7 @@ class they are misclassified to, as illustrated in Figure \ref{fig:salient_chara
     \end{subfigure}
        \caption{Scaled loss gradient with respect to input images.
        Input pixels yielding the highest predictive power are aligned 
-       with perceptually relavant features for the case of adversarial
+       with perceptually relevant features for the case of adversarial
        models, while appearing completely random in the case of 
        standard models.
        \cite{tsiprasRobustnessMayBe2019}}
@@ -298,7 +298,7 @@ the same observations of that class.\\
        \caption{
         \textbf{(left)} Confusion matrix generated in a dataset
         identification task. A clearly pronounced diagonal 
-        indicates that each dataset posesses unique traits that
+        indicates that each dataset possesses unique traits that
         make it distinguishable from the rest.
         \textbf{(right)} Cross-dataset generalization
         for \texttt{car} detection as function of training data. 
@@ -331,7 +331,7 @@ and adjust feature representations to be invariant
 between both, which is commonly known as domain adaptation. \\
 
 In this work we will focus instead on domain generalization, which 
-refers to the case in which target domains are not accessible 
+refers to the case in which target domains are not accessible ,
 and feature invariance can be only enforced
 from source domains
 \cite{blanchardGeneralizingSeveralRelated}. In particular, two strategies will be considered, 
@@ -401,7 +401,7 @@ gaps between domains (e.g. through interpolation, as illustrated
 in Figure \ref{fig:data_augmentation}). \\
 
 Unlike in the adversarial setting, there is no common way of measuring
-the shift in distribution betweeen source domains, and current approaches
+the shift in distribution between source domains, and current approaches
 are often constrained to specific datasets or training strategies. 
 Robustness is instead quantified during (cross-)validation, either by reserving
 a subset of each domain, leaving one domain out or
@@ -471,7 +471,7 @@ diffusion models
 \cite{wangBetterDiffusionModels2023,hoDenoisingDiffusionProbabilistic2020}
 and adaptive-boundary methods
 \cite{cohenCertifiedAdversarialRobustness2019}.
-In this project, the Robustbench attack library
+In this project, the RobustBench attack library
 \cite{croceRobustBenchStandardizedAdversarial2021a}
 will be leveraged to evaluate adversarial robustness 
 in the CIFAR10 dataset
@@ -533,11 +533,11 @@ efficiently implemented, so that it can be used as a metric to evaluate
 and select models based on the robustness of their response to different 
 sources and levels of randomness. The results obtained should be compared
 with the current state-of-the-art in robustness evaluation, namely
-Robustbench
+RobustBench
 \cite{croceRobustBenchStandardizedAdversarial2021a}
 and WILDS 
 \cite{kohWILDSBenchmarkIntheWild2021}
-benckmarks in the adversarial and
+benchmarks in the adversarial and
 out-of-distribution settings, respectively, and an overall
 analysis of the use of the metric as an early-stopping 
 criterion should be provided.\\
@@ -566,7 +566,7 @@ intentionally designed to change the prediction of the model and thus entailing 
 robustness that aligns with accuracy measures. After that, a customized implementation of 
 the DiagVib-6 
 \cite{euligDiagViB6DiagnosticBenchmark2021} 
-syntetic data generation pipeline should be used to evaluate the suitability of PA in the domain
+synthetic data generation pipeline should be used to evaluate the suitability of PA in the domain
 generalization setting. This will allow for a detailed analysis of the model selection capabilities of PA 
 under different experimental conditions, especially regarding the source, power and rate of the shift 
 entailed by each dataset and the accessibility of target domains for model validation and selection.\\

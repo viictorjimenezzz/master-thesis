@@ -3,11 +3,43 @@
 
 \chapter*{Preface}
 
-The research presented in this thesis was conducted within the Information Science and Engineering 
+The work presented in this thesis was conducted within the Information Science and Engineering 
 group at the Institute for Machine Learning (ETH Zurich), under the supervision of 
 Prof. Dr. Joachim M. Buhmann. The thesis was co-supervised at Universitat Polit\`ecnica 
 de Catalunya by Prof. Dr. Alexandre Parera i Lluna.
 
+\chapter*{Acknowledgements}
+
+First and foremost, I would like to express my deepest gratitude to Prof. Joachim M. 
+Buhmann for granting me the opportunity to join the ISE group. I must specifically 
+acknowledge his original work on Posterior Agreement, which constitutes the cornerstone 
+of the ideas and methods explored in this thesis. The first two chapters rely heavily 
+on his foundational contributions, and it is impossible to fully do justice to the 
+breadth of his work within the text. I would also like to thank him for his guidance, 
+as well as for the many interesting insights and conversations we shared. As he embarks on his 
+well-deserved retirement, I wish him all the best for the future. \\
+
+I am equally grateful to Dr. Jo\~ao Carvalho, whose mentorship has greatly contributed 
+to my growth, both academically and personally. I sincerely appreciate the opportunity 
+he gave me to join this project, as well as for involving me in other exciting and 
+interesting endeavors. His valuable insights have had a profound impact on the 
+work presented here and beyond. I am truly thankful for everything he has provided, 
+and I will carry the lessons learned from him throughout my life. \\
+
+My sincere thanks also go to Dr. Alessandro Torcinovich, whose advice and experience have consistently 
+helped refine and improve my research skills. His thoughtful feedback has greatly enhanced 
+the quality of this thesis and my future work as well. I truly appreciate the time he 
+dedicated to guiding me and offering insightful ideas that helped further 
+develop this project. \\
+
+Finally, I would like to extend my heartfelt thanks to all the members of the ISE group,
+namely Eugene, Fabian, Ivan, Robin, Xia, Lukas, Ami, Alina and Rita. Your warm acceptance 
+and collaboration made my time here not only productive but truly enjoyable. 
+In one way or another, each of you helped create a stimulating research environment, 
+and I am grateful for the many engaging conversations we shared. I leave with 
+cherished memories of our time together and wish you all continued success in your 
+future endeavors. \\
+ 
  \cleardoublepage
 
 %---------------------------------------------------------------------------
@@ -26,13 +58,13 @@ de Catalunya by Prof. Dr. Alexandre Parera i Lluna.
 
  Posterior Agreement (PA) has been proposed as a theoretically-grounded alternative 
  for model robustness assessment in covariate shift settings. In this work, we provide 
- further evidence in favor of these findings and we explore the use of PA as a model 
+ further evidence in favor of these findings, and we explore the use of PA as a model 
  selection criterion for deep learning models in supervised image classification tasks. \\
  
  Starting from the theoretical principles leading to the formulation of PA, we derive an
  operative version for discrete hypothesis set problems and use it as a robustness metric 
  in the presence of adversarially-perturbed and domain-shifted data. We show that PA outperforms 
- stardard accuracy-based metrics in both settings and possesses superior discriminative 
+ standard accuracy-based metrics in both settings and possesses superior discriminative 
  power and consistency across increasing levels of covariate shift. \\
 
  \cleardoublepage
@@ -41,31 +73,31 @@ de Catalunya by Prof. Dr. Alexandre Parera i Lluna.
 %---------------------------------------------------------------------------
 % Symbols
 
-\chapter*{Notation}\label{chap:symbole}
- \addcontentsline{toc}{chapter}{Notation}
+% \chapter*{Notation}\label{chap:symbole}
+%  \addcontentsline{toc}{chapter}{Notation}
 
-\section*{Symbols}
-\begin{tabbing}
- \hspace*{1.6cm} \= \hspace*{8cm} \= \kill
- $\mathrm{EHC}$ \> Conditional equation \> [$-$] \\[0.5ex]
- $e$ \> Willans coefficient \> [$-$] \\[0.5ex]
- $F,G$ \> Parts of the system equation \> [\unitfrac[]{K}{s}]
-\end{tabbing}
+% \section*{Symbols}
+% \begin{tabbing}
+%  \hspace*{1.6cm} \= \hspace*{8cm} \= \kill
+%  $\mathrm{EHC}$ \> Conditional equation \> [$-$] \\[0.5ex]
+%  $e$ \> Willans coefficient \> [$-$] \\[0.5ex]
+%  $F,G$ \> Parts of the system equation \> [\unitfrac[]{K}{s}]
+% \end{tabbing}
 
-\section*{Indicies}
-\begin{tabbing}
- \hspace*{1.6cm}  \= \kill
- a \> Ambient \\[0.5ex]
- air \> Air
-\end{tabbing}
+% \section*{Indices}
+% \begin{tabbing}
+%  \hspace*{1.6cm}  \= \kill
+%  a \> Ambient \\[0.5ex]
+%  air \> Air
+% \end{tabbing}
 
-\section*{Acronyms and Abbreviations}
-\begin{tabbing}
- \hspace*{1.6cm}  \= \kill
- NEDC \> New European Driving Cycle \\[0.5ex]
- ETH \> Eidgen\"{o}ssische Technische Hochschule
-\end{tabbing}
+% \section*{Acronyms and Abbreviations}
+% \begin{tabbing}
+%  \hspace*{1.6cm}  \= \kill
+%  NEDC \> New European Driving Cycle \\[0.5ex]
+%  ETH \> Eidgen\"{o}ssische Technische Hochschule
+% \end{tabbing}
 
- \cleardoublepage
+%  \cleardoublepage
 
 %---------------------------------------------------------------------------

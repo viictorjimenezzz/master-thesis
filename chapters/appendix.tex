@@ -321,9 +321,9 @@ $$
 
 \chapter{Supplementary Results}\label{sec:appendix_results}
 
-\section{PA as a robustness metric}\label{sec:appendix_results_pametric}
+\section{Robustness assessment}\label{sec:appendix_results_pametric}
 
-\subsection{Empirical behaviour}\label{subsec:appendix_empirical_behaviour}
+\subsection{In-distribution setting}\label{subsec:appendix_empirical_behaviour}
 
 Results on the empirical behaviour of the PA metric also serve as an exploration of
 the optimization landscape. As seen in Theorem \ref{theorem:pa_properties}, the posterior agreement
@@ -382,7 +382,7 @@ valuable in the covariate shift setting.
         \includegraphics[width=\textwidth]{img/results_discussion/empirical/ldiff=2.0.png}
     \end{subfigure}
     \caption{Logit distributions associated with the behaviour observed in Figure \ref{fig:prediction_confidence}.}
-    \label{fig:logits_confidence}
+    \label{fig:logits_confidence_app}
 \end{figure}
 
 We see that in the case of a non-robust model, the higher the beta the more pointy is the distribution. Given that 
@@ -450,7 +450,9 @@ settings, PA arises as a reliable alternative. \\
     \label{fig:imdb_adversarial}
 \end{figure}
 
-\section{Adversarial setting}\label{sec:appendix_results_adversarial}
+\newpage
+
+\subsection{Adversarial setting}\label{sec:appendix_results_adversarial}
 
 The first result provided in the adversarial setting is the entropy difference
 between initial (i.e. $\beta=1$) and optimal posterior distributions, which is shown
@@ -462,7 +464,7 @@ on correctly classified samples, which represent the largest portion of the data
 One of the claims made about PA is that its discriminative power is superior to that
 of AFR, because its value is not so much driven by the sampling randomness associated
 to a specific experiment (i.e. dataset), and therefore provides a more reliable
-assessment of the robustness capabilities of the model. We can observe that AFR(P),
+assessment of the robustness capabilities of the model. We can observe that AFR$_{\text{P}}$,
 which is by definition the baseline measure of robustness in the adversarial setting,
 is way less discriminative and fluctuates its value significantly over different
 presence of adversarial samples.
@@ -500,7 +502,7 @@ presence of adversarial samples.
         \includegraphics[width=\textwidth]{img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png}
     \end{subfigure}
 
-    \caption{PA and AFR(P) variation under increasing adversarial ratio at different
+    \caption{PA and AFR$_{\text{P}}$ variation under increasing adversarial ratio at different
     perturbation norm bounds. The undefended net and several RobustBench
     robust models are considered against a 1000 step PGD attack.}
     \label{fig:appendix_adversarial_afrpred_pgd}
@@ -517,7 +519,7 @@ presence of adversarial samples.
         \includegraphics[width=\textwidth]{img/results_discussion/adversarial/FMN_1000_AFR_pred.png}
     \end{subfigure}
 
-    \caption{PA and AFR(P) variation under increasing adversarial ratio. T
+    \caption{PA and AFR$_{\text{P}}$ variation under increasing adversarial ratio. T
     he undefended net and several RobustBench robust models are considered 
     against a 1000 step FMN attack.}
     \label{fig:appendix_adversarial_afrpred_fmn}
@@ -533,7 +535,7 @@ analytically.
     The assumption of a peaked gibbs posterior allows approximate the maximum PA value as follows:
 
     $$
-        \operatorname{PA} \approx N\tau \rho \log \left( 1 - 2\delta_{\text{ERR}} \right) + N(1- \tau) \rho \log \left( 1 - 2\delta_{\text{MIS}} \right)  + N\tau (1 - \rho) \log \delta_{\text{ADV}},
+        \operatorname{PA} \approx N\operatorname{AFR}_{\text{T}} \operatorname{AFR}_{\text{P}} \log \left( 1 - 2\delta_{\text{ERR}} \right) + N(1- \operatorname{AFR}_{\text{T}}) \operatorname{AFR}_{\text{P}} \log \left( 1 - 2\delta_{\text{MIS}} \right)  + N\operatorname{AFR}_{\text{T}} (1 - \operatorname{AFR}_{\text{P}}) \log \delta_{\text{ADV}},
     $$
 \end{theorem}
 \begin{figure}[H]
@@ -561,27 +563,19 @@ analytically.
     expression, the contribution of each pair of samples can be approximated as
 
     $$
-    \Xi = \log \left\{ \sum_{y \in \mathcal{Y}} \mathbf{P}^{*}(y \mid \bm{x}^\prime) \mathbf{P}^{*}(y \mid \bm{x}^{\prime \prime}) \right\}
+    \zeta = \log \left\{ \sum_{y \in \mathcal{Y}} \mathbf{P}^{*}(y \mid \bm{x}^\prime) \mathbf{P}^{*}(y \mid \bm{x}^{\prime \prime}) \right\}
     \approx \log \left\{ \mathbf{P}^{*}(\hat{y}^\prime \mid \bm{x}^\prime) \mathbf{P}^{*}(\hat{y}^{\prime \prime} \mid \bm{x}^{\prime \prime}) + \mathbf{P}^{*}(\hat{y}_{\text{next}}^\prime \mid \bm{x}^\prime) \mathbf{P}^{*}(\hat{y}_{\text{next}}^{\prime \prime} \mid \bm{x}^{\prime \prime})\right\}.
     $$
     
     Let $\mathfrak{f}$ be the fraction of samples that contribute to the PA value in a specific way for a given
-    adversarial ratio, so that $N \mathfrak{f}$ is the number of contributing terms. To avoid notation 
-    clutter, we will define:
-
-    $$
-    \begin{aligned}
-        &\tau = \operatorname{ACC}(\bm{\hat{y}^\prime}, \bm{y_{\text{true}}}) = \operatorname{AFR (T)} \bigg|_{\operatorname{AR} = 0.0} \\
-        &\rho = \operatorname{AFR (P)}\bigg|_{\operatorname{AR}}
-    \end{aligned}
-    $$
+    adversarial ratio, so that $N \mathfrak{f}$ is the number of contributing terms.
     
     Given that optimal posteriors
     are expected to be peaked, these contributions can be approximated for three relevant cases.
 
     \begin{description}
         \item[Case] $y_{\text{true}} = \hat{y}^{\prime \prime} = \hat{y}^{\prime} = \hat{y}$\textbf{.} Clearly 
-        $\mathfrak{f} = \tau \rho$. Then
+        $\mathfrak{f} = \operatorname{AFR}^0_{\text{T}} \operatorname{AFR}_{\text{P}}$. Then
         $$
         \begin{aligned}
             & \mathbf{P}^{*}(\hat{y} \mid \bm{x}^\prime) \approx \mathbf{P}^{*}(\hat{y} \mid \bm{x}^{\prime \prime}) = 1 - \delta_{\text{ERR}}, \\
@@ -590,11 +584,11 @@ analytically.
         $$
         which yields
         $$
-        \Xi_{\text{ERR}}^i \approx \log \left\{ \left(1 - \delta_{\text{ERR}} \right)^2 +  \delta_{\text{ERR}}^ 2 \right\} \approx \log \left( 1 - 2\delta_{\text{ERR}} \right) ,
+        \zeta_{\text{ERR}}^i \approx \log \left\{ \left(1 - \delta_{\text{ERR}} \right)^2 +  \delta_{\text{ERR}}^ 2 \right\} \approx \log \left( 1 - 2\delta_{\text{ERR}} \right) ,
         $$
         where $\delta_{\text{ERR}}$ represents the lack of confidence when successfully predicting original samples.
         
-        \item[Case]$y_{\text{true}} \neq \hat{y}^{\prime \prime} = \hat{y}^{\prime} = \hat{y}$\textbf{.} Clearly $\mathfrak{f} \approx (1 - \tau)\rho$. Then
+        \item[Case]$y_{\text{true}} \neq \hat{y}^{\prime \prime} = \hat{y}^{\prime} = \hat{y}$\textbf{.} Clearly $\mathfrak{f} \approx (1 - \operatorname{AFR}^0_{\text{T}})\operatorname{AFR}_{\text{P}}$. Then
         $$
         \begin{aligned}
             & \mathbf{P}^{*}(\hat{y} \mid \bm{x}^\prime) \approx \mathbf{P}^{*}(\hat{y} \mid \bm{x}^{\prime \prime}) = 1 - \delta_{\text{MIS}}, \\
@@ -603,12 +597,12 @@ analytically.
         $$
         which yields
         $$
-        \Xi_{\text{MIS}}^i \approx \log \left\{ \left(1 - \delta_{\text{MIS}} \right)^2 +  \delta_{\text{MIS}}^ 2 \right\} \approx \log \left( 1 - 2\delta_{\text{MIS}} \right) ,
+        \zeta_{\text{MIS}}^i \approx \log \left\{ \left(1 - \delta_{\text{MIS}} \right)^2 +  \delta_{\text{MIS}}^ 2 \right\} \approx \log \left( 1 - 2\delta_{\text{MIS}} \right) ,
         $$
         where $\delta_{\text{MIS}}$ represents the missing prediction confidence on misclassified original samples.
 
         \item[Case]$y_{\text{true}} = \hat{y}^{\prime \prime} \neq \hat{y}^{\prime} = \hat{y}$\textbf{.} Clearly 
-        $\mathfrak{f} = \tau (1-\rho)$. Then
+        $\mathfrak{f} = \operatorname{AFR}^0_{\text{T}} (1-\operatorname{AFR}_{\text{P}})$. Then
         
         $$
         \begin{aligned}
@@ -622,7 +616,7 @@ analytically.
         which yields
 
         $$
-        \Xi_{\text{ADV}}^i \approx \log \left\{ \left(1 - \delta_{\text{ERR}} \right) \delta_{\text{ADV}} + \delta_{\text{ERR}} \left(1 - \delta_{\text{ADV}} \right) \right\} \approx \log \delta_{\text{ADV}},
+        \zeta_{\text{ADV}}^i \approx \log \left\{ \left(1 - \delta_{\text{ERR}} \right) \delta_{\text{ADV}} + \delta_{\text{ERR}} \left(1 - \delta_{\text{ADV}} \right) \right\} \approx \log \delta_{\text{ADV}},
         $$
         given that $\delta_{\text{ERR}} \approx - 2 \delta_{\text{ERR}} \delta_{\text{ADV}}$. $\delta_{\text{ADV}}$ represents the missing confidence in 
         the prediction of a misleading adversarial sample.
@@ -778,6 +772,170 @@ the discriminant function.
     \label{fig:comparison_feat_metrics}
 \end{figure}
 
+\newpage
+
+\section{Model Selection}
+
+\subsection{DiagVib-6 Benchmark}
+
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{2.5pt}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccc|ccc|ccc|ccc|ccc|ccc}
+    \multirow{3}{*}{} & \multicolumn{3}{c|}{\textbf{Acc. Test 0}} & \multicolumn{3}{c|}{\textbf{Acc. Test 1}} & \multicolumn{3}{c|}{\textbf{Acc. Test 2}} & \multicolumn{3}{c|}{\textbf{Acc. Test 3}} & \multicolumn{3}{c|}{\textbf{Acc. Test 4}} & \multicolumn{3}{c}{\textbf{Acc. Test 5}} \\
+    \textbf{{\color{tab:blue} \textbf{ERM}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    SD & 99.3 & 99.4 & {\textbf{99.5}} & 54.8 & {\textbf{71.5}} & 64.0 & {\textbf{81.0}} & 54.3 & 79.9 & 74.5 & 48.6 & {\textbf{76.1}} & 53.4 & 34.9 & {\textbf{57.9}} & {\textbf{35.8}} & 32.7 & 35.2 \\
+    ID & 99.4 & \textbf{99.5} & {\textbf{99.5}} & {\textbf{72.8}} & 69.9 & 70.1 & 85.5 & 85.8 & {\textbf{88.5}} & {\textbf{79.5}} & 76.0 & 79.1 & 55.6 & {\textbf{66.6}} & 60.7 & 38.3 & {\textbf{38.9}} & 34.6 \\
+    1F-MD & {\textbf{99.5}} & 99.4 & 99.4 & 48.2 & 45.1 & {\textbf{51.0}} & 74.6 & 77.6 & {\textbf{79.8}} & 65.7 & 68.9 & {\textbf{75.3}} & 59.7 & 58.2 & {\textbf{63.3}} & 42.8 & {\textbf{44.8}} & 38.3 \\
+    5F-MD & 99.5 & 99.5 & 99.5 & 49.6 & 49.6 & 49.6 & 90.2 & 90.2 & 90.2 & 81.0 & 81.0 & 81.0 & 71.4 & 71.4 & 71.4 & 44.6 & 44.6 & 44.6 \\
+    OOD & 99.3 & \textbf{99.4} & {\textbf{99.4}} & 60.9 & \textbf{69.3} & {\textbf{69.3}} & {\textbf{92.6}} & 87.3 & 87.3 & {\textbf{83.9}} & 82.1 & 82.1 & {\textbf{64.9}} & 59.6 & 59.6 & 32.3 & \textbf{39.0} & {\textbf{39.0}} \\
+    \midrule
+    \addlinespace
+    \addlinespace
+    \textbf{{\color{tab:orange} \textbf{IRM}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    SD & 99.4 & 99.2 & {\textbf{99.6}} & {\textbf{61.4}} & 52.2 & 45.1 & 85.7 & 69.5 & {\textbf{91.6}} & 78.3 & 58.6 & {\textbf{78.5}} & 55.7 & {\textbf{58.9}} & 56.5 & 43.2 & 27.2 & {\textbf{45.5}} \\
+    ID & {\textbf{99.6}} & 99.4 & 99.4 & 44.8 & 31.2 & {\textbf{51.2}} & {\textbf{91.7}} & 88.7 & 79.0 & {\textbf{78.6}} & 73.8 & 67.6 & 56.5 & {\textbf{65.5}} & 57.2 & 45.4 & {\textbf{50.2}} & 47.8 \\
+    1F-MD & 99.5 & 99.5 & 99.5 & 62.4 & 62.4 & 62.4 & 90.1 & 90.1 & 90.1 & 84.1 & 84.1 & 84.1 & 52.2 & 52.2 & {\textbf{52.2}} & 42.6 & 42.6 & 42.6 \\
+    5F-MD & {\textbf{99.4}} & \textbf{99.4} & 99.3 & 31.2 & 31.2 & {\textbf{83.3}} & 88.7 & 88.7 & {\textbf{91.9}} & 73.8 & 73.8 & {\textbf{85.9}} & 65.5 & 65.5 & {\textbf{66.5}} & {\textbf{50.2}} & \textbf{50.2} & 46.7 \\
+    OOD & {\textbf{99.5}} & \textbf{99.5} & 99.2 & {\textbf{62.4}} & \textbf{62.4} & 48.8 & 90.1 & 90.1 & {\textbf{92.3}} & {\textbf{84.1}} & \textbf{84.1} & 80.6 & 52.2 & 52.2 & {\textbf{60.0}} & 42.6 & 42.6 & {\textbf{51.1}} \\
+    \midrule
+    \addlinespace
+    \addlinespace
+    \textbf{{\color{tab:green} \textbf{LISA}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    SD & {\textbf{99.4}} & 97.9 & 99.3 & 87.7 & 78.5 & {\textbf{88.0}} & {\textbf{63.8}} & 45.8 & 62.6 & {\textbf{79.3}} & 39.8 & 74.9 & {\textbf{74.8}} & 40.1 & 71.1 & {\textbf{42.3}} & 26.2 & 38.7 \\
+    ID & {\textbf{99.5}} & 99.3 & 99.4 & 83.0 & {\textbf{84.7}} & 81.0 & 53.3 & 67.0 & {\textbf{86.1}} & 67.9 & {\textbf{70.6}} & 69.1 & 56.5 & {\textbf{66.3}} & 61.8 & 33.9 & 33.6 & {\textbf{42.1}} \\
+    1F-MD & {\textbf{99.5}} & 99.4 & 99.3 & 88.8 & 71.0 & {\textbf{91.7}} & {\textbf{54.4}} & 50.4 & 42.3 & {\textbf{76.8}} & 66.3 & 61.9 & {\textbf{71.5}} & 62.4 & 56.2 & {\textbf{36.4}} & 32.8 & 28.9 \\
+    5F-MD & 99.3 & 99.3 & 99.3 & 76.1 & 76.1 & 76.1 & 70.2 & 70.2 & 70.2 & 71.4 & 71.4 & 71.4 & 70.6 & 70.6 & 70.6 & 48.6 & 48.6 & 48.6 \\
+    OOD & {\textbf{99.4}} & 99.3 & 99.3 & {\textbf{81.0}} & 70.7 & 70.7 & {\textbf{86.1}} & 80.2 & 80.2 & 69.1 & \textbf{75.9} & {\textbf{75.9}} & 61.8 & \textbf{72.4} & {\textbf{72.4}} & {\textbf{42.1}} & 36.8 & 36.8 \\
+    \bottomrule
+    \end{tabular}%
+    }
+    \caption{Test performance under increasing levels of shift for models selected through different configurations of 
+    validation datasets. PA, AFR$_{\text{P}}$ and accuracy are used as early stopping criteria for model selection
+    in the hue factor experiment (see Tables \ref{ds:hue_trainval}-\ref{ds:hue_test}).
+    }
+    \label{tab:dg_hue_paired}
+    \end{table}
+        
+    
+    \begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{2.5pt}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccc|ccc|ccc|ccc|ccc|ccc}
+    \multirow{3}{*}{} & \multicolumn{3}{c|}{\textbf{Acc. Test 0}} & \multicolumn{3}{c|}{\textbf{Acc. Test 1}} & \multicolumn{3}{c|}{\textbf{Acc. Test 2}} & \multicolumn{3}{c|}{\textbf{Acc. Test 3}} & \multicolumn{3}{c|}{\textbf{Acc. Test 4}} & \multicolumn{3}{c}{\textbf{Acc. Test 5}} \\
+    \textbf{{\color{tab:blue} \textbf{ERM}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    SD & 99.3 & 99.2 & {\textbf{99.4}} & 99.4 & 99.3 & {\textbf{99.5}} & 86.6 & 82.1 & {\textbf{87.4}} & 68.5 & 59.7 & {\textbf{74.5}} & 50.8 & 47.6 & {\textbf{56.4}} & 47.4 & 46.4 & {\textbf{57.6}} \\
+    ID & 99.3 & \textbf{99.4} & {\textbf{99.4}} & 99.4 & 99.5 & {\textbf{99.6}} & {\textbf{86.6}} & 86.5 & 85.3 & 68.5 & {\textbf{75.3}} & 74.2 & 50.8 & {\textbf{57.1}} & 54.8 & 47.4 & {\textbf{57.1}} & 55.6 \\
+    1F-MD & 99.3 & {\textbf{99.4}} & 99.3 & {\textbf{99.5}} & 99.4 & 99.4 & 84.9 & 83.6 & {\textbf{89.0}} & 66.3 & 66.3 & {\textbf{68.0}} & 52.0 & 47.0 & {\textbf{53.6}} & 46.3 & 41.4 & {\textbf{53.6}} \\
+    5F-MD & 99.1 & 99.1 & 99.1 & 99.1 & 99.1 & 99.1 & 90.1 & 90.1 & 90.1 & 58.6 & 58.6 & 58.6 & 73.3 & 73.3 & 73.3 & 57.4 & 57.4 & 57.4 \\
+    OOD & 99.3 & 99.3 & 99.3 & 99.4 & 99.4 & 99.4 & {\textbf{89.0}} & 89.0 & 84.2 & {\textbf{68.0}} & \textbf{68.0} & 60.4 & {\textbf{53.6}} & \textbf{53.6} & 46.8 & {\textbf{53.6}} & \textbf{53.6} & 45.0 \\
+    \midrule
+    \addlinespace
+    \addlinespace
+    \textbf{{\color{tab:orange} \textbf{IRM}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    SD & {\textbf{99.4}} & 98.8 & 99.3 & {\textbf{99.4}} & 98.7 & 99.2 & {\textbf{85.0}} & 65.3 & 83.2 & 55.0 & {\textbf{58.4}} & 51.2 & 59.0 & {\textbf{68.9}} & 52.1 & 51.4 & {\textbf{58.8}} & 45.2 \\
+    ID & {\textbf{99.4}} & 99.3 & 99.2 & 99.4 & 99.3 & {\textbf{99.5}} & {\textbf{86.4}} & 81.1 & 83.0 & 50.4 & 46.2 & {\textbf{62.4}} & 48.2 & 54.2 & 70.4 & 39.8 & 45.5 & {\textbf{59.6}} \\
+    1F-MD & {\textbf{99.4}} & 99.3 & 99.3 & {\textbf{99.5}} & 99.4 & 99.3 & 85.3 & 87.1 & {\textbf{89.5}} & 30.9 & {\textbf{56.8}} & 44.0 & 49.6 & 49.7 & {\textbf{68.8}} & 38.2 & 44.3 & {\textbf{54.8}} \\
+    5F-MD & 99.2 & 99.2 & 99.2 & 99.5 & 99.5 & 99.5 & 83.0 & 83.0 & 83.0 & 62.4 & 62.4 & 62.4 & 70.4 & 70.4 & 70.4 & 59.6 & 59.6 & 59.6 \\
+    OOD & 99.4 & 99.3 & {\textbf{99.5}} & 99.4 & 99.4 & 99.4 & {\textbf{85.0}} & 82.7 & 84.4 & {\textbf{55.0}} & 39.9 & 51.6 & {\textbf{59.0}} & 44.4 & 58.7 & {\textbf{51.4}} & 37.2 & 49.9 \\
+    \midrule
+    \addlinespace
+    \addlinespace
+    \textbf{{\color{tab:green} \textbf{LISA}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+        \midrule
+    SD & \textbf{99.4} & 98.6 & {\textbf{99.4}} & 99.2 & 98.6 & {\textbf{99.3}} & {\textbf{90.4}} & 55.8 & 78.8 & {\textbf{74.9}} & 37.2 & 61.9 & {\textbf{71.9}} & 28.5 & 60.2 & 54.4 & 29.4 & {\textbf{55.5}} \\
+    ID & {\textbf{99.4}} & 99.2 & 99.3 & {\textbf{99.3}} & 99.0 & 99.1 & {\textbf{85.5}} & 62.3 & 78.4 & 49.7 & 74.5 & {\textbf{89.9}} & 62.8 & 46.6 & {\textbf{63.5}} & 54.2 & 48.6 & {\textbf{59.1}} \\
+    1F-MD & {\textbf{99.4}} & \textbf{99.4} & 99.3 & {\textbf{99.3}} & \textbf{99.3} & 99.1 & {\textbf{85.5}} & \textbf{85.5} & 78.4 & 49.7 & 49.7 & {\textbf{89.9}} & 62.8 & 62.8 & {\textbf{63.5}} & 54.2 & 54.2 & {\textbf{59.1}} \\
+    5F-MD & 98.8 & 98.8 & 98.8 & 99.0 & 99.0 & 99.0 & 70.4 & 70.4 & 70.4 & 66.3 & 66.3 & 66.3 & 63.9 & 63.9 & 63.9 & 58.5 & 58.5 & 58.5\\
+    OOD & \textbf{99.4} & 99.3 & {\textbf{99.4}} & \textbf{99.6} & 99.2 & {\textbf{99.6}} & 78.0 & {\textbf{78.4}} & 78.0 & \textbf{80.3} & 77.4 & {\textbf{80.3}} & 60.5 & {\textbf{68.2}} & 60.5 & 55.9 & {\textbf{56.7}} & 55.9 \\
+    \bottomrule
+    \end{tabular}%
+    }
+    \caption{Test performance under increasing levels of shift for models selected through different configurations of 
+    validation datasets. PA, AFR$_{\text{P}}$ and accuracy are used as early stopping criteria for model selection
+    in the position factor experiment (see Tables \ref{ds:pos_trainval}-\ref{ds:pos_test}).
+    }
+    \label{tab:dg_pos_paired}
+    \end{table}
+
+
+\subsection{In-distribution DiagVib-6}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{2.5pt}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccc|ccc|ccc|ccc|ccc}
+    \multirow{3}{*}{} & \multicolumn{3}{c|}{\textbf{Acc. Test 1}} & \multicolumn{3}{c|}{\textbf{Acc. Test 2}} & \multicolumn{3}{c|}{\textbf{Acc. Test 3}} & \multicolumn{3}{c|}{\textbf{Acc. Test 4}} & \multicolumn{3}{c}{\textbf{Acc. Test 5}} \\
+    \textbf{{\color{tab:blue} \textbf{ERM}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    ZGO & 53.2 & 53.2 & 53.2 & 54.6 & 54.6 & 54.6 & 55.7 & 55.7 & 55.7 & 66.7 & 66.7 & 66.7 & 66.6 & 66.6 & 66.6 \\
+    1-CGO & 62.9 & \textbf{72.4} & {\textbf{72.4}} & 64.7 & \textbf{74.8} & {\textbf{74.8}} & 60.8 & \textbf{61.1} & {\textbf{61.1}} & 62.9 & \textbf{65.1} & {\textbf{65.1}} & 64.2 & \textbf{64.7} & {\textbf{64.7}} \\
+    2-CGO & 69.1 & \textbf{78.6} & {\textbf{78.6}} & 71.2 & \textbf{78.9} & {\textbf{78.9}} & 71.9 & \textbf{72.2} & {\textbf{72.2}} & {\textbf{76.2}} & 73.8 & 73.8 & {\textbf{77.0}} & 74.2 & 74.2 \\
+    3-CGO & 73.1 & \textbf{89.8} & {\textbf{89.8}} & 85.6 & \textbf{89.3} & {\textbf{89.3}} & 70.1 & \textbf{79.8} & {\textbf{79.8}} & 71.4 & \textbf{77.7} & {\textbf{77.7}} & 72.1 & \textbf{78.8} & {\textbf{78.8}} \\
+    ZSO & 99.6 & 99.6 & 99.6 & {\textbf{92.8}} & 92.7 & 92.7 & 89.9 & \textbf{90.0} & {\textbf{90.0}} & 85.9 & {\textbf{86.0}} & \textbf{86.0} & 85.9 & {\textbf{86.0}} & \textbf{86.0}\\
+    \midrule
+    \addlinespace
+    \addlinespace
+    \textbf{{\color{tab:orange} \textbf{IRM}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    ZGO & 50.1 & \textbf{56.0} & {\textbf{56.0}} & 50.5 & \textbf{55.4} & {\textbf{55.4}} & 52.8 & \textbf{62.3} & {\textbf{62.3}} & 64.4 & \textbf{65.5} & {\textbf{65.5}} & 64.9 & \textbf{66.0} & {\textbf{66.0}} \\
+    1-CGO & 63.0 & 64.0 & {\textbf{70.1}} & 65.9 & 64.3 & {\textbf{73.4}} & 59.4 & 59.5 & {\textbf{61.6}} & 60.1 & 56.0 & {\textbf{62.4}} & 59.0 & 56.9 & {\textbf{60.7}} \\
+    2-CGO & 69.0 & {\textbf{82.4}} & 79.5 & 69.7 & {\textbf{83.2}} & 79.6 & 67.5 & {\textbf{78.5}} & 72.2 & 64.5 & 77.0 & {\textbf{77.5}} & 65.1 & {\textbf{79.0}} & 77.7 \\
+    3-CGO & 79.5 & \textbf{91.1} & {\textbf{91.1}} & 83.0 & \textbf{92.8} & {\textbf{92.8}} & 73.6 & \textbf{84.5} & {\textbf{84.5}} & 70.7 & \textbf{81.7} & {\textbf{81.7}} & 72.2 & \textbf{83.5} & {\textbf{83.5}} \\
+    ZSO & 99.4 & \textbf{99.5} & {\textbf{99.5}} & 93.4 & {\textbf{95.1}} & 94.7 & 89.2 & 79.8 & {\textbf{89.4}} & 87.0 & 80.4 & {\textbf{88.6}} & 87.0 & 80.4 & {\textbf{88.6}} \\
+    \bottomrule
+    \end{tabular}%
+    }
+    \caption{
+        Test performance under increasing levels of shift for models selected through different configurations of factor
+        co-occurrence. PA, AFR$_{\text{P}}$ and accuracy are used as early stopping criteria for model selection
+        in the hue factor experiment (see Tables \ref{tab:sogo_test} and \ref{def:zgo_experiments}-\ref{def:zso_experiments}).
+    }
+    \label{tab:sogo_hue_full}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \setlength{\tabcolsep}{2.5pt}
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{l|ccc|ccc|ccc|ccc|ccc}
+    \multirow{3}{*}{} & \multicolumn{3}{c|}{\textbf{Acc. Test 1}} & \multicolumn{3}{c|}{\textbf{Acc. Test 2}} & \multicolumn{3}{c|}{\textbf{Acc. Test 3}} & \multicolumn{3}{c|}{\textbf{Acc. Test 4}} & \multicolumn{3}{c}{\textbf{Acc. Test 5}} \\
+    \textbf{{\color{tab:blue} \textbf{ERM}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    ZGO & 50.2 & 50.2 & {\textbf{50.2}} & 50.0 & \textbf{50.0} & {\textbf{50.0}} & 52.4 & 52.4 & 52.4 & 52.0 & 52.0 & 52.0 & 50.6 & 50.6 & 50.6 \\
+    1-CGO & 44.1 & 48.2 & {\textbf{48.2}} & 41.4 & \textbf{42.0} & {\textbf{42.0}} & 43.6 & \textbf{45.0} & {\textbf{45.0}} & 45.0 & \textbf{46.0} & {\textbf{46.0}} & 44.8 & \textbf{46.0} & {\textbf{46.0}} \\
+    2-CGO & 64.4 & {\textbf{71.8}} & 71.4 & 53.4 & 52.5 & {\textbf{55.1}} & 55.1 & 55.9 & {\textbf{57.8}} & 57.7 & {\textbf{60.5}} & 59.0 & 56.7 & {\textbf{59.0}} & 58.0 \\
+    3-CGO & 73.2 & \textbf{91.1} & {\textbf{91.1}} & 55.3 & \textbf{63.6} & {\textbf{63.6}} & 52.8 & \textbf{61.3} & {\textbf{61.3}} & 51.8 & \textbf{58.8} & {\textbf{58.8}} & 51.8 & \textbf{59.1} & {\textbf{59.1}} \\
+    ZSO & \textbf{99.1} & 98.4 & {\textbf{99.1}} & {\textbf{92.1}} & 91.6 & 91.9 & 88.6 & 86.2 & {\textbf{88.8}} & 87.0 & 84.3 & {\textbf{87.1}} & 85.7 & 84.6 & {\textbf{85.9}} \\
+    \midrule
+    \addlinespace
+    \addlinespace
+    \textbf{{\color{tab:orange} \textbf{IRM}}} & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA & Acc. & AFR$_\text{P}$ & PA \\
+    \midrule
+    ZGO & 50.5 & 50.5 & 50.5 & 50.0 & 50.0 & 50.0 & 53.1 & 53.1 & 53.1 & 52.5 & 52.5 &  52.5 & 51.6 & 51.6 & 51.6 \\
+    1-CGO & 48.2 & \textbf{49.0} & {\textbf{49.0}} & 43.6 & \textbf{44.2} & {\textbf{44.2}} & {\textbf{43.2}} & 42.8 & 42.8 & {\textbf{44.0}} & 42.4 & 42.2 & {\textbf{44.1}} & 42.1 & 42.0 \\
+    2-CGO & 65.0 & {\textbf{72.2}} & 72.0 & 53.1 & 57.6 & {\textbf{58.6}} & 52.8 & 54.0 & {\textbf{54.1}} & {\textbf{59.2}} & 58.6 & 55.6 & {\textbf{60.1}} & 58.7 & 55.4 \\
+    3-CGO & 80.4 & \textbf{94.1} & {\textbf{94.1}} & 63.2 & \textbf{70.9} & {\textbf{70.9}} & 57.5 & \textbf{63.5} & {\textbf{63.5}} & 51.4 & \textbf{58.9} & {\textbf{58.9}} & 52.6 & \textbf{57.8} & {\textbf{57.8}} \\
+    ZSO & {\textbf{99.6}} & 99.0 & 99.3 & {\textbf{93.8}} & 93.3 & 92.8 & 88.2 & {\textbf{90.0}} & 85.8 & {\textbf{89.5}} & 83.0 & 81.3 & {\textbf{89.6}} & 86.2 & 81.2 \\
+    \bottomrule
+    \end{tabular}%
+    }
+    \caption{
+        Test performance under increasing levels of shift for models selected through different configurations of factor
+        co-occurrence. PA, AFR$_{\text{P}}$ and accuracy are used as early stopping criteria for model selection
+        in the position factor experiment (see Tables \ref{tab:sogo_test} and \ref{def:zgo_experiments}-\ref{def:zso_experiments}).
+    }
+    \label{tab:sogo_pos_full}
+\end{table}
 
 \chapter{Dataset reference}\label{sec:datasets}
 
@@ -874,7 +1032,7 @@ have been considered in the experiments.
     \begin{table}[H]
         \centering
         \begin{tabular}{l|c|c|c|c|c|c}
-          & \#0 & \#1 & \#2 & \#3 & \#4 & \#5 \\
+        \# Shift Factors  & 0 & 1 & 2 & 3 & 4 & 5 \\
         \midrule
         Hue & red & \textbf{blue} & blue & blue & blue & blue \\
         Lightness & dark & dark & \textbf{bright} & bright & bright & bright \\
@@ -893,7 +1051,7 @@ have been considered in the experiments.
 
 \section{Model selection}
 
-\subsection{Controlled conditions}
+\subsection{DiagVib-6 Benchmark}
 
 Section \ref{chapter:msel_controlled} reported test accuracy results for different configurations of 
 pairs of datasets that were considered for robust model selection through early stopping. Test datasets entail
@@ -906,7 +1064,7 @@ a single sampling realization and represent incremental shifts of image factors.
     \begin{table}[H]
         \centering
         \begin{tabular}{l|c|c|c|c|c|c}
-         &\#0 & \#1 & \#2 & \#3 & \#4 & \#5 \\
+        \# Shift Factors  & 0 & 1 & 2 & 3 & 4 & 5 \\
         \midrule
         Hue & red & \textbf{green} & green & green & green & green \\
         Lightness & dark & dark & \textbf{bright} & bright & bright & bright \\
@@ -920,7 +1078,6 @@ a single sampling realization and represent incremental shifts of image factors.
         Image factors associated to each of the environments considered in this experiment. CC and UL account
         for 'centered center' and 'upper left', respectively.
         }
-        \label{ds:hue_test}
     \end{table}
 \end{dataset}
 
@@ -931,7 +1088,7 @@ a single sampling realization and represent incremental shifts of image factors.
     \begin{table}[H]
         \centering
         \begin{tabular}{l|c|c|c|c|c|c}
-         & \#0 & \#1 & \#2 & \#3 & \#4 & \#5 \\
+         \# Shift Factors  & 0 & 1 & 2 & 3 & 4 & 5 \\
         \midrule
         Hue & green & green & green & \textbf{red} & green & green \\
         Lightness & dark & dark & dark & dark & \textbf{bright} & bright \\
@@ -983,7 +1140,6 @@ a single sampling realization and represent incremental shifts of image factors.
         Image factors associated with each of the environments considered in this experiment. CC and UL account
         for 'centered center' and 'upper left', respectively.
         }
-        \label{ds:pos_test}
     \end{table}
 \end{dataset}
 
@@ -1021,17 +1177,17 @@ a single sampling realization and represent incremental shifts of image factors.
         Image factors associated with each of the environments considered in this experiment. UL, LR, UR and CC account
         for 'upper left', 'lower right', 'upper left' and 'centered center', respectively.
         }
-        \label{ds:pos_test}
+        \label{ds:pos_trainval}
     \end{table}
 \end{dataset}
 
-\subsection{ID model selection}
+\subsection{In-distribution DiagVib-6}
 
 Model selection experiments have been conducted under controlled conditions, in which test performance
 under different robust model selection strategies was reported also for a \texttt{control} validation
 dataset pair, in which. \\
 
-\begin{definition}[ID setting under ZGO]\label{def:zgo_experiments}
+\begin{dataset}[ID setting under ZGO]\label{def:zgo_experiments}
     Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
     learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The zero 
     shortcut opportunity datasets are obtained as follows:
@@ -1070,9 +1226,9 @@ dataset pair, in which. \\
             \end{subfigure}
         \end{subfigure}
     \end{figure}
-\end{definition}
+\end{dataset}
 
-\begin{definition}[ID setting under 1-CGO]\label{def:1_cgo_experiments}
+\begin{dataset}[ID setting under 1-CGO]\label{def:1_cgo_experiments}
     Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
     learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The 
     single compositional generalization opportunity datasets are obtained as follows:
@@ -1111,9 +1267,9 @@ dataset pair, in which. \\
             \end{subfigure}
         \end{subfigure}
     \end{figure}
-\end{definition}
+\end{dataset}
 
-\begin{definition}[ID setting under 2-CGO]\label{def:2_cgo_experiments}
+\begin{dataset}[ID setting under 2-CGO]\label{def:2_cgo_experiments}
     Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
     learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The 
     double compositional generalization opportunity datasets are obtained as follows:
@@ -1152,10 +1308,10 @@ dataset pair, in which. \\
             \end{subfigure}
         \end{subfigure}
     \end{figure}
-\end{definition}
+\end{dataset}
 
 
-\begin{definition}[ID setting under 3-CGO]\label{def:3_cgo_experiments}
+\begin{dataset}[ID setting under 3-CGO]\label{def:3_cgo_experiments}
     Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
     learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The 
     triple compositional generalization opportunity datasets are obtained as follows:
@@ -1194,10 +1350,10 @@ dataset pair, in which. \\
             \end{subfigure}
         \end{subfigure}
     \end{figure}
-\end{definition}
+\end{dataset}
 
 
-\begin{definition}[ID setting under ZSO]\label{def:zso_experiments}
+\begin{dataset}[ID setting under ZSO]\label{def:zso_experiments}
     Let the predicted factor $F^P$ be \texttt{shape} (i.e. the image digits), and let the 
     learned factor $F^L$ be \texttt{hue} and \texttt{position}, each for a different dataset. The 
     zero shortcut opportunity datasets are obtained as follows:
@@ -1236,7 +1392,7 @@ dataset pair, in which. \\
             \end{subfigure}
         \end{subfigure}
     \end{figure}
-\end{definition}
+\end{dataset}
 
 Models trained and selected using each of the previous datasets will be evaluated
 on a test dataset replicating validation conditions (i.e. \#0) and five additional test

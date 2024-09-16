@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.12)  8 SEP 2024 21:51
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2023.3.12)  16 SEP 2024 20:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -518,26 +518,7 @@ Style option: `fancybox' v1.4 <2010/05/15> (tvz)
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count347
 \l__pdf_internal_box=\box65
-) (./Thesis.aux
-
-LaTeX Warning: Label `tab:label' multiply defined.
-
-
-LaTeX Warning: Label `tab:label' multiply defined.
-
-
-LaTeX Warning: Label `tab:label' multiply defined.
-
-
-LaTeX Warning: Label `tab:label' multiply defined.
-
-
-LaTeX Warning: Label `ds:pos_test' multiply defined.
-
-
-LaTeX Warning: Label `ds:pos_test' multiply defined.
-
-)
+) (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
@@ -683,21 +664,42 @@ Non-PDF special ignored!
 
 ] (./chapters/preamble.tex [1
 
-] [2
+]
+Underfull \hbox (badness 10000) in paragraph at lines 13--21
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 22--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--34
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 35--42
+
+ []
+
+[2
 
 ] (./Thesis.toc [3
+
 
 ])
 \tf@toc=\write5
 \openout5 = `Thesis.toc'.
 
  [4]
-Underfull \hbox (badness 10000) in paragraph at lines 27--31
+Underfull \hbox (badness 10000) in paragraph at lines 59--63
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 32--37
+Underfull \hbox (badness 10000) in paragraph at lines 64--69
 
  []
 
@@ -705,10 +707,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--37
 
 
 ] [6
-
-] [7
-
-] [8
 
 ]) (./chapters/introduction.tex
 Chapter 1.
@@ -744,22 +742,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 65--77
 
  []
 
-<img/introduction/cow_original.jpg, id=55, 224.84pt x 224.84pt>
+<img/introduction/cow_original.jpg, id=45, 224.84pt x 224.84pt>
 File: img/introduction/cow_original.jpg Graphic file (type jpg)
 <use img/introduction/cow_original.jpg>
 Package pdftex.def Info: img/introduction/cow_original.jpg  used on input line 82.
 (pdftex.def)             Requested size: 93.8946pt x 93.89351pt.
-<img/introduction/cow_noise.jpg, id=56, 168.63pt x 168.63pt>
+<img/introduction/cow_noise.jpg, id=46, 168.63pt x 168.63pt>
 File: img/introduction/cow_noise.jpg Graphic file (type jpg)
 <use img/introduction/cow_noise.jpg>
 Package pdftex.def Info: img/introduction/cow_noise.jpg  used on input line 88.
 (pdftex.def)             Requested size: 93.8946pt x 93.89694pt.
-<img/introduction/cow_fgsm.jpg, id=57, 168.63pt x 168.63pt>
+<img/introduction/cow_fgsm.jpg, id=47, 168.63pt x 168.63pt>
 File: img/introduction/cow_fgsm.jpg Graphic file (type jpg)
 <use img/introduction/cow_fgsm.jpg>
 Package pdftex.def Info: img/introduction/cow_fgsm.jpg  used on input line 94.
 (pdftex.def)             Requested size: 93.8946pt x 93.89694pt.
-<img/introduction/cow_ood.jpg, id=58, 168.63pt x 168.63pt>
+<img/introduction/cow_ood.jpg, id=48, 168.63pt x 168.63pt>
 File: img/introduction/cow_ood.jpg Graphic file (type jpg)
 <use img/introduction/cow_ood.jpg>
 Package pdftex.def Info: img/introduction/cow_ood.jpg  used on input line 100.
@@ -784,7 +782,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 153--164
 
  []
 
-<img/introduction/adversarial_complexity.png, id=63, 992.95969pt x 304.13625pt>
+<img/introduction/adversarial_complexity.png, id=53, 992.95969pt x 304.13625pt>
 File: img/introduction/adversarial_complexity.png Graphic file (type png)
 <use img/introduction/adversarial_complexity.png>
 Package pdftex.def Info: img/introduction/adversarial_complexity.png  used on input line 167.
@@ -794,17 +792,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 180--194
 
  []
 
-<img/introduction/adversarial_loss_1.jpg, id=65, 289.08pt x 386.19281pt>
+<img/introduction/adversarial_loss_1.jpg, id=55, 289.08pt x 386.19281pt>
 File: img/introduction/adversarial_loss_1.jpg Graphic file (type jpg)
 <use img/introduction/adversarial_loss_1.jpg>
 Package pdftex.def Info: img/introduction/adversarial_loss_1.jpg  used on input line 199.
 (pdftex.def)             Requested size: 119.50105pt x 159.64238pt.
-<img/introduction/adversarial_loss_2.jpg, id=66, 289.08pt x 386.19281pt>
+<img/introduction/adversarial_loss_2.jpg, id=56, 289.08pt x 386.19281pt>
 File: img/introduction/adversarial_loss_2.jpg Graphic file (type jpg)
 <use img/introduction/adversarial_loss_2.jpg>
 Package pdftex.def Info: img/introduction/adversarial_loss_2.jpg  used on input line 205.
 (pdftex.def)             Requested size: 119.50105pt x 159.64238pt.
-<img/introduction/adversarial_salient.png, id=67, 752.0597pt x 369.63094pt>
+<img/introduction/adversarial_salient.png, id=57, 752.0597pt x 369.63094pt>
 File: img/introduction/adversarial_salient.png Graphic file (type png)
 <use img/introduction/adversarial_salient.png>
 Package pdftex.def Info: img/introduction/adversarial_salient.png  used on input line 220.
@@ -814,7 +812,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 239--252
 
  []
 
-<img/introduction/camelyon17.png, id=74, 1108.14pt x 503.63156pt>
+<img/introduction/camelyon17.png, id=64, 1108.14pt x 503.63156pt>
 File: img/introduction/camelyon17.png Graphic file (type png)
 <use img/introduction/camelyon17.png>
 Package pdftex.def Info: img/introduction/camelyon17.png  used on input line 255.
@@ -824,12 +822,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 263--286
 
  []
 
-<img/introduction/dataset_bias_confusion.png, id=75, 614.295pt x 593.96906pt>
+<img/introduction/dataset_bias_confusion.png, id=65, 614.295pt x 593.96906pt>
 File: img/introduction/dataset_bias_confusion.png Graphic file (type png)
 <use img/introduction/dataset_bias_confusion.png>
 Package pdftex.def Info: img/introduction/dataset_bias_confusion.png  used on input line 291.
 (pdftex.def)             Requested size: 149.37956pt x 144.43156pt.
-<img/introduction/dataset_bias_cross_generalization.png, id=76, 665.48625pt x 674.52pt>
+<img/introduction/dataset_bias_cross_generalization.png, id=66, 665.48625pt x 674.52pt>
 File: img/introduction/dataset_bias_cross_generalization.png Graphic file (type png)
 <use img/introduction/dataset_bias_cross_generalization.png>
 Package pdftex.def Info: img/introduction/dataset_bias_cross_generalization.png  used on input line 296.
@@ -854,22 +852,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 340--348
 
  []
 
-<img/introduction/dica.png, id=84, 767.11594pt x 191.9672pt>
+<img/introduction/dica.png, id=75, 767.11594pt x 191.9672pt>
 File: img/introduction/dica.png Graphic file (type png)
 <use img/introduction/dica.png>
 Package pdftex.def Info: img/introduction/dica.png  used on input line 351.
 (pdftex.def)             Requested size: 277.41176pt x 69.42155pt.
-<img/introduction/da_original.png, id=85, 219.06844pt x 218.31563pt>
+<img/introduction/da_original.png, id=76, 219.06844pt x 218.31563pt>
 File: img/introduction/da_original.png Graphic file (type png)
 <use img/introduction/da_original.png>
 Package pdftex.def Info: img/introduction/da_original.png  used on input line 365.
 (pdftex.def)             Requested size: 85.35696pt x 85.06279pt.
-<img/introduction/da_mixup.png, id=86, 218.31563pt x 218.31563pt>
+<img/introduction/da_mixup.png, id=77, 218.31563pt x 218.31563pt>
 File: img/introduction/da_mixup.png Graphic file (type png)
 <use img/introduction/da_mixup.png>
 Package pdftex.def Info: img/introduction/da_mixup.png  used on input line 371.
 (pdftex.def)             Requested size: 85.35696pt x 85.35594pt.
-<img/introduction/da_cutmix.png, id=87, 222.07968pt x 218.31563pt>
+<img/introduction/da_cutmix.png, id=78, 222.07968pt x 218.31563pt>
 File: img/introduction/da_cutmix.png Graphic file (type png)
 <use img/introduction/da_cutmix.png>
 Package pdftex.def Info: img/introduction/da_cutmix.png  used on input line 379.
@@ -937,7 +935,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--81
 ]
 
 pdfTeX warning: pdflatex.exe (file ./img/theoretical_background/nn_unit.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/theoretical_background/nn_unit.pdf, id=117, 515.82715pt x 237.08575pt>
+<img/theoretical_background/nn_unit.pdf, id=110, 515.82715pt x 237.08575pt>
 File: img/theoretical_background/nn_unit.pdf Graphic file (type pdf)
 <use img/theoretical_background/nn_unit.pdf>
 Package pdftex.def Info: img/theoretical_background/nn_unit.pdf  used on input line 116.
@@ -1005,7 +1003,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 521--522
 
  []
 
-[14]) [15] [16
+[14]
+<img/theoretical_background/method_beta=0.5.pdf, id=181, 462.52798pt x 346.89601pt>
+File: img/theoretical_background/method_beta=0.5.pdf Graphic file (type pdf)
+<use img/theoretical_background/method_beta=0.5.pdf>
+Package pdftex.def Info: img/theoretical_background/method_beta=0.5.pdf  used on input line 601.
+(pdftex.def)             Requested size: 128.0387pt x 96.02922pt.
+<img/theoretical_background/method_beta=8.0.pdf, id=182, 462.52798pt x 346.89601pt>
+File: img/theoretical_background/method_beta=8.0.pdf Graphic file (type pdf)
+<use img/theoretical_background/method_beta=8.0.pdf>
+Package pdftex.def Info: img/theoretical_background/method_beta=8.0.pdf  used on input line 606.
+(pdftex.def)             Requested size: 128.0387pt x 96.02922pt.
+<img/theoretical_background/method_beta=40.0.pdf, id=183, 462.52798pt x 346.89601pt>
+File: img/theoretical_background/method_beta=40.0.pdf Graphic file (type pdf)
+<use img/theoretical_background/method_beta=40.0.pdf>
+Package pdftex.def Info: img/theoretical_background/method_beta=40.0.pdf  used on input line 611.
+(pdftex.def)             Requested size: 128.0387pt x 96.02922pt.
+<img/theoretical_background/gibbs_betas.pdf, id=184, 1300.86pt x 289.08pt>
+File: img/theoretical_background/gibbs_betas.pdf Graphic file (type pdf)
+<use img/theoretical_background/gibbs_betas.pdf>
+Package pdftex.def Info: img/theoretical_background/gibbs_betas.pdf  used on input line 618.
+(pdftex.def)             Requested size: 413.98811pt x 91.9958pt.
+) [15 <./img/theoretical_background/method_beta=0.5.pdf> <./img/theoretical_background/method_beta=8.0.pdf> <./img/theoretical_background/method_beta=40.0.pdf> <./img/theoretical_background/gibbs_betas.pdf>] [16
 
 ] (./chapters/experimental_setup.tex
 Chapter 3.
@@ -1102,38 +1121,56 @@ Underfull \hbox (badness 10000) in paragraph at lines 572--581
  []
 
 [23] [24] [25]
-Underfull \hbox (badness 10000) in paragraph at lines 813--815
+Underfull \hbox (badness 10000) in paragraph at lines 820--831
+
+ []
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 874--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 816--817
+Underfull \hbox (badness 10000) in paragraph at lines 882--889
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 818--824
+Underfull \hbox (badness 10000) in paragraph at lines 892--898
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 825--830
+Underfull \hbox (badness 10000) in paragraph at lines 899--904
 
  []
 
-<img/theoretical_background/pametric_code.png, id=225, 1580.90625pt x 344.78813pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 934--941
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 942--949
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 950--953
+
+ []
+
+<img/theoretical_background/pametric_code.png, id=404, 1580.90625pt x 344.78813pt>
 File: img/theoretical_background/pametric_code.png Graphic file (type png)
 <use img/theoretical_background/pametric_code.png>
-Package pdftex.def Info: img/theoretical_background/pametric_code.png  used on input line 847.
+Package pdftex.def Info: img/theoretical_background/pametric_code.png  used on input line 960.
 (pdftex.def)             Requested size: 418.25368pt x 91.21584pt.
 
-Overfull \hbox (0.12738pt too wide) in paragraph at lines 847--848
+Overfull \hbox (0.12738pt too wide) in paragraph at lines 960--961
 [][][][][][][] 
  []
 
-[26]) [27 <./img/theoretical_background/pametric_code.png>] [28
-
-] (./chapters/results_robustness_assessment.tex
+) [28 <./img/theoretical_background/pametric_code.png>] (./chapters/results_robustness_assessment.tex
 Chapter 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 11--16
@@ -1142,275 +1179,291 @@ Underfull \hbox (badness 10000) in paragraph at lines 11--16
 
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 60.
-<img/results_discussion/empirical/artificial_acc_final.png, id=237, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/artificial_acc_final.png, id=409, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/artificial_acc_final.png Graphic file (type png)
 <use img/results_discussion/empirical/artificial_acc_final.png>
-Package pdftex.def Info: img/results_discussion/empirical/artificial_acc_final.png  used on input line 74.
+Package pdftex.def Info: img/results_discussion/empirical/artificial_acc_final.png  used on input line 76.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/artificial_logPA_final.png, id=238, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/artificial_logPA_final.png, id=410, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/artificial_logPA_final.png Graphic file (type png)
 <use img/results_discussion/empirical/artificial_logPA_final.png>
-Package pdftex.def Info: img/results_discussion/empirical/artificial_logPA_final.png  used on input line 79.
+Package pdftex.def Info: img/results_discussion/empirical/artificial_logPA_final.png  used on input line 81.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
 [29
 
+
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 91--100
+Underfull \hbox (badness 10000) in paragraph at lines 93--102
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 101--108
+Underfull \hbox (badness 10000) in paragraph at lines 103--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 109--115
+Underfull \hbox (badness 10000) in paragraph at lines 112--124
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--120
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 121--128
-
- []
-
-<img/results_discussion/empirical/nonrob_met=betas_hue=ldiff.png, id=242, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/nonrob_met=betas_hue=ldiff.png, id=415, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/nonrob_met=betas_hue=ldiff.png Graphic file (type png)
 <use img/results_discussion/empirical/nonrob_met=betas_hue=ldiff.png>
-Package pdftex.def Info: img/results_discussion/empirical/nonrob_met=betas_hue=ldiff.png  used on input line 133.
+Package pdftex.def Info: img/results_discussion/empirical/nonrob_met=betas_hue=ldiff.png  used on input line 140.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/nonrob_met=logPA_hue=ldiff.png, id=243, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/nonrob_met=logPA_hue=ldiff.png, id=416, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/nonrob_met=logPA_hue=ldiff.png Graphic file (type png)
 <use img/results_discussion/empirical/nonrob_met=logPA_hue=ldiff.png>
-Package pdftex.def Info: img/results_discussion/empirical/nonrob_met=logPA_hue=ldiff.png  used on input line 138.
+Package pdftex.def Info: img/results_discussion/empirical/nonrob_met=logPA_hue=ldiff.png  used on input line 145.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 146--152
+Underfull \hbox (badness 10000) in paragraph at lines 157--163
 
  []
 
 [30 <./img/results_discussion/empirical/artificial_acc_final.png> <./img/results_discussion/empirical/artificial_logPA_final.png>]
-<img/results_discussion/adversarial/GAUSSIAN_logPA_eps_single.png, id=249, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/GAUSSIAN_logPA_eps_single.png, id=422, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/GAUSSIAN_logPA_eps_single.png Graphic file (type png)
 <use img/results_discussion/adversarial/GAUSSIAN_logPA_eps_single.png>
-Package pdftex.def Info: img/results_discussion/adversarial/GAUSSIAN_logPA_eps_single.png  used on input line 182.
+Package pdftex.def Info: img/results_discussion/adversarial/GAUSSIAN_logPA_eps_single.png  used on input line 193.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/GAUSSIAN_acc_pa_eps_single.png, id=250, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/GAUSSIAN_acc_pa_eps_single.png, id=423, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/GAUSSIAN_acc_pa_eps_single.png Graphic file (type png)
 <use img/results_discussion/adversarial/GAUSSIAN_acc_pa_eps_single.png>
-Package pdftex.def Info: img/results_discussion/adversarial/GAUSSIAN_acc_pa_eps_single.png  used on input line 187.
+Package pdftex.def Info: img/results_discussion/adversarial/GAUSSIAN_acc_pa_eps_single.png  used on input line 198.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--205
+Underfull \hbox (badness 10000) in paragraph at lines 208--216
 
  []
 
 [31 <./img/results_discussion/empirical/nonrob_met=betas_hue=ldiff.png> <./img/results_discussion/empirical/nonrob_met=logPA_hue=ldiff.png> <./img/results_discussion/adversarial/GAUSSIAN_logPA_eps_single.png> <./img/results_discussion/adversarial/GAUSSIAN_acc_pa_eps_single.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 206--214
+Underfull \hbox (badness 10000) in paragraph at lines 217--225
 
  []
 
-<img/results_discussion/empirical/beta_100.pdf, id=258, 27.45688pt x 15.50673pt>
+<img/results_discussion/empirical/beta_100.pdf, id=431, 27.45688pt x 15.50673pt>
 File: img/results_discussion/empirical/beta_100.pdf Graphic file (type pdf)
 <use img/results_discussion/empirical/beta_100.pdf>
-Package pdftex.def Info: img/results_discussion/empirical/beta_100.pdf  used on input line 220.
+Package pdftex.def Info: img/results_discussion/empirical/beta_100.pdf  used on input line 231.
 (pdftex.def)             Requested size: 209.1301pt x 118.12523pt.
-<img/results_discussion/empirical/logPA_100.png, id=259, 697.4055pt x 393.8715pt>
+<img/results_discussion/empirical/logPA_100.png, id=432, 697.4055pt x 393.8715pt>
 File: img/results_discussion/empirical/logPA_100.png Graphic file (type png)
 <use img/results_discussion/empirical/logPA_100.png>
-Package pdftex.def Info: img/results_discussion/empirical/logPA_100.png  used on input line 225.
+Package pdftex.def Info: img/results_discussion/empirical/logPA_100.png  used on input line 236.
 (pdftex.def)             Requested size: 209.1301pt x 118.10826pt.
-<img/results_discussion/empirical/levenshtein_logPA.png, id=260, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/levenshtein_logPA.png, id=433, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/levenshtein_logPA.png Graphic file (type png)
 <use img/results_discussion/empirical/levenshtein_logPA.png>
-Package pdftex.def Info: img/results_discussion/empirical/levenshtein_logPA.png  used on input line 254.
+Package pdftex.def Info: img/results_discussion/empirical/levenshtein_logPA.png  used on input line 265.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/levenshtein_AFR_true.png, id=261, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/levenshtein_AFR_true.png, id=434, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/levenshtein_AFR_true.png Graphic file (type png)
 <use img/results_discussion/empirical/levenshtein_AFR_true.png>
-Package pdftex.def Info: img/results_discussion/empirical/levenshtein_AFR_true.png  used on input line 259.
+Package pdftex.def Info: img/results_discussion/empirical/levenshtein_AFR_true.png  used on input line 270.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 267--275
+Underfull \hbox (badness 10000) in paragraph at lines 278--286
 
  []
 
 [32 <./img/results_discussion/empirical/beta_100.pdf> <./img/results_discussion/empirical/logPA_100.png> <./img/results_discussion/empirical/levenshtein_logPA.png> <./img/results_discussion/empirical/levenshtein_AFR_true.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 276--285
+Underfull \hbox (badness 10000) in paragraph at lines 287--296
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 288--296
+Underfull \hbox (badness 10000) in paragraph at lines 299--307
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 297--308
+Underfull \hbox (badness 10000) in paragraph at lines 308--319
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--317
+Underfull \hbox (badness 10000) in paragraph at lines 320--328
 
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 353--357
+Underfull \hbox (badness 10000) in paragraph at lines 364--368
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 358--369
+Underfull \hbox (badness 10000) in paragraph at lines 369--380
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 370--386
+Underfull \hbox (badness 10000) in paragraph at lines 381--397
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 417--425
+Underfull \hbox (badness 10000) in paragraph at lines 427--435
 
  []
 
 [34]
-Underfull \hbox (badness 10000) in paragraph at lines 426--431
+Underfull \hbox (badness 10000) in paragraph at lines 436--441
 
  []
 
-
-LaTeX Warning: Reference `fig:pgd_distributions_undefended' on page 35 undefined on input line 454.
-
-
-LaTeX Warning: Reference `fig:pgd_distributions_bpda' on page 35 undefined on input line 454.
-
-
-LaTeX Warning: Reference `fig:pgd_distributions_undefended' on page 35 undefined on input line 454.
-
-
-LaTeX Warning: Reference `fig:pgd_distributions_bpda' on page 35 undefined on input line 454.
-
-<img/results_discussion/adversarial/adv_unperturbed_framed.png, id=281, 34.1275pt x 34.1275pt>
+<img/results_discussion/adversarial/adv_unperturbed_framed.png, id=453, 34.1275pt x 34.1275pt>
 File: img/results_discussion/adversarial/adv_unperturbed_framed.png Graphic file (type png)
 <use img/results_discussion/adversarial/adv_unperturbed_framed.png>
-Package pdftex.def Info: img/results_discussion/adversarial/adv_unperturbed_framed.png  used on input line 488.
+Package pdftex.def Info: img/results_discussion/adversarial/adv_unperturbed_framed.png  used on input line 498.
 (pdftex.def)             Requested size: 106.69783pt x 106.70486pt.
-<img/results_discussion/adversarial/adv_pgd_framed.png, id=282, 34.1275pt x 34.1275pt>
+<img/results_discussion/adversarial/adv_pgd_framed.png, id=454, 34.1275pt x 34.1275pt>
 File: img/results_discussion/adversarial/adv_pgd_framed.png Graphic file (type png)
 <use img/results_discussion/adversarial/adv_pgd_framed.png>
-Package pdftex.def Info: img/results_discussion/adversarial/adv_pgd_framed.png  used on input line 494.
+Package pdftex.def Info: img/results_discussion/adversarial/adv_pgd_framed.png  used on input line 504.
 (pdftex.def)             Requested size: 106.69783pt x 106.70486pt.
-<img/results_discussion/adversarial/adv_fmn_framed.png, id=283, 34.1275pt x 34.1275pt>
+<img/results_discussion/adversarial/adv_fmn_framed.png, id=455, 34.1275pt x 34.1275pt>
 File: img/results_discussion/adversarial/adv_fmn_framed.png Graphic file (type png)
 <use img/results_discussion/adversarial/adv_fmn_framed.png>
-Package pdftex.def Info: img/results_discussion/adversarial/adv_fmn_framed.png  used on input line 500.
+Package pdftex.def Info: img/results_discussion/adversarial/adv_fmn_framed.png  used on input line 510.
 (pdftex.def)             Requested size: 106.69783pt x 106.70486pt.
 [35 <./img/results_discussion/adversarial/adv_unperturbed_framed.png (PNG copy)> <./img/results_discussion/adversarial/adv_pgd_framed.png (PNG copy)> <./img/results_discussion/adversarial/adv_fmn_framed.png (PNG copy)>]
-<img/results_discussion/adversarial/PGD_0.0314_combo.png, id=289, 1396.9791pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.0314_combo.png, id=462, 1396.9791pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.0314_combo.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.0314_combo.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0314_combo.png  used on input line 515.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0314_combo.png  used on input line 525.
 (pdftex.def)             Requested size: 426.79134pt x 120.33195pt.
-<img/results_discussion/adversarial/PGD_0.0627_combo.png, id=290, 1398.4245pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.0627_combo.png, id=463, 1398.4245pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.0627_combo.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.0627_combo.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0627_combo.png  used on input line 522.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0627_combo.png  used on input line 532.
 (pdftex.def)             Requested size: 426.79134pt x 120.20575pt.
-<img/results_discussion/adversarial/PGD_0.1255_combo.png, id=291, 1410.7104pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.1255_combo.png, id=464, 1410.7104pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.1255_combo.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.1255_combo.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.1255_combo.png  used on input line 529.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.1255_combo.png  used on input line 539.
 (pdftex.def)             Requested size: 426.79134pt x 119.16pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--549
+Underfull \hbox (badness 10000) in paragraph at lines 553--561
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 550--556
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 557--568
-
- []
-
-[36 <./img/results_discussion/adversarial/PGD_0.0314_combo.png> <./img/results_discussion/adversarial/PGD_0.0627_combo.png> <./img/results_discussion/adversarial/PGD_0.1255_combo.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 569--580
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 581--596
-
- []
-
-<img/results_discussion/adversarial/bpda_wang_undefended_beta_pgd.png, id=298, 1369.5165pt x 390.9807pt>
+<img/results_discussion/adversarial/bpda_wang_undefended_beta_pgd.png, id=465, 1369.5165pt x 390.9807pt>
 File: img/results_discussion/adversarial/bpda_wang_undefended_beta_pgd.png Graphic file (type png)
 <use img/results_discussion/adversarial/bpda_wang_undefended_beta_pgd.png>
-Package pdftex.def Info: img/results_discussion/adversarial/bpda_wang_undefended_beta_pgd.png  used on input line 601.
+Package pdftex.def Info: img/results_discussion/adversarial/bpda_wang_undefended_beta_pgd.png  used on input line 574.
 (pdftex.def)             Requested size: 426.79134pt x 121.84111pt.
+[36 <./img/results_discussion/adversarial/PGD_0.0314_combo.png> <./img/results_discussion/adversarial/PGD_0.0627_combo.png> <./img/results_discussion/adversarial/PGD_0.1255_combo.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 596--608
 
-Underfull \hbox (badness 10000) in paragraph at lines 611--623
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 609--624
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 625--637
 
  []
 
 [37 <./img/results_discussion/adversarial/bpda_wang_undefended_beta_pgd.png>]
-<img/results_discussion/adversarial/PGD_logPA_eps.png, id=303, 557.9244pt x 393.8715pt>
+Underfull \hbox (badness 10000) in paragraph at lines 662--674
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 675--686
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 687--692
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 693--706
+
+ []
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 707--713
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 714--724
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 725--731
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 732--745
+
+ []
+
+<img/results_discussion/adversarial/PGD_logPA_eps.png, id=480, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_logPA_eps.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_logPA_eps.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_logPA_eps.png  used on input line 628.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_logPA_eps.png  used on input line 750.
 (pdftex.def)             Requested size: 157.9107pt x 111.47324pt.
-<img/results_discussion/adversarial/PGD_AFR_true_eps_diff.png, id=304, 889.6437pt x 392.4261pt>
+<img/results_discussion/adversarial/PGD_AFR_true_eps_diff.png, id=481, 889.6437pt x 392.4261pt>
 File: img/results_discussion/adversarial/PGD_AFR_true_eps_diff.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_AFR_true_eps_diff.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_AFR_true_eps_diff.png  used on input line 633.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_AFR_true_eps_diff.png  used on input line 755.
 (pdftex.def)             Requested size: 251.80531pt x 111.07014pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 641--654
-
- []
-
-<img/results_discussion/adversarial/FMN_logPA.png, id=305, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/FMN_logPA.png, id=482, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/FMN_logPA.png Graphic file (type png)
 <use img/results_discussion/adversarial/FMN_logPA.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FMN_logPA.png  used on input line 667.
+Package pdftex.def Info: img/results_discussion/adversarial/FMN_logPA.png  used on input line 775.
 (pdftex.def)             Requested size: 166.44835pt x 117.50125pt.
-<img/results_discussion/adversarial/FMN_1000_AFR_true.png, id=306, 842.6682pt x 392.4261pt>
+<img/results_discussion/adversarial/FMN_1000_AFR_true.png, id=483, 842.6682pt x 392.4261pt>
 File: img/results_discussion/adversarial/FMN_1000_AFR_true.png Graphic file (type png)
 <use img/results_discussion/adversarial/FMN_1000_AFR_true.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FMN_1000_AFR_true.png  used on input line 672.
+Package pdftex.def Info: img/results_discussion/adversarial/FMN_1000_AFR_true.png  used on input line 780.
 (pdftex.def)             Requested size: 251.80531pt x 117.26167pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 685--693
+Underfull \vbox (badness 1742) has occurred while \output is active []
+
+ [39 <./img/results_discussion/adversarial/PGD_logPA_eps.png> <./img/results_discussion/adversarial/PGD_AFR_true_eps_diff.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 789--797
 
  []
 
-[38 <./img/results_discussion/adversarial/PGD_logPA_eps.png> <./img/results_discussion/adversarial/PGD_AFR_true_eps_diff.png> <./img/results_discussion/adversarial/FMN_logPA.png> <./img/results_discussion/adversarial/FMN_1000_AFR_true.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 694--702
+
+Underfull \hbox (badness 10000) in paragraph at lines 798--805
 
  []
 
-<img/results_discussion/adversarial/bpda_wang_undefended_beta_fmn.png, id=314, 1383.2478pt x 390.9807pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 806--814
+
+ []
+
+<img/results_discussion/adversarial/bpda_wang_undefended_beta_fmn.png, id=489, 1383.2478pt x 390.9807pt>
 File: img/results_discussion/adversarial/bpda_wang_undefended_beta_fmn.png Graphic file (type png)
 <use img/results_discussion/adversarial/bpda_wang_undefended_beta_fmn.png>
-Package pdftex.def Info: img/results_discussion/adversarial/bpda_wang_undefended_beta_fmn.png  used on input line 707.
+Package pdftex.def Info: img/results_discussion/adversarial/bpda_wang_undefended_beta_fmn.png  used on input line 819.
 (pdftex.def)             Requested size: 426.79134pt x 120.636pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 717--729
+Underfull \hbox (badness 10000) in paragraph at lines 834--846
+
+ []
+
+[40 <./img/results_discussion/adversarial/FMN_logPA.png> <./img/results_discussion/adversarial/FMN_1000_AFR_true.png> <./img/results_discussion/adversarial/bpda_wang_undefended_beta_fmn.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 847--856
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 730--740
+Underfull \hbox (badness 10000) in paragraph at lines 882--893
 
  []
 
@@ -1418,424 +1471,568 @@ Underfull \hbox (badness 10000) in paragraph at lines 730--740
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 798--803
-
- []
-
-[39 <./img/results_discussion/adversarial/bpda_wang_undefended_beta_fmn.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 806--812
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 813--825
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 826--837
-
- []
-
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 838--843
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 869--887
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 888--898
+Underfull \hbox (badness 10000) in paragraph at lines 943--953
 
  []
 
 [41]
-Underfull \hbox (badness 10000) in paragraph at lines 932--940
+<img/results_discussion/adversarial/2_PGD_0.1255_thesis2.pdf, id=500, 837.10342pt x 394.4641pt>
+File: img/results_discussion/adversarial/2_PGD_0.1255_thesis2.pdf Graphic file (type pdf)
+<use img/results_discussion/adversarial/2_PGD_0.1255_thesis2.pdf>
+Package pdftex.def Info: img/results_discussion/adversarial/2_PGD_0.1255_thesis2.pdf  used on input line 961.
+(pdftex.def)             Requested size: 213.39566pt x 100.55391pt.
+<img/results_discussion/adversarial/FID_barplot_0.1255_300.pdf, id=501, 390.64827pt x 394.4641pt>
+File: img/results_discussion/adversarial/FID_barplot_0.1255_300.pdf Graphic file (type pdf)
+<use img/results_discussion/adversarial/FID_barplot_0.1255_300.pdf>
+Package pdftex.def Info: img/results_discussion/adversarial/FID_barplot_0.1255_300.pdf  used on input line 966.
+(pdftex.def)             Requested size: 98.16017pt x 99.11536pt.
+<img/results_discussion/adversarial/W_barplot_0.1255_300.pdf, id=502, 390.64827pt x 394.4641pt>
+File: img/results_discussion/adversarial/W_barplot_0.1255_300.pdf Graphic file (type pdf)
+<use img/results_discussion/adversarial/W_barplot_0.1255_300.pdf>
+Package pdftex.def Info: img/results_discussion/adversarial/W_barplot_0.1255_300.pdf  used on input line 970.
+(pdftex.def)             Requested size: 98.16017pt x 99.11536pt.
+<img/results_discussion/adversarial/2_FMN_thesis2.pdf, id=503, 837.10342pt x 394.4641pt>
+File: img/results_discussion/adversarial/2_FMN_thesis2.pdf Graphic file (type pdf)
+<use img/results_discussion/adversarial/2_FMN_thesis2.pdf>
+Package pdftex.def Info: img/results_discussion/adversarial/2_FMN_thesis2.pdf  used on input line 977.
+(pdftex.def)             Requested size: 213.39566pt x 100.55391pt.
+<img/results_discussion/adversarial/FID_barplot_FMN_300.pdf, id=504, 390.64827pt x 394.4641pt>
+File: img/results_discussion/adversarial/FID_barplot_FMN_300.pdf Graphic file (type pdf)
+<use img/results_discussion/adversarial/FID_barplot_FMN_300.pdf>
+Package pdftex.def Info: img/results_discussion/adversarial/FID_barplot_FMN_300.pdf  used on input line 982.
+(pdftex.def)             Requested size: 98.16017pt x 99.11536pt.
+<img/results_discussion/adversarial/W_barplot_FMN_300.pdf, id=505, 390.64827pt x 394.4641pt>
+File: img/results_discussion/adversarial/W_barplot_FMN_300.pdf Graphic file (type pdf)
+<use img/results_discussion/adversarial/W_barplot_FMN_300.pdf>
+Package pdftex.def Info: img/results_discussion/adversarial/W_barplot_FMN_300.pdf  used on input line 986.
+(pdftex.def)             Requested size: 98.16017pt x 99.11536pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 997--1014
+
+ []
+
+[42 <./img/results_discussion/adversarial/2_PGD_0.1255_thesis2.pdf> <./img/results_discussion/adversarial/FID_barplot_0.1255_300.pdf> <./img/results_discussion/adversarial/W_barplot_0.1255_300.pdf> <./img/results_discussion/adversarial/2_FMN_thesis2.pdf> <./img/results_discussion/adversarial/FID_barplot_FMN_300.pdf> <./img/results_discussion/adversarial/W_barplot_FMN_300.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1030
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 941--953
+Underfull \hbox (badness 10000) in paragraph at lines 1031--1040
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 954--963
-
- []
-
-<img/results_discussion/adversarial/DIFF_PGD_0.1255.png, id=326, 402.5439pt x 393.8715pt>
-File: img/results_discussion/adversarial/DIFF_PGD_0.1255.png Graphic file (type png)
-<use img/results_discussion/adversarial/DIFF_PGD_0.1255.png>
-Package pdftex.def Info: img/results_discussion/adversarial/DIFF_PGD_0.1255.png  used on input line 968.
-(pdftex.def)             Requested size: 128.0387pt x 125.27818pt.
-<img/results_discussion/adversarial/FID_barplot_0.1255.png, id=327, 390.258pt x 393.8715pt>
-File: img/results_discussion/adversarial/FID_barplot_0.1255.png Graphic file (type png)
-<use img/results_discussion/adversarial/FID_barplot_0.1255.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FID_barplot_0.1255.png  used on input line 973.
-(pdftex.def)             Requested size: 128.0387pt x 129.22073pt.
-<img/results_discussion/adversarial/W_barplot_0.1255.png, id=328, 390.258pt x 393.8715pt>
-File: img/results_discussion/adversarial/W_barplot_0.1255.png Graphic file (type png)
-<use img/results_discussion/adversarial/W_barplot_0.1255.png>
-Package pdftex.def Info: img/results_discussion/adversarial/W_barplot_0.1255.png  used on input line 977.
-(pdftex.def)             Requested size: 128.0387pt x 129.22073pt.
-<img/results_discussion/adversarial/DIFF_FMN.png, id=329, 390.258pt x 393.8715pt>
-File: img/results_discussion/adversarial/DIFF_FMN.png Graphic file (type png)
-<use img/results_discussion/adversarial/DIFF_FMN.png>
-Package pdftex.def Info: img/results_discussion/adversarial/DIFF_FMN.png  used on input line 984.
-(pdftex.def)             Requested size: 128.0387pt x 129.22073pt.
-<img/results_discussion/adversarial/FID_barplot_FMN.png, id=330, 390.258pt x 393.8715pt>
-File: img/results_discussion/adversarial/FID_barplot_FMN.png Graphic file (type png)
-<use img/results_discussion/adversarial/FID_barplot_FMN.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FID_barplot_FMN.png  used on input line 989.
-(pdftex.def)             Requested size: 128.0387pt x 129.22073pt.
-<img/results_discussion/adversarial/W_barplot_FMN.png, id=331, 390.258pt x 393.8715pt>
-File: img/results_discussion/adversarial/W_barplot_FMN.png Graphic file (type png)
-<use img/results_discussion/adversarial/W_barplot_FMN.png>
-Package pdftex.def Info: img/results_discussion/adversarial/W_barplot_FMN.png  used on input line 993.
-(pdftex.def)             Requested size: 128.0387pt x 129.22073pt.
-
-Underfull \vbox (badness 1824) has occurred while \output is active []
-
- [42]
-Underfull \hbox (badness 10000) in paragraph at lines 1004--1019
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1096
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1033--1047
-
- []
-
-[43 <./img/results_discussion/adversarial/DIFF_PGD_0.1255.png> <./img/results_discussion/adversarial/FID_barplot_0.1255.png> <./img/results_discussion/adversarial/W_barplot_0.1255.png> <./img/results_discussion/adversarial/DIFF_FMN.png> <./img/results_discussion/adversarial/FID_barplot_FMN.png> <./img/results_discussion/adversarial/W_barplot_FMN.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1048--1057
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1058--1070
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1082--1083
-
- []
-
-[44]
-<img/results_discussion/datashift/dsimages/train_collage.png, id=347, 1084.05pt x 1084.05pt>
+<img/results_discussion/datashift/dsimages/train_collage.png, id=755, 1084.05pt x 1084.05pt>
 File: img/results_discussion/datashift/dsimages/train_collage.png Graphic file (type png)
 <use img/results_discussion/datashift/dsimages/train_collage.png>
-Package pdftex.def Info: img/results_discussion/datashift/dsimages/train_collage.png  used on input line 1143.
+Package pdftex.def Info: img/results_discussion/datashift/dsimages/train_collage.png  used on input line 1132.
 (pdftex.def)             Requested size: 56.90189pt x 56.9055pt.
-<img/results_discussion/datashift/dsimages/val_collage.png, id=348, 1084.05pt x 1084.05pt>
+<img/results_discussion/datashift/dsimages/val_collage.png, id=756, 1084.05pt x 1084.05pt>
 File: img/results_discussion/datashift/dsimages/val_collage.png Graphic file (type png)
 <use img/results_discussion/datashift/dsimages/val_collage.png>
-Package pdftex.def Info: img/results_discussion/datashift/dsimages/val_collage.png  used on input line 1149.
+Package pdftex.def Info: img/results_discussion/datashift/dsimages/val_collage.png  used on input line 1138.
 (pdftex.def)             Requested size: 56.90189pt x 56.9055pt.
-<img/results_discussion/datashift/dsimages/test_collage2.png, id=349, 2990.92406pt x 813.0375pt>
+<img/results_discussion/datashift/dsimages/test_collage2.png, id=757, 2990.92406pt x 813.0375pt>
 File: img/results_discussion/datashift/dsimages/test_collage2.png Graphic file (type png)
 <use img/results_discussion/datashift/dsimages/test_collage2.png>
-Package pdftex.def Info: img/results_discussion/datashift/dsimages/test_collage2.png  used on input line 1155.
+Package pdftex.def Info: img/results_discussion/datashift/dsimages/test_collage2.png  used on input line 1144.
 (pdftex.def)             Requested size: 209.2948pt x 56.9055pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1167--1173
+Underfull \hbox (badness 10000) in paragraph at lines 1155--1164
 
  []
 
-<img/results_discussion/datashift/shift_ratio=0.200.pdf, id=350, 558.06895pt x 394.4641pt>
+[44 <./img/results_discussion/datashift/dsimages/train_collage.png> <./img/results_discussion/datashift/dsimages/val_collage.png> <./img/results_discussion/datashift/dsimages/test_collage2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1165--1176
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1177--1187
+
+ []
+
+<img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.2.pdf, id=764, 558.06895pt x 394.4641pt>
+File: img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.2.pdf Graphic file (type pdf)
+<use img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.2.pdf>
+Package pdftex.def Info: img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.2.pdf  used on input line 1192.
+(pdftex.def)             Requested size: 136.57634pt x 96.53319pt.
+<img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.6.pdf, id=765, 558.06895pt x 394.4641pt>
+File: img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.6.pdf Graphic file (type pdf)
+<use img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.6.pdf>
+Package pdftex.def Info: img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.6.pdf  used on input line 1197.
+(pdftex.def)             Requested size: 136.57634pt x 96.53319pt.
+<img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=1.0.pdf, id=766, 558.06895pt x 394.4641pt>
+File: img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=1.0.pdf Graphic file (type pdf)
+<use img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=1.0.pdf>
+Package pdftex.def Info: img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=1.0.pdf  used on input line 1202.
+(pdftex.def)             Requested size: 136.57634pt x 96.53319pt.
+[45 <./img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.2.pdf> <./img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=0.6.pdf> <./img/results_discussion/datashift/paper_nonpaired_sel=acc_met=PA_sr=1.0.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1247--1251
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1252--1267
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1268--1276
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1277--1287
+
+ []
+
+<img/results_discussion/datashift/shift_ratio=0.200.pdf, id=930, 558.06895pt x 394.4641pt>
 File: img/results_discussion/datashift/shift_ratio=0.200.pdf Graphic file (type pdf)
 <use img/results_discussion/datashift/shift_ratio=0.200.pdf>
-Package pdftex.def Info: img/results_discussion/datashift/shift_ratio=0.200.pdf  used on input line 1178.
-(pdftex.def)             Requested size: 128.0387pt x 90.50212pt.
-<img/results_discussion/datashift/shift_ratio=0.400.pdf, id=351, 558.06895pt x 394.4641pt>
-File: img/results_discussion/datashift/shift_ratio=0.400.pdf Graphic file (type pdf)
-<use img/results_discussion/datashift/shift_ratio=0.400.pdf>
-Package pdftex.def Info: img/results_discussion/datashift/shift_ratio=0.400.pdf  used on input line 1183.
-(pdftex.def)             Requested size: 128.0387pt x 90.50212pt.
-<img/results_discussion/datashift/shift_ratio=0.600.pdf, id=352, 558.06895pt x 394.4641pt>
+Package pdftex.def Info: img/results_discussion/datashift/shift_ratio=0.200.pdf  used on input line 1293.
+(pdftex.def)             Requested size: 136.57634pt x 96.53319pt.
+<img/results_discussion/datashift/shift_ratio=0.600.pdf, id=931, 558.06895pt x 394.4641pt>
 File: img/results_discussion/datashift/shift_ratio=0.600.pdf Graphic file (type pdf)
 <use img/results_discussion/datashift/shift_ratio=0.600.pdf>
-Package pdftex.def Info: img/results_discussion/datashift/shift_ratio=0.600.pdf  used on input line 1188.
-(pdftex.def)             Requested size: 128.0387pt x 90.50212pt.
-<img/results_discussion/datashift/shift_ratio=0.800.pdf, id=353, 558.06895pt x 394.4641pt>
-File: img/results_discussion/datashift/shift_ratio=0.800.pdf Graphic file (type pdf)
-<use img/results_discussion/datashift/shift_ratio=0.800.pdf>
-Package pdftex.def Info: img/results_discussion/datashift/shift_ratio=0.800.pdf  used on input line 1195.
-(pdftex.def)             Requested size: 128.0387pt x 90.50212pt.
-<img/results_discussion/datashift/shift_ratio=1.000.pdf, id=354, 558.06895pt x 394.4641pt>
+Package pdftex.def Info: img/results_discussion/datashift/shift_ratio=0.600.pdf  used on input line 1298.
+(pdftex.def)             Requested size: 136.57634pt x 96.53319pt.
+<img/results_discussion/datashift/shift_ratio=1.000.pdf, id=932, 558.06895pt x 394.4641pt>
 File: img/results_discussion/datashift/shift_ratio=1.000.pdf Graphic file (type pdf)
 <use img/results_discussion/datashift/shift_ratio=1.000.pdf>
-Package pdftex.def Info: img/results_discussion/datashift/shift_ratio=1.000.pdf  used on input line 1200.
-(pdftex.def)             Requested size: 128.0387pt x 90.50212pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [45 <./img/results_discussion/datashift/dsimages/train_collage.png> <./img/results_discussion/datashift/dsimages/val_collage.png> <./img/results_discussion/datashift/dsimages/test_collage2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1210--1220
-
- []
-
-[46 <./img/results_discussion/datashift/shift_ratio=0.200.pdf> <./img/results_discussion/datashift/shift_ratio=0.400.pdf> <./img/results_discussion/datashift/shift_ratio=0.600.pdf> <./img/results_discussion/datashift/shift_ratio=0.800.pdf> <./img/results_discussion/datashift/shift_ratio=1.000.pdf>]) (./chapters/results_model_selection.tex
-Chapter 5.
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--19
+Package pdftex.def Info: img/results_discussion/datashift/shift_ratio=1.000.pdf  used on input line 1303.
+(pdftex.def)             Requested size: 136.57634pt x 96.53319pt.
+[46 <./img/results_discussion/datashift/shift_ratio=0.200.pdf> <./img/results_discussion/datashift/shift_ratio=0.600.pdf> <./img/results_discussion/datashift/shift_ratio=1.000.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1381
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 20--27
+Underfull \hbox (badness 10000) in paragraph at lines 1382--1392
+
+ []
+
+<img/results_discussion/datashift/posterior_paper_nonpaired.pdf, id=1091, 837.10342pt x 394.4641pt>
+File: img/results_discussion/datashift/posterior_paper_nonpaired.pdf Graphic file (type pdf)
+<use img/results_discussion/datashift/posterior_paper_nonpaired.pdf>
+Package pdftex.def Info: img/results_discussion/datashift/posterior_paper_nonpaired.pdf  used on input line 1398.
+(pdftex.def)             Requested size: 204.85802pt x 96.53319pt.
+<img/results_discussion/datashift/posterior_paper.pdf, id=1092, 837.10342pt x 394.4641pt>
+File: img/results_discussion/datashift/posterior_paper.pdf Graphic file (type pdf)
+<use img/results_discussion/datashift/posterior_paper.pdf>
+Package pdftex.def Info: img/results_discussion/datashift/posterior_paper.pdf  used on input line 1403.
+(pdftex.def)             Requested size: 204.85802pt x 96.53319pt.
+[47 <./img/results_discussion/datashift/posterior_paper_nonpaired.pdf> <./img/results_discussion/datashift/posterior_paper.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 1433--1440
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--34
+Underfull \hbox (badness 10000) in paragraph at lines 1441--1446
 
  []
 
 
-LaTeX Warning: Reference `fig:modsel_17_posterior' on page 47 undefined on input line 40.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--44
+Underfull \hbox (badness 10000) in paragraph at lines 1448--1458
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 45--54
-
- []
-
-[47
-
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 55--56
+Underfull \hbox (badness 10000) in paragraph at lines 1459--1465
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 1475--1482
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 59--65
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--71
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--78
-
- []
-
-
-LaTeX Warning: Reference `tab:msel_hue' on page 48 undefined on input line 85.
-
-
-LaTeX Warning: Reference `tab:msel_pos' on page 48 undefined on input line 85.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--87
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 88--89
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 90--91
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--94
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 95--98
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 99--103
+Underfull \hbox (badness 10000) in paragraph at lines 1483--1489
 
  []
 
 [48]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<img/results_discussion/datashift/NL_1.png, id=1254, 527.571pt x 393.6306pt>
+File: img/results_discussion/datashift/NL_1.png Graphic file (type png)
+<use img/results_discussion/datashift/NL_1.png>
+Package pdftex.def Info: img/results_discussion/datashift/NL_1.png  used on input line 1495.
+(pdftex.def)             Requested size: 136.57634pt x 101.90308pt.
+<img/results_discussion/datashift/NL_2.png, id=1255, 527.571pt x 393.6306pt>
+File: img/results_discussion/datashift/NL_2.png Graphic file (type png)
+<use img/results_discussion/datashift/NL_2.png>
+Package pdftex.def Info: img/results_discussion/datashift/NL_2.png  used on input line 1500.
+(pdftex.def)             Requested size: 136.57634pt x 101.90308pt.
+<img/results_discussion/datashift/NL_5.png, id=1256, 527.571pt x 393.6306pt>
+File: img/results_discussion/datashift/NL_5.png Graphic file (type png)
+<use img/results_discussion/datashift/NL_5.png>
+Package pdftex.def Info: img/results_discussion/datashift/NL_5.png  used on input line 1505.
+(pdftex.def)             Requested size: 136.57634pt x 101.90308pt.
+<img/results_discussion/datashift/L_1.png, id=1257, 527.571pt x 393.6306pt>
+File: img/results_discussion/datashift/L_1.png Graphic file (type png)
+<use img/results_discussion/datashift/L_1.png>
+Package pdftex.def Info: img/results_discussion/datashift/L_1.png  used on input line 1512.
+(pdftex.def)             Requested size: 136.57634pt x 101.90308pt.
+<img/results_discussion/datashift/L_2.png, id=1258, 527.571pt x 393.6306pt>
+File: img/results_discussion/datashift/L_2.png Graphic file (type png)
+<use img/results_discussion/datashift/L_2.png>
+Package pdftex.def Info: img/results_discussion/datashift/L_2.png  used on input line 1517.
+(pdftex.def)             Requested size: 136.57634pt x 101.90308pt.
+<img/results_discussion/datashift/L_5.png, id=1259, 527.571pt x 393.6306pt>
+File: img/results_discussion/datashift/L_5.png Graphic file (type png)
+<use img/results_discussion/datashift/L_5.png>
+Package pdftex.def Info: img/results_discussion/datashift/L_5.png  used on input line 1522.
+(pdftex.def)             Requested size: 136.57634pt x 101.90308pt.
 
- [49]
-Underfull \hbox (badness 10000) in paragraph at lines 220--227
+Underfull \hbox (badness 10000) in paragraph at lines 1536--1545
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 228--236
+Underfull \hbox (badness 10000) in paragraph at lines 1546--1551
 
  []
 
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
+[49 <./img/results_discussion/datashift/NL_1.png> <./img/results_discussion/datashift/NL_2.png> <./img/results_discussion/datashift/NL_5.png> <./img/results_discussion/datashift/L_1.png> <./img/results_discussion/datashift/L_2.png> <./img/results_discussion/datashift/L_5.png>] [50
+
+]) (./chapters/results_model_selection.tex
+Chapter 5.
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--10
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--251
+Underfull \hbox (badness 10000) in paragraph at lines 11--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--28
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--38
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 39--46
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 47--58
+
+ []
+
+[51
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 68--74
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 99--105
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--111
+
+ []
+
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 198--207
+
+ []
+
+[53]
+Underfull \hbox (badness 10000) in paragraph at lines 208--214
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--220
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 221--227
+
+ []
+
+
+Underfull \vbox (badness 5245) has occurred while \output is active []
+
+ [54]
+Underfull \hbox (badness 10000) in paragraph at lines 314--319
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 320--326
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 327--338
+
+ []
+
+[55]
+Underfull \hbox (badness 10000) in paragraph at lines 343--349
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 360--364
 
  []
 
 
 
 pdfTeX warning: pdflatex.exe (file ./img/datasets/_legend_theory.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/datasets/_legend_theory.pdf, id=636, 588.81062pt x 33.24709pt>
+<img/datasets/_legend_theory.pdf, id=1289, 588.81062pt x 33.24709pt>
 File: img/datasets/_legend_theory.pdf Graphic file (type pdf)
 <use img/datasets/_legend_theory.pdf>
-Package pdftex.def Info: img/datasets/_legend_theory.pdf  used on input line 281.
+Package pdftex.def Info: img/datasets/_legend_theory.pdf  used on input line 394.
 (pdftex.def)             Requested size: 256.0774pt x 14.45982pt.
-<img/datasets/_ZGO.pdf, id=637, 183.91911pt x 205.67226pt>
+<img/datasets/_ZGO.pdf, id=1290, 183.91911pt x 205.67226pt>
 File: img/datasets/_ZGO.pdf Graphic file (type pdf)
 <use img/datasets/_ZGO.pdf>
-Package pdftex.def Info: img/datasets/_ZGO.pdf  used on input line 286.
+Package pdftex.def Info: img/datasets/_ZGO.pdf  used on input line 399.
 (pdftex.def)             Requested size: 72.55374pt x 81.1345pt.
-<img/datasets/_1-CGO.pdf, id=638, 183.91911pt x 205.67226pt>
+<img/datasets/_1-CGO.pdf, id=1291, 183.91911pt x 205.67226pt>
 File: img/datasets/_1-CGO.pdf Graphic file (type pdf)
 <use img/datasets/_1-CGO.pdf>
-Package pdftex.def Info: img/datasets/_1-CGO.pdf  used on input line 290.
+Package pdftex.def Info: img/datasets/_1-CGO.pdf  used on input line 403.
 (pdftex.def)             Requested size: 72.55374pt x 81.1345pt.
-<img/datasets/_2-CGO.pdf, id=639, 183.91911pt x 205.67226pt>
+<img/datasets/_2-CGO.pdf, id=1292, 183.91911pt x 205.67226pt>
 File: img/datasets/_2-CGO.pdf Graphic file (type pdf)
 <use img/datasets/_2-CGO.pdf>
-Package pdftex.def Info: img/datasets/_2-CGO.pdf  used on input line 294.
+Package pdftex.def Info: img/datasets/_2-CGO.pdf  used on input line 407.
 (pdftex.def)             Requested size: 72.55374pt x 81.1345pt.
-<img/datasets/_3-CGO.pdf, id=640, 183.91911pt x 205.67226pt>
+<img/datasets/_3-CGO.pdf, id=1293, 183.91911pt x 205.67226pt>
 File: img/datasets/_3-CGO.pdf Graphic file (type pdf)
 <use img/datasets/_3-CGO.pdf>
-Package pdftex.def Info: img/datasets/_3-CGO.pdf  used on input line 298.
+Package pdftex.def Info: img/datasets/_3-CGO.pdf  used on input line 411.
 (pdftex.def)             Requested size: 72.55374pt x 81.1345pt.
-<img/datasets/_ZSO.pdf, id=641, 183.91911pt x 205.67226pt>
+<img/datasets/_ZSO.pdf, id=1294, 183.91911pt x 205.67226pt>
 File: img/datasets/_ZSO.pdf Graphic file (type pdf)
 <use img/datasets/_ZSO.pdf>
-Package pdftex.def Info: img/datasets/_ZSO.pdf  used on input line 302.
+Package pdftex.def Info: img/datasets/_ZSO.pdf  used on input line 415.
 (pdftex.def)             Requested size: 72.55374pt x 81.1345pt.
-[51 <./img/datasets/_legend_theory.pdf> <./img/datasets/_ZGO.pdf> <./img/datasets/_1-CGO.pdf> <./img/datasets/_2-CGO.pdf> <./img/datasets/_3-CGO.pdf> <./img/datasets/_ZSO.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 330--337
+
+Underfull \hbox (badness 10000) in paragraph at lines 423--428
+
+ []
+
+[56 <./img/datasets/_legend_theory.pdf> <./img/datasets/_ZGO.pdf> <./img/datasets/_1-CGO.pdf> <./img/datasets/_2-CGO.pdf> <./img/datasets/_3-CGO.pdf> <./img/datasets/_ZSO.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 429--439
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
+Underfull \hbox (badness 10000) in paragraph at lines 440--445
+
+ []
+
+[57]
+<img/model_selection/posterior_erm_hue.pdf, id=1508, 697.58615pt x 394.4641pt>
+File: img/model_selection/posterior_erm_hue.pdf Graphic file (type pdf)
+<use img/model_selection/posterior_erm_hue.pdf>
+Package pdftex.def Info: img/model_selection/posterior_erm_hue.pdf  used on input line 527.
+(pdftex.def)             Requested size: 192.0548pt x 108.60135pt.
+<img/model_selection/posterior_irm_hue.pdf, id=1509, 697.58615pt x 394.4641pt>
+File: img/model_selection/posterior_irm_hue.pdf Graphic file (type pdf)
+<use img/model_selection/posterior_irm_hue.pdf>
+Package pdftex.def Info: img/model_selection/posterior_irm_hue.pdf  used on input line 532.
+(pdftex.def)             Requested size: 192.0548pt x 108.60135pt.
+<img/model_selection/posterior_erm_position.pdf, id=1510, 697.58615pt x 394.4641pt>
+File: img/model_selection/posterior_erm_position.pdf Graphic file (type pdf)
+<use img/model_selection/posterior_erm_position.pdf>
+Package pdftex.def Info: img/model_selection/posterior_erm_position.pdf  used on input line 539.
+(pdftex.def)             Requested size: 192.0548pt x 108.60135pt.
+<img/model_selection/posterior_irm_position.pdf, id=1511, 697.58615pt x 394.4641pt>
+File: img/model_selection/posterior_irm_position.pdf Graphic file (type pdf)
+<use img/model_selection/posterior_irm_position.pdf>
+Package pdftex.def Info: img/model_selection/posterior_irm_position.pdf  used on input line 544.
+(pdftex.def)             Requested size: 192.0548pt x 108.60135pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58 <./img/model_selection/posterior_erm_hue.pdf> <./img/model_selection/posterior_irm_hue.pdf> <./img/model_selection/posterior_erm_position.pdf> <./img/model_selection/posterior_irm_position.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 583--589
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--342
-
- []
-
-[52]
-Underfull \hbox (badness 10000) in paragraph at lines 393--401
+Underfull \hbox (badness 10000) in paragraph at lines 590--596
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 403--405
+Underfull \hbox (badness 10000) in paragraph at lines 597--603
 
  []
 
-[53] [54
+[59] [60]
+Underfull \hbox (badness 10000) in paragraph at lines 723--729
+
+ []
+
+[61] [62
 
 ]) (./chapters/conclusion.tex
 Chapter 6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 3--13
+Underfull \hbox (badness 10000) in paragraph at lines 4--10
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--21
+Underfull \hbox (badness 10000) in paragraph at lines 13--17
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 21--25
+Underfull \hbox (badness 10000) in paragraph at lines 18--24
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 25--28
+Underfull \hbox (badness 10000) in paragraph at lines 25--30
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 28--31
+Underfull \hbox (badness 10000) in paragraph at lines 31--36
 
  []
 
-[55
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--42
+
+ []
+
+[63
 
 
-] [56]) (./chapters/appendix.tex
+]
+Underfull \hbox (badness 10000) in paragraph at lines 43--49
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 50--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--81
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--87
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 88--93
+
+ []
+
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 97--101
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 107--112
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 113--118
+
+ []
+
+[65] [66
+
+]) (./chapters/appendix.tex
 Appendix A.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57
+ [67
 
 
-
-] [58] [59] [60] [61] [62]
+] [68] [69] [70] [71] [72]
 Appendix B.
-<img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png, id=888, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png, id=1841, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png Graphic file (type png)
 <use img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png>
 Package pdftex.def Info: img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png  used on input line 337.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=adam_beta0=1.0.png, id=889, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=adam_beta0=1.0.png, id=1842, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=adam_beta0=1.0.png Graphic file (type png)
 <use img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=adam_beta0=1.0.png>
 Package pdftex.def Info: img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=adam_beta0=1.0.png  used on input line 342.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png, id=890, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png, id=1843, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png Graphic file (type png)
 <use img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png>
 Package pdftex.def Info: img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png  used on input line 351.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=adam_beta0=1.0.png, id=891, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=adam_beta0=1.0.png, id=1844, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=adam_beta0=1.0.png Graphic file (type png)
 <use img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=adam_beta0=1.0.png>
 Package pdftex.def Info: img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=adam_beta0=1.0.png  used on input line 356.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-[63
+[73
 
 
  <./img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png> <./img/results_discussion/empirical/rob_met=logPA_hue=lr_opt=adam_beta0=1.0.png> <./img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=sgd_beta0=1.0.png> <./img/results_discussion/empirical/nonrob_met=logPA_hue=lr_opt=adam_beta0=1.0.png>]
-<img/results_discussion/empirical/ldiff=0.5.png, id=900, 278.9622pt x 393.8715pt>
+<img/results_discussion/empirical/ldiff=0.5.png, id=1852, 278.9622pt x 393.8715pt>
 File: img/results_discussion/empirical/ldiff=0.5.png Graphic file (type png)
 <use img/results_discussion/empirical/ldiff=0.5.png>
 Package pdftex.def Info: img/results_discussion/empirical/ldiff=0.5.png  used on input line 372.
 (pdftex.def)             Requested size: 85.35696pt x 120.51225pt.
-<img/results_discussion/empirical/ldiff=1.0.png, id=901, 278.9622pt x 393.8715pt>
+<img/results_discussion/empirical/ldiff=1.0.png, id=1853, 278.9622pt x 393.8715pt>
 File: img/results_discussion/empirical/ldiff=1.0.png Graphic file (type png)
 <use img/results_discussion/empirical/ldiff=1.0.png>
 Package pdftex.def Info: img/results_discussion/empirical/ldiff=1.0.png  used on input line 377.
 (pdftex.def)             Requested size: 85.35696pt x 120.51225pt.
-<img/results_discussion/empirical/ldiff=2.0.png, id=902, 278.9622pt x 393.8715pt>
+<img/results_discussion/empirical/ldiff=2.0.png, id=1854, 278.9622pt x 393.8715pt>
 File: img/results_discussion/empirical/ldiff=2.0.png Graphic file (type png)
 <use img/results_discussion/empirical/ldiff=2.0.png>
 Package pdftex.def Info: img/results_discussion/empirical/ldiff=2.0.png  used on input line 382.
@@ -1845,22 +2042,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 388--392
 
  []
 
-<img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=sgd_lr=0.01.png, id=903, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=sgd_lr=0.01.png, id=1855, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=sgd_lr=0.01.png Graphic file (type png)
 <use img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=sgd_lr=0.01.png>
 Package pdftex.def Info: img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=sgd_lr=0.01.png  used on input line 402.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=adam_lr=0.01.png, id=904, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=adam_lr=0.01.png, id=1856, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=adam_lr=0.01.png Graphic file (type png)
 <use img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=adam_lr=0.01.png>
 Package pdftex.def Info: img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=adam_lr=0.01.png  used on input line 407.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=sgd_lr=0.01.png, id=905, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=sgd_lr=0.01.png, id=1857, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=sgd_lr=0.01.png Graphic file (type png)
 <use img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=sgd_lr=0.01.png>
 Package pdftex.def Info: img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=sgd_lr=0.01.png  used on input line 416.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=adam_lr=0.01.png, id=906, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=adam_lr=0.01.png, id=1858, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=adam_lr=0.01.png Graphic file (type png)
 <use img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=adam_lr=0.01.png>
 Package pdftex.def Info: img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=adam_lr=0.01.png  used on input line 421.
@@ -1870,324 +2067,323 @@ Underfull \hbox (badness 10000) in paragraph at lines 426--431
 
  []
 
-[64 <./img/results_discussion/empirical/ldiff=0.5.png> <./img/results_discussion/empirical/ldiff=1.0.png> <./img/results_discussion/empirical/ldiff=2.0.png> <./img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=sgd_lr=0.01.png> <./img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=adam_lr=0.01.png> <./img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=sgd_lr=0.01.png> <./img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=adam_lr=0.01.png>]
-<img/results_discussion/empirical/adversarial_logPA.png, id=917, 557.9244pt x 393.8715pt>
+[74 <./img/results_discussion/empirical/ldiff=0.5.png> <./img/results_discussion/empirical/ldiff=1.0.png> <./img/results_discussion/empirical/ldiff=2.0.png> <./img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=sgd_lr=0.01.png> <./img/results_discussion/empirical/nonrob_met=betas_hue=beta0_opt=adam_lr=0.01.png> <./img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=sgd_lr=0.01.png> <./img/results_discussion/empirical/rob_met=betas_hue=beta0_opt=adam_lr=0.01.png>]
+<img/results_discussion/empirical/adversarial_logPA.png, id=1870, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/adversarial_logPA.png Graphic file (type png)
 <use img/results_discussion/empirical/adversarial_logPA.png>
 Package pdftex.def Info: img/results_discussion/empirical/adversarial_logPA.png  used on input line 436.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/empirical/adversarial_AFR_true.png, id=918, 557.9244pt x 393.8715pt>
+<img/results_discussion/empirical/adversarial_AFR_true.png, id=1871, 557.9244pt x 393.8715pt>
 File: img/results_discussion/empirical/adversarial_AFR_true.png Graphic file (type png)
 <use img/results_discussion/empirical/adversarial_AFR_true.png>
 Package pdftex.def Info: img/results_discussion/empirical/adversarial_AFR_true.png  used on input line 441.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--461
+ [75 <./img/results_discussion/empirical/adversarial_logPA.png> <./img/results_discussion/empirical/adversarial_AFR_true.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 457--463
 
  []
 
-<img/results_discussion/adversarial/PGD_0.0314_logPA_linear.png, id=919, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.0314_logPA_linear.png, id=1877, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.0314_logPA_linear.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.0314_logPA_linear.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0314_logPA_linear.png  used on input line 474.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0314_logPA_linear.png  used on input line 476.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/PGD_0.0314_AFR_pred.png, id=920, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.0314_AFR_pred.png, id=1878, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.0314_AFR_pred.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.0314_AFR_pred.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0314_AFR_pred.png  used on input line 478.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0314_AFR_pred.png  used on input line 480.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/PGD_0.0627_logPA_linear.png, id=921, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.0627_logPA_linear.png, id=1879, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.0627_logPA_linear.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.0627_logPA_linear.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0627_logPA_linear.png  used on input line 485.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0627_logPA_linear.png  used on input line 487.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/PGD_0.0627_AFR_pred.png, id=922, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.0627_AFR_pred.png, id=1880, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.0627_AFR_pred.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.0627_AFR_pred.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0627_AFR_pred.png  used on input line 489.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.0627_AFR_pred.png  used on input line 491.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/PGD_0.1255_logPA_linear.png, id=923, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.1255_logPA_linear.png, id=1881, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.1255_logPA_linear.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.1255_logPA_linear.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.1255_logPA_linear.png  used on input line 496.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.1255_logPA_linear.png  used on input line 498.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png, id=924, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png, id=1882, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png  used on input line 500.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png  used on input line 502.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [65 <./img/results_discussion/empirical/adversarial_logPA.png> <./img/results_discussion/empirical/adversarial_AFR_true.png>]
 File: img/results_discussion/adversarial/FMN_logPA.png Graphic file (type png)
 <use img/results_discussion/adversarial/FMN_logPA.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FMN_logPA.png  used on input line 513.
+Package pdftex.def Info: img/results_discussion/adversarial/FMN_logPA.png  used on input line 515.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/FMN_1000_AFR_pred.png, id=930, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/FMN_1000_AFR_pred.png, id=1883, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/FMN_1000_AFR_pred.png Graphic file (type png)
 <use img/results_discussion/adversarial/FMN_1000_AFR_pred.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FMN_1000_AFR_pred.png  used on input line 517.
+Package pdftex.def Info: img/results_discussion/adversarial/FMN_1000_AFR_pred.png  used on input line 519.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
+[76 <./img/results_discussion/adversarial/PGD_0.0314_logPA_linear.png> <./img/results_discussion/adversarial/PGD_0.0314_AFR_pred.png> <./img/results_discussion/adversarial/PGD_0.0627_logPA_linear.png> <./img/results_discussion/adversarial/PGD_0.0627_AFR_pred.png> <./img/results_discussion/adversarial/PGD_0.1255_logPA_linear.png> <./img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png>]
+Overfull \hbox (30.74396pt too wide) detected at line 539
+[] \OMS/cmsy/m/n/10 ^^Y \OML/cmm/m/it/10 N [][] [][] [] [] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 N\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ [][]\OT1/cmr/m/n/10 ) [][] [] [] + \OML/cmm/m/it/10 N [][]\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ [][]\OT1/cmr/m/n/10 ) [] \OML/cmm/m/it/10 ^^N[];
+ []
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [66 <./img/results_discussion/adversarial/PGD_0.0314_logPA_linear.png> <./img/results_discussion/adversarial/PGD_0.0314_AFR_pred.png> <./img/results_discussion/adversarial/PGD_0.0627_logPA_linear.png> <./img/results_discussion/adversarial/PGD_0.0627_AFR_pred.png> <./img/results_discussion/adversarial/PGD_0.1255_logPA_linear.png> <./img/results_discussion/adversarial/PGD_0.1255_AFR_pred.png>]
-<img/results_discussion/adversarial/demonstration.png, id=940, 334.6101pt x 393.8715pt>
+<img/results_discussion/adversarial/demonstration.png, id=1893, 334.6101pt x 393.8715pt>
 File: img/results_discussion/adversarial/demonstration.png Graphic file (type png)
 <use img/results_discussion/adversarial/demonstration.png>
-Package pdftex.def Info: img/results_discussion/adversarial/demonstration.png  used on input line 541.
+Package pdftex.def Info: img/results_discussion/adversarial/demonstration.png  used on input line 543.
 (pdftex.def)             Requested size: 128.0387pt x 150.71846pt.
 
-Overfull \hbox (2.51756pt too wide) detected at line 566
-\OT1/cmr/m/n/10 ^^D = [] [] \OMS/cmsy/m/n/10 ^^Y [] [] \OML/cmm/m/it/10 :
+Overfull \hbox (0.96373pt too wide) detected at line 568
+\OML/cmm/m/it/10 ^^P \OT1/cmr/m/n/10 = [] [] \OMS/cmsy/m/n/10 ^^Y [] [] \OML/cmm/m/it/10 :
  []
 
-[67 <./img/results_discussion/adversarial/FMN_1000_AFR_pred.png> <./img/results_discussion/adversarial/demonstration.png>]
-<img/results_discussion/adversarial/pgd_pa_approx.png, id=946, 568.0422pt x 393.8715pt>
+[77 <./img/results_discussion/adversarial/FMN_1000_AFR_pred.png> <./img/results_discussion/adversarial/demonstration.png>]
+<img/results_discussion/adversarial/pgd_pa_approx.png, id=1900, 568.0422pt x 393.8715pt>
 File: img/results_discussion/adversarial/pgd_pa_approx.png Graphic file (type png)
 <use img/results_discussion/adversarial/pgd_pa_approx.png>
-Package pdftex.def Info: img/results_discussion/adversarial/pgd_pa_approx.png  used on input line 641.
+Package pdftex.def Info: img/results_discussion/adversarial/pgd_pa_approx.png  used on input line 635.
 (pdftex.def)             Requested size: 192.0548pt x 133.1693pt.
-<img/results_discussion/adversarial/pgd_pa_approx_approx.png, id=947, 570.2103pt x 392.4261pt>
+<img/results_discussion/adversarial/pgd_pa_approx_approx.png, id=1901, 570.2103pt x 392.4261pt>
 File: img/results_discussion/adversarial/pgd_pa_approx_approx.png Graphic file (type png)
 <use img/results_discussion/adversarial/pgd_pa_approx_approx.png>
-Package pdftex.def Info: img/results_discussion/adversarial/pgd_pa_approx_approx.png  used on input line 645.
+Package pdftex.def Info: img/results_discussion/adversarial/pgd_pa_approx_approx.png  used on input line 639.
 (pdftex.def)             Requested size: 192.0548pt x 132.17163pt.
- [68]
-<img/results_discussion/adversarial/fmn_pa_approx.png, id=951, 575.2692pt x 393.8715pt>
+ [78]
+<img/results_discussion/adversarial/fmn_pa_approx.png, id=1905, 575.2692pt x 393.8715pt>
 File: img/results_discussion/adversarial/fmn_pa_approx.png Graphic file (type png)
 <use img/results_discussion/adversarial/fmn_pa_approx.png>
-Package pdftex.def Info: img/results_discussion/adversarial/fmn_pa_approx.png  used on input line 657.
+Package pdftex.def Info: img/results_discussion/adversarial/fmn_pa_approx.png  used on input line 651.
 (pdftex.def)             Requested size: 192.0548pt x 131.49251pt.
-<img/results_discussion/adversarial/fmn_pa_approx_approx.png, id=952, 579.6054pt x 393.8715pt>
+<img/results_discussion/adversarial/fmn_pa_approx_approx.png, id=1906, 579.6054pt x 393.8715pt>
 File: img/results_discussion/adversarial/fmn_pa_approx_approx.png Graphic file (type png)
 <use img/results_discussion/adversarial/fmn_pa_approx_approx.png>
-Package pdftex.def Info: img/results_discussion/adversarial/fmn_pa_approx_approx.png  used on input line 661.
+Package pdftex.def Info: img/results_discussion/adversarial/fmn_pa_approx_approx.png  used on input line 655.
 (pdftex.def)             Requested size: 192.0548pt x 130.51288pt.
-<img/results_discussion/adversarial/Wong2020Fast_short_PGD_0.0314_0.png, id=953, 334.6101pt x 393.8715pt>
+<img/results_discussion/adversarial/Wong2020Fast_short_PGD_0.0314_0.png, id=1907, 334.6101pt x 393.8715pt>
 File: img/results_discussion/adversarial/Wong2020Fast_short_PGD_0.0314_0.png Graphic file (type png)
 <use img/results_discussion/adversarial/Wong2020Fast_short_PGD_0.0314_0.png>
-Package pdftex.def Info: img/results_discussion/adversarial/Wong2020Fast_short_PGD_0.0314_0.png  used on input line 678.
+Package pdftex.def Info: img/results_discussion/adversarial/Wong2020Fast_short_PGD_0.0314_0.png  used on input line 672.
 (pdftex.def)             Requested size: 128.0387pt x 150.71846pt.
-<img/results_discussion/adversarial/Engstrom2019Robustness_short_PGD_0.0314_0.png, id=954, 334.6101pt x 393.8715pt>
+<img/results_discussion/adversarial/Engstrom2019Robustness_short_PGD_0.0314_0.png, id=1908, 334.6101pt x 393.8715pt>
 File: img/results_discussion/adversarial/Engstrom2019Robustness_short_PGD_0.0314_0.png Graphic file (type png)
 <use img/results_discussion/adversarial/Engstrom2019Robustness_short_PGD_0.0314_0.png>
-Package pdftex.def Info: img/results_discussion/adversarial/Engstrom2019Robustness_short_PGD_0.0314_0.png  used on input line 682.
+Package pdftex.def Info: img/results_discussion/adversarial/Engstrom2019Robustness_short_PGD_0.0314_0.png  used on input line 676.
 (pdftex.def)             Requested size: 128.0387pt x 150.71846pt.
-<img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png, id=955, 334.6101pt x 393.8715pt>
+<img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png, id=1909, 334.6101pt x 393.8715pt>
 File: img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png Graphic file (type png)
 <use img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png>
-Package pdftex.def Info: img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png  used on input line 686.
+Package pdftex.def Info: img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png  used on input line 680.
 (pdftex.def)             Requested size: 128.0387pt x 150.71846pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [69 <./img/results_discussion/adversarial/pgd_pa_approx.png> <./img/results_discussion/adversarial/pgd_pa_approx_approx.png> <./img/results_discussion/adversarial/fmn_pa_approx.png> <./img/results_discussion/adversarial/fmn_pa_approx_approx.png>]
-<img/results_discussion/adversarial/Engstrom2019Robustness_short_FMN_0.png, id=964, 334.6101pt x 393.8715pt>
+<img/results_discussion/adversarial/Engstrom2019Robustness_short_FMN_0.png, id=1910, 334.6101pt x 393.8715pt>
 File: img/results_discussion/adversarial/Engstrom2019Robustness_short_FMN_0.png Graphic file (type png)
 <use img/results_discussion/adversarial/Engstrom2019Robustness_short_FMN_0.png>
-Package pdftex.def Info: img/results_discussion/adversarial/Engstrom2019Robustness_short_FMN_0.png  used on input line 700.
+Package pdftex.def Info: img/results_discussion/adversarial/Engstrom2019Robustness_short_FMN_0.png  used on input line 694.
 (pdftex.def)             Requested size: 128.0387pt x 150.71846pt.
-<img/results_discussion/adversarial/Wong2020Fast_short_FMN_0.png, id=965, 334.6101pt x 393.8715pt>
+<img/results_discussion/adversarial/Wong2020Fast_short_FMN_0.png, id=1911, 334.6101pt x 393.8715pt>
 File: img/results_discussion/adversarial/Wong2020Fast_short_FMN_0.png Graphic file (type png)
 <use img/results_discussion/adversarial/Wong2020Fast_short_FMN_0.png>
-Package pdftex.def Info: img/results_discussion/adversarial/Wong2020Fast_short_FMN_0.png  used on input line 704.
+Package pdftex.def Info: img/results_discussion/adversarial/Wong2020Fast_short_FMN_0.png  used on input line 698.
 (pdftex.def)             Requested size: 128.0387pt x 150.71846pt.
 File: img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png Graphic file (type png)
 <use img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png>
-Package pdftex.def Info: img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png  used on input line 708.
+Package pdftex.def Info: img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png  used on input line 702.
 (pdftex.def)             Requested size: 128.0387pt x 150.71846pt.
-<img/results_discussion/adversarial/PGD_KL.png, id=966, 557.9244pt x 393.8715pt>
+
+Underfull \vbox (badness 1509) has occurred while \output is active []
+
+ [79 <./img/results_discussion/adversarial/pgd_pa_approx.png> <./img/results_discussion/adversarial/pgd_pa_approx_approx.png> <./img/results_discussion/adversarial/fmn_pa_approx.png> <./img/results_discussion/adversarial/fmn_pa_approx_approx.png> <./img/results_discussion/adversarial/Wong2020Fast_short_PGD_0.0314_0.png> <./img/results_discussion/adversarial/Engstrom2019Robustness_short_PGD_0.0314_0.png> <./img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png>]
+<img/results_discussion/adversarial/PGD_KL.png, id=1922, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_KL.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_KL.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_KL.png  used on input line 729.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_KL.png  used on input line 723.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/FMN_KL.png, id=967, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/FMN_KL.png, id=1923, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/FMN_KL.png Graphic file (type png)
 <use img/results_discussion/adversarial/FMN_KL.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FMN_KL.png  used on input line 734.
+Package pdftex.def Info: img/results_discussion/adversarial/FMN_KL.png  used on input line 728.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/PGD_W.png, id=968, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/PGD_W.png, id=1924, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/PGD_W.png Graphic file (type png)
 <use img/results_discussion/adversarial/PGD_W.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_W.png  used on input line 741.
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_W.png  used on input line 735.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/FMN_W.png, id=969, 557.9244pt x 393.8715pt>
+<img/results_discussion/adversarial/FMN_W.png, id=1925, 557.9244pt x 393.8715pt>
 File: img/results_discussion/adversarial/FMN_W.png Graphic file (type png)
 <use img/results_discussion/adversarial/FMN_W.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FMN_W.png  used on input line 746.
+Package pdftex.def Info: img/results_discussion/adversarial/FMN_W.png  used on input line 740.
+(pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
+<img/results_discussion/adversarial/PGD_CD.png, id=1926, 557.9244pt x 393.8715pt>
+File: img/results_discussion/adversarial/PGD_CD.png Graphic file (type png)
+<use img/results_discussion/adversarial/PGD_CD.png>
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_CD.png  used on input line 751.
+(pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
+<img/results_discussion/adversarial/FMN_CD.png, id=1927, 557.9244pt x 393.8715pt>
+File: img/results_discussion/adversarial/FMN_CD.png Graphic file (type png)
+<use img/results_discussion/adversarial/FMN_CD.png>
+Package pdftex.def Info: img/results_discussion/adversarial/FMN_CD.png  used on input line 756.
+(pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
+<img/results_discussion/adversarial/PGD_FID.png, id=1928, 557.9244pt x 393.8715pt>
+File: img/results_discussion/adversarial/PGD_FID.png Graphic file (type png)
+<use img/results_discussion/adversarial/PGD_FID.png>
+Package pdftex.def Info: img/results_discussion/adversarial/PGD_FID.png  used on input line 763.
+(pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
+<img/results_discussion/adversarial/FMN_FID.png, id=1929, 557.9244pt x 393.8715pt>
+File: img/results_discussion/adversarial/FMN_FID.png Graphic file (type png)
+<use img/results_discussion/adversarial/FMN_FID.png>
+Package pdftex.def Info: img/results_discussion/adversarial/FMN_FID.png  used on input line 768.
 (pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [70 <./img/results_discussion/adversarial/Wong2020Fast_short_PGD_0.0314_0.png> <./img/results_discussion/adversarial/Engstrom2019Robustness_short_PGD_0.0314_0.png> <./img/results_discussion/adversarial/Addepalli2021Towards_RN18_short_PGD_0.0314_0.png> <./img/results_discussion/adversarial/Engstrom2019Robustness_short_FMN_0.png> <./img/results_discussion/adversarial/Wong2020Fast_short_FMN_0.png>]
-<img/results_discussion/adversarial/PGD_CD.png, id=978, 557.9244pt x 393.8715pt>
-File: img/results_discussion/adversarial/PGD_CD.png Graphic file (type png)
-<use img/results_discussion/adversarial/PGD_CD.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_CD.png  used on input line 757.
-(pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/FMN_CD.png, id=979, 557.9244pt x 393.8715pt>
-File: img/results_discussion/adversarial/FMN_CD.png Graphic file (type png)
-<use img/results_discussion/adversarial/FMN_CD.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FMN_CD.png  used on input line 762.
-(pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/PGD_FID.png, id=980, 557.9244pt x 393.8715pt>
-File: img/results_discussion/adversarial/PGD_FID.png Graphic file (type png)
-<use img/results_discussion/adversarial/PGD_FID.png>
-Package pdftex.def Info: img/results_discussion/adversarial/PGD_FID.png  used on input line 769.
-(pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
-<img/results_discussion/adversarial/FMN_FID.png, id=981, 557.9244pt x 393.8715pt>
-File: img/results_discussion/adversarial/FMN_FID.png Graphic file (type png)
-<use img/results_discussion/adversarial/FMN_FID.png>
-Package pdftex.def Info: img/results_discussion/adversarial/FMN_FID.png  used on input line 774.
-(pdftex.def)             Requested size: 192.0548pt x 135.5793pt.
- [71 <./img/results_discussion/adversarial/PGD_KL.png> <./img/results_discussion/adversarial/FMN_KL.png> <./img/results_discussion/adversarial/PGD_W.png> <./img/results_discussion/adversarial/FMN_W.png> <./img/results_discussion/adversarial/PGD_CD.png> <./img/results_discussion/adversarial/FMN_CD.png> <./img/results_discussion/adversarial/PGD_FID.png> <./img/results_discussion/adversarial/FMN_FID.png>]
+ [80 <./img/results_discussion/adversarial/Engstrom2019Robustness_short_FMN_0.png> <./img/results_discussion/adversarial/Wong2020Fast_short_FMN_0.png> <./img/results_discussion/adversarial/PGD_KL.png> <./img/results_discussion/adversarial/FMN_KL.png> <./img/results_discussion/adversarial/PGD_W.png> <./img/results_discussion/adversarial/FMN_W.png>] [81 <./img/results_discussion/adversarial/PGD_CD.png> <./img/results_discussion/adversarial/FMN_CD.png> <./img/results_discussion/adversarial/PGD_FID.png> <./img/results_discussion/adversarial/FMN_FID.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [82] [83]
 Appendix C.
 
-Underfull \hbox (badness 10000) in paragraph at lines 784--795
+Underfull \hbox (badness 10000) in paragraph at lines 942--953
 
  []
 
-[72
+[84
 
-] [73]
-Underfull \hbox (badness 10000) in paragraph at lines 1030--1033
+] [85]
+Underfull \hbox (badness 10000) in paragraph at lines 1186--1189
 
  []
 
 
 Underfull \vbox (badness 1275) has occurred while \output is active []
 
- [74]
+ [86]
 
 pdfTeX warning: pdflatex.exe (file ./img/datasets/_legend.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<img/datasets/_legend.pdf, id=1002, 588.81062pt x 33.24709pt>
+<img/datasets/_legend.pdf, id=1962, 588.81062pt x 33.24709pt>
 File: img/datasets/_legend.pdf Graphic file (type pdf)
 <use img/datasets/_legend.pdf>
-Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1045.
+Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1201.
 (pdftex.def)             Requested size: 256.0774pt x 14.45982pt.
-<img/datasets/ZGO_fact=hue_env=0.pdf, id=1003, 184.52126pt x 209.58363pt>
+<img/datasets/ZGO_fact=hue_env=0.pdf, id=1963, 184.52126pt x 209.58363pt>
 File: img/datasets/ZGO_fact=hue_env=0.pdf Graphic file (type pdf)
 <use img/datasets/ZGO_fact=hue_env=0.pdf>
-Package pdftex.def Info: img/datasets/ZGO_fact=hue_env=0.pdf  used on input line 1053.
+Package pdftex.def Info: img/datasets/ZGO_fact=hue_env=0.pdf  used on input line 1209.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/ZGO_fact=hue_env=1.pdf, id=1004, 184.52126pt x 209.58363pt>
+<img/datasets/ZGO_fact=hue_env=1.pdf, id=1964, 184.52126pt x 209.58363pt>
 File: img/datasets/ZGO_fact=hue_env=1.pdf Graphic file (type pdf)
 <use img/datasets/ZGO_fact=hue_env=1.pdf>
-Package pdftex.def Info: img/datasets/ZGO_fact=hue_env=1.pdf  used on input line 1057.
+Package pdftex.def Info: img/datasets/ZGO_fact=hue_env=1.pdf  used on input line 1213.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/ZGO_fact=pos_env=0.pdf, id=1005, 184.52126pt x 209.58363pt>
+<img/datasets/ZGO_fact=pos_env=0.pdf, id=1965, 184.52126pt x 209.58363pt>
 File: img/datasets/ZGO_fact=pos_env=0.pdf Graphic file (type pdf)
 <use img/datasets/ZGO_fact=pos_env=0.pdf>
-Package pdftex.def Info: img/datasets/ZGO_fact=pos_env=0.pdf  used on input line 1065.
+Package pdftex.def Info: img/datasets/ZGO_fact=pos_env=0.pdf  used on input line 1221.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/ZGO_fact=pos_env=1.pdf, id=1006, 184.52126pt x 209.58363pt>
+<img/datasets/ZGO_fact=pos_env=1.pdf, id=1966, 184.52126pt x 209.58363pt>
 File: img/datasets/ZGO_fact=pos_env=1.pdf Graphic file (type pdf)
 <use img/datasets/ZGO_fact=pos_env=1.pdf>
-Package pdftex.def Info: img/datasets/ZGO_fact=pos_env=1.pdf  used on input line 1069.
+Package pdftex.def Info: img/datasets/ZGO_fact=pos_env=1.pdf  used on input line 1225.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
 File: img/datasets/_legend.pdf Graphic file (type pdf)
 <use img/datasets/_legend.pdf>
-Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1086.
+Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1242.
 (pdftex.def)             Requested size: 256.0774pt x 14.45982pt.
-<img/datasets/1-CGO_fact=hue_env=0.pdf, id=1007, 184.52126pt x 209.58363pt>
+<img/datasets/1-CGO_fact=hue_env=0.pdf, id=1967, 184.52126pt x 209.58363pt>
 File: img/datasets/1-CGO_fact=hue_env=0.pdf Graphic file (type pdf)
 <use img/datasets/1-CGO_fact=hue_env=0.pdf>
-Package pdftex.def Info: img/datasets/1-CGO_fact=hue_env=0.pdf  used on input line 1094.
+Package pdftex.def Info: img/datasets/1-CGO_fact=hue_env=0.pdf  used on input line 1250.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/1-CGO_fact=hue_env=1.pdf, id=1008, 184.52126pt x 209.58363pt>
+<img/datasets/1-CGO_fact=hue_env=1.pdf, id=1968, 184.52126pt x 209.58363pt>
 File: img/datasets/1-CGO_fact=hue_env=1.pdf Graphic file (type pdf)
 <use img/datasets/1-CGO_fact=hue_env=1.pdf>
-Package pdftex.def Info: img/datasets/1-CGO_fact=hue_env=1.pdf  used on input line 1098.
+Package pdftex.def Info: img/datasets/1-CGO_fact=hue_env=1.pdf  used on input line 1254.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/1-CGO_fact=pos_env=0.pdf, id=1009, 184.52126pt x 209.58363pt>
+<img/datasets/1-CGO_fact=pos_env=0.pdf, id=1969, 184.52126pt x 209.58363pt>
 File: img/datasets/1-CGO_fact=pos_env=0.pdf Graphic file (type pdf)
 <use img/datasets/1-CGO_fact=pos_env=0.pdf>
-Package pdftex.def Info: img/datasets/1-CGO_fact=pos_env=0.pdf  used on input line 1106.
+Package pdftex.def Info: img/datasets/1-CGO_fact=pos_env=0.pdf  used on input line 1262.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/1-CGO_fact=pos_env=1.pdf, id=1010, 184.52126pt x 209.58363pt>
+<img/datasets/1-CGO_fact=pos_env=1.pdf, id=1970, 184.52126pt x 209.58363pt>
 File: img/datasets/1-CGO_fact=pos_env=1.pdf Graphic file (type pdf)
 <use img/datasets/1-CGO_fact=pos_env=1.pdf>
-Package pdftex.def Info: img/datasets/1-CGO_fact=pos_env=1.pdf  used on input line 1110.
+Package pdftex.def Info: img/datasets/1-CGO_fact=pos_env=1.pdf  used on input line 1266.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
 File: img/datasets/_legend.pdf Graphic file (type pdf)
 <use img/datasets/_legend.pdf>
-Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1127.
+Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1283.
 (pdftex.def)             Requested size: 256.0774pt x 14.45982pt.
-<img/datasets/2-CGO_fact=hue_env=0.pdf, id=1011, 184.52126pt x 209.58363pt>
+<img/datasets/2-CGO_fact=hue_env=0.pdf, id=1971, 184.52126pt x 209.58363pt>
 File: img/datasets/2-CGO_fact=hue_env=0.pdf Graphic file (type pdf)
 <use img/datasets/2-CGO_fact=hue_env=0.pdf>
-Package pdftex.def Info: img/datasets/2-CGO_fact=hue_env=0.pdf  used on input line 1135.
+Package pdftex.def Info: img/datasets/2-CGO_fact=hue_env=0.pdf  used on input line 1291.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/2-CGO_fact=hue_env=1.pdf, id=1012, 184.52126pt x 209.58363pt>
+<img/datasets/2-CGO_fact=hue_env=1.pdf, id=1972, 184.52126pt x 209.58363pt>
 File: img/datasets/2-CGO_fact=hue_env=1.pdf Graphic file (type pdf)
 <use img/datasets/2-CGO_fact=hue_env=1.pdf>
-Package pdftex.def Info: img/datasets/2-CGO_fact=hue_env=1.pdf  used on input line 1139.
+Package pdftex.def Info: img/datasets/2-CGO_fact=hue_env=1.pdf  used on input line 1295.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/2-CGO_fact=pos_env=0.pdf, id=1013, 184.52126pt x 209.58363pt>
+<img/datasets/2-CGO_fact=pos_env=0.pdf, id=1973, 184.52126pt x 209.58363pt>
 File: img/datasets/2-CGO_fact=pos_env=0.pdf Graphic file (type pdf)
 <use img/datasets/2-CGO_fact=pos_env=0.pdf>
-Package pdftex.def Info: img/datasets/2-CGO_fact=pos_env=0.pdf  used on input line 1147.
+Package pdftex.def Info: img/datasets/2-CGO_fact=pos_env=0.pdf  used on input line 1303.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/2-CGO_fact=pos_env=1.pdf, id=1014, 184.52126pt x 209.58363pt>
+<img/datasets/2-CGO_fact=pos_env=1.pdf, id=1974, 184.52126pt x 209.58363pt>
 File: img/datasets/2-CGO_fact=pos_env=1.pdf Graphic file (type pdf)
 <use img/datasets/2-CGO_fact=pos_env=1.pdf>
-Package pdftex.def Info: img/datasets/2-CGO_fact=pos_env=1.pdf  used on input line 1151.
+Package pdftex.def Info: img/datasets/2-CGO_fact=pos_env=1.pdf  used on input line 1307.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
 File: img/datasets/_legend.pdf Graphic file (type pdf)
 <use img/datasets/_legend.pdf>
-Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1169.
+Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1325.
 (pdftex.def)             Requested size: 256.0774pt x 14.45982pt.
-<img/datasets/3-CGO_fact=hue_env=0.pdf, id=1015, 184.52126pt x 209.58363pt>
+<img/datasets/3-CGO_fact=hue_env=0.pdf, id=1975, 184.52126pt x 209.58363pt>
 File: img/datasets/3-CGO_fact=hue_env=0.pdf Graphic file (type pdf)
 <use img/datasets/3-CGO_fact=hue_env=0.pdf>
-Package pdftex.def Info: img/datasets/3-CGO_fact=hue_env=0.pdf  used on input line 1177.
+Package pdftex.def Info: img/datasets/3-CGO_fact=hue_env=0.pdf  used on input line 1333.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/3-CGO_fact=hue_env=1.pdf, id=1016, 184.52126pt x 209.58363pt>
+<img/datasets/3-CGO_fact=hue_env=1.pdf, id=1976, 184.52126pt x 209.58363pt>
 File: img/datasets/3-CGO_fact=hue_env=1.pdf Graphic file (type pdf)
 <use img/datasets/3-CGO_fact=hue_env=1.pdf>
-Package pdftex.def Info: img/datasets/3-CGO_fact=hue_env=1.pdf  used on input line 1181.
+Package pdftex.def Info: img/datasets/3-CGO_fact=hue_env=1.pdf  used on input line 1337.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/3-CGO_fact=pos_env=0.pdf, id=1017, 184.52126pt x 209.58363pt>
+<img/datasets/3-CGO_fact=pos_env=0.pdf, id=1977, 184.52126pt x 209.58363pt>
 File: img/datasets/3-CGO_fact=pos_env=0.pdf Graphic file (type pdf)
 <use img/datasets/3-CGO_fact=pos_env=0.pdf>
-Package pdftex.def Info: img/datasets/3-CGO_fact=pos_env=0.pdf  used on input line 1189.
+Package pdftex.def Info: img/datasets/3-CGO_fact=pos_env=0.pdf  used on input line 1345.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/3-CGO_fact=pos_env=1.pdf, id=1018, 184.52126pt x 209.58363pt>
+<img/datasets/3-CGO_fact=pos_env=1.pdf, id=1978, 184.52126pt x 209.58363pt>
 File: img/datasets/3-CGO_fact=pos_env=1.pdf Graphic file (type pdf)
 <use img/datasets/3-CGO_fact=pos_env=1.pdf>
-Package pdftex.def Info: img/datasets/3-CGO_fact=pos_env=1.pdf  used on input line 1193.
+Package pdftex.def Info: img/datasets/3-CGO_fact=pos_env=1.pdf  used on input line 1349.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-[75 <./img/datasets/_legend.pdf> <./img/datasets/ZGO_fact=hue_env=0.pdf> <./img/datasets/ZGO_fact=hue_env=1.pdf> <./img/datasets/ZGO_fact=pos_env=0.pdf> <./img/datasets/ZGO_fact=pos_env=1.pdf> <./img/datasets/1-CGO_fact=hue_env=0.pdf> <./img/datasets/1-CGO_fact=hue_env=1.pdf> <./img/datasets/1-CGO_fact=pos_env=0.pdf> <./img/datasets/1-CGO_fact=pos_env=1.pdf> <./img/datasets/2-CGO_fact=hue_env=0.pdf> <./img/datasets/2-CGO_fact=hue_env=1.pdf> <./img/datasets/2-CGO_fact=pos_env=0.pdf> <./img/datasets/2-CGO_fact=pos_env=1.pdf>]
+[87 <./img/datasets/_legend.pdf> <./img/datasets/ZGO_fact=hue_env=0.pdf> <./img/datasets/ZGO_fact=hue_env=1.pdf> <./img/datasets/ZGO_fact=pos_env=0.pdf> <./img/datasets/ZGO_fact=pos_env=1.pdf> <./img/datasets/1-CGO_fact=hue_env=0.pdf> <./img/datasets/1-CGO_fact=hue_env=1.pdf> <./img/datasets/1-CGO_fact=pos_env=0.pdf> <./img/datasets/1-CGO_fact=pos_env=1.pdf> <./img/datasets/2-CGO_fact=hue_env=0.pdf> <./img/datasets/2-CGO_fact=hue_env=1.pdf> <./img/datasets/2-CGO_fact=pos_env=0.pdf> <./img/datasets/2-CGO_fact=pos_env=1.pdf>]
 File: img/datasets/_legend.pdf Graphic file (type pdf)
 <use img/datasets/_legend.pdf>
-Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1211.
+Package pdftex.def Info: img/datasets/_legend.pdf  used on input line 1367.
 (pdftex.def)             Requested size: 256.0774pt x 14.45982pt.
-<img/datasets/ZSO_fact=hue_env=0.pdf, id=1451, 184.52126pt x 209.58363pt>
+<img/datasets/ZSO_fact=hue_env=0.pdf, id=2410, 184.52126pt x 209.58363pt>
 File: img/datasets/ZSO_fact=hue_env=0.pdf Graphic file (type pdf)
 <use img/datasets/ZSO_fact=hue_env=0.pdf>
-Package pdftex.def Info: img/datasets/ZSO_fact=hue_env=0.pdf  used on input line 1219.
+Package pdftex.def Info: img/datasets/ZSO_fact=hue_env=0.pdf  used on input line 1375.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/ZSO_fact=hue_env=1.pdf, id=1452, 184.52126pt x 209.58363pt>
+<img/datasets/ZSO_fact=hue_env=1.pdf, id=2411, 184.52126pt x 209.58363pt>
 File: img/datasets/ZSO_fact=hue_env=1.pdf Graphic file (type pdf)
 <use img/datasets/ZSO_fact=hue_env=1.pdf>
-Package pdftex.def Info: img/datasets/ZSO_fact=hue_env=1.pdf  used on input line 1223.
+Package pdftex.def Info: img/datasets/ZSO_fact=hue_env=1.pdf  used on input line 1379.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/ZSO_fact=pos_env=0.pdf, id=1453, 184.52126pt x 209.58363pt>
+<img/datasets/ZSO_fact=pos_env=0.pdf, id=2412, 184.52126pt x 209.58363pt>
 File: img/datasets/ZSO_fact=pos_env=0.pdf Graphic file (type pdf)
 <use img/datasets/ZSO_fact=pos_env=0.pdf>
-Package pdftex.def Info: img/datasets/ZSO_fact=pos_env=0.pdf  used on input line 1231.
+Package pdftex.def Info: img/datasets/ZSO_fact=pos_env=0.pdf  used on input line 1387.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
-<img/datasets/ZSO_fact=pos_env=1.pdf, id=1454, 184.52126pt x 209.58363pt>
+<img/datasets/ZSO_fact=pos_env=1.pdf, id=2413, 184.52126pt x 209.58363pt>
 File: img/datasets/ZSO_fact=pos_env=1.pdf Graphic file (type pdf)
 <use img/datasets/ZSO_fact=pos_env=1.pdf>
-Package pdftex.def Info: img/datasets/ZSO_fact=pos_env=1.pdf  used on input line 1235.
+Package pdftex.def Info: img/datasets/ZSO_fact=pos_env=1.pdf  used on input line 1391.
 (pdftex.def)             Requested size: 92.18547pt x 104.7084pt.
- [76 <./img/datasets/3-CGO_fact=hue_env=0.pdf> <./img/datasets/3-CGO_fact=hue_env=1.pdf> <./img/datasets/3-CGO_fact=pos_env=0.pdf> <./img/datasets/3-CGO_fact=pos_env=1.pdf> <./img/datasets/ZSO_fact=hue_env=0.pdf> <./img/datasets/ZSO_fact=hue_env=1.pdf> <./img/datasets/ZSO_fact=pos_env=0.pdf> <./img/datasets/ZSO_fact=pos_env=1.pdf>]) (./Thesis.bbl [77
+ [88 <./img/datasets/3-CGO_fact=hue_env=0.pdf> <./img/datasets/3-CGO_fact=hue_env=1.pdf> <./img/datasets/3-CGO_fact=pos_env=0.pdf> <./img/datasets/3-CGO_fact=pos_env=1.pdf> <./img/datasets/ZSO_fact=hue_env=0.pdf> <./img/datasets/ZSO_fact=hue_env=1.pdf> <./img/datasets/ZSO_fact=pos_env=0.pdf> <./img/datasets/ZSO_fact=pos_env=1.pdf>]) (./Thesis.bbl [89
 
 
-] [78] [79]) [80]
+] [90] [91]) [92]
 Package epstopdf Info: Source file: <img/ethlogo.eps>
 (epstopdf)                    date: 2024-04-20 12:44:20
 (epstopdf)                    size: 72851 bytes
@@ -2209,29 +2405,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 110--110
 
  []
 
-[81
+[93
 
-] (./Thesis.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+] (./Thesis.aux) ) 
 Here is how much of TeX's memory you used:
- 18349 strings out of 476024
- 347688 string characters out of 5794016
- 1915382 words of memory out of 5000000
- 38315 multiletter control sequences out of 15000+600000
+ 18487 strings out of 476024
+ 354486 string characters out of 5794016
+ 1944382 words of memory out of 5000000
+ 38435 multiletter control sequences out of 15000+600000
  539984 words of font info for 102 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,14n,131p,869b,649s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,14n,131p,1435b,649s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb>
-Output written on Thesis.pdf (91 pages, 8528892 bytes).
+Output written on Thesis.pdf (101 pages, 10027628 bytes).
 PDF statistics:
- 1929 PDF objects out of 2073 (max. 8388607)
- 744 compressed objects within 8 object streams
+ 2888 PDF objects out of 2984 (max. 8388607)
+ 1042 compressed objects within 11 object streams
  0 named destinations out of 1000 (max. 500000)
- 601 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 686 words of extra memory for PDF output out of 10000 (max. 10000000)
 

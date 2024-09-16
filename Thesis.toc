@@ -1,5 +1,4 @@
 \contentsline {chapter}{Abstract}{v}{}%
-\contentsline {chapter}{Notation}{vii}{}%
 \contentsline {chapter}{\numberline {1}Introduction}{1}{}%
 \contentsline {section}{\numberline {1.1}The robustness challenge}{1}{}%
 \contentsline {subsection}{\numberline {1.1.1}Adversarial setting}{2}{}%
@@ -15,33 +14,44 @@
 \contentsline {subsection}{\numberline {2.3.3}Maximum posterior agreement}{14}{}%
 \contentsline {chapter}{\numberline {3}Experimental setup}{17}{}%
 \contentsline {section}{\numberline {3.1}Problem formulation}{17}{}%
-\contentsline {section}{\numberline {3.2}Robustness in covariate shift settings}{18}{}%
+\contentsline {section}{\numberline {3.2}Robustness under covariate shift}{18}{}%
 \contentsline {section}{\numberline {3.3}Adversarial setting}{20}{}%
 \contentsline {section}{\numberline {3.4}Domain generalization setting}{21}{}%
 \contentsline {section}{\numberline {3.5}Robust learners}{22}{}%
 \contentsline {section}{\numberline {3.6}Robustness assessment with posterior agreement}{23}{}%
 \contentsline {subsection}{\numberline {3.6.1}Posterior in classification tasks}{23}{}%
 \contentsline {subsection}{\numberline {3.6.2}The posterior agreement kernel}{24}{}%
-\contentsline {subsection}{\numberline {3.6.3}Implementation}{26}{}%
+\contentsline {subsection}{\numberline {3.6.3}Implementation}{27}{}%
 \contentsline {chapter}{\numberline {4}Robustness assessment}{29}{}%
 \contentsline {section}{\numberline {4.1}In-distribution setting}{29}{}%
 \contentsline {section}{\numberline {4.2}Adversarial setting}{33}{}%
-\contentsline {subsection}{\numberline {4.2.1}Interpretability of PA in the adversarial setting}{40}{}%
 \contentsline {section}{\numberline {4.3}Out-of-distribution setting}{43}{}%
-\contentsline {chapter}{\numberline {5}Model selection}{47}{}%
-\contentsline {section}{\numberline {5.1}Model selection under controled experimental conditions}{47}{}%
-\contentsline {section}{\numberline {5.2}ID model selection}{50}{}%
-\contentsline {section}{\numberline {5.3}Model selection on benchmark datasets}{53}{}%
-\contentsline {chapter}{\numberline {6}Conclusions}{55}{}%
-\contentsline {chapter}{\numberline {A}Theoretical Proofs and Derivations}{57}{}%
-\contentsline {section}{\numberline {A.1}Proof of problem formulation}{57}{}%
-\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{59}{}%
-\contentsline {chapter}{\numberline {B}Supplementary Results}{63}{}%
-\contentsline {section}{\numberline {B.1}PA as a robustness metric}{63}{}%
-\contentsline {subsection}{\numberline {B.1.1}Empirical behaviour}{63}{}%
-\contentsline {section}{\numberline {B.2}Adversarial setting}{65}{}%
-\contentsline {chapter}{\numberline {C}Dataset reference}{72}{}%
-\contentsline {section}{\numberline {C.1}Robustness assessment}{73}{}%
-\contentsline {section}{\numberline {C.2}Model selection}{73}{}%
-\contentsline {subsection}{\numberline {C.2.1}Controlled conditions}{73}{}%
-\contentsline {subsection}{\numberline {C.2.2}ID model selection}{75}{}%
+\contentsline {paragraph}{Experiment 5a.}{44}{}%
+\contentsline {paragraph}{Experiment 5b.}{46}{}%
+\contentsline {paragraph}{Experiment 5c.}{48}{}%
+\contentsline {chapter}{\numberline {5}Model selection}{51}{}%
+\contentsline {section}{\numberline {5.1}DiagVib-6 Benchmark}{52}{}%
+\contentsline {paragraph}{Experiment 6.}{52}{}%
+\contentsline {section}{\numberline {5.2}In-distribution DiagVib-6}{56}{}%
+\contentsline {paragraph}{Experiment 7.}{56}{}%
+\contentsline {section}{\numberline {5.3}WILDS Benchmark}{59}{}%
+\contentsline {paragraph}{Experiment 8.}{59}{}%
+\contentsline {paragraph}{Experiment 9.}{60}{}%
+\contentsline {paragraph}{Experiment 10.}{60}{}%
+\contentsline {chapter}{\numberline {6}Conclusions}{63}{}%
+\newpage 
+\contentsline {chapter}{\numberline {A}Theoretical Proofs and Derivations}{67}{}%
+\contentsline {section}{\numberline {A.1}Proof of problem formulation}{67}{}%
+\contentsline {section}{\numberline {A.2}Properties of the PA kernel}{69}{}%
+\contentsline {chapter}{\numberline {B}Supplementary Results}{73}{}%
+\contentsline {section}{\numberline {B.1}Robustness assessment}{73}{}%
+\contentsline {subsection}{\numberline {B.1.1}In-distribution setting}{73}{}%
+\contentsline {subsection}{\numberline {B.1.2}Adversarial setting}{76}{}%
+\contentsline {section}{\numberline {B.2}Model Selection}{82}{}%
+\contentsline {subsection}{\numberline {B.2.1}DiagVib-6 Benchmark}{82}{}%
+\contentsline {subsection}{\numberline {B.2.2}In-distribution DiagVib-6}{83}{}%
+\contentsline {chapter}{\numberline {C}Dataset reference}{84}{}%
+\contentsline {section}{\numberline {C.1}Robustness assessment}{85}{}%
+\contentsline {section}{\numberline {C.2}Model selection}{85}{}%
+\contentsline {subsection}{\numberline {C.2.1}DiagVib-6 Benchmark}{85}{}%
+\contentsline {subsection}{\numberline {C.2.2}In-distribution DiagVib-6}{87}{}%

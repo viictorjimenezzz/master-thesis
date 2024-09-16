@@ -68,7 +68,7 @@ classifiers.
 
 The concepts introduced in the previous chapter provide the 
 foundation for the formalization of the learning problem in which our 
-robustness experiments will be conduted. We will refer to this 
+robustness experiments will be conducted. We will refer to this 
 problem as a $K$-class classification.
 
 \begin{definition}[\emph{$K$-class classification}]
@@ -94,7 +94,7 @@ No further characterization of the regularization factor $\lambda \Omega(\gamma)
 in this section, as the specific learning algorithms considered will be introduced
 later in the text.
 
-\section{Robustness in covariate shift settings}\label{sec:robustness_to_covariate_shift}
+\section{Robustness under covariate shift}\label{sec:robustness_to_covariate_shift}
 
 The concept of robustness, as defined in the previous chapter, entails
 a measure of the stability of the learner to the randomness of
@@ -281,7 +281,7 @@ of the shift magnitude that will be considered in the experiments.
 \section{Adversarial setting}\label{sec:adversarial_setting}
 
 The magnitude of adversarial shifts will be quantified by an aggregated
-measure of the perturbation applied to the each observation in the dataset.
+measure of the perturbation applied to every observation in the dataset.
 
 \begin{definition}[\emph{Perturbation}]\label{def:adversarial_perturbation}
     Let $\bm{x}'$ be a realization of $\bm{X} \overset{\text{iid}}{\sim} X$ with support $\mathcal{X} \subset \mathbb{R}^d$.
@@ -345,7 +345,7 @@ perturbation can be obtained by maximizing the resulting loss.
 An effective regularizer for adversarial training can be built by 
 including the FGSM term on the objective that makes the model robust 
 to $\epsilon_p$-constrained perturbations \cite{goodfellowExplainingHarnessingAdversarial2015}. 
-A multi-step version can be immediately derived that sistematically
+A multi-step version can be immediately derived that systematically
 perturbs observations in the most adversarial direction at each
 optimization step.
 
@@ -373,7 +373,7 @@ $$
 $$
 
 The inherent complexity of this optimization problem requires making
-certain assumptions in oder to solve it. For instance, it is commonly
+certain assumptions in order to solve it. For instance, it is commonly
 assumed that the loss landscape contains numerous local minima, but
 with very similar values. Then, the distribution of loss values attained
 with different starting points is well concentrated and has no outliers,
@@ -466,7 +466,7 @@ This project will evaluate the suitability of posterior agreement as a robustnes
 metric in the adversarial and out-of-distribution settings. In accordance with
 \textbf{P2} (see Properties \ref{properties:robustness}), it must be eventually
 assessed whether the PA metric is able to differentiate between robust and non-robust
-models and, consequently, betweeen learning algorithms selecting those models.
+models and, consequently, between learning algorithms selecting those models.
 For that reason, we will consider ERM as our baseline vanilla algorithm and compare its 
 generalization performance under covariate shift with two algorithms representing two 
 different robustness-fostering strategies. \\
@@ -584,7 +584,7 @@ even random noise, regardless of their effect on the task at hand. \\
 Definition \ref{def:posterior} established the posterior as a probability
 distribution over the hypothesis class encoding the stochastic nature of
 model outputs. The hypothesis class $\Theta$ of a $K$-class classification problem is the set of
-all possible vectors of labels associating each of the $N$ samples to one of the $K$ classes. This amounts to
+all possible vectors of labels associating each of the $N$ observations to one of the $K$ classes. This amounts to
 
 $$
 \Theta = \{1, \dots, K \}^N
@@ -670,7 +670,7 @@ by enforcing the MEP principle (in this case, the second law of thermodynamics) 
 the constraints of finite energy and number of particles
 \cite{bovierStatisticalMechanicsDisordered2012}.
 
-\subsection{The posterior agreement kernel}
+\subsection{The posterior agreement kernel}\label{sec:pa_kernel}
 
 \begin{lemma}[\emph{Exchangeability}]\label{lemma:exchangeability} 
     Let $N, K \in \mathbb{N}$ and let $\left\{\mathcal{E}_{i j} \mid i \leq N, j \leq K\right\}$ be an indexed set of values. Then,
@@ -801,32 +801,106 @@ we can proceed to analyze its properties and its suitability as a robustness met
     See Appendix \ref{sec:appendix_pa}.
 \end{proof}
 
-\subsection{Implementation}
-
-Following the derivation in the previous section, an operative version of the 
+Stemming from the derived expression, an operative version of the 
 posterior agreement kernel for the $K$-class classification problem is given by
 
 $$
-\operatorname{PA}\left(\boldsymbol{x}^{\prime}, \boldsymbol{x}^{\prime \prime} ; \beta\right)=\sum_{n=1}^N \log \left\{ \sum_{k=1}^K \mathbf{P}_n^c\left(j \mid \boldsymbol{x}^{\prime}\right) \mathbf{P}_n^c\left(j \mid \boldsymbol{x}^{\prime \prime}\right)\right\},
+\operatorname{PA}\left(\bm{x}^{\prime}, \bm{x}^{\prime \prime} ; \beta\right)=\sum_{n=1}^N \log \left\{ \sum_{k=1}^K \mathbf{P}_n^c\left(k \mid \bm{x}^{\prime}\right) \mathbf{P}_n^c\left(k \mid \bm{x}^{\prime \prime}\right)\right\},
 $$
 
-where factors $|\Theta|$ and $1/N$ have not been considered as they are merely for
-scale. Kernel values are now bounded to the range $(-\infty, 0]$. \\
+where factors $|\Theta|$ and $1/N$ have not been considered as they are merely for 
+scale, making kernel values now range within $(-\infty, 0]$. Robustness assessment and 
+model selection results will be reported through the maximum 
+posterior agreement, which is denoted as
 
-HERE TALK ABOUT THE RANGE OF OPTIMAL PA AND HOW IT WILL NOT BE INDICATED \\
+$$
+\operatorname{PA} \equiv \operatorname{PA}\left(\bm{x}^{\prime}, \bm{x}^{\prime \prime}; \beta^{*}\right)
+$$
 
-The goal of this project is to use $\operatorname{PA}\left(\boldsymbol{x}^{\prime}, \boldsymbol{x}^{\prime \prime} ; \beta^{*}\right)$
+to avoid notation clutter, where $\beta^{*}$ is obtained via Adam optimization. 
+The optimization process considers a  learning rate of 0.1, with the initial value set at $\beta_0 = 1$. Since the cost function 
+driving posterior selection is the classifier's discriminant function itself, 
+the initial posterior considered during optimization is the actual predictive output of the 
+model. The evolution of $\beta$ will re-weight these predictions to maximize the mutual information
+for $\bm{x}^{\prime}$ and $\bm{x}^{\prime \prime}$. 
+These optimization hyperparameters have been found to be reliable in any setting, as the optimal
+$\beta^*$ converges to the same value in all cases (see for instance Figure \ref{fig:gaussian_optimization}), 
+which is consistent with the concavity property of the PA kernel. In the adversarial 
+setting, optimization will be carried out over 500 epochs, while in the domain generalization 
+and model selection settings, it will extend to 1000 epochs. \\
+
+As an intuitive approach, the PA kernel can be interpreted as an aggregation of robustness contributions 
+across all observations. During the optimization of $\beta$, the informativeness-stability trade-off is navigated 
+towards the maximum, at which the optimal posterior for each observation encodes its estimated information content,
+consistent with the observed stability of $\theta \mid \bm{x}^{\prime}$ against $\theta \mid \bm{x}^{\prime\prime}$. 
+When predictions match, their robustness contribution increases with the 
+informativeness of the posterior, because a higher probability is assigned to the predicted
+class. Conversely, when predictions do not match, their contribution is maximized as the posterior becomes 
+more spread-out and less informative. Given that the match or mismatch in predicted label is the same for 
+all $0 < \beta < \infty$, as it corresponds to the maximum of the
+posterior, the increase or decrease of contributing terms is monotonically increasing or decreasing with $\beta$, 
+respectively. Two clear extreme situations emerge, namely when none of the predictions match, and 
+when all predictions match.
+
+\begin{theorem}[\emph{Boundedness of $\operatorname{PA}$}]
+    The PA value is bounded by the two extreme robust and unrobust situations.
+    $$
+    -N \log K \leq \operatorname{PA} \leq 0
+    $$
+\end{theorem}
+\begin{proof}
+    When all predictions match, 
+    $\beta^{*} \longrightarrow \infty$ and posteriors converge to a delta distribution centered at
+    the predicted class $\hat{y}_n$, which is the same for both samples.
+    $$
+    \operatorname{PA} = \sum_{n=1}^N \log \left\{ 1 + \sum_{k \neq \hat{y}_n} 0 \right\} = 0.
+    $$
+
+    When none of the predictions match, $\beta^{*} \longrightarrow 0$ and posteriors converge to a uniform distribution.
+    $$
+    \operatorname{PA} = \sum_{n=1}^N \log \left\{ \sum_{k=1}^K \frac{1}{K^2} \right\} = -N \log K.
+    $$
+\end{proof}
+
+Even if these extreme cases will be considered through synthetic experiments, real
+settings will comprise partially unrobust models. In such cases, the model achieving the
+highest PA unrobustness penalization will be selected.
+
+\begin{proposition}\label{prop:pa_inductive_bias}
+    PA favors classifiers that exhibit desirable inductive biases and 
+    align with the common understanding of what constitutes a good model.
+\end{proposition}
+
+The proposition follows from the aforementioned interpretation and the way robustness contributions evolve 
+with respect to the informativeness of the posterior. Common sense dictates that good models should assign 
+high probabilities to the correct classes and low probabilities to the incorrect ones, regardless 
+of their performance\footnote{Two models could achieve the same task performance but differ vastly in the informativeness
+of their posteriors.}. This is because desirable inductive biases should be constructed around 
+sets of features that are predictive of the task at hand, and models should be able to extract 
+those features from the data. \\
+
+In this context, PA selects models in which matching pairs of observations are assigned high probabilities,
+while non-matching observations are assigned low probabilities. In the first case, the informativeness
+of posteriors at $\beta_0=1$ is already high and yields a high robustness contribution, thus
+avoiding $\beta$ from being pushed to very high values. If a mismatching observation $x''$ is assigned a
+low probability, the overall contribution from the pair $x',x''$ will not be as significantly decreased due
+to the small value of $\beta$. At the same time, these contributions will not drive $\beta$ to significantly 
+low values, because their informativeness at $\beta_0=1$ will already be low.\\
+
+\subsection{Implementation}
+
+The goal of this project is to use PA
 to assess the generalization capabilities of different models and eventually select the most robust one at
 the epoch level. Having to solve the optimization problem for each set of weights is a 
 computationally demanding task, both in terms of memory and time, and hard-coding the 
 kernel optimization inside the training loop for every task
 is also highly impractical. \\
 
-For these reasons, a custom implementation\footnote{https://github.com/viictorjimenezzz/pa-metric} of the kernel optimization task has been
-developed with the purpose of this project. The implementation is wrapped under the
+For these reasons, a custom implementation of the kernel optimization task has been
+developed with the purpose of this project. The implementation is integrated within
 the Torchmetrics\footnote{https://lightning.ai/docs/torchmetrics/stable/}
-framework, which allows for a flawless integration in any machine learning project.
-Here is a small code snippet showcasing a simple evaluation: \\
+framework, facilitating its incorporation into any machine learning workflow.
+A brief code snippet demonstrating a simple PA evaluation is provided on the following page. \\
 
 % \begin{lstlisting}[language=Python, caption=PA metric implementation. See full implementation here.]
 %     from pametric import PosteriorAgreementBase, LogitsDataset
@@ -838,6 +912,45 @@ Here is a small code snippet showcasing a simple evaluation: \\
 %     logPA, beta = results["logPA"], results["beta"]
 % \end{lstlisting}
 
+% \begin{properties}[PA metric implementation]
+%     The most relevant features of the numerical implementation of the metric are the following:
+% \begin{itemize}
+%     \item The metric launches a single optimization process with a pair of datasets. Nevertheless, 
+%     additional datasets can be added for validation purposes. The metric also accepts different models,
+%     which can be useful in cross-validation settings.
+%     \item If data samples are not corresponding between datasets, the metric can implement several
+%     pairing strategies, namely label matching, nearest-neighbor or canonical correlation.
+%     \item Multi-device computation is supported. In particular, a distributed-data-processing (DDP)
+%     strategy on a CUDA-managed set of GPUs can be used to parallelize model evaluation.
+%     \item The output of the model is computed just once per training epoch, which reduces drastically
+%     the time required for the optimization of the kernel.
+%     \item Detailed information about the optimization process can be easily retrieved and logged, which helps
+%     tuning the optimization algorithm and other hyperparameters.
+% \end{itemize}
+% \end{properties}
+
+% \vspace{0.4cm}
+
+The numerical implementation of the PA metric offers several notable features that enhance its functionality 
+and flexibility. First, the metric initiates a single optimization process with a pair of datasets, but 
+additional datasets can be incorporated for validation purposes, assuming that predictions will not
+vary very significantly between them. This implementation also supports the use of different models, which 
+is particularly advantageous in cross-validation settings. If data samples across datasets are not corresponding, 
+various pairing strategies can be used, including label matching, nearest-neighbor matching, or canonical 
+correlation matching, if the feature extractor of the classifier is accessible. \\
+
+Additionally, the implementation supports multi-device computation, allowing for parallelization of model evaluation 
+through a distributed-data-processing (DDP) strategy on a CUDA-managed set of GPUs. This capability improves efficiency, 
+especially when handling large datasets. The output of the model is computed only once per training epoch,
+so that predicted posteriors are stored and reused without having to continuously access the data, thus
+significantly reducing the time required for kernel optimization. Finally, the metric provides detailed 
+logging and retrieval of information about the optimization process, facilitating better tuning of both the 
+optimization algorithm and related hyperparameters. \\
+
+The complete code implementation along with the set of unit tests conducted 
+to ensure consistency between training and data processing strategies can be 
+found in the \texttt{pa-metric} repository\footnote{https://github.com/viictorjimenezzz/pa-metric}. \\
+
 \fboxrule=1pt           % Frame line width
 \fboxsep=1pt            % Distance between frame and content
 \colorbox{gray!30}{     % Background color with 20% grey
@@ -845,25 +958,4 @@ Here is a small code snippet showcasing a simple evaluation: \\
     \includegraphics[width=0.98\textwidth]{img/theoretical_background/pametric_code.png}  % Your image here
     % }
 }
-
-\begin{properties}[PA metric implementation]
-    The most relevant features of the numerical implementation of the metric are the following:
-\begin{itemize}
-    \item The metric launches a single optimization process with a pair of datasets. Nevertheless, 
-    additional datasets can be added for validation purposes. The metric also accepts different models,
-    which can be useful in cross-validation settings.
-    \item If data samples are not corresponding between datasets, the metric can implement several
-    pairing strategies, namely label matching, nearest-neighbor or canonical correlation.
-    \item Multi-device computation is supported. In particular, a distributed-data-processing (DDP)
-    strategy on a CUDA-managed set of GPUs can be used to parallelize model evaluation.
-    \item The output of the model is computed just once per training epoch, which reduces drastically
-    the time required for the optimization of the kernel.
-    \item Detailed information about the optimization process can be easily retrieved and logged, which helps
-    tuning the optimization algorithm and other hyperparameters.
-\end{itemize}
-\end{properties}
-
-The complete code implementation along with the set of unit tests conducted 
-to ensure consistency between training and data processing strategies can be 
-found in the \texttt{pa-metric} repository\footnote{https://github.com/viictorjimenezzz/pa-metric}.
 

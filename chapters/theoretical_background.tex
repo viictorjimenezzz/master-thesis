@@ -253,11 +253,11 @@ the generalization error.
      f_{\bm{X}} = \prod_{n=1}^{N} f_{X},
     $$
 
-    where $f_{X}$ is the density function of $X$. We will use $\mathbf{P}_{X}$ to refer to the empirical approximation of this distribution; 
-    that is, to the distribution of samples in a dataset $D$ drawn from $\bm{X}$:
+    where $f_{X}$ is the density function of $X$. We will use $\mathbf{P}_{\bm{x}}$ to refer to the empirical approximation of this distribution; 
+    that is, to the distribution of samples $\bm{x} \sim \bm{X}$:
 
     $$
-    \mathbf{P}_{X} = \frac{1}{N} \sum_{n=1}^{N} \delta(x - x_n).
+    \mathbf{P}_{\bm{x}}(x) = \frac{1}{N} \sum_{n=1}^{N} \delta(x - x_n).
     $$
 
 \end{definition}
@@ -414,8 +414,8 @@ is the leading principle that will guide the derivations that follow.
 \subsection{Generalization error}
 
 In order to postulate an informativeness-based definition of generalization error, we will consider
-two samples $\bm{x}', \bm{x}'' \sim \bm{X}$ generated from the same experiment. Samples are independent and
-the only differ in the implicit randomness entailed by the sampling experiment:
+two samples $\bm{x}', \bm{x}'' \sim \bm{X}$ generated from the same experiment. Samples are independent in
+general and they only differ in the implicit randomness entailed by the sampling experiment:
 
 $$
     \mathbf{P}_{\bm{x}', \bm{x}''} = \mathbf{P}_{\bm{x}'} \mathbf{P}_{\bm{x}''}.
@@ -494,7 +494,7 @@ $$
     The generalization error is defined as the out-of-sample description length:
 
     $$
-        \mathcal{G}_{\mathcal{X}} = \mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \left[ - \log \frac{\mathbf{P}^f(\theta | \bm{x}'')}{\Pi^f (\theta)} \right].
+        \mathcal{G}_{\mathcal{X}} = \mathbb{E}_{\bm{x}', \bm{x}''} \mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \left[ - \log \frac{\mathbf{P}^f(\theta | \bm{x}'')}{\Pi^f (\theta)} \right].
     $$
     
 \end{definition}
@@ -512,13 +512,13 @@ on $\bm{x}''$ are likely to be drawn from $\bm{x}'$.
 \begin{proof}
     $$
     \begin{aligned}
-        \mathcal{G}_{\mathcal{X}} & \geq \mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')}\left[-\log \left(\mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)\right] \\
-        & = \textcolor{blue}{\boxed{\mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \left[-\log \left(\sum_{\theta \in \Theta} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}'\right) \mathbf{P}^{f}\left(\theta \mid \bm{x}'' \right)}{\Pi^{f}(\theta)}\right)\right] = -\mathcal{J}}} \\
-        & \geq-\log \left(\mathbb{E}_{\mathbf{P}^f(\bm{x}', \bm{x}'')} \mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \mathbb{E}_{\mathbf{P}^f(\theta \mid \bm{x}'')} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)=0,
+        \mathcal{G}_{\mathcal{X}} & \geq \mathbb{E}_{\bm{x}', \bm{x}''}\left[-\log \left(\mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)\right] \\
+        & = \textcolor{blue}{\boxed{\mathbb{E}_{\bm{x}', \bm{x}''} \left[-\log \left(\sum_{\theta \in \Theta} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}'\right) \mathbf{P}^{f}\left(\theta \mid \bm{x}'' \right)}{\Pi^{f}(\theta)}\right)\right] = -\mathcal{J}}} \\
+        & \geq-\log \left(\mathbb{E}_{\bm{x}', \bm{x}''} \mathbb{E}_{\mathbf{P}^f( \theta \mid \bm{x}')} \mathbb{E}_{\mathbf{P}^f(\theta \mid \bm{x}'')} \frac{\mathbf{P}^{f}\left(\theta \mid \bm{x}''\right)}{\Pi^{f}(\theta)}\right)=0,
     \end{aligned}
     $$
 
-where Jensen's inequality has been applied twice to the convex function $-\log(\cdot)$. \\
+where Jensen's inequality has been applied twice to the convex function $-\log$. \\
 
 \end{proof}
 
@@ -526,7 +526,7 @@ where Jensen's inequality has been applied twice to the convex function $-\log(\
 
 The maximum posterior agreement criterion, which follows 
 from Lemma \ref{lemma:pa}, can be formalized as an optimization problem over the 
-function class.
+function class. See illustration in Figure \ref{fig:illustrate_beta}.
 
 \begin{definition}[\emph{Kullback-Leibler divergence}]
     Let $\mathbf{P}$ and $\mathbf{Q}$ be two probability distributions over the same support $\Theta$. 
@@ -583,14 +583,53 @@ $$
     \end{aligned}
     $$
 
-    The last inequality follows from the fact that the entropy does not exceed the log-cardinality
-    of the hypothesis class:
+    % The last inequality follows from the fact that the entropy does not exceed the log-cardinality
+    % of the hypothesis class:
 
-    $$
-    H_{\mathbf{\Pi}^f}(\theta) \leq \log |\Theta|, \;\; \forall \mathbf{\Pi}^f.
-    $$
+    % $$
+    % H_{\mathbf{\Pi}^f}(\theta) \leq \log |\Theta|, \;\; \forall \mathbf{\Pi}^f.
+    % $$
+
+    The last inequality follows from the fact that the entropy does not exceed the log-cardinality
+    of the hypothesis class, $H_{\mathbf{\Pi}^f}(\theta) \leq \log |\Theta|, \;\; \forall \mathbf{\Pi}^f$.
 \end{proof}
 
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/theoretical_background/method_beta=0.5.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/theoretical_background/method_beta=8.0.pdf}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/theoretical_background/method_beta=40.0.pdf}
+    \end{subfigure}
 
+    \vspace{1em}
 
+    \begin{subfigure}[b]{0.97\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/theoretical_background/gibbs_betas.pdf}
+    \end{subfigure}
+
+    
+    \caption{
+        Qualitative illustration of the optimization over the inverse temperature parameter $\beta$. 
+        When $\beta \longrightarrow 0$, the informativeness of 
+        the posterior is reduced, eventually converging to a uniform distribution. When
+        $\beta \longrightarrow \infty$, the informativeness of the posterior grows, leading
+        to an increasingly peaked distribution. Posterior Agreement is maximum at a value $\beta^{*}$ 
+        in which hypothesis selected from the posterior over $\theta \mid \bm{x^\prime}$ are assigned
+        a high probability by the posterior over $\theta \mid \bm{x^{\prime\prime}}$, which in this case
+        aligns with the maximum posterior overlap.
+        \cite{buhmannDataScienceAlgorithms2022}
+    }
+    \label{fig:illustrate_beta}
+\end{figure}
 
